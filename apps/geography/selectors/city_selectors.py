@@ -1,5 +1,5 @@
 """
-City Selectors - تمام کوئری‌های مربوط به شهر
+City Selectors - هرتمام کوئری‌های مربوط به ش
 """
 from typing import Optional
 from django.db.models import QuerySet

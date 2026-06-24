@@ -29,3 +29,4 @@ class CityAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         }),
     )
+    

@@ -4,12 +4,7 @@ from apps.common.base import BaseModel
 
 
 class Province(BaseModel):
-    """
-    استان‌های ایران.
 
-    این مدل توسط Admin سیستم مدیریت می‌شود
-    و داده‌های اولیه آن از طریق Fixture بارگذاری می‌شود.
-    """
     name = models.CharField(
         max_length=100,
         unique=True,

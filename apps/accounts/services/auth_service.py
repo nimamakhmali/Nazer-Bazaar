@@ -165,10 +165,10 @@ class AuthService(BaseService):
             logger.warning(f'Logout error: {str(e)}')
 
     def refresh_access_token(
-        self,
-        *,
-        refresh_token: str
-    ) -> dict:
+                             self,
+                             *,
+                             refresh_token: str
+                                                ) -> dict:
         """
         تمدید access token با refresh token.
         """

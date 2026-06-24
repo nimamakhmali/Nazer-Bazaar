@@ -4,16 +4,7 @@ from apps.common.base import BaseModel
 
 
 class City(BaseModel):
-    """
-    شهرهای ایران.
 
-    رابطه با Province:
-        هر استان می‌تواند چندین شهر داشته باشد (One-to-Many)
-        اگر استان حذف شود، شهرها نیز حذف نمی‌شوند (PROTECT)
-
-    رابطه با Chamber:
-        هر شهر یک اتاق اصناف دارد (در app organizations تعریف می‌شود)
-    """
     province = models.ForeignKey(
         'Province',
         on_delete=models.PROTECT,
@@ -48,5 +39,4 @@ class City(BaseModel):
 
     @property
     def full_name(self) -> str:
-        """نام کامل شهر با استان"""
         return f'{self.province.name} / {self.name}'
