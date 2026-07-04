@@ -49,11 +49,11 @@ urlpatterns = [
     path('dashboard/', include('apps.accounts.urls.web_urls')),
     path('organizations/', include('apps.organizations.urls.web_urls')),
     path('stores/', include('apps.stores.urls.web_urls')),
-    path('products/', include('apps.products.urls.web_urls')),
+    #path('products/', include('apps.products.urls.web_urls')),
     path('pricing/', include('apps.pricing.urls.web_urls')),
-    path('complaints/', include('apps.complaints.urls.web_urls')),
-    path('reports/', include('apps.reports.urls.web_urls')),
-    path('cms/', include('apps.cms.urls.web_urls')),
+    #path('complaints/', include('apps.complaints.urls.web_urls')),
+    #path('reports/', include('apps.reports.urls.web_urls')),
+    #path('cms/', include('apps.cms.urls.web_urls')),
 ]
 
 # ─── Debug Mode Extras ──────────────────────────────────────────────────────

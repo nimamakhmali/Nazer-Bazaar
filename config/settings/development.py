@@ -11,6 +11,11 @@ INSTALLED_APPS += [
     'silk',
 ]
 
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+]
+
 MIDDLEWARE += [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'silk.middleware.SilkyMiddleware',

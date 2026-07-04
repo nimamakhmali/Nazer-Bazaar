@@ -13,7 +13,6 @@ from django.db import models
 from django.conf import settings
 from apps.common.base import BaseModel
 
-
 class Chamber(BaseModel):
     """
     اتاق اصناف شهر.

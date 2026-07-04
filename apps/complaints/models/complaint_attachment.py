@@ -2,6 +2,20 @@ from django.db import models
 from apps.common.base import BaseModel
 from apps.common.utils import get_upload_path
 
+from apps.common.utils import get_upload_path
+
+
+def complaint_attachment_upload_path(instance, filename):
+    return get_upload_path(
+        instance,
+        filename,
+        "complaints/attachments",
+    )
+
+
+def complaint_attachment_upload_path(instance, filename):
+    return get_upload_path(instance, filename, "complaints/attachments")
+
 
 class ComplaintAttachment(BaseModel):
     """
@@ -21,7 +35,7 @@ class ComplaintAttachment(BaseModel):
         verbose_name='آپلود شده توسط'
     )
     file = models.FileField(
-        upload_to=lambda i, f: get_upload_path(i, f, 'complaints/attachments'),
+        upload_to=models.FileField(upload_to=complaint_attachment_upload_path,),
         verbose_name='فایل پیوست'
     )
     description = models.CharField(max_length=255, blank=True, verbose_name='توضیحات')

@@ -12,6 +12,7 @@
 from django.db import models
 from django.conf import settings
 from apps.common.base import BaseModel
+from apps.organizations.models.chamber import Chamber
 
 
 class Union(BaseModel):

@@ -1,0 +1,110 @@
+[INFO] 2026-07-04 11:05:11,495 autoreload 71293 137423250108544 Watching for file changes with StatReloader
+[INFO] 2026-07-04 11:46:29,695 autoreload 92088 129701377335424 Watching for file changes with StatReloader
+[INFO] 2026-07-04 11:48:24,760 autoreload 93594 137992206213248 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:07:04,198 autoreload 104320 135468196393088 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:16:08,087 autoreload 104320 135468196393088 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/apps/cms/admin/cms_admin.py changed, reloading.
+[INFO] 2026-07-04 12:16:09,519 autoreload 109392 130244261392512 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:17:41,249 autoreload 109392 130244261392512 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/apps/complaints/admin/complaint_admin.py changed, reloading.
+[INFO] 2026-07-04 12:17:42,162 autoreload 110304 132366856962176 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:18:50,244 autoreload 110304 132366856962176 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/apps/pricing/models/official_price.py changed, reloading.
+[INFO] 2026-07-04 12:18:51,143 autoreload 111008 133367560372352 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:18:52,887 autoreload 111008 133367560372352 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/apps/pricing/models/official_price.py changed, reloading.
+[INFO] 2026-07-04 12:18:53,793 autoreload 111057 136116844777600 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:19:06,946 autoreload 111057 136116844777600 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/apps/pricing/models/official_price.py changed, reloading.
+[INFO] 2026-07-04 12:19:08,068 autoreload 111323 133621187956864 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:19:11,987 autoreload 111323 133621187956864 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/apps/pricing/models/official_price.py changed, reloading.
+[INFO] 2026-07-04 12:19:12,866 autoreload 111403 134964495405184 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:19:32,975 autoreload 111403 134964495405184 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/apps/pricing/models/official_price.py changed, reloading.
+[INFO] 2026-07-04 12:19:33,989 autoreload 111607 125930883330176 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:20:10,433 autoreload 111607 125930883330176 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/apps/pricing/models/official_price.py changed, reloading.
+[INFO] 2026-07-04 12:20:11,212 autoreload 112113 132862362038400 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:20:13,594 autoreload 112113 132862362038400 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/apps/pricing/models/official_price.py changed, reloading.
+[INFO] 2026-07-04 12:20:14,488 autoreload 112180 133116777791616 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:20:19,418 autoreload 112180 133116777791616 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/apps/pricing/models/official_price.py changed, reloading.
+[INFO] 2026-07-04 12:20:20,305 autoreload 112263 129733385265280 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:20:26,037 autoreload 112263 129733385265280 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/apps/pricing/models/official_price.py changed, reloading.
+[INFO] 2026-07-04 12:20:27,050 autoreload 112359 140708709818496 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:24:55,478 autoreload 116651 131249941753984 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:25:21,127 autoreload 117835 135698414706816 Watching for file changes with StatReloader
+[INFO] 2026-07-04 12:32:27,424 autoreload 125650 125645689446528 Watching for file changes with StatReloader
+[INFO] 2026-07-04 15:06:39,139 signals 195119 135269817053312 New user created: 09944574949 with role: admin
+[INFO] 2026-07-04 15:06:40,650 autoreload 195906 139592837640320 Watching for file changes with StatReloader
+[INFO] 2026-07-04 15:08:09,652 autoreload 195906 139592837640320 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/config/settings/base.py changed, reloading.
+[INFO] 2026-07-04 15:08:10,574 autoreload 196879 138857505779840 Watching for file changes with StatReloader
+[INFO] 2026-07-04 15:09:11,305 autoreload 198374 135696564744320 Watching for file changes with StatReloader
+[INFO] 2026-07-04 15:09:36,762 autoreload 199692 125785815842944 Watching for file changes with StatReloader
+[ERROR] 2026-07-04 15:09:39,690 exception 199692 125785087145664 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+[WARNING] 2026-07-04 15:09:39,734 log 199692 125785087145664 Bad Request: /
+[WARNING] 2026-07-04 15:09:39,734 basehttp 199692 125785087145664 "GET / HTTP/1.1" 400 83451
+[ERROR] 2026-07-04 15:09:49,905 exception 199692 125785087145664 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+[WARNING] 2026-07-04 15:09:49,939 log 199692 125785087145664 Bad Request: /docs
+[WARNING] 2026-07-04 15:09:49,940 basehttp 199692 125785087145664 "GET /docs HTTP/1.1" 400 83495
+[ERROR] 2026-07-04 15:09:55,160 exception 199692 125785087145664 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+[WARNING] 2026-07-04 15:09:55,206 log 199692 125785087145664 Bad Request: /api/docs
+[WARNING] 2026-07-04 15:09:55,207 basehttp 199692 125785087145664 "GET /api/docs HTTP/1.1" 400 83539
+[ERROR] 2026-07-04 15:09:59,199 exception 199692 125785087145664 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/venv/lib/python3.12/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+[WARNING] 2026-07-04 15:09:59,239 log 199692 125785087145664 Bad Request: /
+[WARNING] 2026-07-04 15:09:59,240 basehttp 199692 125785087145664 "GET / HTTP/1.1" 400 83451
+[INFO] 2026-07-04 15:11:15,215 autoreload 199692 125785815842944 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/config/settings/development.py changed, reloading.
+[INFO] 2026-07-04 15:11:16,162 autoreload 200697 125283293212800 Watching for file changes with StatReloader
+[WARNING] 2026-07-04 15:11:22,052 log 200697 125282564437696 Not Found: /
+[WARNING] 2026-07-04 15:11:22,053 basehttp 200697 125282564437696 "GET / HTTP/1.1" 404 16957
+[INFO] 2026-07-04 15:11:22,077 basehttp 200697 125282564437696 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 16675
+[INFO] 2026-07-04 15:11:22,079 basehttp 200697 125282552899264 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14601
+[INFO] 2026-07-04 15:11:22,085 basehttp 200697 125282544506560 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+[INFO] 2026-07-04 15:11:22,129 basehttp 200697 125282564437696 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4742
+[INFO] 2026-07-04 15:11:32,057 basehttp 200697 125282564437696 "GET /api/docs HTTP/1.1" 301 0
+[INFO] 2026-07-04 15:11:32,252 basehttp 200697 125282544506560 "GET /api/docs/ HTTP/1.1" 200 18244
+[INFO] 2026-07-04 15:11:34,505 basehttp 200697 125282544506560 "GET /api/schema/ HTTP/1.1" 200 315061

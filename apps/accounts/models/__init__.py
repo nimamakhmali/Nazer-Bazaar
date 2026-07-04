@@ -1,6 +1,6 @@
-from .user import User
-from .role import Role, Permission
-from .verify_code import VerifyCode
+from .user import *
+from .role import *
+from .verify_code import *
 
 __all__ = [
     'User',

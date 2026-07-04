@@ -12,6 +12,15 @@ from apps.common.base import BaseModel
 from apps.common.choices import ComplaintStatus
 from apps.common.utils import get_upload_path
 
+from apps.common.utils import get_upload_path
+
+
+def complaint_upload_path(instance, filename):
+    return get_upload_path(instance, filename, "complaints")
+
+def complaint_upload_path(instance, filename):
+    return get_upload_path(instance, filename, "complaints")
+
 
 class Complaint(BaseModel):
     """
@@ -66,7 +75,7 @@ class Complaint(BaseModel):
 
     # مدرک قیمت (عکس فاکتور، اسکرین‌شات و ...)
     price_proof = models.FileField(
-        upload_to=lambda i, f: get_upload_path(i, f, 'complaints'),
+        upload_to=complaint_upload_path,
         null=True,
         blank=True,
         verbose_name='مدرک قیمت'

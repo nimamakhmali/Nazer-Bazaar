@@ -108,7 +108,7 @@ class OfficialPrice(BaseModel):
             ),
             models.Index(
                 fields=['product', 'effective_date'],
-                name='idx_official_price_product_date'
+                name='idx_off_price_prod_dt'
             ),
         ]
 

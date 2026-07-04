@@ -73,3 +73,24 @@ class ViolationAdmin(admin.ModelAdmin):
     list_filter = ['violation_type']
     search_fields = ['inspection__complaint__title', 'details']
     autocomplete_fields = ['inspection']
+    
+@admin.register(Inspection)
+class InspectionAdmin(admin.ModelAdmin):
+    list_display = (
+        'complaint',
+        'inspector',
+        'inspection_date',
+        'created_at',
+    )
+
+    autocomplete_fields = (
+        'complaint',
+        'inspector',
+    )
+
+    search_fields = (
+        'complaint__title',
+        'complaint__uuid',
+        'inspector__first_name',
+        'inspector__last_name',
+    )    

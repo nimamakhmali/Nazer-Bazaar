@@ -65,7 +65,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # Custom Middleware
-    'apps.logs.middleware.ActivityLogMiddleware',
+    'apps.logs.middleware.log_middleware.ActivityLogMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'

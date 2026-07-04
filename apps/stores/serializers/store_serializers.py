@@ -108,7 +108,7 @@ class StoreRegisterSerializer(serializers.Serializer):
     owner_id = serializers.IntegerField()
     name = serializers.CharField(max_length=200)
     license_number = serializers.CharField(max_length=50)
-    address = serializers.TextField()
+    address = serializers.CharField()
     phone = serializers.CharField(
         max_length=20,
         required=False,
