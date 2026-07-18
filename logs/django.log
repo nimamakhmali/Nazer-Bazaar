@@ -392,3 +392,51 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000
 [WARNING] 2026-07-18 10:09:26,494 basehttp 158391 127642715027136 "GET /api HTTP/1.1" 404 16984
 [INFO] 2026-07-18 10:09:32,732 basehttp 158391 127642715027136 "GET /api/docs/ HTTP/1.1" 200 18241
 [INFO] 2026-07-18 10:09:33,361 basehttp 158391 127642715027136 "GET /api/schema/ HTTP/1.1" 200 315061
+[INFO] 2026-07-18 12:17:05,708 autoreload 337649 139525369172096 Watching for file changes with StatReloader
+[WARNING] 2026-07-18 12:17:11,199 log 337649 139524641388224 Not Found: /
+[WARNING] 2026-07-18 12:17:11,199 basehttp 337649 139524641388224 "GET / HTTP/1.1" 404 16956
+[INFO] 2026-07-18 12:17:14,617 basehttp 337649 139524641388224 "GET /admin/ HTTP/1.1" 302 0
+[INFO] 2026-07-18 12:17:14,792 basehttp 337649 139524641388224 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 17753
+[INFO] 2026-07-18 12:17:22,938 basehttp 337649 139524641388224 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 17937
+[INFO] 2026-07-18 12:17:47,445 signals 339156 138724887310464 New user created: 09056419609 with role: admin
+[INFO] 2026-07-18 12:17:53,480 autoreload 340100 133420680663168 Watching for file changes with StatReloader
+[WARNING] 2026-07-18 12:17:59,522 log 340100 133419954599616 Not Found: /
+[WARNING] 2026-07-18 12:17:59,523 basehttp 340100 133419954599616 "GET / HTTP/1.1" 404 16956
+[INFO] 2026-07-18 12:18:05,047 basehttp 340100 133419954599616 "GET /admin/ HTTP/1.1" 302 0
+[INFO] 2026-07-18 12:18:05,261 basehttp 340100 133419954599616 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 17753
+[INFO] 2026-07-18 12:18:13,195 basehttp 340100 133419954599616 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[INFO] 2026-07-18 12:18:13,402 basehttp 340100 133419954599616 "GET /admin/ HTTP/1.1" 200 38583
+[INFO] 2026-07-18 12:18:34,695 basehttp 340100 133419870713536 "OPTIONS /api/v1/auth/login/ HTTP/1.1" 200 0
+[INFO] 2026-07-18 12:18:34,956 base_service 340100 133419870713536 User logged in with password: 09056419609
+[INFO] 2026-07-18 12:18:35,050 basehttp 340100 133419870713536 "POST /api/v1/auth/login/ HTTP/1.1" 200 1083
+[INFO] 2026-07-18 12:18:40,877 basehttp 340100 133419870713536 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-07-18 12:18:40,877 basehttp 340100 133419862320832 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[WARNING] 2026-07-18 12:18:40,934 log 340100 133419870713536 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-07-18 12:18:40,935 basehttp 340100 133419870713536 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[INFO] 2026-07-18 12:18:40,980 basehttp 340100 133419870713536 "OPTIONS /api/v1/auth/token/refresh/ HTTP/1.1" 200 0
+[WARNING] 2026-07-18 12:18:41,037 log 340100 133419862320832 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-07-18 12:18:41,041 basehttp 340100 133419862320832 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[WARNING] 2026-07-18 12:18:41,095 log 340100 133419870713536 Unauthorized: /api/v1/auth/token/refresh/
+[WARNING] 2026-07-18 12:18:41,096 basehttp 340100 133419870713536 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 401 123
+[INFO] 2026-07-18 12:25:48,801 base_service 340100 133419870713536 User logged in with password: 09056419609
+[INFO] 2026-07-18 12:25:48,940 basehttp 340100 133419870713536 "POST /api/v1/auth/login/ HTTP/1.1" 200 1083
+[WARNING] 2026-07-18 12:26:25,651 log 340100 133419870713536 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-18 12:26:25,651 basehttp 340100 133419870713536 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-07-18 12:26:25,727 log 340100 133419870713536 Unauthorized: /api/v1/auth/token/refresh/
+[WARNING] 2026-07-18 12:26:25,727 basehttp 340100 133419870713536 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 401 123
+[WARNING] 2026-07-18 12:26:44,188 log 340100 133419870713536 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-18 12:26:44,188 basehttp 340100 133419870713536 "POST /api/v1/auth/login/ HTTP/1.1" 401 134
+[INFO] 2026-07-18 12:26:49,016 base_service 340100 133419870713536 User logged in with password: 09056419609
+[INFO] 2026-07-18 12:26:49,094 basehttp 340100 133419870713536 "POST /api/v1/auth/login/ HTTP/1.1" 200 1083
+[WARNING] 2026-07-18 12:26:52,134 log 340100 133419870713536 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-18 12:26:52,135 basehttp 340100 133419870713536 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-07-18 12:26:52,202 log 340100 133419870713536 Unauthorized: /api/v1/auth/token/refresh/
+[WARNING] 2026-07-18 12:26:52,202 basehttp 340100 133419870713536 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 401 123
+[INFO] 2026-07-18 12:27:32,912 basehttp 340100 133419954599616 "GET /admin/ HTTP/1.1" 200 38583
+[INFO] 2026-07-18 12:28:47,285 autoreload 340100 133420680663168 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/backend/config/settings/base.py changed, reloading.
+[INFO] 2026-07-18 12:28:47,794 autoreload 365696 139424496210048 Watching for file changes with StatReloader
+[INFO] 2026-07-18 12:29:05,159 autoreload 365696 139424496210048 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/backend/config/settings/base.py changed, reloading.
+[INFO] 2026-07-18 12:29:05,691 autoreload 366353 125368178094208 Watching for file changes with StatReloader
+[INFO] 2026-07-18 12:29:34,133 autoreload 366353 125368178094208 /home/nimamakhmali/Documents/Rayan Pajouhan/Nazer-Bazaar/backend/config/settings/base.py changed, reloading.
+[INFO] 2026-07-18 12:30:02,817 autoreload 369339 131330258317440 Watching for file changes with StatReloader
+[INFO] 2026-07-18 12:30:52,151 autoreload 371626 133617760882816 Watching for file changes with StatReloader

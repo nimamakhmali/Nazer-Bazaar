@@ -22,6 +22,8 @@ api_v1_patterns = [
     path('pricing/', include('apps.pricing.urls.api_urls')),
     path('complaints/', include('apps.complaints.urls.api_urls')),
     path('cms/', include('apps.cms.urls.api_urls')),
+    path('admin/', admin.site.urls),
+    path('api/v1/', include('your_app.urls')),
 ]
 
 urlpatterns = [
