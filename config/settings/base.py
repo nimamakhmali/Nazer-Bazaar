@@ -25,7 +25,6 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
@@ -220,8 +219,8 @@ REST_FRAMEWORK = {
         'rest_framework.throttling.UserRateThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '100/day',
-        'user': '1000/day',
+        'anon': '100/min',
+        'user': '1000/min',
         'otp': '5/hour',
     },
 }
