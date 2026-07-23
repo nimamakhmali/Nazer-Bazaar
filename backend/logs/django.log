@@ -2319,3 +2319,14 @@ NameError: name 'Page' is not defined
 [INFO] 2026-07-20 21:38:10,584 basehttp 612050 140018464052928 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 344
 [INFO] 2026-07-20 21:38:10,767 basehttp 612050 140018480838336 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 279
 [INFO] 2026-07-20 21:38:10,819 basehttp 612050 140018464052928 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 344
+[INFO] 2026-07-20 23:02:53,519 autoreload 675669 127371887399040 Watching for file changes with StatReloader
+[INFO] 2026-07-20 23:05:31,094 autoreload 693455 129260356206720 Watching for file changes with StatReloader
+[WARNING] 2026-07-20 23:05:57,807 log 693455 129259627607744 Not Found: /
+[WARNING] 2026-07-20 23:05:57,808 basehttp 693455 129259627607744 "GET / HTTP/1.1" 404 16959
+[INFO] 2026-07-20 23:06:04,369 basehttp 693455 129259627607744 "GET /admin/ HTTP/1.1" 200 41125
+[INFO] 2026-07-20 23:06:04,423 basehttp 693455 129259627607744 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[INFO] 2026-07-20 23:06:04,432 basehttp 693455 129259627607744 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[INFO] 2026-07-20 23:06:04,449 basehttp 693455 129259611875008 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[INFO] 2026-07-20 23:06:04,452 basehttp 693455 129259603482304 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[INFO] 2026-07-20 23:06:04,469 basehttp 693455 129259611875008 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[INFO] 2026-07-20 23:06:04,469 basehttp 693455 129259603482304 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
