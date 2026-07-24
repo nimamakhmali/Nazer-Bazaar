@@ -2330,3 +2330,1840 @@ NameError: name 'Page' is not defined
 [INFO] 2026-07-20 23:06:04,452 basehttp 693455 129259603482304 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
 [INFO] 2026-07-20 23:06:04,469 basehttp 693455 129259611875008 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
 [INFO] 2026-07-20 23:06:04,469 basehttp 693455 129259603482304 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 16:45:33,817 autoreload 345319 124174347071616 Watching for file changes with StatReloader
+[WARNING] 2026-07-24 17:45:48,744 log 345319 124173619820224 Not Found: /
+[WARNING] 2026-07-24 17:45:48,745 basehttp 345319 124173619820224 "GET / HTTP/1.1" 404 16957
+[INFO] 2026-07-24 17:45:55,653 basehttp 345319 124173619820224 "GET /admin/ HTTP/1.1" 200 41123
+[INFO] 2026-07-24 17:45:59,219 basehttp 345319 124173619820224 "GET /admin/accounts/user/ HTTP/1.1" 200 42472
+[INFO] 2026-07-24 17:45:59,246 basehttp 345319 124173603038912 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[INFO] 2026-07-24 17:45:59,254 basehttp 345319 124173603038912 "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+[INFO] 2026-07-24 17:45:59,317 basehttp 345319 124173619820224 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 17:45:59,379 basehttp 345319 124173619820224 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+[INFO] 2026-07-24 17:46:10,386 basehttp 345319 124173619820224 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 17:46:10,425 basehttp 345319 124173603038912 "GET /static/admin/css/forms.css HTTP/1.1" 200 9090
+[INFO] 2026-07-24 17:46:10,426 basehttp 345319 124173592549056 "GET /static/admin/js/collapse.js HTTP/1.1" 200 1803
+[INFO] 2026-07-24 17:46:10,427 basehttp 345319 124173584156352 "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+[INFO] 2026-07-24 17:46:10,437 basehttp 345319 124173575763648 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15292
+[INFO] 2026-07-24 17:46:10,438 basehttp 345319 124173584156352 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11921
+[INFO] 2026-07-24 17:46:10,460 basehttp 345319 124173575763648 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[INFO] 2026-07-24 17:46:10,514 basehttp 345319 124173575763648 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[INFO] 2026-07-24 17:46:10,519 basehttp 345319 124173619820224 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 17:46:10,613 basehttp 345319 124173619820224 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[INFO] 2026-07-24 17:46:10,614 basehttp 345319 124173575763648 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+[INFO] 2026-07-24 17:46:10,615 basehttp 345319 124173584156352 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+[INFO] 2026-07-24 17:46:37,627 basehttp 345319 124173567370944 "OPTIONS /api/v1/auth/login/ HTTP/1.1" 200 0
+[WARNING] 2026-07-24 17:46:37,971 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:46:37,971 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 134
+[INFO] 2026-07-24 17:46:38,023 basehttp 345319 124173567370944 "OPTIONS /api/v1/auth/token/refresh/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:46:38,166 basehttp 345319 124173567370944 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 352
+[WARNING] 2026-07-24 17:46:38,271 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:46:38,271 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-07-24 17:46:42,821 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:46:42,821 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[INFO] 2026-07-24 17:46:42,934 basehttp 345319 124173567370944 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 352
+[WARNING] 2026-07-24 17:46:43,030 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:46:43,030 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-07-24 17:46:48,420 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:46:48,420 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[INFO] 2026-07-24 17:46:48,511 basehttp 345319 124173567370944 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 352
+[WARNING] 2026-07-24 17:46:48,621 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:46:48,622 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-07-24 17:46:56,056 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:46:56,056 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[INFO] 2026-07-24 17:46:56,147 basehttp 345319 124173567370944 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 352
+[WARNING] 2026-07-24 17:46:56,243 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:46:56,243 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-07-24 17:47:03,821 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:47:03,821 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[INFO] 2026-07-24 17:47:03,931 basehttp 345319 124173567370944 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 352
+[WARNING] 2026-07-24 17:47:04,041 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:47:04,042 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-07-24 17:47:08,017 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:47:08,018 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[INFO] 2026-07-24 17:47:08,129 basehttp 345319 124173567370944 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 352
+[WARNING] 2026-07-24 17:47:08,242 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:47:08,243 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-07-24 17:47:11,773 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:47:11,774 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[INFO] 2026-07-24 17:47:11,863 basehttp 345319 124173567370944 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 352
+[WARNING] 2026-07-24 17:47:11,965 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:47:11,965 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-07-24 17:47:16,427 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:47:16,427 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[INFO] 2026-07-24 17:47:16,579 basehttp 345319 124173567370944 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 352
+[WARNING] 2026-07-24 17:47:16,688 log 345319 124173567370944 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:47:16,688 basehttp 345319 124173567370944 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[INFO] 2026-07-24 17:47:55,789 basehttp 345319 124173567370944 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:47:55,789 basehttp 345319 124173554783936 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[WARNING] 2026-07-24 17:47:55,862 log 345319 124173567370944 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-07-24 17:47:55,862 basehttp 345319 124173567370944 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[INFO] 2026-07-24 17:47:56,043 basehttp 345319 124173567370944 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 352
+[WARNING] 2026-07-24 17:47:56,071 log 345319 124173554783936 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-07-24 17:47:56,071 basehttp 345319 124173554783936 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[WARNING] 2026-07-24 17:47:56,139 log 345319 124173567370944 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-07-24 17:47:56,140 basehttp 345319 124173567370944 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[WARNING] 2026-07-24 17:47:56,250 log 345319 124173554783936 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-07-24 17:47:56,250 basehttp 345319 124173554783936 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[INFO] 2026-07-24 17:48:07,266 basehttp 345319 124173584156352 "GET /admin/accounts/user/ HTTP/1.1" 200 42472
+[INFO] 2026-07-24 17:48:13,565 basehttp 345319 124173584156352 "GET /admin/accounts/user/4/change/ HTTP/1.1" 200 66477
+[INFO] 2026-07-24 17:48:13,670 basehttp 345319 124173584156352 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 17:48:26,479 basehttp 345319 124173584156352 "GET /admin/accounts/user/ HTTP/1.1" 200 42472
+[WARNING] 2026-07-24 17:48:38,680 log 345319 124173554783936 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:48:38,680 basehttp 345319 124173554783936 "POST /api/v1/auth/login/ HTTP/1.1" 401 134
+[INFO] 2026-07-24 17:48:42,392 base_service 345319 124173554783936 User logged in with password: 09056419609
+[INFO] 2026-07-24 17:48:42,466 basehttp 345319 124173554783936 "POST /api/v1/auth/login/ HTTP/1.1" 200 1128
+[INFO] 2026-07-24 17:48:43,307 basehttp 345319 124173554783936 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 17:48:43,403 basehttp 345319 124173567370944 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 17:48:43,512 basehttp 345319 124173554783936 "OPTIONS /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:43,512 basehttp 345319 124173567370944 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:43,513 basehttp 345319 124173072463552 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:43,514 basehttp 345319 124173064070848 "OPTIONS /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:43,755 basehttp 345319 124173072463552 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 17:48:43,967 basehttp 345319 124173064070848 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 435
+[INFO] 2026-07-24 17:48:44,088 basehttp 345319 124173072463552 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 17:48:44,216 basehttp 345319 124173064070848 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 435
+[INFO] 2026-07-24 17:48:50,163 basehttp 345319 124173064070848 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:50,163 basehttp 345319 124173072463552 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:50,320 basehttp 345319 124173072463552 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 17:48:50,495 basehttp 345319 124173072463552 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 17:48:56,482 basehttp 345319 124173072463552 "OPTIONS /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:56,482 basehttp 345319 124173567370944 "OPTIONS /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:56,483 basehttp 345319 124173064070848 "OPTIONS /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:56,483 basehttp 345319 124173554783936 "OPTIONS /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:56,629 basehttp 345319 124173554783936 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 152
+[INFO] 2026-07-24 17:48:56,708 basehttp 345319 124173064070848 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:48:56,896 basehttp 345319 124173064070848 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:48:56,952 basehttp 345319 124173554783936 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 152
+[INFO] 2026-07-24 17:48:58,361 basehttp 345319 124173554783936 "OPTIONS /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:58,361 basehttp 345319 124173072463552 "OPTIONS /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:58,362 basehttp 345319 124173064070848 "OPTIONS /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:58,362 basehttp 345319 124173567370944 "OPTIONS /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:58,616 basehttp 345319 124173064070848 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 141
+[INFO] 2026-07-24 17:48:58,838 basehttp 345319 124173567370944 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 279
+[INFO] 2026-07-24 17:48:58,986 basehttp 345319 124173064070848 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 141
+[INFO] 2026-07-24 17:48:59,179 basehttp 345319 124173567370944 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 279
+[INFO] 2026-07-24 17:48:59,824 basehttp 345319 124173567370944 "OPTIONS /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:59,824 basehttp 345319 124173554783936 "OPTIONS /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:59,826 basehttp 345319 124173072463552 "OPTIONS /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:48:59,826 basehttp 345319 124173064070848 "OPTIONS /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:00,121 basehttp 345319 124173072463552 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 344
+[INFO] 2026-07-24 17:49:00,209 basehttp 345319 124173064070848 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 279
+[INFO] 2026-07-24 17:49:00,429 basehttp 345319 124173072463552 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 344
+[INFO] 2026-07-24 17:49:00,488 basehttp 345319 124173064070848 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 279
+[INFO] 2026-07-24 17:49:01,590 basehttp 345319 124173064070848 "OPTIONS /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:01,590 basehttp 345319 124173072463552 "OPTIONS /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:01,778 basehttp 345319 124173072463552 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 435
+[INFO] 2026-07-24 17:49:01,945 basehttp 345319 124173072463552 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 435
+[INFO] 2026-07-24 17:49:03,859 basehttp 345319 124173072463552 "OPTIONS /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:03,861 basehttp 345319 124173064070848 "OPTIONS /api/v1/products/units/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:03,861 basehttp 345319 124173554783936 "OPTIONS /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:03,862 basehttp 345319 124173567370944 "OPTIONS /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:03,864 basehttp 345319 124173051483840 "OPTIONS /api/v1/products/units/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:03,866 basehttp 345319 124173043091136 "OPTIONS /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:04,135 basehttp 345319 124173554783936 "GET /api/v1/products/units/ HTTP/1.1" 200 89
+[INFO] 2026-07-24 17:49:04,251 basehttp 345319 124173043091136 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 17:49:04,492 basehttp 345319 124173051483840 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 341
+[INFO] 2026-07-24 17:49:04,615 basehttp 345319 124173554783936 "GET /api/v1/products/units/ HTTP/1.1" 200 89
+[INFO] 2026-07-24 17:49:04,763 basehttp 345319 124173043091136 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 17:49:04,845 basehttp 345319 124173051483840 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 341
+[INFO] 2026-07-24 17:49:06,545 basehttp 345319 124173051483840 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 17:49:06,696 basehttp 345319 124173051483840 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 17:49:08,800 basehttp 345319 124173051483840 "OPTIONS /api/v1/complaints/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:08,800 basehttp 345319 124173043091136 "OPTIONS /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:08,801 basehttp 345319 124173554783936 "OPTIONS /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:08,802 basehttp 345319 124173567370944 "OPTIONS /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:08,805 basehttp 345319 124173064070848 "OPTIONS /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:08,806 basehttp 345319 124173072463552 "OPTIONS /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:08,814 basehttp 345319 124173072463552 "OPTIONS /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:08,814 basehttp 345319 124173043091136 "OPTIONS /api/v1/complaints/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:08,815 basehttp 345319 124173554783936 "OPTIONS /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:08,815 basehttp 345319 124173051483840 "OPTIONS /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:08,815 basehttp 345319 124173064070848 "OPTIONS /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:08,816 basehttp 345319 124173567370944 "OPTIONS /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 0
+[WARNING] 2026-07-24 17:49:09,277 log 345319 124173064070848 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 17:49:09,287 log 345319 124173072463552 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 17:49:09,287 basehttp 345319 124173064070848 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 17:49:09,297 basehttp 345319 124173072463552 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 17:49:09,436 log 345319 124173051483840 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 17:49:09,499 basehttp 345319 124173051483840 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 17:49:09,637 log 345319 124173567370944 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 17:49:09,652 log 345319 124173043091136 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 17:49:09,685 basehttp 345319 124173043091136 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 17:49:09,686 basehttp 345319 124173567370944 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 17:49:09,726 log 345319 124173554783936 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 17:49:09,735 basehttp 345319 124173554783936 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 17:49:10,110 log 345319 124173051483840 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 17:49:10,130 basehttp 345319 124173051483840 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 17:49:10,145 log 345319 124173072463552 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 17:49:10,154 basehttp 345319 124173072463552 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 17:49:10,170 log 345319 124173064070848 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 17:49:10,171 basehttp 345319 124173064070848 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 17:49:10,257 log 345319 124173554783936 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 17:49:10,258 basehttp 345319 124173554783936 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 17:49:10,302 log 345319 124173043091136 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 17:49:10,319 basehttp 345319 124173043091136 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 17:49:10,351 log 345319 124173567370944 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 17:49:10,352 basehttp 345319 124173567370944 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 405 137
+[INFO] 2026-07-24 17:49:14,568 basehttp 345319 124173567370944 "OPTIONS /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:14,569 basehttp 345319 124173043091136 "OPTIONS /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:14,698 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 152
+[INFO] 2026-07-24 17:49:14,840 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 152
+[INFO] 2026-07-24 17:49:16,977 basehttp 345319 124173567370944 "OPTIONS /api/v1/geography/provinces/3/cities/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:16,977 basehttp 345319 124173043091136 "OPTIONS /api/v1/geography/provinces/3/cities/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:17,122 basehttp 345319 124173567370944 "GET /api/v1/geography/provinces/3/cities/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 17:49:17,312 basehttp 345319 124173567370944 "GET /api/v1/geography/provinces/3/cities/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 17:49:19,216 basehttp 345319 124173043091136 "OPTIONS /api/v1/geography/provinces/1/cities/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:19,216 basehttp 345319 124173567370944 "OPTIONS /api/v1/geography/provinces/1/cities/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:19,394 basehttp 345319 124173567370944 "GET /api/v1/geography/provinces/1/cities/ HTTP/1.1" 200 83
+[INFO] 2026-07-24 17:49:19,604 basehttp 345319 124173567370944 "GET /api/v1/geography/provinces/1/cities/ HTTP/1.1" 200 83
+[INFO] 2026-07-24 17:49:26,448 basehttp 345319 124173567370944 "OPTIONS /api/v1/geography/provinces/1/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:49:26,503 base_service 345319 124173567370944 Province updated: همدان
+[INFO] 2026-07-24 17:49:26,689 basehttp 345319 124173567370944 "PATCH /api/v1/geography/provinces/1/ HTTP/1.1" 200 256
+[INFO] 2026-07-24 17:49:26,893 basehttp 345319 124173567370944 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:49:40,494 basehttp 345319 124173584156352 "GET /admin/ HTTP/1.1" 200 41123
+[INFO] 2026-07-24 17:49:42,573 basehttp 345319 124173584156352 "GET /admin/geography/province/ HTTP/1.1" 200 39706
+[INFO] 2026-07-24 17:49:42,673 basehttp 345319 124173584156352 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 17:49:48,022 basehttp 345319 124173584156352 "GET /admin/geography/city/ HTTP/1.1" 200 39329
+[INFO] 2026-07-24 17:49:48,114 basehttp 345319 124173584156352 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 17:49:52,428 basehttp 345319 124173584156352 "GET /admin/geography/city/1/change/ HTTP/1.1" 200 40553
+[INFO] 2026-07-24 17:49:52,456 basehttp 345319 124173592549056 "GET /static/admin/js/vendor/select2/i18n/en.js HTTP/1.1" 200 844
+[INFO] 2026-07-24 17:49:52,462 basehttp 345319 124173619820224 "GET /static/admin/css/autocomplete.css HTTP/1.1" 200 9114
+[INFO] 2026-07-24 17:49:52,463 basehttp 345319 124173033649856 "GET /static/admin/js/autocomplete.js HTTP/1.1" 200 1060
+[INFO] 2026-07-24 17:49:52,464 basehttp 345319 124173575763648 "GET /static/admin/css/vendor/select2/select2.css HTTP/1.1" 200 17358
+[INFO] 2026-07-24 17:49:52,474 basehttp 345319 124173603038912 "GET /static/admin/js/vendor/select2/select2.full.js HTTP/1.1" 200 173566
+[INFO] 2026-07-24 17:49:52,496 basehttp 345319 124173603038912 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[INFO] 2026-07-24 17:49:52,551 basehttp 345319 124173584156352 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 17:49:54,910 basehttp 345319 124173584156352 "POST /admin/geography/city/1/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 17:49:55,141 basehttp 345319 124173584156352 "GET /admin/geography/city/ HTTP/1.1" 200 39547
+[INFO] 2026-07-24 17:49:55,292 basehttp 345319 124173584156352 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 17:49:59,621 basehttp 345319 124173567370944 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 17:49:59,731 basehttp 345319 124173567370944 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 17:49:59,970 basehttp 345319 124173567370944 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:00,158 basehttp 345319 124173567370944 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:04,459 basehttp 345319 124173554783936 "OPTIONS /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:50:04,463 basehttp 345319 124173043091136 "OPTIONS /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:50:04,650 basehttp 345319 124173567370944 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:04,770 basehttp 345319 124173043091136 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 141
+[INFO] 2026-07-24 17:50:04,917 basehttp 345319 124173567370944 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:04,998 basehttp 345319 124173043091136 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 141
+[INFO] 2026-07-24 17:50:05,664 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:05,783 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:08,376 basehttp 345319 124173043091136 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 17:50:08,464 basehttp 345319 124173043091136 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 17:50:08,676 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:08,781 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:10,945 basehttp 345319 124173584156352 "GET /admin/geography/city/ HTTP/1.1" 200 39329
+[INFO] 2026-07-24 17:50:11,040 basehttp 345319 124173584156352 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 17:50:13,385 basehttp 345319 124173043091136 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 17:50:13,471 basehttp 345319 124173043091136 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 17:50:13,691 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:13,793 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:23,996 basehttp 345319 124173043091136 "OPTIONS /api/v1/geography/provinces/ HTTP/1.1" 200 0
+[WARNING] 2026-07-24 17:50:24,161 log 345319 124173043091136 Bad Request: /api/v1/geography/provinces/
+[WARNING] 2026-07-24 17:50:24,161 basehttp 345319 124173043091136 "POST /api/v1/geography/provinces/ HTTP/1.1" 400 255
+[WARNING] 2026-07-24 17:50:30,650 log 345319 124173043091136 Bad Request: /api/v1/geography/provinces/
+[WARNING] 2026-07-24 17:50:30,650 basehttp 345319 124173043091136 "POST /api/v1/geography/provinces/ HTTP/1.1" 400 255
+[INFO] 2026-07-24 17:50:42,375 basehttp 345319 124173043091136 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 17:50:42,481 basehttp 345319 124173043091136 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 17:50:42,671 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:42,767 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:46,285 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:46,454 basehttp 345319 124173567370944 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 141
+[INFO] 2026-07-24 17:50:46,569 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:46,627 basehttp 345319 124173567370944 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 141
+[INFO] 2026-07-24 17:50:48,207 basehttp 345319 124173567370944 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:48,324 basehttp 345319 124173567370944 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:51,504 basehttp 345319 124173043091136 "OPTIONS /api/v1/geography/provinces/2/cities/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:50:51,505 basehttp 345319 124173567370944 "OPTIONS /api/v1/geography/provinces/2/cities/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:50:51,657 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/2/cities/ HTTP/1.1" 200 83
+[INFO] 2026-07-24 17:50:51,842 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/2/cities/ HTTP/1.1" 200 83
+[INFO] 2026-07-24 17:50:55,232 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/3/cities/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 17:50:55,371 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/3/cities/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 17:50:56,899 basehttp 345319 124173567370944 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 141
+[INFO] 2026-07-24 17:50:57,010 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:50:57,242 basehttp 345319 124173567370944 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 141
+[INFO] 2026-07-24 17:50:57,294 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:51:12,284 basehttp 345319 124173567370944 "OPTIONS /api/v1/cms/blogs/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:51:12,284 basehttp 345319 124173043091136 "OPTIONS /api/v1/cms/blogs/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:51:12,429 basehttp 345319 124173567370944 "GET /api/v1/cms/blogs/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:51:12,596 basehttp 345319 124173567370944 "GET /api/v1/cms/blogs/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 17:51:17,339 basehttp 345319 124173567370944 "OPTIONS /api/v1/cms/admin/pages/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 17:51:17,339 basehttp 345319 124173043091136 "OPTIONS /api/v1/cms/admin/pages/ HTTP/1.1" 200 0
+[ERROR] 2026-07-24 17:51:17,369 api_exceptions 345319 124173043091136 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/cms/views/cms_views.py", line 70, in get
+    pages = CmsSelector.get_published_pages() if not request.user.is_admin else Page.objects.all()
+                                                                                ^^^^
+NameError: name 'Page' is not defined
+[ERROR] 2026-07-24 17:51:17,442 log 345319 124173043091136 Internal Server Error: /api/v1/cms/admin/pages/
+[ERROR] 2026-07-24 17:51:17,442 basehttp 345319 124173043091136 "GET /api/v1/cms/admin/pages/ HTTP/1.1" 500 111
+[ERROR] 2026-07-24 17:51:17,521 api_exceptions 345319 124173043091136 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/cms/views/cms_views.py", line 70, in get
+    pages = CmsSelector.get_published_pages() if not request.user.is_admin else Page.objects.all()
+                                                                                ^^^^
+NameError: name 'Page' is not defined
+[ERROR] 2026-07-24 17:51:17,589 log 345319 124173043091136 Internal Server Error: /api/v1/cms/admin/pages/
+[ERROR] 2026-07-24 17:51:17,590 basehttp 345319 124173043091136 "GET /api/v1/cms/admin/pages/ HTTP/1.1" 500 111
+[INFO] 2026-07-24 17:51:22,482 basehttp 345319 124173043091136 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 17:51:22,634 basehttp 345319 124173043091136 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 17:51:25,871 basehttp 345319 124173567370944 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 17:51:26,128 basehttp 345319 124173043091136 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 435
+[INFO] 2026-07-24 17:51:26,273 basehttp 345319 124173567370944 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 17:51:26,367 basehttp 345319 124173043091136 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 435
+[INFO] 2026-07-24 17:53:21,558 basehttp 345319 124173584156352 "GET /admin/accounts/user/ HTTP/1.1" 200 42472
+[INFO] 2026-07-24 17:53:21,573 basehttp 345319 124173603038912 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 17:53:21,581 basehttp 345319 124173603038912 "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 17:53:21,665 basehttp 345319 124173584156352 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 17:53:24,556 basehttp 345319 124173584156352 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 17:53:24,581 basehttp 345319 124173033649856 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 17:53:24,583 basehttp 345319 124173619820224 "GET /static/admin/js/collapse.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 17:53:24,583 basehttp 345319 124173575763648 "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 17:53:24,589 basehttp 345319 124173603038912 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 17:53:24,598 basehttp 345319 124173603038912 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 17:53:24,599 basehttp 345319 124173575763648 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 17:53:24,650 basehttp 345319 124173575763648 "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 17:53:24,685 basehttp 345319 124173584156352 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 17:53:24,778 basehttp 345319 124173603038912 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 17:53:24,778 basehttp 345319 124173584156352 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 17:53:24,778 basehttp 345319 124173575763648 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 17:55:53,696 basehttp 345319 124173043091136 "OPTIONS /api/v1/auth/logout/ HTTP/1.1" 200 0
+[WARNING] 2026-07-24 17:55:53,811 log 345319 124173043091136 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 17:55:53,811 basehttp 345319 124173043091136 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[WARNING] 2026-07-24 17:56:03,806 log 345319 124173043091136 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:56:03,807 basehttp 345319 124173043091136 "POST /api/v1/auth/login/ HTTP/1.1" 401 134
+[WARNING] 2026-07-24 17:56:11,550 log 345319 124173043091136 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 17:56:11,551 basehttp 345319 124173043091136 "POST /api/v1/auth/login/ HTTP/1.1" 401 134
+[INFO] 2026-07-24 17:56:14,772 base_service 345319 124173043091136 User logged in with password: 09056419609
+[INFO] 2026-07-24 17:56:14,862 basehttp 345319 124173043091136 "POST /api/v1/auth/login/ HTTP/1.1" 200 1128
+[INFO] 2026-07-24 17:56:33,408 basehttp 345319 124173043091136 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 17:56:33,498 basehttp 345319 124173043091136 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 17:58:03,184 basehttp 345319 124173567370944 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 17:58:03,458 basehttp 345319 124173043091136 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 435
+[INFO] 2026-07-24 17:58:03,600 basehttp 345319 124173567370944 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 17:58:03,688 basehttp 345319 124173043091136 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 435
+[INFO] 2026-07-24 17:59:56,640 basehttp 345319 124173567370944 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 17:59:56,798 basehttp 345319 124173043091136 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 435
+[INFO] 2026-07-24 17:59:56,977 basehttp 345319 124173567370944 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 17:59:57,049 basehttp 345319 124173043091136 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 435
+[INFO] 2026-07-24 18:00:40,628 basehttp 345319 124173567370944 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 18:00:40,787 basehttp 345319 124173043091136 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 435
+[INFO] 2026-07-24 18:00:40,943 basehttp 345319 124173567370944 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 18:00:41,007 basehttp 345319 124173043091136 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 435
+[INFO] 2026-07-24 18:02:17,752 basehttp 345319 124173043091136 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 18:02:17,868 basehttp 345319 124173043091136 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 18:03:59,311 basehttp 345319 124173584156352 "OPTIONS /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:03:59,311 basehttp 345319 124173567370944 "OPTIONS /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:03:59,505 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:03:59,624 basehttp 345319 124173584156352 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:03:59,777 basehttp 345319 124173043091136 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:03:59,889 basehttp 345319 124173584156352 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:04:01,738 basehttp 345319 124173584156352 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 18:04:01,835 basehttp 345319 124173584156352 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 18:04:02,189 basehttp 345319 124173043091136 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 18:04:02,401 basehttp 345319 124173584156352 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 435
+[INFO] 2026-07-24 18:04:02,545 basehttp 345319 124173043091136 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 18:04:02,626 basehttp 345319 124173584156352 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 435
+[WARNING] 2026-07-24 18:04:03,968 log 345319 124173584156352 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 18:04:03,969 basehttp 345319 124173584156352 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 18:07:18,060 basehttp 345319 124173584156352 "OPTIONS /api/v1/auth/otp/request/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:07:18,115 otp_service 345319 124173584156352 [DEV] SMS to 09189082172: کد تایید سامانه پایش قیمت: 140814
+[INFO] 2026-07-24 18:07:18,115 base_service 345319 124173584156352 OTP sent to 09189082172
+[INFO] 2026-07-24 18:07:18,219 basehttp 345319 124173584156352 "POST /api/v1/auth/otp/request/ HTTP/1.1" 200 142
+[INFO] 2026-07-24 18:09:54,794 base_service 345319 124173584156352 User logged in with password: 09056419609
+[INFO] 2026-07-24 18:09:54,883 basehttp 345319 124173584156352 "POST /api/v1/auth/login/ HTTP/1.1" 200 1128
+[INFO] 2026-07-24 18:09:55,457 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 18:09:55,582 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 18:10:25,585 basehttp 345319 124173584156352 "OPTIONS /api/v1/auth/users/?page=1&page_size=10&search=r HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:10:25,657 basehttp 345319 124173043091136 "OPTIONS /api/v1/auth/users/?page=1&page_size=10&search=re HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:10:25,865 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10&search=r HTTP/1.1" 200 545
+[INFO] 2026-07-24 18:10:25,964 basehttp 345319 124173043091136 "GET /api/v1/auth/users/?page=1&page_size=10&search=re HTTP/1.1" 200 545
+[INFO] 2026-07-24 18:10:27,379 basehttp 345319 124173043091136 "OPTIONS /api/v1/auth/users/?page=1&page_size=10&search=rez HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:10:27,475 basehttp 345319 124173584156352 "OPTIONS /api/v1/auth/users/?page=1&page_size=10&search=reza HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:10:27,588 basehttp 345319 124173043091136 "GET /api/v1/auth/users/?page=1&page_size=10&search=rez HTTP/1.1" 200 545
+[INFO] 2026-07-24 18:10:27,743 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10&search=reza HTTP/1.1" 200 545
+[INFO] 2026-07-24 18:10:29,043 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10&search=rez HTTP/1.1" 200 545
+[INFO] 2026-07-24 18:10:29,198 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10&search=re HTTP/1.1" 200 545
+[INFO] 2026-07-24 18:10:29,372 basehttp 345319 124173043091136 "GET /api/v1/auth/users/?page=1&page_size=10&search=r HTTP/1.1" 200 545
+[INFO] 2026-07-24 18:10:29,500 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 18:10:29,739 basehttp 345319 124173584156352 "OPTIONS /api/v1/auth/users/?page=1&page_size=10&search=0 HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:10:29,963 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10&search=0 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 18:10:30,007 basehttp 345319 124173584156352 "OPTIONS /api/v1/auth/users/?page=1&page_size=10&search=09 HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:10:30,203 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10&search=09 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 18:10:30,414 basehttp 345319 124173584156352 "OPTIONS /api/v1/auth/users/?page=1&page_size=10&search=091 HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:10:30,615 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10&search=091 HTTP/1.1" 200 931
+[INFO] 2026-07-24 18:10:30,822 basehttp 345319 124173584156352 "OPTIONS /api/v1/auth/users/?page=1&page_size=10&search=0918 HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:10:30,978 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10&search=0918 HTTP/1.1" 200 931
+[INFO] 2026-07-24 18:10:33,633 basehttp 345319 124173584156352 "OPTIONS /api/v1/auth/users/?page=1&page_size=10&search=09189 HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:10:33,785 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10&search=09189 HTTP/1.1" 200 494
+[INFO] 2026-07-24 18:10:33,862 basehttp 345319 124173584156352 "OPTIONS /api/v1/auth/users/?page=1&page_size=10&search=091890 HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:10:34,090 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10&search=091890 HTTP/1.1" 200 494
+[INFO] 2026-07-24 18:10:34,098 basehttp 345319 124173043091136 "OPTIONS /api/v1/auth/users/?page=1&page_size=10&search=0918908 HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:10:34,255 basehttp 345319 124173043091136 "GET /api/v1/auth/users/?page=1&page_size=10&search=0918908 HTTP/1.1" 200 494
+[INFO] 2026-07-24 18:10:37,339 basehttp 345319 124173043091136 "GET /api/v1/auth/users/?page=1&page_size=10&search=091890 HTTP/1.1" 200 494
+[INFO] 2026-07-24 18:10:38,334 basehttp 345319 124173043091136 "GET /api/v1/auth/users/?page=1&page_size=10&search=09189 HTTP/1.1" 200 494
+[INFO] 2026-07-24 18:10:38,583 basehttp 345319 124173584156352 "GET /api/v1/auth/users/?page=1&page_size=10&search=0918 HTTP/1.1" 200 931
+[INFO] 2026-07-24 18:10:38,624 basehttp 345319 124173619820224 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 18:10:38,697 basehttp 345319 124173567370944 "GET /api/v1/auth/users/?page=1&page_size=10&search=091 HTTP/1.1" 200 931
+[INFO] 2026-07-24 18:10:38,757 basehttp 345319 124173575763648 "GET /api/v1/auth/users/?page=1&page_size=10&search=0 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 18:10:38,765 basehttp 345319 124173603038912 "GET /api/v1/auth/users/?page=1&page_size=10&search=09 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 18:10:57,812 basehttp 345319 124173603038912 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 18:10:57,928 basehttp 345319 124173603038912 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2188
+[INFO] 2026-07-24 18:14:35,494 basehttp 345319 124173603038912 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:14:35,737 basehttp 345319 124173575763648 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:14:35,972 basehttp 345319 124173603038912 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:14:36,072 basehttp 345319 124173575763648 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:14:52,883 basehttp 345319 124173592549056 "GET /admin/accounts/user/ HTTP/1.1" 200 42472
+[INFO] 2026-07-24 18:15:01,065 basehttp 345319 124173592549056 "GET /admin/geography/province/ HTTP/1.1" 200 39706
+[INFO] 2026-07-24 18:15:01,087 basehttp 345319 124173554783936 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:15:01,104 basehttp 345319 124173554783936 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:15:01,309 basehttp 345319 124173592549056 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:15:07,292 basehttp 345319 124173592549056 "POST /admin/geography/province/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 18:15:07,965 basehttp 345319 124173592549056 "GET /admin/geography/province/ HTTP/1.1" 200 39858
+[INFO] 2026-07-24 18:15:08,196 basehttp 345319 124173592549056 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:15:08,271 basehttp 345319 124173592549056 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:15:12,706 basehttp 345319 124173575763648 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 18:15:12,888 basehttp 345319 124173575763648 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 18:15:13,346 basehttp 345319 124173603038912 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:15:13,582 basehttp 345319 124173575763648 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 152
+[INFO] 2026-07-24 18:15:13,850 basehttp 345319 124173603038912 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:15:13,957 basehttp 345319 124173575763648 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 152
+[INFO] 2026-07-24 18:20:26,866 basehttp 345319 124173603038912 "OPTIONS /api/v1/organizations/province-offices/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:20:26,936 signals 345319 124173603038912 ProvinceOffice created: استانداری همدان for province: همدان
+[INFO] 2026-07-24 18:20:26,937 base_service 345319 124173603038912 ProvinceOffice created: استانداری همدان
+[INFO] 2026-07-24 18:20:27,135 basehttp 345319 124173603038912 "POST /api/v1/organizations/province-offices/ HTTP/1.1" 201 550
+[INFO] 2026-07-24 18:20:27,420 basehttp 345319 124173603038912 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 252
+[INFO] 2026-07-24 18:20:56,206 basehttp 345319 124173603038912 "OPTIONS /api/v1/organizations/province-offices/1/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:20:56,313 base_service 345319 124173603038912 ProvinceOffice updated: استانداری همدان
+[INFO] 2026-07-24 18:20:56,622 basehttp 345319 124173603038912 "PATCH /api/v1/organizations/province-offices/1/ HTTP/1.1" 200 552
+[INFO] 2026-07-24 18:20:56,976 basehttp 345319 124173603038912 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 252
+[INFO] 2026-07-24 18:22:04,102 basehttp 345319 124173043091136 "GET /admin/organizations/provinceoffice/ HTTP/1.1" 200 39225
+[INFO] 2026-07-24 18:22:04,329 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:22:07,084 basehttp 345319 124173043091136 "GET /admin/organizations/provinceoffice/1/change/ HTTP/1.1" 200 45236
+[INFO] 2026-07-24 18:22:07,126 basehttp 345319 124173575763648 "GET /static/admin/js/collapse.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:22:07,127 basehttp 345319 124173592549056 "GET /static/admin/css/vendor/select2/select2.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:22:07,133 basehttp 345319 124173584156352 "GET /static/admin/css/autocomplete.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:22:07,139 basehttp 345319 124173619820224 "GET /static/admin/js/vendor/select2/select2.full.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:22:07,160 basehttp 345319 124173584156352 "GET /static/admin/js/autocomplete.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:22:07,161 basehttp 345319 124173567370944 "GET /static/admin/js/vendor/select2/i18n/en.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:22:07,182 basehttp 345319 124173567370944 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:22:07,182 basehttp 345319 124173619820224 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:22:07,221 basehttp 345319 124173619820224 "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:22:07,292 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:25:13,840 basehttp 345319 124173567370944 "GET /admin/organizations/provinceoffice/ HTTP/1.1" 200 39225
+[INFO] 2026-07-24 18:25:21,853 basehttp 345319 124173567370944 "GET /admin/organizations/provinceoffice/1/change/ HTTP/1.1" 200 45236
+[INFO] 2026-07-24 18:25:21,877 basehttp 345319 124173619820224 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:25:21,887 basehttp 345319 124173619820224 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:25:22,038 basehttp 345319 124173567370944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:25:51,272 base_service 345319 124173043091136 ProvinceOffice updated: استانداری همدان
+[INFO] 2026-07-24 18:25:51,658 basehttp 345319 124173043091136 "PATCH /api/v1/organizations/province-offices/1/ HTTP/1.1" 200 469
+[INFO] 2026-07-24 18:25:52,074 basehttp 345319 124173043091136 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 252
+[INFO] 2026-07-24 18:25:56,743 basehttp 345319 124173567370944 "GET /admin/organizations/provinceoffice/1/change/ HTTP/1.1" 200 45153
+[INFO] 2026-07-24 18:25:56,937 basehttp 345319 124173567370944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:26:29,396 basehttp 345319 124173567370944 "POST /admin/organizations/provinceoffice/1/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 18:26:29,695 basehttp 345319 124173567370944 "GET /admin/organizations/provinceoffice/ HTTP/1.1" 200 39484
+[INFO] 2026-07-24 18:26:29,920 basehttp 345319 124173567370944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:26:29,994 basehttp 345319 124173567370944 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:26:47,376 base_service 345319 124173043091136 ProvinceOffice updated: استانداری توالت همدان
+[INFO] 2026-07-24 18:26:47,754 basehttp 345319 124173043091136 "PATCH /api/v1/organizations/province-offices/1/ HTTP/1.1" 200 563
+[INFO] 2026-07-24 18:26:48,142 basehttp 345319 124173043091136 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 263
+[INFO] 2026-07-24 18:26:55,254 base_service 345319 124173043091136 ProvinceOffice updated: استانداری همدان
+[INFO] 2026-07-24 18:26:55,643 basehttp 345319 124173043091136 "PATCH /api/v1/organizations/province-offices/1/ HTTP/1.1" 200 552
+[INFO] 2026-07-24 18:26:55,892 basehttp 345319 124173043091136 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 252
+[INFO] 2026-07-24 18:28:39,278 signals 345319 124173043091136 ProvinceOffice created: استانداری تهران بزرگ for province: تهران
+[INFO] 2026-07-24 18:28:39,279 base_service 345319 124173043091136 ProvinceOffice created: استانداری تهران بزرگ
+[INFO] 2026-07-24 18:28:39,611 basehttp 345319 124173043091136 "POST /api/v1/organizations/province-offices/ HTTP/1.1" 201 589
+[INFO] 2026-07-24 18:28:39,906 basehttp 345319 124173043091136 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 405
+[INFO] 2026-07-24 18:29:45,591 base_service 345319 124173043091136 ProvinceOffice updated: استانداری همدان
+[INFO] 2026-07-24 18:29:45,916 basehttp 345319 124173043091136 "PATCH /api/v1/organizations/province-offices/1/ HTTP/1.1" 200 571
+[INFO] 2026-07-24 18:29:46,167 basehttp 345319 124173043091136 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 405
+[INFO] 2026-07-24 18:29:50,228 basehttp 345319 124173043091136 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 141
+[INFO] 2026-07-24 18:29:50,654 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 279
+[INFO] 2026-07-24 18:29:51,009 basehttp 345319 124173043091136 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 141
+[INFO] 2026-07-24 18:29:51,158 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 279
+[INFO] 2026-07-24 18:31:28,807 basehttp 345319 124173584156352 "OPTIONS /api/v1/organizations/chambers/ HTTP/1.1" 200 0
+[WARNING] 2026-07-24 18:31:29,074 log 345319 124173584156352 Bad Request: /api/v1/organizations/chambers/
+[WARNING] 2026-07-24 18:31:29,075 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 400 140
+[WARNING] 2026-07-24 18:31:37,510 log 345319 124173584156352 Bad Request: /api/v1/organizations/chambers/
+[WARNING] 2026-07-24 18:31:37,511 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 400 140
+[WARNING] 2026-07-24 18:35:09,150 log 345319 124173584156352 Bad Request: /api/v1/organizations/chambers/
+[WARNING] 2026-07-24 18:35:09,151 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 400 125
+[WARNING] 2026-07-24 18:35:17,792 log 345319 124173584156352 Bad Request: /api/v1/organizations/chambers/
+[WARNING] 2026-07-24 18:35:17,793 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 400 125
+[WARNING] 2026-07-24 18:35:24,663 log 345319 124173584156352 Bad Request: /api/v1/organizations/chambers/
+[WARNING] 2026-07-24 18:35:24,664 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 400 125
+[WARNING] 2026-07-24 18:35:47,366 log 345319 124173584156352 Bad Request: /api/v1/organizations/chambers/
+[WARNING] 2026-07-24 18:35:47,366 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 400 125
+[WARNING] 2026-07-24 18:35:57,173 log 345319 124173584156352 Bad Request: /api/v1/organizations/chambers/
+[WARNING] 2026-07-24 18:35:57,173 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 400 140
+[WARNING] 2026-07-24 18:36:10,255 log 345319 124173584156352 Bad Request: /api/v1/organizations/chambers/
+[WARNING] 2026-07-24 18:36:10,256 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 400 140
+[WARNING] 2026-07-24 18:36:15,317 log 345319 124173584156352 Bad Request: /api/v1/organizations/chambers/
+[WARNING] 2026-07-24 18:36:15,318 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 400 140
+[INFO] 2026-07-24 18:36:20,240 basehttp 345319 124173043091136 "GET /admin/organizations/provinceoffice/1/change/ HTTP/1.1" 200 45264
+[INFO] 2026-07-24 18:36:25,413 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/ HTTP/1.1" 200 39359
+[INFO] 2026-07-24 18:36:25,448 basehttp 345319 124173567370944 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:36:25,470 basehttp 345319 124173567370944 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:36:25,682 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:36:31,536 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/1/change/ HTTP/1.1" 200 45631
+[INFO] 2026-07-24 18:36:31,587 basehttp 345319 124173567370944 "GET /static/admin/css/vendor/select2/select2.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:36:31,593 basehttp 345319 124173619820224 "GET /static/admin/css/autocomplete.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:36:31,595 basehttp 345319 124173592549056 "GET /static/admin/js/vendor/select2/select2.full.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:36:31,601 basehttp 345319 124173603038912 "GET /static/admin/js/collapse.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:36:31,602 basehttp 345319 124173575763648 "GET /static/admin/js/vendor/select2/i18n/en.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:36:31,603 basehttp 345319 124173567370944 "GET /static/admin/js/autocomplete.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:36:31,620 basehttp 345319 124173603038912 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:36:31,626 basehttp 345319 124173575763648 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:36:31,677 basehttp 345319 124173575763648 "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:36:31,828 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:36:34,726 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/1/delete/ HTTP/1.1" 200 34751
+[INFO] 2026-07-24 18:36:34,746 basehttp 345319 124173043091136 "GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+[INFO] 2026-07-24 18:36:40,127 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/ HTTP/1.1" 200 39359
+[INFO] 2026-07-24 18:36:40,353 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:36:45,081 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/1/change/ HTTP/1.1" 200 45631
+[INFO] 2026-07-24 18:36:45,305 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:36:47,295 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/1/delete/ HTTP/1.1" 200 34751
+[INFO] 2026-07-24 18:36:50,301 basehttp 345319 124173043091136 "GET /admin/organizations/union/1/change/ HTTP/1.1" 200 47815
+[INFO] 2026-07-24 18:36:50,452 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:36:53,399 basehttp 345319 124173043091136 "GET /admin/organizations/union/1/delete/ HTTP/1.1" 200 34865
+[INFO] 2026-07-24 18:36:56,164 basehttp 345319 124173043091136 "GET /admin/stores/store/1/change/ HTTP/1.1" 200 54840
+[INFO] 2026-07-24 18:36:56,340 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:36:58,859 basehttp 345319 124173043091136 "GET /admin/stores/store/1/delete/ HTTP/1.1" 200 35097
+[INFO] 2026-07-24 18:37:00,677 basehttp 345319 124173043091136 "POST /admin/stores/store/1/delete/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 18:37:01,660 basehttp 345319 124173043091136 "GET /admin/stores/store/ HTTP/1.1" 200 41202
+[INFO] 2026-07-24 18:37:01,904 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:37:01,983 basehttp 345319 124173043091136 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:37:01,986 basehttp 345319 124173575763648 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 18:37:05,718 basehttp 345319 124173043091136 "POST /admin/stores/store/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 18:37:06,586 basehttp 345319 124173043091136 "GET /admin/stores/store/ HTTP/1.1" 200 41013
+[INFO] 2026-07-24 18:37:06,842 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:37:09,723 basehttp 345319 124173043091136 "GET /admin/stores/store/2/change/ HTTP/1.1" 200 54837
+[INFO] 2026-07-24 18:37:09,968 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:37:12,528 basehttp 345319 124173043091136 "GET /admin/stores/store/2/delete/ HTTP/1.1" 200 35082
+[INFO] 2026-07-24 18:37:14,118 basehttp 345319 124173043091136 "POST /admin/stores/store/2/delete/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 18:37:14,941 basehttp 345319 124173043091136 "GET /admin/stores/store/ HTTP/1.1" 200 37782
+[INFO] 2026-07-24 18:37:15,196 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:37:20,498 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/ HTTP/1.1" 200 39359
+[INFO] 2026-07-24 18:37:20,622 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:37:22,330 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/1/change/ HTTP/1.1" 200 45631
+[INFO] 2026-07-24 18:37:22,547 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:37:24,175 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/1/delete/ HTTP/1.1" 200 34751
+[INFO] 2026-07-24 18:37:26,035 basehttp 345319 124173043091136 "GET /admin/organizations/union/1/change/ HTTP/1.1" 200 47815
+[INFO] 2026-07-24 18:37:26,218 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:37:28,489 basehttp 345319 124173043091136 "GET /admin/organizations/union/1/delete/ HTTP/1.1" 200 35237
+[INFO] 2026-07-24 18:37:30,429 basehttp 345319 124173043091136 "POST /admin/organizations/union/1/delete/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 18:37:30,911 basehttp 345319 124173043091136 "GET /admin/organizations/union/ HTTP/1.1" 200 37279
+[INFO] 2026-07-24 18:37:31,123 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:37:35,068 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/ HTTP/1.1" 200 39359
+[INFO] 2026-07-24 18:37:35,221 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:37:37,527 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/1/change/ HTTP/1.1" 200 45631
+[INFO] 2026-07-24 18:37:37,757 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:37:39,363 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/1/delete/ HTTP/1.1" 200 35154
+[INFO] 2026-07-24 18:37:40,671 basehttp 345319 124173043091136 "POST /admin/organizations/chamber/1/delete/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 18:37:41,165 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/ HTTP/1.1" 200 36908
+[INFO] 2026-07-24 18:37:41,420 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:37:45,891 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/add/ HTTP/1.1" 200 45175
+[INFO] 2026-07-24 18:37:46,104 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:37:47,386 basehttp 345319 124173043091136 "GET /admin/autocomplete/?app_label=organizations&model_name=chamber&field_name=city HTTP/1.1" 200 220
+[INFO] 2026-07-24 18:37:47,639 basehttp 345319 124173043091136 "GET /__debug__/history_sidebar/?store_id=4e954c38536942dbae0ae43bd586b408 HTTP/1.1" 200 10298
+[INFO] 2026-07-24 18:37:59,215 basehttp 345319 124173043091136 "GET /admin/autocomplete/?app_label=organizations&model_name=chamber&field_name=manager HTTP/1.1" 200 46
+[INFO] 2026-07-24 18:37:59,464 basehttp 345319 124173043091136 "GET /__debug__/history_sidebar/?store_id=eab623a2ae794f85b23799d70ee56b90 HTTP/1.1" 200 10301
+[INFO] 2026-07-24 18:38:26,940 signals 345319 124173043091136 Chamber created: اتاق اصناف شهرستان همدان in city: همدان
+[INFO] 2026-07-24 18:38:27,133 basehttp 345319 124173043091136 "POST /admin/organizations/chamber/add/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 18:38:27,618 basehttp 345319 124173043091136 "GET /admin/organizations/chamber/ HTTP/1.1" 200 39643
+[INFO] 2026-07-24 18:38:27,911 basehttp 345319 124173043091136 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 18:38:35,956 basehttp 345319 124173584156352 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 18:38:36,054 basehttp 345319 124173584156352 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 18:38:36,467 basehttp 345319 124173584156352 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 141
+[INFO] 2026-07-24 18:38:36,659 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 306
+[INFO] 2026-07-24 18:38:36,890 basehttp 345319 124173584156352 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 141
+[INFO] 2026-07-24 18:38:37,030 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 306
+[INFO] 2026-07-24 18:38:54,088 basehttp 345319 124173584156352 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 141
+[INFO] 2026-07-24 18:38:54,316 basehttp 345319 124173554783936 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 152
+[INFO] 2026-07-24 18:38:54,556 basehttp 345319 124173584156352 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 141
+[INFO] 2026-07-24 18:38:54,652 basehttp 345319 124173554783936 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 152
+[INFO] 2026-07-24 18:39:01,641 basehttp 345319 124173554783936 "OPTIONS /api/v1/geography/cities/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:39:01,780 base_service 345319 124173554783936 City created: ملایر in همدان
+[INFO] 2026-07-24 18:39:02,049 basehttp 345319 124173554783936 "POST /api/v1/geography/cities/ HTTP/1.1" 201 283
+[INFO] 2026-07-24 18:39:02,253 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 199
+[INFO] 2026-07-24 18:39:05,803 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 199
+[INFO] 2026-07-24 18:39:06,306 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 306
+[INFO] 2026-07-24 18:39:06,622 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 199
+[INFO] 2026-07-24 18:39:06,726 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 306
+[INFO] 2026-07-24 18:39:40,528 signals 345319 124173584156352 Chamber created: اتاق اصناف شهرستان ملایر in city: ملایر
+[INFO] 2026-07-24 18:39:40,529 base_service 345319 124173584156352 Chamber created: اتاق اصناف شهرستان ملایر in city: ملایر
+[INFO] 2026-07-24 18:39:40,851 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 201 580
+[INFO] 2026-07-24 18:39:41,258 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 504
+[INFO] 2026-07-24 18:39:56,483 basehttp 345319 124173584156352 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 152
+[INFO] 2026-07-24 18:39:56,760 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 199
+[INFO] 2026-07-24 18:39:57,178 basehttp 345319 124173584156352 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 152
+[INFO] 2026-07-24 18:39:57,313 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 199
+[INFO] 2026-07-24 18:40:19,516 base_service 345319 124173554783936 City created: بهار in همدان
+[INFO] 2026-07-24 18:40:19,773 basehttp 345319 124173554783936 "POST /api/v1/geography/cities/ HTTP/1.1" 201 281
+[INFO] 2026-07-24 18:40:19,924 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 255
+[INFO] 2026-07-24 18:40:23,467 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 255
+[INFO] 2026-07-24 18:40:23,816 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 504
+[INFO] 2026-07-24 18:40:24,067 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 255
+[INFO] 2026-07-24 18:40:24,350 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 504
+[INFO] 2026-07-24 18:41:16,885 signals 345319 124173584156352 Chamber created: اتاق اصناف شهرستان بهار in city: بهار
+[INFO] 2026-07-24 18:41:16,885 base_service 345319 124173584156352 Chamber created: اتاق اصناف شهرستان بهار in city: بهار
+[INFO] 2026-07-24 18:41:17,108 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 201 566
+[INFO] 2026-07-24 18:41:17,427 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 698
+[INFO] 2026-07-24 18:42:09,506 basehttp 345319 124173584156352 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 152
+[INFO] 2026-07-24 18:42:09,741 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 255
+[INFO] 2026-07-24 18:42:10,059 basehttp 345319 124173584156352 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 152
+[INFO] 2026-07-24 18:42:10,155 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 255
+[INFO] 2026-07-24 18:42:18,826 base_service 345319 124173554783936 City created: رزن in همدان
+[INFO] 2026-07-24 18:42:19,158 basehttp 345319 124173554783936 "POST /api/v1/geography/cities/ HTTP/1.1" 201 279
+[INFO] 2026-07-24 18:42:19,346 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 309
+[INFO] 2026-07-24 18:42:37,221 base_service 345319 124173554783936 City created: فامنین in همدان
+[INFO] 2026-07-24 18:42:37,402 basehttp 345319 124173554783936 "POST /api/v1/geography/cities/ HTTP/1.1" 201 285
+[INFO] 2026-07-24 18:42:37,609 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 369
+[INFO] 2026-07-24 18:42:54,937 base_service 345319 124173554783936 City created: اسد آباد in همدان
+[INFO] 2026-07-24 18:42:55,251 basehttp 345319 124173554783936 "POST /api/v1/geography/cities/ HTTP/1.1" 201 288
+[INFO] 2026-07-24 18:42:55,495 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 432
+[INFO] 2026-07-24 18:43:08,258 base_service 345319 124173554783936 City created: کبودر آهنگ in همدان
+[INFO] 2026-07-24 18:43:08,518 basehttp 345319 124173554783936 "POST /api/v1/geography/cities/ HTTP/1.1" 201 292
+[INFO] 2026-07-24 18:43:08,758 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 499
+[INFO] 2026-07-24 18:43:17,924 base_service 345319 124173554783936 City created: تویسرکان in همدان
+[INFO] 2026-07-24 18:43:18,193 basehttp 345319 124173554783936 "POST /api/v1/geography/cities/ HTTP/1.1" 201 289
+[INFO] 2026-07-24 18:43:18,400 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 563
+[INFO] 2026-07-24 18:43:26,455 base_service 345319 124173554783936 City created: نهاوند in همدان
+[INFO] 2026-07-24 18:43:26,737 basehttp 345319 124173554783936 "POST /api/v1/geography/cities/ HTTP/1.1" 201 286
+[INFO] 2026-07-24 18:43:26,943 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 624
+[INFO] 2026-07-24 18:43:31,193 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 624
+[INFO] 2026-07-24 18:43:31,427 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 698
+[INFO] 2026-07-24 18:43:31,775 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 624
+[INFO] 2026-07-24 18:43:32,019 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 698
+[INFO] 2026-07-24 18:44:11,304 signals 345319 124173584156352 Chamber created: اتاق اصناف شهرستان رزن in city: رزن
+[INFO] 2026-07-24 18:44:11,305 base_service 345319 124173584156352 Chamber created: اتاق اصناف شهرستان رزن in city: رزن
+[INFO] 2026-07-24 18:44:11,545 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 201 592
+[INFO] 2026-07-24 18:44:11,822 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 888
+[INFO] 2026-07-24 18:45:55,495 signals 345319 124173584156352 Chamber created: اتاق اصناف شهرستان فامنین in city: فامنین
+[INFO] 2026-07-24 18:45:55,496 base_service 345319 124173584156352 Chamber created: اتاق اصناف شهرستان فامنین in city: فامنین
+[INFO] 2026-07-24 18:45:55,885 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 201 612
+[INFO] 2026-07-24 18:45:56,390 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1090
+[INFO] 2026-07-24 18:46:37,757 signals 345319 124173584156352 Chamber created: اتاق اصناف شهرستان اسدآباد in city: اسد آباد
+[INFO] 2026-07-24 18:46:37,758 base_service 345319 124173584156352 Chamber created: اتاق اصناف شهرستان اسدآباد in city: اسد آباد
+[INFO] 2026-07-24 18:46:38,029 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 201 600
+[INFO] 2026-07-24 18:46:38,800 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1297
+[INFO] 2026-07-24 18:47:14,783 signals 345319 124173584156352 Chamber created: اتاق اصناف شهرستان کبودر آهنگ in city: کبودر آهنگ
+[INFO] 2026-07-24 18:47:14,784 base_service 345319 124173584156352 Chamber created: اتاق اصناف شهرستان کبودر آهنگ in city: کبودر آهنگ
+[INFO] 2026-07-24 18:47:15,033 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 201 609
+[INFO] 2026-07-24 18:47:15,592 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1513
+[WARNING] 2026-07-24 18:48:37,785 log 345319 124173584156352 Bad Request: /api/v1/organizations/chambers/
+[WARNING] 2026-07-24 18:48:37,786 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 400 134
+[WARNING] 2026-07-24 18:48:51,799 log 345319 124173584156352 Bad Request: /api/v1/organizations/chambers/
+[WARNING] 2026-07-24 18:48:51,801 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 400 134
+[WARNING] 2026-07-24 18:49:20,084 log 345319 124173584156352 Bad Request: /api/v1/organizations/chambers/
+[WARNING] 2026-07-24 18:49:20,085 basehttp 345319 124173584156352 "POST /api/v1/organizations/chambers/ HTTP/1.1" 400 134
+[INFO] 2026-07-24 18:49:26,857 basehttp 345319 124173584156352 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 18:49:26,975 basehttp 345319 124173584156352 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 18:49:27,284 basehttp 345319 124173584156352 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 624
+[INFO] 2026-07-24 18:49:27,472 basehttp 345319 124173584156352 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 624
+[INFO] 2026-07-24 18:49:27,651 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1513
+[INFO] 2026-07-24 18:49:28,035 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1513
+[INFO] 2026-07-24 18:54:31,246 basehttp 345319 124173584156352 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 18:54:31,409 basehttp 345319 124173584156352 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 18:54:31,872 basehttp 345319 124173584156352 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 624
+[INFO] 2026-07-24 18:54:32,178 basehttp 345319 124173584156352 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 624
+[INFO] 2026-07-24 18:54:32,477 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1513
+[INFO] 2026-07-24 18:54:32,846 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1513
+[INFO] 2026-07-24 18:55:21,355 signals 345319 124173554783936 Chamber created: اتاق اصناف شهرستان تویسرکان in city: تویسرکان
+[INFO] 2026-07-24 18:55:21,356 base_service 345319 124173554783936 Chamber created: اتاق اصناف شهرستان تویسرکان in city: تویسرکان
+[INFO] 2026-07-24 18:55:21,537 basehttp 345319 124173554783936 "POST /api/v1/organizations/chambers/ HTTP/1.1" 201 618
+[INFO] 2026-07-24 18:55:22,023 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1723
+[INFO] 2026-07-24 18:56:34,621 signals 345319 124173554783936 Chamber created: اتاق اصناف شهرستان نهاوند in city: نهاوند
+[INFO] 2026-07-24 18:56:34,622 base_service 345319 124173554783936 Chamber created: اتاق اصناف شهرستان نهاوند in city: نهاوند
+[INFO] 2026-07-24 18:56:34,959 basehttp 345319 124173554783936 "POST /api/v1/organizations/chambers/ HTTP/1.1" 201 592
+[INFO] 2026-07-24 18:56:35,650 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 18:56:55,490 basehttp 345319 124173584156352 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:56:56,061 basehttp 345319 124173584156352 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:56:56,156 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 18:56:56,505 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 18:56:59,599 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 624
+[INFO] 2026-07-24 18:57:00,011 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 18:57:00,277 basehttp 345319 124173554783936 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 624
+[INFO] 2026-07-24 18:57:00,714 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 18:57:03,687 basehttp 345319 124173554783936 "OPTIONS /api/v1/organizations/chambers/10/unions/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:57:03,688 basehttp 345319 124173584156352 "OPTIONS /api/v1/organizations/chambers/10/unions/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:57:03,931 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/10/unions/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 18:57:04,151 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/10/unions/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 18:58:28,845 basehttp 345319 124173554783936 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-07-24 18:58:29,076 basehttp 345319 124173584156352 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:58:29,377 basehttp 345319 124173554783936 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-07-24 18:58:29,499 basehttp 345319 124173584156352 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:58:32,103 basehttp 345319 124173584156352 "OPTIONS /api/v1/pricing/official-prices/?page=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 18:58:32,366 basehttp 345319 124173584156352 "GET /api/v1/pricing/official-prices/?page=1 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:58:33,511 basehttp 345319 124173584156352 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:58:34,332 basehttp 345319 124173584156352 "GET /api/v1/pricing/official-prices/?page=1 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:58:36,783 basehttp 345319 124173584156352 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:58:53,307 basehttp 345319 124173584156352 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 18:58:53,557 basehttp 345319 124173584156352 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 18:58:54,071 basehttp 345319 124173554783936 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 18:58:54,356 basehttp 345319 124173584156352 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:58:54,588 basehttp 345319 124173554783936 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 18:58:54,706 basehttp 345319 124173584156352 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:59:01,583 basehttp 345319 124173554783936 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:59:02,212 basehttp 345319 124173554783936 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 109
+[INFO] 2026-07-24 18:59:02,355 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 18:59:02,866 basehttp 345319 124173584156352 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 19:01:11,568 basehttp 345319 124173584156352 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 624
+[INFO] 2026-07-24 19:01:11,951 basehttp 345319 124173584156352 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 624
+[INFO] 2026-07-24 19:01:12,229 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 19:01:12,824 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 19:02:31,911 basehttp 345319 124173584156352 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:02:32,257 basehttp 345319 124173584156352 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:02:32,536 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 19:02:33,198 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 19:06:18,575 basehttp 345319 124173554783936 "OPTIONS /api/v1/organizations/unions/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:06:18,684 signals 345319 124173554783936 Union created: اتحادیه صنف خواربار و بنکداران شهرستان همدان in chamber: اتاق اصناف شهرستان همدان
+[INFO] 2026-07-24 19:06:18,685 base_service 345319 124173554783936 Union created: اتحادیه صنف خواربار و بنکداران شهرستان همدان in chamber: اتاق اصناف شهرستان همدان
+[INFO] 2026-07-24 19:06:18,992 basehttp 345319 124173554783936 "POST /api/v1/organizations/unions/ HTTP/1.1" 201 921
+[INFO] 2026-07-24 19:06:19,324 basehttp 345319 124173554783936 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 409
+[INFO] 2026-07-24 19:17:13,708 signals 345319 124173554783936 Union created: اتحادیه صنف قصابان in chamber: اتاق اصناف شهرستان همدان
+[INFO] 2026-07-24 19:17:13,709 base_service 345319 124173554783936 Union created: اتحادیه صنف قصابان in chamber: اتاق اصناف شهرستان همدان
+[INFO] 2026-07-24 19:17:13,982 basehttp 345319 124173554783936 "POST /api/v1/organizations/unions/ HTTP/1.1" 201 792
+[INFO] 2026-07-24 19:17:14,394 basehttp 345319 124173554783936 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 662
+[ERROR] 2026-07-24 19:20:47,367 api_exceptions 345319 124173554783936 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "organizations_union_license_number_key"
+DETAIL:  Key (license_number)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/views/union_views.py", line 100, in post
+    union = service.create(
+            ^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/union_service.py", line 71, in create
+    union = Union.objects.create(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/debug_toolbar/panels/sql/tracking.py", line 235, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/debug_toolbar/panels/sql/tracking.py", line 160, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "organizations_union_license_number_key"
+DETAIL:  Key (license_number)=() already exists.
+
+[ERROR] 2026-07-24 19:20:47,654 log 345319 124173554783936 Internal Server Error: /api/v1/organizations/unions/
+[ERROR] 2026-07-24 19:20:47,655 basehttp 345319 124173554783936 "POST /api/v1/organizations/unions/ HTTP/1.1" 500 111
+[ERROR] 2026-07-24 19:21:10,876 api_exceptions 345319 124173554783936 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "organizations_union_license_number_key"
+DETAIL:  Key (license_number)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/views/union_views.py", line 100, in post
+    union = service.create(
+            ^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/union_service.py", line 71, in create
+    union = Union.objects.create(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/debug_toolbar/panels/sql/tracking.py", line 235, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/debug_toolbar/panels/sql/tracking.py", line 160, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "organizations_union_license_number_key"
+DETAIL:  Key (license_number)=() already exists.
+
+[ERROR] 2026-07-24 19:21:11,099 log 345319 124173554783936 Internal Server Error: /api/v1/organizations/unions/
+[ERROR] 2026-07-24 19:21:11,100 basehttp 345319 124173554783936 "POST /api/v1/organizations/unions/ HTTP/1.1" 500 111
+[INFO] 2026-07-24 19:21:20,310 basehttp 345319 124173554783936 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 19:21:20,543 basehttp 345319 124173554783936 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 19:21:21,408 basehttp 345319 124173584156352 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 662
+[INFO] 2026-07-24 19:21:22,066 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 19:21:22,478 basehttp 345319 124173584156352 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 662
+[INFO] 2026-07-24 19:21:22,945 basehttp 345319 124173554783936 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[ERROR] 2026-07-24 19:22:33,313 api_exceptions 345319 124173554783936 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "organizations_union_license_number_key"
+DETAIL:  Key (license_number)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/views/union_views.py", line 100, in post
+    union = service.create(
+            ^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/union_service.py", line 71, in create
+    union = Union.objects.create(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/debug_toolbar/panels/sql/tracking.py", line 235, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/debug_toolbar/panels/sql/tracking.py", line 160, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "organizations_union_license_number_key"
+DETAIL:  Key (license_number)=() already exists.
+
+[ERROR] 2026-07-24 19:22:33,517 log 345319 124173554783936 Internal Server Error: /api/v1/organizations/unions/
+[ERROR] 2026-07-24 19:22:33,518 basehttp 345319 124173554783936 "POST /api/v1/organizations/unions/ HTTP/1.1" 500 111
+[ERROR] 2026-07-24 19:22:49,646 api_exceptions 345319 124173554783936 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "organizations_union_license_number_key"
+DETAIL:  Key (license_number)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/views/union_views.py", line 100, in post
+    union = service.create(
+            ^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/union_service.py", line 71, in create
+    union = Union.objects.create(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/debug_toolbar/panels/sql/tracking.py", line 235, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/debug_toolbar/panels/sql/tracking.py", line 160, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "organizations_union_license_number_key"
+DETAIL:  Key (license_number)=() already exists.
+
+[ERROR] 2026-07-24 19:22:49,777 log 345319 124173554783936 Internal Server Error: /api/v1/organizations/unions/
+[ERROR] 2026-07-24 19:22:49,778 basehttp 345319 124173554783936 "POST /api/v1/organizations/unions/ HTTP/1.1" 500 111
+[INFO] 2026-07-24 19:23:33,827 autoreload 576528 127058250555520 Watching for file changes with StatReloader
+[ERROR] 2026-07-24 19:23:39,076 api_exceptions 576528 127057522587328 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "organizations_union_license_number_key"
+DETAIL:  Key (license_number)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/views/union_views.py", line 100, in post
+    union = service.create(
+            ^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/union_service.py", line 71, in create
+    union = Union.objects.create(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/debug_toolbar/panels/sql/tracking.py", line 235, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/debug_toolbar/panels/sql/tracking.py", line 160, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "organizations_union_license_number_key"
+DETAIL:  Key (license_number)=() already exists.
+
+[ERROR] 2026-07-24 19:23:39,384 log 576528 127057522587328 Internal Server Error: /api/v1/organizations/unions/
+[ERROR] 2026-07-24 19:23:39,385 basehttp 576528 127057522587328 "POST /api/v1/organizations/unions/ HTTP/1.1" 500 111
+[INFO] 2026-07-24 19:25:25,175 signals 576528 127057522587328 Union created: اتحادیه صنف مرغ، ماهی و فرآورده‌های پروتئینی in chamber: اتاق اصناف شهرستان همدان
+[INFO] 2026-07-24 19:25:25,176 base_service 576528 127057522587328 Union created: اتحادیه صنف مرغ، ماهی و فرآورده‌های پروتئینی in chamber: اتاق اصناف شهرستان همدان
+[INFO] 2026-07-24 19:25:25,393 basehttp 576528 127057522587328 "POST /api/v1/organizations/unions/ HTTP/1.1" 201 969
+[INFO] 2026-07-24 19:25:25,735 basehttp 576528 127057522587328 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 964
+[INFO] 2026-07-24 19:30:45,988 signals 576528 127057522587328 Union created: اتحادیه صنف میوه و سبزی‌فروشان in chamber: اتاق اصناف شهرستان همدان
+[INFO] 2026-07-24 19:30:45,989 base_service 576528 127057522587328 Union created: اتحادیه صنف میوه و سبزی‌فروشان in chamber: اتاق اصناف شهرستان همدان
+[INFO] 2026-07-24 19:30:46,286 basehttp 576528 127057522587328 "POST /api/v1/organizations/unions/ HTTP/1.1" 201 959
+[INFO] 2026-07-24 19:30:46,718 basehttp 576528 127057522587328 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1241
+[INFO] 2026-07-24 19:33:07,628 signals 576528 127057522587328 Union created: اتحادیه صنف قنادان و آجیل‌فروشان شهرستان همدان in chamber: اتاق اصناف شهرستان همدان
+[INFO] 2026-07-24 19:33:07,629 base_service 576528 127057522587328 Union created: اتحادیه صنف قنادان و آجیل‌فروشان شهرستان همدان in chamber: اتاق اصناف شهرستان همدان
+[INFO] 2026-07-24 19:33:07,945 basehttp 576528 127057522587328 "POST /api/v1/organizations/unions/ HTTP/1.1" 201 1126
+[INFO] 2026-07-24 19:33:08,546 basehttp 576528 127057522587328 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-07-24 19:33:12,292 basehttp 576528 127057522587328 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:33:12,476 basehttp 576528 127057522587328 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:33:21,064 basehttp 576528 127057506854592 "GET /api/v1/products/units/ HTTP/1.1" 200 89
+[INFO] 2026-07-24 19:33:21,726 basehttp 576528 127057498461888 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 341
+[INFO] 2026-07-24 19:33:21,782 basehttp 576528 127057522587328 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 19:33:22,478 basehttp 576528 127057279317696 "GET /api/v1/products/units/ HTTP/1.1" 200 89
+[INFO] 2026-07-24 19:33:22,785 basehttp 576528 127057498461888 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 341
+[INFO] 2026-07-24 19:33:22,861 basehttp 576528 127057522587328 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 19:33:22,980 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:33:23,211 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:34:30,544 basehttp 576528 127057270924992 "GET /admin/accounts/user/ HTTP/1.1" 200 42472
+[INFO] 2026-07-24 19:34:30,601 basehttp 576528 127057262532288 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:30,611 basehttp 576528 127057262532288 "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:30,867 basehttp 576528 127057270924992 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:34:31,008 basehttp 576528 127057270924992 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:33,994 basehttp 576528 127057270924992 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66432
+[INFO] 2026-07-24 19:34:34,028 basehttp 576528 127057262532288 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:34,029 basehttp 576528 127057254139584 "GET /static/admin/js/collapse.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:34,048 basehttp 576528 127057245746880 "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:34,051 basehttp 576528 127057254139584 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:34,058 basehttp 576528 127057237354176 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:34,064 basehttp 576528 127057237354176 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:34,126 basehttp 576528 127057237354176 "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:34,202 basehttp 576528 127057270924992 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:34:34,408 basehttp 576528 127057270924992 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:34,409 basehttp 576528 127057237354176 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:34,409 basehttp 576528 127057254139584 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:34:43,297 basehttp 576528 127057237354176 "POST /admin/accounts/user/7/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:34:43,788 basehttp 576528 127057237354176 "GET /admin/accounts/user/ HTTP/1.1" 200 42708
+[INFO] 2026-07-24 19:34:44,051 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[WARNING] 2026-07-24 19:34:49,723 log 576528 127057506854592 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 19:34:49,724 basehttp 576528 127057506854592 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 19:35:05,292 base_service 576528 127057506854592 User logged in with password: 09184423221
+[INFO] 2026-07-24 19:35:05,546 basehttp 576528 127057506854592 "POST /api/v1/auth/login/ HTTP/1.1" 200 1140
+[INFO] 2026-07-24 19:35:06,563 basehttp 576528 127057522587328 "GET /api/v1/auth/me/ HTTP/1.1" 200 404
+[INFO] 2026-07-24 19:35:06,635 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:35:06,854 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:35:10,347 basehttp 576528 127057506854592 "OPTIONS /api/v1/stores/my-stores/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:35:10,348 basehttp 576528 127057522587328 "OPTIONS /api/v1/stores/my-stores/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:35:10,621 basehttp 576528 127057522587328 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:35:10,863 basehttp 576528 127057522587328 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:35:15,153 basehttp 576528 127057506854592 "OPTIONS /api/v1/geography/provinces/?page_size=50 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:35:15,154 basehttp 576528 127057498461888 "OPTIONS /api/v1/geography/provinces/?page_size=50 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:35:15,553 basehttp 576528 127057522587328 "GET /api/v1/auth/me/ HTTP/1.1" 200 404
+[INFO] 2026-07-24 19:35:15,728 basehttp 576528 127057498461888 "GET /api/v1/geography/provinces/?page_size=50 HTTP/1.1" 200 152
+[INFO] 2026-07-24 19:35:15,947 basehttp 576528 127057522587328 "GET /api/v1/auth/me/ HTTP/1.1" 200 404
+[INFO] 2026-07-24 19:35:16,098 basehttp 576528 127057498461888 "GET /api/v1/geography/provinces/?page_size=50 HTTP/1.1" 200 152
+[INFO] 2026-07-24 19:35:18,567 basehttp 576528 127057498461888 "GET /api/v1/geography/provinces/1/cities/ HTTP/1.1" 200 566
+[INFO] 2026-07-24 19:35:20,485 basehttp 576528 127057498461888 "OPTIONS /api/v1/organizations/unions/?city=1&page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:35:21,223 basehttp 576528 127057498461888 "GET /api/v1/organizations/unions/?city=1&page_size=100 HTTP/1.1" 200 1548
+[INFO] 2026-07-24 19:36:11,631 basehttp 576528 127057498461888 "OPTIONS /api/v1/stores/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:36:11,772 signals 576528 127057498461888 New store registered: فروشگاه تست in union: اتحادیه صنف خواربار و بنکداران شهرستان همدان
+[INFO] 2026-07-24 19:36:11,773 base_service 576528 127057498461888 Store registered: فروشگاه تست in union: اتحادیه صنف خواربار و بنکداران شهرستان همدان
+[INFO] 2026-07-24 19:36:12,171 basehttp 576528 127057498461888 "POST /api/v1/stores/ HTTP/1.1" 201 904
+[INFO] 2026-07-24 19:36:17,447 basehttp 576528 127057498461888 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 404
+[INFO] 2026-07-24 19:36:17,859 basehttp 576528 127057498461888 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 404
+[WARNING] 2026-07-24 19:36:19,137 log 576528 127057498461888 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 19:36:19,138 basehttp 576528 127057498461888 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[WARNING] 2026-07-24 19:36:29,130 log 576528 127057498461888 Bad Request: /api/v1/auth/login/
+[WARNING] 2026-07-24 19:36:29,131 basehttp 576528 127057498461888 "POST /api/v1/auth/login/ HTTP/1.1" 400 175
+[INFO] 2026-07-24 19:36:34,145 base_service 576528 127057498461888 User logged in with password: 09056419609
+[INFO] 2026-07-24 19:36:34,371 basehttp 576528 127057498461888 "POST /api/v1/auth/login/ HTTP/1.1" 200 1128
+[INFO] 2026-07-24 19:36:35,183 basehttp 576528 127057498461888 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:36:35,447 basehttp 576528 127057498461888 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:36:37,249 basehttp 576528 127057498461888 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:36:37,485 basehttp 576528 127057498461888 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:36:56,258 basehttp 576528 127057237354176 "GET /admin/stores/store/ HTTP/1.1" 200 42700
+[INFO] 2026-07-24 19:36:56,450 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:37:04,090 basehttp 576528 127057237354176 "GET /admin/accounts/user/ HTTP/1.1" 200 42483
+[INFO] 2026-07-24 19:37:04,327 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:37:05,908 basehttp 576528 127057237354176 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 19:37:06,109 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:37:13,751 basehttp 576528 127057237354176 "POST /admin/accounts/user/7/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:37:14,242 basehttp 576528 127057237354176 "GET /admin/accounts/user/ HTTP/1.1" 200 42708
+[INFO] 2026-07-24 19:37:14,537 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[WARNING] 2026-07-24 19:37:19,461 log 576528 127057498461888 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 19:37:19,461 basehttp 576528 127057498461888 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 19:37:34,756 base_service 576528 127057498461888 User logged in with password: 09184423221
+[INFO] 2026-07-24 19:37:34,972 basehttp 576528 127057498461888 "POST /api/v1/auth/login/ HTTP/1.1" 200 1147
+[INFO] 2026-07-24 19:37:35,824 basehttp 576528 127057498461888 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:37:36,067 basehttp 576528 127057498461888 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:37:40,204 basehttp 576528 127057498461888 "OPTIONS /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:37:40,206 basehttp 576528 127057522587328 "OPTIONS /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:37:40,512 basehttp 576528 127057522587328 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:37:40,827 basehttp 576528 127057522587328 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:37:48,348 basehttp 576528 127057498461888 "OPTIONS /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:37:48,348 basehttp 576528 127057279317696 "OPTIONS /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:37:48,906 basehttp 576528 127057522587328 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:37:49,062 basehttp 576528 127057506854592 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 19:37:49,420 basehttp 576528 127057279317696 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:37:49,790 basehttp 576528 127057498461888 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:37:49,792 basehttp 576528 127057506854592 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 19:37:49,860 basehttp 576528 127057279317696 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:37:54,697 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:37:54,956 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 109
+[WARNING] 2026-07-24 19:38:01,829 log 576528 127057279317696 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 19:38:01,830 basehttp 576528 127057279317696 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 19:38:07,292 basehttp 576528 127057237354176 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 19:38:07,544 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:38:15,933 basehttp 576528 127057237354176 "POST /admin/accounts/user/7/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:38:16,450 basehttp 576528 127057237354176 "GET /admin/accounts/user/ HTTP/1.1" 200 42695
+[INFO] 2026-07-24 19:38:16,660 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:38:26,723 base_service 576528 127057279317696 User logged in with password: 09184423221
+[INFO] 2026-07-24 19:38:26,845 basehttp 576528 127057279317696 "POST /api/v1/auth/login/ HTTP/1.1" 200 1119
+[INFO] 2026-07-24 19:38:27,868 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:38:28,135 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:38:30,894 basehttp 576528 127057506854592 "OPTIONS /api/v1/stores/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:38:30,894 basehttp 576528 127057279317696 "OPTIONS /api/v1/stores/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:38:31,139 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:38:31,420 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:38:34,274 basehttp 576528 127057506854592 "OPTIONS /api/v1/pricing/overpriced/?page=1&page_size=15&ordering=-violation_amount HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:38:34,274 basehttp 576528 127057279317696 "OPTIONS /api/v1/pricing/overpriced/?page=1&page_size=15&ordering=-violation_amount HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:38:34,585 basehttp 576528 127057279317696 "GET /api/v1/pricing/overpriced/?page=1&page_size=15&ordering=-violation_amount HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:38:34,849 basehttp 576528 127057279317696 "GET /api/v1/pricing/overpriced/?page=1&page_size=15&ordering=-violation_amount HTTP/1.1" 200 26
+[WARNING] 2026-07-24 19:38:36,992 log 576528 127057279317696 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:38:36,993 basehttp 576528 127057279317696 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 19:38:37,157 log 576528 127057279317696 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:38:37,158 basehttp 576528 127057279317696 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:38:38,913 basehttp 576528 127057279317696 "OPTIONS /api/v1/complaints/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:38:38,913 basehttp 576528 127057498461888 "OPTIONS /api/v1/complaints/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:38:39,285 basehttp 576528 127057506854592 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[WARNING] 2026-07-24 19:38:39,307 log 576528 127057498461888 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:38:39,309 basehttp 576528 127057498461888 "GET /api/v1/complaints/?page_size=5 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:38:39,578 basehttp 576528 127057279317696 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[WARNING] 2026-07-24 19:38:39,653 log 576528 127057498461888 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:38:39,654 basehttp 576528 127057498461888 "GET /api/v1/complaints/?page_size=5 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 19:38:46,313 log 576528 127057498461888 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 19:38:46,317 basehttp 576528 127057498461888 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 19:38:50,493 basehttp 576528 127057237354176 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 19:38:50,715 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:39:02,903 basehttp 576528 127057237354176 "POST /admin/accounts/user/7/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:39:03,424 basehttp 576528 127057237354176 "GET /admin/accounts/user/ HTTP/1.1" 200 42713
+[INFO] 2026-07-24 19:39:03,634 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:39:17,050 base_service 576528 127057498461888 User logged in with password: 09184423221
+[INFO] 2026-07-24 19:39:17,275 basehttp 576528 127057498461888 "POST /api/v1/auth/login/ HTTP/1.1" 200 1159
+[WARNING] 2026-07-24 19:39:18,545 log 576528 127057498461888 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:39:18,547 basehttp 576528 127057498461888 "GET /api/v1/complaints/?page_size=5 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:39:18,872 basehttp 576528 127057279317696 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[WARNING] 2026-07-24 19:39:19,158 log 576528 127057498461888 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:39:19,164 basehttp 576528 127057498461888 "GET /api/v1/complaints/?page_size=5 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:39:19,313 basehttp 576528 127057279317696 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:39:21,590 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:39:21,808 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:39:28,076 basehttp 576528 127057279317696 "OPTIONS /api/v1/stores/pending/?page_size=50 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:39:28,080 basehttp 576528 127057498461888 "OPTIONS /api/v1/stores/pending/?page_size=50 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:39:28,469 basehttp 576528 127057279317696 "GET /api/v1/stores/pending/?page_size=50 HTTP/1.1" 200 487
+[INFO] 2026-07-24 19:39:28,834 basehttp 576528 127057279317696 "GET /api/v1/stores/pending/?page_size=50 HTTP/1.1" 200 487
+[INFO] 2026-07-24 19:39:52,161 basehttp 576528 127057237354176 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66432
+[INFO] 2026-07-24 19:39:52,373 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:39:58,738 basehttp 576528 127057237354176 "POST /admin/accounts/user/7/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:39:59,103 basehttp 576528 127057237354176 "GET /admin/accounts/user/ HTTP/1.1" 200 42708
+[INFO] 2026-07-24 19:39:59,323 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[WARNING] 2026-07-24 19:40:04,955 log 576528 127057279317696 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 19:40:04,955 basehttp 576528 127057279317696 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 19:40:17,238 base_service 576528 127057279317696 User logged in with password: 09184423221
+[INFO] 2026-07-24 19:40:17,483 basehttp 576528 127057279317696 "POST /api/v1/auth/login/ HTTP/1.1" 200 1147
+[INFO] 2026-07-24 19:40:18,543 basehttp 576528 127057279317696 "GET /api/v1/stores/pending/?page_size=50 HTTP/1.1" 200 487
+[INFO] 2026-07-24 19:40:18,884 basehttp 576528 127057279317696 "GET /api/v1/stores/pending/?page_size=50 HTTP/1.1" 200 487
+[INFO] 2026-07-24 19:40:25,674 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:40:25,878 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:40:28,126 basehttp 576528 127057498461888 "OPTIONS /api/v1/products/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:40:28,137 basehttp 576528 127057245746880 "OPTIONS /api/v1/pricing/official-prices/today/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:40:28,143 basehttp 576528 127057506854592 "OPTIONS /api/v1/pricing/official-prices/today/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:40:28,145 basehttp 576528 127057522587328 "OPTIONS /api/v1/products/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:40:28,855 basehttp 576528 127057279317696 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-07-24 19:40:28,866 basehttp 576528 127057498461888 "GET /api/v1/products/?page_size=200 HTTP/1.1" 200 341
+[WARNING] 2026-07-24 19:40:28,886 log 576528 127057245746880 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-24 19:40:28,887 basehttp 576528 127057245746880 "GET /api/v1/pricing/official-prices/today/ HTTP/1.1" 400 75
+[INFO] 2026-07-24 19:40:29,288 basehttp 576528 127057279317696 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[WARNING] 2026-07-24 19:40:29,384 log 576528 127057245746880 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-24 19:40:29,387 basehttp 576528 127057245746880 "GET /api/v1/pricing/official-prices/today/ HTTP/1.1" 400 75
+[INFO] 2026-07-24 19:40:29,505 basehttp 576528 127057498461888 "GET /api/v1/products/?page_size=200 HTTP/1.1" 200 341
+[INFO] 2026-07-24 19:40:31,123 basehttp 576528 127057498461888 "OPTIONS /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:40:31,125 basehttp 576528 127057245746880 "OPTIONS /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:40:31,361 basehttp 576528 127057498461888 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:40:31,596 basehttp 576528 127057498461888 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:40:35,205 basehttp 576528 127057498461888 "OPTIONS /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:40:35,205 basehttp 576528 127057245746880 "OPTIONS /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 200 0
+[WARNING] 2026-07-24 19:40:35,355 log 576528 127057498461888 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-07-24 19:40:35,356 basehttp 576528 127057498461888 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-07-24 19:40:35,576 log 576528 127057498461888 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-07-24 19:40:35,577 basehttp 576528 127057498461888 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-07-24 19:40:38,797 log 576528 127057498461888 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:40:38,798 basehttp 576528 127057498461888 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 19:40:38,999 log 576528 127057498461888 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:40:39,000 basehttp 576528 127057498461888 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:40:41,513 basehttp 576528 127057279317696 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 19:40:42,066 basehttp 576528 127057498461888 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:40:42,356 basehttp 576528 127057245746880 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:40:42,615 basehttp 576528 127057506854592 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 19:40:42,720 basehttp 576528 127057498461888 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:40:42,846 basehttp 576528 127057279317696 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:40:45,839 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:40:46,059 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:40:48,203 basehttp 576528 127057498461888 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 19:40:48,406 basehttp 576528 127057279317696 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:40:48,676 basehttp 576528 127057498461888 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 19:40:48,758 basehttp 576528 127057279317696 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 109
+[WARNING] 2026-07-24 19:40:58,939 log 576528 127057279317696 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-07-24 19:40:58,940 basehttp 576528 127057279317696 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-07-24 19:40:59,098 log 576528 127057279317696 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-07-24 19:40:59,099 basehttp 576528 127057279317696 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-07-24 19:41:00,828 log 576528 127057279317696 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 19:41:00,829 basehttp 576528 127057279317696 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 19:41:07,391 basehttp 576528 127057237354176 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 19:41:07,600 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:41:13,524 basehttp 576528 127057237354176 "POST /admin/accounts/user/7/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:41:13,961 basehttp 576528 127057237354176 "GET /admin/accounts/user/ HTTP/1.1" 200 42713
+[INFO] 2026-07-24 19:41:14,213 basehttp 576528 127057237354176 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:41:27,248 base_service 576528 127057279317696 User logged in with password: 09184423221
+[INFO] 2026-07-24 19:41:27,417 basehttp 576528 127057279317696 "POST /api/v1/auth/login/ HTTP/1.1" 200 1159
+[WARNING] 2026-07-24 19:41:28,324 log 576528 127057279317696 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-07-24 19:41:28,324 basehttp 576528 127057279317696 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-07-24 19:41:28,536 log 576528 127057279317696 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-07-24 19:41:28,538 basehttp 576528 127057279317696 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[INFO] 2026-07-24 19:41:30,259 basehttp 576528 127057279317696 "GET /api/v1/stores/pending/?page_size=50 HTTP/1.1" 200 487
+[INFO] 2026-07-24 19:41:30,693 basehttp 576528 127057279317696 "GET /api/v1/stores/pending/?page_size=50 HTTP/1.1" 200 487
+[INFO] 2026-07-24 19:41:32,545 basehttp 576528 127057279317696 "OPTIONS /api/v1/stores/3/documents/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:41:32,893 basehttp 576528 127057279317696 "GET /api/v1/stores/3/documents/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:41:51,980 basehttp 576528 127057279317696 "OPTIONS /api/v1/stores/3/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:41:51,982 basehttp 576528 127057498461888 "OPTIONS /api/v1/stores/3/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:41:52,348 basehttp 576528 127057279317696 "GET /api/v1/stores/3/ HTTP/1.1" 200 808
+[INFO] 2026-07-24 19:41:52,966 basehttp 576528 127057279317696 "GET /api/v1/stores/3/ HTTP/1.1" 200 808
+[INFO] 2026-07-24 19:41:53,109 basehttp 576528 127057498461888 "GET /api/v1/stores/3/documents/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:41:53,117 basehttp 576528 127057279317696 "OPTIONS /api/v1/complaints/?store=3&page_size=20 HTTP/1.1" 200 0
+[WARNING] 2026-07-24 19:41:53,505 log 576528 127057279317696 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:41:53,511 basehttp 576528 127057279317696 "GET /api/v1/complaints/?store=3&page_size=20 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:41:53,809 basehttp 576528 127057498461888 "GET /api/v1/stores/3/documents/ HTTP/1.1" 200 26
+[WARNING] 2026-07-24 19:41:53,975 log 576528 127057498461888 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:41:53,975 basehttp 576528 127057498461888 "GET /api/v1/complaints/?store=3&page_size=20 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:42:11,871 basehttp 576528 127057498461888 "OPTIONS /api/v1/stores/3/approve/ HTTP/1.1" 200 0
+[WARNING] 2026-07-24 19:42:12,148 log 576528 127057498461888 Bad Request: /api/v1/stores/3/approve/
+[WARNING] 2026-07-24 19:42:12,148 basehttp 576528 127057498461888 "POST /api/v1/stores/3/approve/ HTTP/1.1" 400 153
+[WARNING] 2026-07-24 19:42:14,021 log 576528 127057498461888 Bad Request: /api/v1/stores/3/approve/
+[WARNING] 2026-07-24 19:42:14,022 basehttp 576528 127057498461888 "POST /api/v1/stores/3/approve/ HTTP/1.1" 400 153
+[WARNING] 2026-07-24 19:42:28,074 log 576528 127057498461888 Bad Request: /api/v1/stores/3/approve/
+[WARNING] 2026-07-24 19:42:28,075 basehttp 576528 127057498461888 "POST /api/v1/stores/3/approve/ HTTP/1.1" 400 153
+[WARNING] 2026-07-24 19:45:46,714 log 576528 127057498461888 Bad Request: /api/v1/stores/3/approve/
+[WARNING] 2026-07-24 19:45:46,715 basehttp 576528 127057498461888 "POST /api/v1/stores/3/approve/ HTTP/1.1" 400 153
+[INFO] 2026-07-24 19:45:59,126 basehttp 576528 127057498461888 "GET /api/v1/auth/me/ HTTP/1.1" 200 413
+[INFO] 2026-07-24 19:45:59,267 basehttp 576528 127057498461888 "GET /api/v1/auth/me/ HTTP/1.1" 200 413
+[INFO] 2026-07-24 19:45:59,717 basehttp 576528 127057498461888 "GET /api/v1/stores/3/ HTTP/1.1" 200 808
+[INFO] 2026-07-24 19:46:00,188 basehttp 576528 127057498461888 "GET /api/v1/stores/3/ HTTP/1.1" 200 808
+[INFO] 2026-07-24 19:46:00,188 basehttp 576528 127057279317696 "GET /api/v1/stores/3/documents/ HTTP/1.1" 200 26
+[WARNING] 2026-07-24 19:46:00,424 log 576528 127057279317696 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:46:00,425 basehttp 576528 127057279317696 "GET /api/v1/complaints/?store=3&page_size=20 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:46:00,509 basehttp 576528 127057498461888 "GET /api/v1/stores/3/documents/ HTTP/1.1" 200 26
+[WARNING] 2026-07-24 19:46:00,673 log 576528 127057498461888 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:46:00,673 basehttp 576528 127057498461888 "GET /api/v1/complaints/?store=3&page_size=20 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:46:55,377 basehttp 576528 127057506854592 "GET /admin/stores/store/ HTTP/1.1" 200 42698
+[INFO] 2026-07-24 19:46:55,512 basehttp 576528 127057506854592 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:46:59,743 basehttp 576528 127057506854592 "GET /admin/stores/store/3/change/ HTTP/1.1" 200 54854
+[INFO] 2026-07-24 19:46:59,781 basehttp 576528 127057237354176 "GET /static/admin/css/vendor/select2/select2.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:46:59,785 basehttp 576528 127057254139584 "GET /static/admin/js/vendor/select2/i18n/en.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:46:59,786 basehttp 576528 127057245746880 "GET /static/admin/js/vendor/select2/select2.full.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:46:59,787 basehttp 576528 127057522587328 "GET /static/admin/css/autocomplete.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:46:59,797 basehttp 576528 127057270924992 "GET /static/admin/js/autocomplete.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:46:59,812 basehttp 576528 127057522587328 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:46:59,908 basehttp 576528 127057506854592 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:47:06,376 basehttp 576528 127057506854592 "POST /admin/stores/store/3/change/ HTTP/1.1" 200 54997
+[INFO] 2026-07-24 19:47:06,512 basehttp 576528 127057506854592 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:47:09,832 basehttp 576528 127057506854592 "GET /admin/autocomplete/?app_label=stores&model_name=store&field_name=owner HTTP/1.1" 200 46
+[INFO] 2026-07-24 19:47:10,093 basehttp 576528 127057506854592 "GET /__debug__/history_sidebar/?store_id=ecb19b3f88334785859e80e7a274d1d8 HTTP/1.1" 200 10290
+[INFO] 2026-07-24 19:47:16,458 basehttp 576528 127057522587328 "GET /admin/accounts/user/add/?_to_field=id&_popup=1 HTTP/1.1" 200 23051
+[INFO] 2026-07-24 19:47:16,808 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:47:31,178 basehttp 576528 127057522587328 "GET /admin/accounts/role/ HTTP/1.1" 200 35780
+[INFO] 2026-07-24 19:47:31,344 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:47:37,046 basehttp 576528 127057522587328 "GET /admin/accounts/user/ HTTP/1.1" 200 42488
+[INFO] 2026-07-24 19:47:37,280 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:47:43,454 basehttp 576528 127057522587328 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 19:47:43,708 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:47:50,595 basehttp 576528 127057522587328 "POST /admin/accounts/user/7/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:47:51,225 basehttp 576528 127057522587328 "GET /admin/accounts/user/ HTTP/1.1" 200 42708
+[INFO] 2026-07-24 19:47:51,532 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[WARNING] 2026-07-24 19:48:05,998 log 576528 127057498461888 Forbidden: /api/v1/stores/3/approve/
+[WARNING] 2026-07-24 19:48:05,998 basehttp 576528 127057498461888 "POST /api/v1/stores/3/approve/ HTTP/1.1" 403 245
+[WARNING] 2026-07-24 19:48:06,953 log 576528 127057498461888 Forbidden: /api/v1/stores/3/approve/
+[WARNING] 2026-07-24 19:48:06,954 basehttp 576528 127057498461888 "POST /api/v1/stores/3/approve/ HTTP/1.1" 403 245
+[INFO] 2026-07-24 19:48:24,000 basehttp 576528 127057522587328 "GET /admin/stores/store/ HTTP/1.1" 200 42700
+[INFO] 2026-07-24 19:48:24,134 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:48:26,513 basehttp 576528 127057522587328 "GET /admin/stores/store/3/change/ HTTP/1.1" 200 54921
+[INFO] 2026-07-24 19:48:26,733 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:48:32,492 signals 576528 127057522587328 Store status changed: فروشگاه تست pending → active
+[INFO] 2026-07-24 19:48:32,866 basehttp 576528 127057522587328 "POST /admin/stores/store/3/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:48:34,220 basehttp 576528 127057522587328 "GET /admin/stores/store/ HTTP/1.1" 200 42906
+[INFO] 2026-07-24 19:48:34,453 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:48:44,311 basehttp 576528 127057522587328 "POST /admin/stores/store/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:48:45,741 basehttp 576528 127057522587328 "GET /admin/stores/store/ HTTP/1.1" 200 42680
+[INFO] 2026-07-24 19:48:46,053 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[WARNING] 2026-07-24 19:48:51,118 log 576528 127057498461888 Forbidden: /api/v1/stores/3/approve/
+[WARNING] 2026-07-24 19:48:51,119 basehttp 576528 127057498461888 "POST /api/v1/stores/3/approve/ HTTP/1.1" 403 245
+[INFO] 2026-07-24 19:48:56,696 basehttp 576528 127057498461888 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:48:56,697 basehttp 576528 127057279317696 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:48:56,852 basehttp 576528 127057498461888 "GET /api/v1/auth/me/ HTTP/1.1" 200 404
+[INFO] 2026-07-24 19:48:57,100 basehttp 576528 127057498461888 "GET /api/v1/auth/me/ HTTP/1.1" 200 404
+[INFO] 2026-07-24 19:48:57,490 basehttp 576528 127057498461888 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[INFO] 2026-07-24 19:48:58,231 basehttp 576528 127057279317696 "GET /api/v1/stores/3/documents/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:48:58,461 basehttp 576528 127057498461888 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[WARNING] 2026-07-24 19:48:58,685 log 576528 127057279317696 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:48:58,690 basehttp 576528 127057279317696 "GET /api/v1/complaints/?store=3&page_size=20 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:48:58,904 basehttp 576528 127057498461888 "GET /api/v1/stores/3/documents/ HTTP/1.1" 200 26
+[WARNING] 2026-07-24 19:48:59,095 log 576528 127057498461888 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:48:59,096 basehttp 576528 127057498461888 "GET /api/v1/complaints/?store=3&page_size=20 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:49:07,526 basehttp 576528 127057498461888 "OPTIONS /api/v1/stores/3/suspend/ HTTP/1.1" 200 0
+[WARNING] 2026-07-24 19:49:07,755 log 576528 127057498461888 Forbidden: /api/v1/stores/3/suspend/
+[WARNING] 2026-07-24 19:49:07,757 basehttp 576528 127057498461888 "POST /api/v1/stores/3/suspend/ HTTP/1.1" 403 245
+[WARNING] 2026-07-24 19:49:10,587 log 576528 127057498461888 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 19:49:10,588 basehttp 576528 127057498461888 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 19:49:18,941 basehttp 576528 127057498461888 "OPTIONS /api/v1/auth/login/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:49:19,263 base_service 576528 127057498461888 User logged in with password: 09184423221
+[INFO] 2026-07-24 19:49:19,424 basehttp 576528 127057498461888 "POST /api/v1/auth/login/ HTTP/1.1" 200 1140
+[INFO] 2026-07-24 19:49:20,442 basehttp 576528 127057498461888 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[INFO] 2026-07-24 19:49:21,048 basehttp 576528 127057279317696 "GET /api/v1/stores/3/documents/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:49:21,328 basehttp 576528 127057498461888 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[WARNING] 2026-07-24 19:49:21,451 log 576528 127057279317696 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:49:21,464 basehttp 576528 127057279317696 "GET /api/v1/complaints/?store=3&page_size=20 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:49:21,660 basehttp 576528 127057498461888 "GET /api/v1/stores/3/documents/ HTTP/1.1" 200 26
+[WARNING] 2026-07-24 19:49:21,895 log 576528 127057498461888 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:49:21,895 basehttp 576528 127057498461888 "GET /api/v1/complaints/?store=3&page_size=20 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:49:22,610 basehttp 576528 127057498461888 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 383
+[INFO] 2026-07-24 19:49:22,988 basehttp 576528 127057498461888 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 383
+[INFO] 2026-07-24 19:49:28,641 basehttp 576528 127057498461888 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[INFO] 2026-07-24 19:49:28,980 basehttp 576528 127057498461888 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[INFO] 2026-07-24 19:49:34,867 basehttp 576528 127057498461888 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 383
+[INFO] 2026-07-24 19:49:35,206 basehttp 576528 127057498461888 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 383
+[INFO] 2026-07-24 19:49:42,439 basehttp 576528 127057498461888 "GET /api/v1/auth/me/ HTTP/1.1" 200 404
+[INFO] 2026-07-24 19:49:42,754 basehttp 576528 127057279317696 "GET /api/v1/geography/provinces/?page_size=50 HTTP/1.1" 200 152
+[INFO] 2026-07-24 19:49:43,513 basehttp 576528 127057498461888 "GET /api/v1/auth/me/ HTTP/1.1" 200 404
+[INFO] 2026-07-24 19:49:43,651 basehttp 576528 127057262532288 "GET /api/v1/geography/provinces/?page_size=50 HTTP/1.1" 200 152
+[INFO] 2026-07-24 19:49:43,821 basehttp 576528 127057506854592 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 383
+[INFO] 2026-07-24 19:49:44,215 basehttp 576528 127057506854592 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 383
+[INFO] 2026-07-24 19:49:45,546 basehttp 576528 127057506854592 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[INFO] 2026-07-24 19:49:45,822 basehttp 576528 127057506854592 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[INFO] 2026-07-24 19:49:48,294 basehttp 576528 127057506854592 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 383
+[INFO] 2026-07-24 19:49:48,538 basehttp 576528 127057506854592 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 383
+[INFO] 2026-07-24 19:50:03,496 basehttp 576528 127057522587328 "GET /admin/accounts/user/ HTTP/1.1" 200 42483
+[INFO] 2026-07-24 19:50:03,731 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:50:06,609 basehttp 576528 127057522587328 "GET /admin/accounts/user/4/change/ HTTP/1.1" 200 66477
+[INFO] 2026-07-24 19:50:06,769 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:50:16,129 basehttp 576528 127057522587328 "POST /admin/accounts/user/4/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:50:16,691 basehttp 576528 127057522587328 "GET /admin/accounts/user/ HTTP/1.1" 200 42721
+[INFO] 2026-07-24 19:50:17,007 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[WARNING] 2026-07-24 19:50:21,559 log 576528 127057506854592 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 19:50:21,560 basehttp 576528 127057506854592 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 19:50:31,380 base_service 576528 127057506854592 User logged in with password: 09056419609
+[INFO] 2026-07-24 19:50:31,549 basehttp 576528 127057506854592 "POST /api/v1/auth/login/ HTTP/1.1" 200 1177
+[INFO] 2026-07-24 19:50:32,325 basehttp 576528 127057506854592 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:50:32,527 basehttp 576528 127057506854592 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:50:34,899 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=15 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:50:35,187 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=15 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:50:37,781 basehttp 576528 127057506854592 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[INFO] 2026-07-24 19:50:38,215 basehttp 576528 127057262532288 "GET /api/v1/stores/3/documents/ HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:50:38,550 basehttp 576528 127057506854592 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[WARNING] 2026-07-24 19:50:38,717 log 576528 127057262532288 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:50:38,719 basehttp 576528 127057262532288 "GET /api/v1/complaints/?store=3&page_size=20 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:50:38,996 basehttp 576528 127057506854592 "GET /api/v1/stores/3/documents/ HTTP/1.1" 200 26
+[WARNING] 2026-07-24 19:50:39,184 log 576528 127057506854592 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 19:50:39,184 basehttp 576528 127057506854592 "GET /api/v1/complaints/?store=3&page_size=20 HTTP/1.1" 405 137
+[INFO] 2026-07-24 19:50:43,871 basehttp 576528 127057506854592 "GET /api/v1/stores/pending/?page_size=50 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:50:44,063 basehttp 576528 127057506854592 "GET /api/v1/stores/pending/?page_size=50 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:50:45,497 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=15 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:50:45,790 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=15 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:50:58,733 basehttp 576528 127057522587328 "GET /admin/accounts/user/4/change/ HTTP/1.1" 200 66479
+[INFO] 2026-07-24 19:50:59,006 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:51:07,827 basehttp 576528 127057522587328 "POST /admin/accounts/user/4/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:51:08,331 basehttp 576528 127057522587328 "GET /admin/accounts/user/ HTTP/1.1" 200 42716
+[INFO] 2026-07-24 19:51:08,600 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[WARNING] 2026-07-24 19:51:13,230 log 576528 127057506854592 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 19:51:13,230 basehttp 576528 127057506854592 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 19:51:26,599 base_service 576528 127057506854592 User logged in with password: 09056419609
+[INFO] 2026-07-24 19:51:26,723 basehttp 576528 127057506854592 "POST /api/v1/auth/login/ HTTP/1.1" 200 1165
+[INFO] 2026-07-24 19:51:27,691 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=15 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:51:27,907 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=15 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:51:33,018 basehttp 576528 127057506854592 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:51:33,249 basehttp 576528 127057506854592 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:51:37,792 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:51:38,065 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:51:39,015 basehttp 576528 127057506854592 "OPTIONS /api/v1/pricing/store-prices/today/?store=3 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:51:39,393 basehttp 576528 127057506854592 "GET /api/v1/pricing/store-prices/today/?store=3 HTTP/1.1" 200 26
+[INFO] 2026-07-24 19:51:47,132 basehttp 576528 127057498461888 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:51:47,142 basehttp 576528 127057279317696 "OPTIONS /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:51:47,144 basehttp 576528 127057262532288 "OPTIONS /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:51:47,149 basehttp 576528 127057506854592 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:51:47,452 basehttp 576528 127057506854592 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 19:51:47,746 basehttp 576528 127057498461888 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:51:47,960 basehttp 576528 127057506854592 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 19:51:48,127 basehttp 576528 127057498461888 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:51:51,555 basehttp 576528 127057498461888 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:51:51,825 basehttp 576528 127057498461888 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:51:52,937 basehttp 576528 127057498461888 "GET /api/v1/auth/me/ HTTP/1.1" 200 424
+[WARNING] 2026-07-24 19:51:53,171 log 576528 127057262532288 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-24 19:51:53,175 basehttp 576528 127057262532288 "GET /api/v1/pricing/official-prices/today/ HTTP/1.1" 400 75
+[INFO] 2026-07-24 19:51:53,580 basehttp 576528 127057506854592 "GET /api/v1/products/?page_size=200 HTTP/1.1" 200 341
+[INFO] 2026-07-24 19:51:53,955 basehttp 576528 127057498461888 "GET /api/v1/auth/me/ HTTP/1.1" 200 424
+[WARNING] 2026-07-24 19:51:54,161 log 576528 127057262532288 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-24 19:51:54,162 basehttp 576528 127057262532288 "GET /api/v1/pricing/official-prices/today/ HTTP/1.1" 400 75
+[INFO] 2026-07-24 19:51:54,255 basehttp 576528 127057506854592 "GET /api/v1/products/?page_size=200 HTTP/1.1" 200 341
+[WARNING] 2026-07-24 19:52:00,016 log 576528 127057506854592 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-07-24 19:52:00,016 basehttp 576528 127057506854592 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-07-24 19:52:00,121 log 576528 127057506854592 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-07-24 19:52:00,121 basehttp 576528 127057506854592 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-07-24 19:52:03,632 log 576528 127057506854592 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 19:52:03,632 basehttp 576528 127057506854592 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 19:52:09,008 basehttp 576528 127057522587328 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 19:52:09,042 basehttp 576528 127057270924992 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:52:09,044 basehttp 576528 127057254139584 "GET /static/admin/js/collapse.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:52:09,045 basehttp 576528 127057245746880 "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:52:09,052 basehttp 576528 127057237354176 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:52:09,055 basehttp 576528 127057245746880 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:52:09,072 basehttp 576528 127057237354176 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:52:09,116 basehttp 576528 127057237354176 "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:52:09,201 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:52:09,362 basehttp 576528 127057522587328 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:52:09,373 basehttp 576528 127057522587328 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:52:09,375 basehttp 576528 127057237354176 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:52:11,762 basehttp 576528 127057522587328 "GET /admin/accounts/user/ HTTP/1.1" 200 42491
+[INFO] 2026-07-24 19:52:23,712 base_service 576528 127057506854592 User logged in with password: 09184423221
+[INFO] 2026-07-24 19:52:24,093 basehttp 576528 127057506854592 "POST /api/v1/auth/login/ HTTP/1.1" 200 1140
+[WARNING] 2026-07-24 19:52:24,779 log 576528 127057506854592 Forbidden: /api/v1/pricing/history/
+[WARNING] 2026-07-24 19:52:24,780 basehttp 576528 127057506854592 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 403 249
+[WARNING] 2026-07-24 19:52:24,947 log 576528 127057506854592 Forbidden: /api/v1/pricing/history/
+[WARNING] 2026-07-24 19:52:24,948 basehttp 576528 127057506854592 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 403 249
+[INFO] 2026-07-24 19:52:29,860 basehttp 576528 127057506854592 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 383
+[INFO] 2026-07-24 19:52:30,186 basehttp 576528 127057506854592 "GET /api/v1/stores/my-stores/ HTTP/1.1" 200 383
+[INFO] 2026-07-24 19:52:33,215 basehttp 576528 127057506854592 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[INFO] 2026-07-24 19:52:33,488 basehttp 576528 127057506854592 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[WARNING] 2026-07-24 19:52:52,476 log 576528 127057506854592 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 19:52:52,477 basehttp 576528 127057506854592 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 19:53:02,566 base_service 576528 127057506854592 User logged in with password: 09056419609
+[INFO] 2026-07-24 19:53:02,795 basehttp 576528 127057506854592 "POST /api/v1/auth/login/ HTTP/1.1" 200 1165
+[INFO] 2026-07-24 19:53:03,926 basehttp 576528 127057506854592 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[INFO] 2026-07-24 19:53:04,280 basehttp 576528 127057506854592 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[INFO] 2026-07-24 19:53:09,831 basehttp 576528 127057522587328 "GET /admin/accounts/user/4/change/ HTTP/1.1" 200 66477
+[INFO] 2026-07-24 19:53:10,078 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:53:14,938 basehttp 576528 127057522587328 "POST /admin/accounts/user/4/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:53:15,272 basehttp 576528 127057522587328 "GET /admin/accounts/user/ HTTP/1.1" 200 42708
+[INFO] 2026-07-24 19:53:15,338 basehttp 576528 127057237354176 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:53:15,347 basehttp 576528 127057237354176 "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:53:15,476 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:53:21,288 basehttp 576528 127057506854592 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 19:53:21,484 basehttp 576528 127057506854592 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 19:53:21,829 basehttp 576528 127057506854592 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[INFO] 2026-07-24 19:53:22,124 basehttp 576528 127057506854592 "GET /api/v1/stores/3/ HTTP/1.1" 200 786
+[INFO] 2026-07-24 19:53:27,335 basehttp 576528 127057506854592 "OPTIONS /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:53:27,335 basehttp 576528 127057262532288 "OPTIONS /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:53:27,616 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:53:27,954 basehttp 576528 127057506854592 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 466
+[INFO] 2026-07-24 19:53:29,198 basehttp 576528 127057506854592 "OPTIONS /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:53:29,203 basehttp 576528 127057262532288 "OPTIONS /api/v1/products/units/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:53:29,207 basehttp 576528 127057498461888 "OPTIONS /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:53:29,209 basehttp 576528 127057279317696 "OPTIONS /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:53:29,226 basehttp 576528 127056876664512 "OPTIONS /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:53:29,227 basehttp 576528 127057506854592 "OPTIONS /api/v1/products/units/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:53:29,863 basehttp 576528 127057279317696 "GET /api/v1/products/units/ HTTP/1.1" 200 89
+[INFO] 2026-07-24 19:53:30,135 basehttp 576528 127057262532288 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 341
+[INFO] 2026-07-24 19:53:30,692 basehttp 576528 127057498461888 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 19:53:31,071 basehttp 576528 127057279317696 "GET /api/v1/products/units/ HTTP/1.1" 200 89
+[INFO] 2026-07-24 19:53:31,324 basehttp 576528 127057262532288 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 341
+[INFO] 2026-07-24 19:53:31,459 basehttp 576528 127057498461888 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 19:54:12,627 basehttp 576528 127057522587328 "GET /admin/products/product/ HTTP/1.1" 200 40570
+[INFO] 2026-07-24 19:54:12,870 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:54:19,601 basehttp 576528 127057522587328 "GET /admin/products/product/1/change/ HTTP/1.1" 200 50896
+[INFO] 2026-07-24 19:54:19,888 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:54:23,774 basehttp 576528 127057522587328 "GET /admin/products/product/1/delete/ HTTP/1.1" 200 35054
+[INFO] 2026-07-24 19:54:23,803 basehttp 576528 127057522587328 "GET /static/admin/js/cancel.js HTTP/1.1" 304 0
+[INFO] 2026-07-24 19:54:25,532 basehttp 576528 127057522587328 "POST /admin/products/product/1/delete/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 19:54:25,905 basehttp 576528 127057522587328 "GET /admin/products/product/ HTTP/1.1" 200 36688
+[INFO] 2026-07-24 19:54:26,191 basehttp 576528 127057522587328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 19:54:38,603 basehttp 576528 127057498461888 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 19:54:38,737 basehttp 576528 127057498461888 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 19:54:39,222 basehttp 576528 127057262532288 "GET /api/v1/products/units/ HTTP/1.1" 200 89
+[INFO] 2026-07-24 19:54:39,716 basehttp 576528 127057279317696 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:54:39,807 basehttp 576528 127057498461888 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 19:54:40,169 basehttp 576528 127057262532288 "GET /api/v1/products/units/ HTTP/1.1" 200 89
+[INFO] 2026-07-24 19:54:40,261 basehttp 576528 127057506854592 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 19:54:40,418 basehttp 576528 127057498461888 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 19:55:16,828 basehttp 576528 127057498461888 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 19:55:17,194 basehttp 576528 127057498461888 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 19:55:22,254 basehttp 576528 127057498461888 "OPTIONS /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:55:22,261 basehttp 576528 127057506854592 "OPTIONS /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:55:22,264 basehttp 576528 127057262532288 "OPTIONS /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:55:22,271 basehttp 576528 127057279317696 "OPTIONS /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:55:23,317 basehttp 576528 127057506854592 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-07-24 19:55:24,256 basehttp 576528 127057262532288 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 19:55:25,154 basehttp 576528 127057506854592 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-07-24 19:55:25,481 basehttp 576528 127057262532288 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 19:55:43,673 basehttp 576528 127057262532288 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 19:55:43,845 basehttp 576528 127057262532288 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 198
+[INFO] 2026-07-24 19:59:04,344 basehttp 576528 127057262532288 "OPTIONS /api/v1/products/categories/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 19:59:04,422 base_service 576528 127057262532288 ProductCategory created: برنج ایرانی
+[INFO] 2026-07-24 19:59:04,672 basehttp 576528 127057262532288 "POST /api/v1/products/categories/ HTTP/1.1" 201 437
+[INFO] 2026-07-24 19:59:04,970 basehttp 576528 127057262532288 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 379
+[INFO] 2026-07-24 19:59:21,059 base_service 576528 127057262532288 ProductCategory created: برنج طارم
+[INFO] 2026-07-24 19:59:21,338 basehttp 576528 127057262532288 "POST /api/v1/products/categories/ HTTP/1.1" 201 467
+[INFO] 2026-07-24 19:59:21,733 basehttp 576528 127057262532288 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 570
+[INFO] 2026-07-24 19:59:41,681 base_service 576528 127057262532288 ProductCategory created: برنج فجر
+[INFO] 2026-07-24 19:59:41,944 basehttp 576528 127057262532288 "POST /api/v1/products/categories/ HTTP/1.1" 201 461
+[INFO] 2026-07-24 19:59:42,296 basehttp 576528 127057262532288 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 757
+[INFO] 2026-07-24 19:59:54,631 base_service 576528 127057262532288 ProductCategory created: برنج هندی
+[INFO] 2026-07-24 19:59:54,830 basehttp 576528 127057262532288 "POST /api/v1/products/categories/ HTTP/1.1" 201 425
+[INFO] 2026-07-24 19:59:55,291 basehttp 576528 127057262532288 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 930
+[INFO] 2026-07-24 20:00:05,515 base_service 576528 127057262532288 ProductCategory created: برنج پاکستانی
+[INFO] 2026-07-24 20:00:05,778 basehttp 576528 127057262532288 "POST /api/v1/products/categories/ HTTP/1.1" 201 449
+[INFO] 2026-07-24 20:00:06,379 basehttp 576528 127057262532288 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 1119
+[INFO] 2026-07-24 20:00:08,617 basehttp 576528 127057279317696 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 20:00:08,873 basehttp 576528 127057506854592 "GET /api/v1/products/units/ HTTP/1.1" 200 89
+[INFO] 2026-07-24 20:00:09,094 basehttp 576528 127057279317696 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-07-24 20:00:09,388 basehttp 576528 127057262532288 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 1119
+[INFO] 2026-07-24 20:00:09,712 basehttp 576528 127057506854592 "GET /api/v1/products/units/ HTTP/1.1" 200 89
+[INFO] 2026-07-24 20:00:10,173 basehttp 576528 127057262532288 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 1119
+[INFO] 2026-07-24 20:01:36,444 basehttp 576528 127057262532288 "OPTIONS /api/v1/products/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 20:01:36,540 signals 576528 127057262532288 New product created: برنج طارم هاشمی درجه یک in category: برنج طارم
+[INFO] 2026-07-24 20:01:36,541 base_service 576528 127057262532288 Product created: برنج طارم هاشمی درجه یک
+[INFO] 2026-07-24 20:01:36,733 basehttp 576528 127057262532288 "POST /api/v1/products/ HTTP/1.1" 201 812
+[INFO] 2026-07-24 20:01:37,141 basehttp 576528 127057262532288 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 409
+[INFO] 2026-07-24 20:01:44,416 basehttp 576528 127057262532288 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 1119
+[INFO] 2026-07-24 20:01:44,821 basehttp 576528 127057262532288 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 1119
+[INFO] 2026-07-24 20:01:45,368 basehttp 576528 127057262532288 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:01:45,532 basehttp 576528 127057262532288 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:01:47,899 basehttp 576528 127057262532288 "OPTIONS /api/v1/auth/logout/ HTTP/1.1" 200 0
+[WARNING] 2026-07-24 20:01:48,008 log 576528 127057262532288 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 20:01:48,008 basehttp 576528 127057262532288 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 20:01:56,746 basehttp 576528 127057498461888 "GET /admin/accounts/user/ HTTP/1.1" 200 42483
+[INFO] 2026-07-24 20:01:56,926 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 20:01:57,031 basehttp 576528 127057498461888 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+[INFO] 2026-07-24 20:02:04,249 basehttp 576528 127057498461888 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 20:02:04,469 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 20:02:10,464 basehttp 576528 127057498461888 "POST /admin/accounts/user/7/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-24 20:02:10,759 basehttp 576528 127057498461888 "GET /admin/accounts/user/ HTTP/1.1" 200 42708
+[INFO] 2026-07-24 20:02:10,944 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[WARNING] 2026-07-24 20:02:21,571 log 576528 127057262532288 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-07-24 20:02:21,572 basehttp 576528 127057262532288 "POST /api/v1/auth/login/ HTTP/1.1" 401 134
+[INFO] 2026-07-24 20:02:32,132 base_service 576528 127057262532288 User logged in with password: 09184423221
+[INFO] 2026-07-24 20:02:32,249 basehttp 576528 127057262532288 "POST /api/v1/auth/login/ HTTP/1.1" 200 1147
+[INFO] 2026-07-24 20:02:33,157 basehttp 576528 127057262532288 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:02:33,353 basehttp 576528 127057262532288 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:02:36,205 basehttp 576528 127057262532288 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 20:02:36,362 basehttp 576528 127057262532288 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 20:02:38,538 basehttp 576528 127057262532288 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[WARNING] 2026-07-24 20:02:38,693 log 576528 127057279317696 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-24 20:02:38,696 basehttp 576528 127057279317696 "GET /api/v1/pricing/official-prices/today/ HTTP/1.1" 400 75
+[INFO] 2026-07-24 20:02:38,925 basehttp 576528 127057506854592 "GET /api/v1/products/?page_size=200 HTTP/1.1" 200 409
+[INFO] 2026-07-24 20:02:39,109 basehttp 576528 127057262532288 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[WARNING] 2026-07-24 20:02:39,192 log 576528 127057279317696 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-24 20:02:39,193 basehttp 576528 127057279317696 "GET /api/v1/pricing/official-prices/today/ HTTP/1.1" 400 75
+[INFO] 2026-07-24 20:02:39,318 basehttp 576528 127057506854592 "GET /api/v1/products/?page_size=200 HTTP/1.1" 200 409
+[INFO] 2026-07-24 20:02:53,572 basehttp 576528 127057498461888 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 20:02:53,723 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[WARNING] 2026-07-24 20:03:16,534 log 576528 127057506854592 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 20:03:16,535 basehttp 576528 127057506854592 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 20:03:29,883 base_service 576528 127057506854592 User logged in with password: 09056419609
+[INFO] 2026-07-24 20:03:30,020 basehttp 576528 127057506854592 "POST /api/v1/auth/login/ HTTP/1.1" 200 1128
+[WARNING] 2026-07-24 20:03:30,983 log 576528 127057262532288 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-24 20:03:30,984 basehttp 576528 127057262532288 "GET /api/v1/pricing/official-prices/today/ HTTP/1.1" 400 75
+[INFO] 2026-07-24 20:03:31,265 basehttp 576528 127057506854592 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 20:03:31,289 basehttp 576528 127057279317696 "GET /api/v1/products/?page_size=200 HTTP/1.1" 200 409
+[WARNING] 2026-07-24 20:03:31,461 log 576528 127057262532288 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-24 20:03:31,462 basehttp 576528 127057262532288 "GET /api/v1/pricing/official-prices/today/ HTTP/1.1" 400 75
+[INFO] 2026-07-24 20:03:31,746 basehttp 576528 127057279317696 "GET /api/v1/products/?page_size=200 HTTP/1.1" 200 409
+[INFO] 2026-07-24 20:03:31,750 basehttp 576528 127057506854592 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-24 20:03:33,641 basehttp 576528 127057279317696 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-07-24 20:03:34,424 basehttp 576528 127057506854592 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 20:03:34,913 basehttp 576528 127057279317696 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-07-24 20:03:35,215 basehttp 576528 127057506854592 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 20:03:55,057 basehttp 576528 127057498461888 "GET /admin/accounts/verifycode/ HTTP/1.1" 200 39454
+[INFO] 2026-07-24 20:03:55,186 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 20:04:05,765 basehttp 576528 127057498461888 "GET /admin/accounts/role/ HTTP/1.1" 200 35780
+[INFO] 2026-07-24 20:04:05,931 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 20:04:09,710 basehttp 576528 127057498461888 "GET /admin/accounts/user/ HTTP/1.1" 200 42483
+[INFO] 2026-07-24 20:04:09,878 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 20:04:14,444 basehttp 576528 127057498461888 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 20:04:14,586 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 20:04:41,619 basehttp 576528 127057498461888 "GET /admin/accounts/user/7/history/ HTTP/1.1" 200 36372
+[INFO] 2026-07-24 20:04:50,880 basehttp 576528 127057506854592 "OPTIONS /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 200 0
+[WARNING] 2026-07-24 20:04:51,119 log 576528 127057506854592 Not Found: /api/v1/organizations/unions/2/assign-manager/
+[WARNING] 2026-07-24 20:04:51,120 basehttp 576528 127057506854592 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 404 101
+[ERROR] 2026-07-24 20:04:57,573 api_exceptions 576528 127057506854592 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/views/union_views.py", line 217, in post
+    updated = service.assign_manager(
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/union_service.py", line 219, in assign_manager
+    manager = ProvinceOfficeService._get_valid_manager(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/province_office_service.py", line 214, in _get_valid_manager
+    raise ValueError(
+ValueError: کاربر انتخاب‌شده نقش "union_manager" ندارد
+[ERROR] 2026-07-24 20:04:57,722 log 576528 127057506854592 Internal Server Error: /api/v1/organizations/unions/2/assign-manager/
+[ERROR] 2026-07-24 20:04:57,724 basehttp 576528 127057506854592 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 500 111
+[INFO] 2026-07-24 20:05:10,595 basehttp 576528 127057498461888 "GET /admin/accounts/verifycode/ HTTP/1.1" 200 39454
+[INFO] 2026-07-24 20:05:10,742 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 20:05:14,659 basehttp 576528 127057498461888 "GET /admin/accounts/user/ HTTP/1.1" 200 42483
+[INFO] 2026-07-24 20:05:14,795 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 20:05:23,528 basehttp 576528 127057498461888 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 20:05:23,673 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 20:05:54,622 basehttp 576528 127057506854592 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-24 20:05:54,622 basehttp 576528 127057279317696 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-24 20:05:54,927 basehttp 576528 127057506854592 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2204
+[INFO] 2026-07-24 20:05:55,258 basehttp 576528 127057506854592 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2204
+[INFO] 2026-07-24 20:06:13,685 basehttp 576528 127057498461888 "GET /admin/accounts/user/ HTTP/1.1" 200 42483
+[INFO] 2026-07-24 20:06:18,692 basehttp 576528 127057498461888 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-07-24 20:06:18,860 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 20:06:23,324 basehttp 576528 127057279317696 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-07-24 20:06:24,181 basehttp 576528 127057506854592 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-07-24 20:06:24,656 basehttp 576528 127057279317696 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-07-24 20:06:24,998 basehttp 576528 127057506854592 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[WARNING] 2026-07-24 20:06:27,652 log 576528 127057506854592 Not Found: /api/v1/organizations/unions/2/assign-manager/
+[WARNING] 2026-07-24 20:06:27,653 basehttp 576528 127057506854592 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 404 101
+[ERROR] 2026-07-24 20:06:29,719 api_exceptions 576528 127057506854592 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/views/union_views.py", line 217, in post
+    updated = service.assign_manager(
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/union_service.py", line 219, in assign_manager
+    manager = ProvinceOfficeService._get_valid_manager(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/province_office_service.py", line 214, in _get_valid_manager
+    raise ValueError(
+ValueError: کاربر انتخاب‌شده نقش "union_manager" ندارد
+[ERROR] 2026-07-24 20:06:29,903 log 576528 127057506854592 Internal Server Error: /api/v1/organizations/unions/2/assign-manager/
+[ERROR] 2026-07-24 20:06:29,904 basehttp 576528 127057506854592 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 500 111
+[ERROR] 2026-07-24 20:06:32,169 api_exceptions 576528 127057506854592 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/views/union_views.py", line 217, in post
+    updated = service.assign_manager(
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/union_service.py", line 219, in assign_manager
+    manager = ProvinceOfficeService._get_valid_manager(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/province_office_service.py", line 214, in _get_valid_manager
+    raise ValueError(
+ValueError: کاربر انتخاب‌شده نقش "union_manager" ندارد
+[ERROR] 2026-07-24 20:06:32,350 log 576528 127057506854592 Internal Server Error: /api/v1/organizations/unions/2/assign-manager/
+[ERROR] 2026-07-24 20:06:32,351 basehttp 576528 127057506854592 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 500 111
+[ERROR] 2026-07-24 20:06:34,442 api_exceptions 576528 127057506854592 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/views/union_views.py", line 217, in post
+    updated = service.assign_manager(
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/union_service.py", line 219, in assign_manager
+    manager = ProvinceOfficeService._get_valid_manager(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/province_office_service.py", line 214, in _get_valid_manager
+    raise ValueError(
+ValueError: کاربر انتخاب‌شده نقش "union_manager" ندارد
+[ERROR] 2026-07-24 20:06:34,620 log 576528 127057506854592 Internal Server Error: /api/v1/organizations/unions/2/assign-manager/
+[ERROR] 2026-07-24 20:06:34,620 basehttp 576528 127057506854592 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 500 111
+[ERROR] 2026-07-24 20:06:36,953 api_exceptions 576528 127057506854592 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/views/union_views.py", line 217, in post
+    updated = service.assign_manager(
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/union_service.py", line 219, in assign_manager
+    manager = ProvinceOfficeService._get_valid_manager(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/province_office_service.py", line 214, in _get_valid_manager
+    raise ValueError(
+ValueError: کاربر انتخاب‌شده نقش "union_manager" ندارد
+[ERROR] 2026-07-24 20:06:37,102 log 576528 127057506854592 Internal Server Error: /api/v1/organizations/unions/2/assign-manager/
+[ERROR] 2026-07-24 20:06:37,103 basehttp 576528 127057506854592 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 500 111
+[WARNING] 2026-07-24 20:06:39,593 log 576528 127057506854592 Not Found: /api/v1/organizations/unions/2/assign-manager/
+[WARNING] 2026-07-24 20:06:39,594 basehttp 576528 127057506854592 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 404 101
+[INFO] 2026-07-24 20:06:50,639 basehttp 576528 127057498461888 "GET /admin/accounts/user/ HTTP/1.1" 200 42483
+[INFO] 2026-07-24 20:06:54,629 basehttp 576528 127057498461888 "GET /admin/accounts/user/?o=6 HTTP/1.1" 200 42802
+[INFO] 2026-07-24 20:06:54,771 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-24 20:07:00,009 basehttp 576528 127057498461888 "GET /admin/accounts/user/7/change/?_changelist_filters=o%3D6 HTTP/1.1" 200 66544
+[INFO] 2026-07-24 20:07:00,179 basehttp 576528 127057498461888 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[ERROR] 2026-07-24 20:07:35,965 api_exceptions 576528 127057506854592 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/views/union_views.py", line 217, in post
+    updated = service.assign_manager(
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/union_service.py", line 219, in assign_manager
+    manager = ProvinceOfficeService._get_valid_manager(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Music/Nazer-Bazaar/backend/apps/organizations/services/province_office_service.py", line 214, in _get_valid_manager
+    raise ValueError(
+ValueError: کاربر انتخاب‌شده نقش "union_manager" ندارد
+[ERROR] 2026-07-24 20:07:36,167 log 576528 127057506854592 Internal Server Error: /api/v1/organizations/unions/2/assign-manager/
+[ERROR] 2026-07-24 20:07:36,168 basehttp 576528 127057506854592 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 500 111
+[WARNING] 2026-07-24 20:07:39,916 log 576528 127057506854592 Not Found: /api/v1/organizations/unions/2/assign-manager/
+[WARNING] 2026-07-24 20:07:39,917 basehttp 576528 127057506854592 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 404 101
+[WARNING] 2026-07-24 20:07:44,725 log 576528 127057506854592 Not Found: /api/v1/organizations/unions/2/assign-manager/
+[WARNING] 2026-07-24 20:07:44,726 basehttp 576528 127057506854592 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 404 101
+[WARNING] 2026-07-24 20:07:49,092 log 576528 127057506854592 Not Found: /api/v1/organizations/unions/2/assign-manager/
+[WARNING] 2026-07-24 20:07:49,093 basehttp 576528 127057506854592 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 404 101
+[INFO] 2026-07-24 20:08:01,220 basehttp 576528 127057506854592 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2204
+[INFO] 2026-07-24 20:08:01,454 basehttp 576528 127057506854592 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2204
+[INFO] 2026-07-24 20:08:09,719 basehttp 576528 127057506854592 "OPTIONS /api/v1/auth/users/7/role/ HTTP/1.1" 200 0
+[INFO] 2026-07-24 20:08:09,781 base_service 576528 127057506854592 User role changed: 09184423221 union_manager → union_manager
+[INFO] 2026-07-24 20:08:09,950 basehttp 576528 127057506854592 "PATCH /api/v1/auth/users/7/role/ HTTP/1.1" 200 542
+[INFO] 2026-07-24 20:08:10,402 basehttp 576528 127057506854592 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2204
+[WARNING] 2026-07-24 20:08:24,715 log 576528 127057506854592 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-24 20:08:24,715 basehttp 576528 127057506854592 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-24 20:08:33,787 base_service 576528 127057506854592 User logged in with password: 09184423221
+[INFO] 2026-07-24 20:08:33,924 basehttp 576528 127057506854592 "POST /api/v1/auth/login/ HTTP/1.1" 200 1147
+[INFO] 2026-07-24 20:08:34,572 basehttp 576528 127057506854592 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-07-24 20:08:41,013 basehttp 576528 127057279317696 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 20:08:41,387 basehttp 576528 127057506854592 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:08:41,592 basehttp 576528 127057279317696 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 20:08:41,686 basehttp 576528 127057506854592 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:08:43,653 basehttp 576528 127057506854592 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:08:43,785 basehttp 576528 127057279317696 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-07-24 20:08:43,841 basehttp 576528 127057262532288 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 20:08:44,225 basehttp 576528 127057279317696 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-07-24 20:08:44,264 basehttp 576528 127057522587328 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 20:08:44,320 basehttp 576528 127057506854592 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:08:45,043 basehttp 576528 127057506854592 "OPTIONS /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-24 20:08:45,043 basehttp 576528 127057279317696 "OPTIONS /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 0
+[WARNING] 2026-07-24 20:08:45,170 log 576528 127057506854592 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 20:08:45,170 basehttp 576528 127057506854592 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 20:08:45,356 log 576528 127057506854592 Method Not Allowed: /api/v1/complaints/
+[WARNING] 2026-07-24 20:08:45,356 basehttp 576528 127057506854592 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 405 137
+[WARNING] 2026-07-24 20:08:46,139 log 576528 127057506854592 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-07-24 20:08:46,140 basehttp 576528 127057506854592 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-07-24 20:08:46,281 log 576528 127057506854592 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-07-24 20:08:46,281 basehttp 576528 127057506854592 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[INFO] 2026-07-24 20:08:47,003 basehttp 576528 127057506854592 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 20:08:47,153 basehttp 576528 127057506854592 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-07-24 20:08:48,032 basehttp 576528 127057506854592 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[WARNING] 2026-07-24 20:08:48,188 log 576528 127057522587328 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-24 20:08:48,189 basehttp 576528 127057522587328 "GET /api/v1/pricing/official-prices/today/ HTTP/1.1" 400 75
+[INFO] 2026-07-24 20:08:48,397 basehttp 576528 127057279317696 "GET /api/v1/products/?page_size=200 HTTP/1.1" 200 409
+[INFO] 2026-07-24 20:08:48,562 basehttp 576528 127057506854592 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[WARNING] 2026-07-24 20:08:48,623 log 576528 127057522587328 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-24 20:08:48,624 basehttp 576528 127057522587328 "GET /api/v1/pricing/official-prices/today/ HTTP/1.1" 400 75
+[INFO] 2026-07-24 20:08:48,736 basehttp 576528 127057279317696 "GET /api/v1/products/?page_size=200 HTTP/1.1" 200 409
+[INFO] 2026-07-24 20:08:49,224 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:08:49,401 basehttp 576528 127057279317696 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:08:52,608 basehttp 576528 127057506854592 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 20:08:52,893 basehttp 576528 127057522587328 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-07-24 20:08:53,091 basehttp 576528 127057279317696 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:08:53,312 basehttp 576528 127057506854592 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 20:08:53,414 basehttp 576528 127057522587328 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-07-24 20:08:53,512 basehttp 576528 127057279317696 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:08:54,123 basehttp 576528 127057522587328 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 20:08:54,336 basehttp 576528 127057279317696 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-07-24 20:08:54,591 basehttp 576528 127057522587328 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-24 20:08:54,863 basehttp 576528 127057506854592 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
