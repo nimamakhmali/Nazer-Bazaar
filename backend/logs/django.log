@@ -4167,3 +4167,118 @@ ValueError: کاربر انتخاب‌شده نقش "union_manager" ندارد
 [INFO] 2026-07-24 20:08:54,336 basehttp 576528 127057279317696 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
 [INFO] 2026-07-24 20:08:54,591 basehttp 576528 127057522587328 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
 [INFO] 2026-07-24 20:08:54,863 basehttp 576528 127057506854592 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-07-29 22:57:01,797 autoreload 437190 124989206753408 Watching for file changes with StatReloader
+[WARNING] 2026-07-29 22:57:03,975 log 437190 124988480812736 Not Found: /
+[WARNING] 2026-07-29 22:57:03,975 basehttp 437190 124988480812736 "GET / HTTP/1.1" 404 16957
+[INFO] 2026-07-29 22:57:08,335 basehttp 437190 124988480812736 "GET /admin/ HTTP/1.1" 200 41984
+[INFO] 2026-07-29 22:57:18,210 basehttp 437190 124988480812736 "GET /admin/ HTTP/1.1" 200 41984
+[INFO] 2026-07-29 22:57:27,511 basehttp 437190 124988466128576 "OPTIONS /api/v1/geography/provinces/ HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:27,513 basehttp 437190 124988457735872 "OPTIONS /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:27,521 basehttp 437190 124988466128576 "OPTIONS /api/v1/geography/provinces/ HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:27,521 basehttp 437190 124988457735872 "OPTIONS /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:27,678 basehttp 437190 124988245931712 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-07-29 22:57:27,850 basehttp 437190 124988237539008 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 520
+[INFO] 2026-07-29 22:57:27,978 basehttp 437190 124988245931712 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-07-29 22:57:28,045 basehttp 437190 124988237539008 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 520
+[INFO] 2026-07-29 22:57:34,464 basehttp 437190 124988237539008 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:34,464 basehttp 437190 124988245931712 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:34,569 basehttp 437190 124988245931712 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-29 22:57:34,725 basehttp 437190 124988245931712 "GET /api/v1/auth/me/ HTTP/1.1" 200 408
+[INFO] 2026-07-29 22:57:34,837 basehttp 437190 124988245931712 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:34,837 basehttp 437190 124988457735872 "OPTIONS /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:34,837 basehttp 437190 124988237539008 "OPTIONS /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:34,838 basehttp 437190 124988466128576 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:35,054 basehttp 437190 124988237539008 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-29 22:57:35,226 basehttp 437190 124988466128576 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-07-29 22:57:35,425 basehttp 437190 124988237539008 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-07-29 22:57:35,487 basehttp 437190 124988466128576 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-07-29 22:57:41,374 basehttp 437190 124988466128576 "OPTIONS /api/v1/auth/users/profile/ HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:41,374 basehttp 437190 124988237539008 "OPTIONS /api/v1/auth/users/profile/ HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:41,480 basehttp 437190 124988466128576 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 408
+[INFO] 2026-07-29 22:57:41,620 basehttp 437190 124988466128576 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 408
+[INFO] 2026-07-29 22:57:44,493 basehttp 437190 124988237539008 "OPTIONS /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:44,493 basehttp 437190 124988466128576 "OPTIONS /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:44,651 basehttp 437190 124988237539008 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 523
+[INFO] 2026-07-29 22:57:44,824 basehttp 437190 124988237539008 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 523
+[INFO] 2026-07-29 22:57:46,406 basehttp 437190 124988224952000 "OPTIONS /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,406 basehttp 437190 124988466128576 "OPTIONS /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,407 basehttp 437190 124988245931712 "OPTIONS /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,407 basehttp 437190 124988237539008 "OPTIONS /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,407 basehttp 437190 124988457735872 "OPTIONS /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,409 basehttp 437190 124988216559296 "OPTIONS /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,421 basehttp 437190 124988224952000 "OPTIONS /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,421 basehttp 437190 124988245931712 "OPTIONS /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,421 basehttp 437190 124988466128576 "OPTIONS /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,421 basehttp 437190 124988216559296 "OPTIONS /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,421 basehttp 437190 124988457735872 "OPTIONS /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,421 basehttp 437190 124988237539008 "OPTIONS /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,491 basehttp 437190 124988224952000 "OPTIONS /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,504 basehttp 437190 124988237539008 "OPTIONS /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:46,946 basehttp 437190 124988245931712 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-07-29 22:57:47,306 basehttp 437190 124988466128576 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 517
+[INFO] 2026-07-29 22:57:47,674 basehttp 437190 124988237539008 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 516
+[INFO] 2026-07-29 22:57:47,870 basehttp 437190 124988457735872 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 563
+[INFO] 2026-07-29 22:57:47,907 basehttp 437190 124988216559296 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 559
+[INFO] 2026-07-29 22:57:47,949 basehttp 437190 124988224952000 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-07-29 22:57:48,364 basehttp 437190 124988245931712 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 523
+[INFO] 2026-07-29 22:57:48,840 basehttp 437190 124988466128576 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-07-29 22:57:49,306 basehttp 437190 124988457735872 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 516
+[INFO] 2026-07-29 22:57:49,335 basehttp 437190 124988216559296 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 563
+[INFO] 2026-07-29 22:57:49,359 basehttp 437190 124988237539008 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 517
+[INFO] 2026-07-29 22:57:49,407 basehttp 437190 124988245931712 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-07-29 22:57:49,413 basehttp 437190 124988224952000 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 559
+[INFO] 2026-07-29 22:57:49,539 basehttp 437190 124988466128576 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 523
+[INFO] 2026-07-29 22:57:51,253 basehttp 437190 124988245931712 "OPTIONS /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:51,257 basehttp 437190 124988466128576 "OPTIONS /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:51,257 basehttp 437190 124988224952000 "OPTIONS /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:51,257 basehttp 437190 124988237539008 "OPTIONS /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:51,495 basehttp 437190 124988245931712 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 152
+[INFO] 2026-07-29 22:57:51,518 basehttp 437190 124988237539008 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 405
+[INFO] 2026-07-29 22:57:51,720 basehttp 437190 124988245931712 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 152
+[INFO] 2026-07-29 22:57:51,793 basehttp 437190 124988237539008 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 405
+[INFO] 2026-07-29 22:57:58,632 basehttp 437190 124988245931712 "OPTIONS /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:58,632 basehttp 437190 124988237539008 "OPTIONS /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:57:58,771 basehttp 437190 124988237539008 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 152
+[INFO] 2026-07-29 22:57:58,943 basehttp 437190 124988237539008 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 152
+[INFO] 2026-07-29 22:58:00,037 basehttp 437190 124988237539008 "OPTIONS /api/v1/api/v1/cms/blog-categories/ HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:58:00,037 basehttp 437190 124988245931712 "OPTIONS /api/v1/api/v1/cms/blog-categories/ HTTP/1.1" 200 0
+[WARNING] 2026-07-29 22:58:00,127 log 437190 124988245931712 Not Found: /api/v1/api/v1/cms/blog-categories/
+[WARNING] 2026-07-29 22:58:00,127 basehttp 437190 124988245931712 "GET /api/v1/api/v1/cms/blog-categories/ HTTP/1.1" 404 18301
+[WARNING] 2026-07-29 22:58:00,253 log 437190 124988237539008 Not Found: /api/v1/api/v1/cms/blog-categories/
+[WARNING] 2026-07-29 22:58:00,254 basehttp 437190 124988237539008 "GET /api/v1/api/v1/cms/blog-categories/ HTTP/1.1" 404 18301
+[INFO] 2026-07-29 22:58:05,481 basehttp 437190 124988245931712 "OPTIONS /api/v1/api/v1/cms/gallery/ HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:58:05,482 basehttp 437190 124988237539008 "OPTIONS /api/v1/api/v1/cms/gallery/ HTTP/1.1" 200 0
+[WARNING] 2026-07-29 22:58:05,583 log 437190 124988245931712 Not Found: /api/v1/api/v1/cms/gallery/
+[WARNING] 2026-07-29 22:58:05,584 basehttp 437190 124988245931712 "GET /api/v1/api/v1/cms/gallery/ HTTP/1.1" 404 18269
+[WARNING] 2026-07-29 22:58:05,727 log 437190 124988237539008 Not Found: /api/v1/api/v1/cms/gallery/
+[WARNING] 2026-07-29 22:58:05,728 basehttp 437190 124988237539008 "GET /api/v1/api/v1/cms/gallery/ HTTP/1.1" 404 18269
+[INFO] 2026-07-29 22:58:07,835 basehttp 437190 124988237539008 "OPTIONS /api/v1/cms/admin/pages/ HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:58:07,835 basehttp 437190 124988245931712 "OPTIONS /api/v1/cms/admin/pages/ HTTP/1.1" 200 0
+[ERROR] 2026-07-29 22:58:07,872 api_exceptions 437190 124988237539008 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/cms/views/cms_views.py", line 70, in get
+    pages = CmsSelector.get_published_pages() if not request.user.is_admin else Page.objects.all()
+                                                                                ^^^^
+NameError: name 'Page' is not defined
+[ERROR] 2026-07-29 22:58:07,948 log 437190 124988237539008 Internal Server Error: /api/v1/cms/admin/pages/
+[ERROR] 2026-07-29 22:58:07,948 basehttp 437190 124988237539008 "GET /api/v1/cms/admin/pages/ HTTP/1.1" 500 111
+[ERROR] 2026-07-29 22:58:08,020 api_exceptions 437190 124988237539008 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/cms/views/cms_views.py", line 70, in get
+    pages = CmsSelector.get_published_pages() if not request.user.is_admin else Page.objects.all()
+                                                                                ^^^^
+NameError: name 'Page' is not defined
+[ERROR] 2026-07-29 22:58:08,106 log 437190 124988237539008 Internal Server Error: /api/v1/cms/admin/pages/
+[ERROR] 2026-07-29 22:58:08,107 basehttp 437190 124988237539008 "GET /api/v1/cms/admin/pages/ HTTP/1.1" 500 111
+[INFO] 2026-07-29 22:58:09,659 basehttp 437190 124988237539008 "OPTIONS /api/v1/api/v1/settings/ HTTP/1.1" 200 0
+[INFO] 2026-07-29 22:58:09,660 basehttp 437190 124988245931712 "OPTIONS /api/v1/api/v1/settings/ HTTP/1.1" 200 0
+[WARNING] 2026-07-29 22:58:09,746 log 437190 124988237539008 Not Found: /api/v1/api/v1/settings/
+[WARNING] 2026-07-29 22:58:09,746 basehttp 437190 124988237539008 "GET /api/v1/api/v1/settings/ HTTP/1.1" 404 18257
+[WARNING] 2026-07-29 22:58:09,883 log 437190 124988245931712 Not Found: /api/v1/api/v1/settings/
+[WARNING] 2026-07-29 22:58:09,883 basehttp 437190 124988245931712 "GET /api/v1/api/v1/settings/ HTTP/1.1" 404 18258
