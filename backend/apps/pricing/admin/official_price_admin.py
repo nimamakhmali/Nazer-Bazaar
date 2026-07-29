@@ -79,13 +79,17 @@ class OfficialPriceAdmin(admin.ModelAdmin):
     )
 
     def price_formatted_display(self, obj: OfficialPrice) -> str:
+        if obj.price is None:
+            return '—'
         return f'{obj.price:,} ریال'
     price_formatted_display.short_description = 'قیمت مصوب'
 
     def min_price_display(self, obj: OfficialPrice) -> str:
+        if obj.min_allowed_price is None:
+            return '—'
         return format_html(
-            '<span style="color:#28a745">{:,} ریال</span>',
-            obj.min_allowed_price
+            '<span style="color:#28a745">{} ریال</span>',
+            f'{obj.min_allowed_price:,}'
         )
     min_price_display.short_description = 'حداقل قیمت مجاز'
 
@@ -143,13 +147,13 @@ class PriceHistoryAdmin(admin.ModelAdmin):
             )
         if amount > 0:
             return format_html(
-                '<span style="color:#dc3545">↑ {:,}</span>',
-                amount
+                '<span style="color:#dc3545">↑ {}</span>',
+                f'{amount:,}'
             )
         elif amount < 0:
             return format_html(
-                '<span style="color:#28a745">↓ {:,}</span>',
-                abs(amount)
+                '<span style="color:#28a745">↓ {}</span>',
+                f'{abs(amount):,}'
             )
         return '—'
     price_change_display.short_description = 'تغییر قیمت'

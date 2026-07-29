@@ -83,10 +83,14 @@ class StorePriceAdmin(admin.ModelAdmin):
     )
 
     def price_display(self, obj: StorePrice) -> str:
+        if obj.price is None:
+            return '—'
         return f'{obj.price:,} ریال'
     price_display.short_description = 'قیمت فروشگاه'
 
     def official_price_display(self, obj: StorePrice) -> str:
+        if obj.official_price_amount is None:
+            return '—'
         return f'{obj.official_price_amount:,} ریال'
     official_price_display.short_description = 'قیمت مصوب'
 

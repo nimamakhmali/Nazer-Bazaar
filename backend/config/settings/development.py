@@ -42,15 +42,15 @@ SILKY_AUTHORISATION = True
 # ─── Cache (Dev) - بدون فشرده‌سازی ─────────────────────────────────────────
 CACHES = {
     'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://localhost:6379/0',
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        },
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
     }
 }
 
-# ─── REST Framework (Dev) ───────────────────────────────────────────────────
+# ─── Session Engine (Dev) - از دیتابیس به جای Redis ─────────────────
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# ─── REST Framework (Dev) ───────────────────────────────────────────
 REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] += [
     'rest_framework.renderers.BrowsableAPIRenderer',
 ]

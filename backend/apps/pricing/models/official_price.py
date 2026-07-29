@@ -113,11 +113,12 @@ class OfficialPrice(BaseModel):
         ]
 
     def __str__(self) -> str:
+        price_str = f'{self.price:,} ریال' if self.price is not None else '—'
         return (
             f'{self.product.name} | '
             f'{self.union.name} | '
             f'{self.effective_date} | '
-            f'{self.price:,} ریال'
+            f'{price_str}'
         )
 
     # ─── Properties ─────────────────────────────────────────────────────────
@@ -128,6 +129,8 @@ class OfficialPrice(BaseModel):
         80% قیمت مصوب
         """
         from apps.common.constants import PRICE_MIN_RATIO
+        if self.price is None:
+            return None
         return (self.price * PRICE_MIN_RATIO).quantize(Decimal('1'))
 
     @property
@@ -155,10 +158,14 @@ class OfficialPrice(BaseModel):
     @property
     def price_formatted(self) -> str:
         """قیمت فرمت‌بندی شده با جداکننده"""
+        if self.price is None:
+            return '—'
         return f'{self.price:,} ریال'
 
     @property
     def min_price_formatted(self) -> str:
+        if self.min_allowed_price is None:
+            return '—'
         return f'{self.min_allowed_price:,} ریال'
 
     # ─── Methods ────────────────────────────────────────────────────────────

@@ -125,11 +125,12 @@ class StorePrice(BaseModel):
         ]
 
     def __str__(self) -> str:
+        price_str = f'{self.price:,} ریال' if self.price is not None else '—'
         return (
             f'{self.store.name} | '
             f'{self.product.name} | '
             f'{self.price_date} | '
-            f'{self.price:,} ریال'
+            f'{price_str}'
         )
 
     # ─── Properties ─────────────────────────────────────────────────────────
@@ -139,7 +140,9 @@ class StorePrice(BaseModel):
         درصد تخفیف نسبت به قیمت مصوب.
         مثال: اگر قیمت مصوب 100 و قیمت فروشگاه 85 باشد → 15%
         """
-        if self.official_price_amount == 0:
+        if self.official_price_amount is None or self.official_price_amount == 0:
+            return Decimal('0')
+        if self.price is None:
             return Decimal('0')
         discount = (
             (self.official_price_amount - self.price)
@@ -154,7 +157,9 @@ class StorePrice(BaseModel):
         نسبت قیمت فروشگاه به قیمت مصوب.
         مثال: 0.85 یعنی 85% قیمت مصوب
         """
-        if self.official_price_amount == 0:
+        if self.official_price_amount is None or self.official_price_amount == 0:
+            return Decimal('0')
+        if self.price is None:
             return Decimal('0')
         ratio = self.price / self.official_price_amount
         return ratio.quantize(Decimal('0.0001'))
@@ -166,11 +171,15 @@ class StorePrice(BaseModel):
         بین 80% تا 100% قیمت مصوب
         """
         from apps.common.constants import is_price_valid
+        if self.price is None or self.official_price_amount is None:
+            return False
         return is_price_valid(self.price, self.official_price_amount)
 
     @property
     def is_overpriced(self) -> bool:
         """آیا قیمت فروشگاه بالاتر از قیمت مصوب است؟"""
+        if self.price is None or self.official_price_amount is None:
+            return False
         return self.price > self.official_price_amount
 
     @property
@@ -181,10 +190,14 @@ class StorePrice(BaseModel):
 
     @property
     def price_formatted(self) -> str:
+        if self.price is None:
+            return '—'
         return f'{self.price:,} ریال'
 
     @property
     def official_price_formatted(self) -> str:
+        if self.official_price_amount is None:
+            return '—'
         return f'{self.official_price_amount:,} ریال'
 
     @property
