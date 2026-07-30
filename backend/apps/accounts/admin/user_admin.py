@@ -17,6 +17,7 @@ class UserAdmin(BaseUserAdmin):
         'is_phone_verified',
         'date_joined',
     ]
+    
     list_filter = [
         'role',
         'is_active',
@@ -140,3 +141,4 @@ class PermissionAdmin(admin.ModelAdmin):
     list_display = ['name', 'codename', 'module']
     list_filter = ['module']
     search_fields = ['name', 'codename']
+    

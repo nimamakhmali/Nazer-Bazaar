@@ -72,6 +72,28 @@ class UserProfileSerializer(serializers.ModelSerializer):
 class UserUpdateSerializer(serializers.ModelSerializer):
     """ویرایش پروفایل توسط خود کاربر"""
 
+    national_code = serializers.CharField(
+        max_length=10,
+        required=False,
+        allow_blank=True,
+        allow_null=True,
+    )
+    email = serializers.EmailField(
+        required=False,
+        allow_blank=True,
+        allow_null=True,
+    )
+    first_name = serializers.CharField(
+        max_length=100,
+        required=False,
+        allow_blank=True,
+    )
+    last_name = serializers.CharField(
+        max_length=100,
+        required=False,
+        allow_blank=True,
+    )
+
     class Meta:
         model = User
         fields = [
@@ -81,11 +103,16 @@ class UserUpdateSerializer(serializers.ModelSerializer):
             'national_code',
         ]
 
-    def validate_national_code(self, value: str) -> str:
-        if value:
-            validate_iranian_national_id(value)
-        return value
+    def validate_national_code(self, value):
+        if value and value.strip():
+            validate_iranian_national_id(value.strip())
+            return value.strip()
+        return None
 
+    def validate_email(self, value):
+        if value and value.strip():
+            return value.strip()
+        return None
 
 class UserAdminSerializer(serializers.ModelSerializer):
     """

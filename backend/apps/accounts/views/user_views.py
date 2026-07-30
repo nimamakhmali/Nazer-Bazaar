@@ -60,7 +60,7 @@ class UserProfileView(APIView):
         updated_user = service.update_profile(
             user_id=request.user.id,
             requesting_user=request.user,
-            **serializer.validated_data
+            **serializer.validated_data  # فقط فیلدهایی که ارسال شدند
         )
 
         return Response({

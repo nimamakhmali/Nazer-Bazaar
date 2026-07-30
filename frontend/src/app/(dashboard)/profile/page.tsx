@@ -2,39 +2,49 @@
 
 import React, { useState, useEffect } from "react";
 import {
-  UserCircleIcon, PhoneIcon, EnvelopeIcon,
-  IdentificationIcon, ShieldCheckIcon,
-  CalendarIcon, ClockIcon, PencilSquareIcon,
-  CheckCircleIcon, XMarkIcon,
+  UserCircleIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+  IdentificationIcon,
+  ShieldCheckIcon,
+  CalendarIcon,
+  ClockIcon,
+  PencilSquareIcon,
+  CheckCircleIcon,
+  XMarkIcon,
+  ExclamationTriangleIcon,
 } from "@heroicons/react/24/outline";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { PageHeader } from "@/components/layout/PageHeader";
+import { PageHeader }            from "@/components/layout/PageHeader";
 import { Card, CardHeader, CardTitle } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Avatar } from "@/components/ui/Avatar";
-import { Alert } from "@/components/ui/Alert";
-import { PageLoader } from "@/components/ui/Spinner";
-import { useAuthStore } from "@/store";
-import apiClient from "@/services/api.client";
-import { ENDPOINTS } from "@/services/endpoints";
-import { parseApiError } from "@/utils/error.utils";
-import { toJalaliWithTime } from "@/utils/date.utils";
-import { ROLE_LABELS } from "@/constants/roles";
-import type { Role } from "@/types/common.types";
-import toast from "react-hot-toast";
-import { cn } from "@/lib/cn";
+import { Badge }                 from "@/components/ui/Badge";
+import { Button }                from "@/components/ui/Button";
+import { Input }                 from "@/components/ui/Input";
+import { Avatar }                from "@/components/ui/Avatar";
+import { Alert }                 from "@/components/ui/Alert";
+import { PageLoader }            from "@/components/ui/Spinner";
+import { useAuthStore }          from "@/store";
+import apiClient                 from "@/services/api.client";
+import { ENDPOINTS }             from "@/services/endpoints";
+import { parseApiError }         from "@/utils/error.utils";
+import { toJalaliWithTime }      from "@/utils/date.utils";
+import { ROLE_LABELS }           from "@/constants/roles";
+import type { Role }             from "@/types/common.types";
+import toast                     from "react-hot-toast";
+import { cn }                    from "@/lib/cn";
+import Link                      from "next/link";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Validation Schema
-// ─────────────────────────────────────────────────────────────────────────────
+// ─── Validation Schema ────────────────────────────────────────────────────────
 const profileSchema = z.object({
   first_name: z.string().min(2, "نام باید حداقل ۲ حرف باشد"),
   last_name:  z.string().min(2, "نام خانوادگی باید حداقل ۲ حرف باشد"),
-  email:      z.string().email("ایمیل معتبر وارد کنید").optional().or(z.literal("")),
+  email: z
+    .string()
+    .email("ایمیل معتبر وارد کنید")
+    .optional()
+    .or(z.literal("")),
   national_code: z
     .string()
     .regex(/^\d{10}$/, "کد ملی باید ۱۰ رقم باشد")
@@ -62,14 +72,16 @@ interface UserProfile {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Component
-// ─────────────────────────────────────────────────────────────────────────────
 export default function ProfilePage() {
   const { user, setUser } = useAuthStore();
-  const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [profile,   setProfile]   = useState<UserProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
-  const [isSaving, setIsSaving] = useState(false);
+  const [isSaving,  setIsSaving]  = useState(false);
+
+  const isCustomer         = profile?.role === "customer";
+  const hasNationalCode = !!user?.national_code?.trim();
+  const showNationalAlert  = isCustomer && !hasNationalCode;
 
   const {
     register,
@@ -84,7 +96,7 @@ export default function ProfilePage() {
   const fetchProfile = async () => {
     setIsLoading(true);
     try {
-      const res = await apiClient.get(ENDPOINTS.AUTH.PROFILE);
+      const res  = await apiClient.get(ENDPOINTS.AUTH.PROFILE);
       const data = res.data?.data ?? res.data;
       setProfile(data);
       reset({
@@ -100,9 +112,7 @@ export default function ProfilePage() {
     }
   };
 
-  useEffect(() => {
-    fetchProfile();
-  }, []);
+  useEffect(() => { fetchProfile(); }, []);
 
   // ── submit ─────────────────────────────────────────────────────────────────
   const onSubmit = async (data: ProfileFormData) => {
@@ -111,21 +121,20 @@ export default function ProfilePage() {
       const payload = {
         first_name:    data.first_name,
         last_name:     data.last_name,
-        email:         data.email || null,
+        email:         data.email         || null,
         national_code: data.national_code || null,
       };
-      const res = await apiClient.patch(ENDPOINTS.AUTH.PROFILE, payload);
+      const res     = await apiClient.patch(ENDPOINTS.AUTH.PROFILE, payload);
       const updated = res.data?.data ?? res.data;
       setProfile(updated);
-      
-      // update Zustand store
+
       if (user) {
         setUser({
           ...user,
-          first_name: updated.first_name,
-          last_name: updated.last_name,
-          full_name: updated.full_name,
-          email: updated.email ?? null,
+          first_name:    updated.first_name,
+          last_name:     updated.last_name,
+          full_name:     updated.full_name,
+          email:         updated.email         ?? null,
           national_code: updated.national_code ?? null,
         });
       }
@@ -139,7 +148,7 @@ export default function ProfilePage() {
     }
   };
 
-  // ── cancel edit ────────────────────────────────────────────────────────────
+  // ── cancel ─────────────────────────────────────────────────────────────────
   const handleCancel = () => {
     setIsEditing(false);
     reset({
@@ -151,8 +160,9 @@ export default function ProfilePage() {
   };
 
   if (isLoading) return <PageLoader />;
-  if (!profile) return null;
+  if (!profile)  return null;
 
+  // ─────────────────────────────────────────────────────────────────────────
   return (
     <div className="space-y-6">
       <PageHeader
@@ -161,8 +171,37 @@ export default function ProfilePage() {
         breadcrumbs={[{ label: "پروفایل" }]}
       />
 
+      {/* ── هشدار کد ملی برای شهروندان ─────────────────────────────────── */}
+      {showNationalAlert && (
+        <div className="rounded-2xl border-2 border-amber-300 bg-amber-50 p-4
+                         flex items-start gap-4 shadow-sm">
+          <div className="flex-shrink-0 h-10 w-10 rounded-xl bg-amber-100
+                           flex items-center justify-center">
+            <ExclamationTriangleIcon className="h-5 w-5 text-amber-600" />
+          </div>
+          <div className="flex-1">
+            <p className="font-bold text-amber-800 text-sm mb-1">
+              کد ملی شما تکمیل نشده است
+            </p>
+            <p className="text-xs text-amber-700 leading-relaxed">
+              برای ثبت شکایت از فروشگاه‌ها، ابتدا باید کد ملی خود را در
+              پروفایل وارد کنید. لطفاً اطلاعات خود را تکمیل نمایید.
+            </p>
+          </div>
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => setIsEditing(true)}
+            className="flex-shrink-0 border-amber-400 text-amber-700
+                       hover:bg-amber-100"
+          >
+            تکمیل اطلاعات
+          </Button>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* ── Sidebar: Avatar & Stats ── */}
+        {/* ── Sidebar ──────────────────────────────────────────────────── */}
         <div className="space-y-5">
           {/* Avatar Card */}
           <Card padding="md">
@@ -203,6 +242,33 @@ export default function ProfilePage() {
                   {profile.role_display}
                 </Badge>
               </div>
+
+              {/* وضعیت تکمیل پروفایل برای شهروند */}
+              {isCustomer && (
+                <div className="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                  <p className="text-xs font-semibold text-slate-600 mb-2">
+                    تکمیل پروفایل
+                  </p>
+                  <div className="space-y-1.5">
+                    <ProfileCompletionRow
+                      label="کد ملی"
+                      isDone={hasNationalCode}
+                      required
+                    />
+                    <ProfileCompletionRow
+                      label="نام و نام خانوادگی"
+                      isDone={
+                        !!profile.first_name?.trim() &&
+                        !!profile.last_name?.trim()
+                      }
+                    />
+                    <ProfileCompletionRow
+                      label="ایمیل"
+                      isDone={!!profile.email?.trim()}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </Card>
 
@@ -237,19 +303,14 @@ export default function ProfilePage() {
                   <span className="text-xs text-slate-500">وضعیت موبایل</span>
                 </div>
                 {profile.is_phone_verified ? (
-                  <Badge variant="success" size="sm" dot>
-                    تایید شده
-                  </Badge>
+                  <Badge variant="success" size="sm" dot>تایید شده</Badge>
                 ) : (
-                  <Badge variant="warning" size="sm" dot>
-                    تایید نشده
-                  </Badge>
+                  <Badge variant="warning" size="sm" dot>تایید نشده</Badge>
                 )}
               </div>
             </div>
           </Card>
 
-          {/* Info Alert */}
           <Alert
             variant="info"
             message="برای تغییر شماره موبایل یا رمز عبور، با پشتیبانی تماس بگیرید."
@@ -257,7 +318,7 @@ export default function ProfilePage() {
           />
         </div>
 
-        {/* ── Main: Edit Form ── */}
+        {/* ── Main Form ────────────────────────────────────────────────── */}
         <Card className="lg:col-span-2" padding="md">
           <CardHeader>
             <CardTitle subtitle="ویرایش اطلاعات شخصی">
@@ -295,7 +356,7 @@ export default function ProfilePage() {
           </CardHeader>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-            {/* Row 1 */}
+            {/* نام و نام خانوادگی */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input
                 label="نام"
@@ -315,7 +376,7 @@ export default function ProfilePage() {
               />
             </div>
 
-            {/* Row 2 */}
+            {/* موبایل و ایمیل */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input
                 label="شماره موبایل"
@@ -335,17 +396,60 @@ export default function ProfilePage() {
               />
             </div>
 
-            {/* Row 3 */}
+            {/* کد ملی و نقش */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Input
-                label="کد ملی"
-                {...register("national_code")}
-                error={errors.national_code?.message}
-                disabled={!isEditing}
-                leftIcon={<IdentificationIcon className="h-4 w-4" />}
-                placeholder="۱۲۳۴۵۶۷۸۹۰"
-                maxLength={10}
-              />
+              {/* کد ملی - با ستاره قرمز برای شهروندان */}
+              <div className="relative">
+                <Input
+                  label={
+                    isCustomer ? (
+                      <span className="flex items-center gap-1">
+                        کد ملی
+                        <span
+                          className="text-red-500 text-base leading-none"
+                          title="الزامی برای ثبت شکایت"
+                        >
+                          ✱
+                        </span>
+                        {!hasNationalCode && (
+                          <span className="text-xs text-amber-600 font-normal">
+                            (الزامی برای ثبت شکایت)
+                          </span>
+                        )}
+                      </span>
+                    ) : (
+                      "کد ملی"
+                    )
+                  }
+                  {...register("national_code")}
+                  error={errors.national_code?.message}
+                  disabled={!isEditing}
+                  leftIcon={
+                    <IdentificationIcon
+                      className={cn(
+                        "h-4 w-4",
+                        showNationalAlert && !isEditing
+                          ? "text-amber-500"
+                          : "text-slate-400"
+                      )}
+                    />
+                  }
+                  placeholder="۱۲۳۴۵۶۷۸۹۰"
+                  maxLength={10}
+                  className={cn(
+                    showNationalAlert &&
+                      "border-amber-400 focus:ring-amber-200 focus:border-amber-500"
+                  )}
+                />
+                {/* نوار هشدار زیر فیلد کد ملی */}
+                {isCustomer && !hasNationalCode && !isEditing && (
+                  <p className="mt-1 text-xs text-amber-600 flex items-center gap-1">
+                    <ExclamationTriangleIcon className="h-3.5 w-3.5 flex-shrink-0" />
+                    بدون کد ملی نمی‌توانید شکایت ثبت کنید
+                  </p>
+                )}
+              </div>
+
               <Input
                 label="نقش سیستمی"
                 value={profile.role_display}
@@ -367,15 +471,61 @@ export default function ProfilePage() {
                     نقش شما: {ROLE_LABELS[profile.role as Role]}
                   </p>
                   <p className="text-xs text-slate-500 leading-relaxed">
-                    نقش کاربری شما توسط ادمین سیستم تعیین شده و غیرقابل تغییر است.
-                    برای تغییر نقش با پشتیبانی تماس بگیرید.
+                    نقش کاربری شما توسط ادمین سیستم تعیین شده و غیرقابل تغییر
+                    است. برای تغییر نقش با پشتیبانی تماس بگیرید.
                   </p>
                 </div>
               </div>
             </div>
+
+            {/* دکمه ویرایش سریع برای شهروند بدون کد ملی */}
+            {showNationalAlert && !isEditing && (
+              <div className="flex justify-end">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setIsEditing(true)}
+                  leftIcon={<PencilSquareIcon className="h-4 w-4" />}
+                  className="border-amber-400 text-amber-700 hover:bg-amber-50"
+                >
+                  ویرایش و تکمیل اطلاعات
+                </Button>
+              </div>
+            )}
           </form>
         </Card>
       </div>
+    </div>
+  );
+}
+
+// ─── Sub-component: Profile Completion Row ────────────────────────────────────
+function ProfileCompletionRow({
+  label,
+  isDone,
+  required = false,
+}: {
+  label:     string;
+  isDone:    boolean;
+  required?: boolean;
+}) {
+  return (
+    <div className="flex items-center justify-between">
+      <div className="flex items-center gap-1.5">
+        <span className="text-xs text-slate-500">{label}</span>
+        {required && !isDone && (
+          <span className="text-red-500 text-xs leading-none">✱</span>
+        )}
+      </div>
+      {isDone ? (
+        <CheckCircleIcon className="h-4 w-4 text-green-500" />
+      ) : (
+        <div className={cn(
+          "h-4 w-4 rounded-full border-2",
+          required ? "border-amber-400" : "border-slate-300"
+        )} />
+      )}
     </div>
   );
 }

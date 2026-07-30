@@ -96,31 +96,27 @@ class UserService(BaseService):
             )
 
             return user
-
+        
     def update_profile(
         self,
         *,
         user_id: int,
-        first_name: Optional[str] = None,
-        last_name: Optional[str] = None,
-        email: Optional[str] = None,
-        national_code: Optional[str] = None,
-        requesting_user: User
+        requesting_user: User,
+        **kwargs  # هر فیلدی که ارسال شده
     ) -> User:
         """
         ویرایش پروفایل کاربر.
-        کاربر فقط می‌تواند پروفایل خودش را ویرایش کند.
-        ادمین می‌تواند هر کاربری را ویرایش کند.
         """
         user = User.objects.filter(id=user_id).first()
         if not user:
             raise ResourceNotFoundError('کاربر مورد نظر یافت نشد')
 
-        # بررسی دسترسی
         if not requesting_user.is_admin and requesting_user.id != user_id:
             raise PermissionError(
                 'شما دسترسی به ویرایش این پروفایل ندارید'
             )
+
+        national_code = kwargs.get('national_code')
 
         # بررسی کد ملی تکراری
         if national_code and national_code != user.national_code:
@@ -133,25 +129,21 @@ class UserService(BaseService):
                 )
 
         update_fields = ['updated_at']
+        ALLOWED_FIELDS = ['first_name', 'last_name', 'email', 'national_code']
 
-        if first_name is not None:
-            user.first_name = first_name
-            update_fields.append('first_name')
-
-        if last_name is not None:
-            user.last_name = last_name
-            update_fields.append('last_name')
-
-        if email is not None:
-            user.email = email
-            update_fields.append('email')
-
-        if national_code is not None:
-            user.national_code = national_code
-            update_fields.append('national_code')
+        for field in ALLOWED_FIELDS:
+            if field in kwargs:
+                setattr(user, field, kwargs[field])
+                update_fields.append(field)
 
         with self.transaction():
             user.save(update_fields=update_fields)
+            self.log_info(
+                f'Profile updated: {user.phone_number}',
+                user_id=user_id,
+                fields=list(kwargs.keys()),
+                by=requesting_user.id
+            )
 
         return user
 
