@@ -21,6 +21,7 @@ class ProductService(BaseService):
     def create(
         self,
         *,
+        union_id: int,
         name: str,
         category_id: int,
         unit_id: int,
@@ -35,14 +36,26 @@ class ProductService(BaseService):
     ) -> Product:
         """
         ایجاد محصول جدید.
-        فقط ادمین می‌تواند محصول ایجاد کند.
+        ادمین می‌تواند برای هر اتحادیه‌ای محصول ایجاد کند.
+        رئیس اتحادیه فقط برای اتحادیه خودش می‌تواند محصول ایجاد کند.
         """
-        if not requesting_user.is_admin:
-            raise PermissionError(
-                'فقط ادمین می‌تواند محصول ایجاد کند'
-            )
+        from apps.organizations.models import Union
+
+        # بررسی دسترسی
+        self._check_create_permission(
+            requesting_user=requesting_user,
+            union_id=union_id
+        )
 
         name = normalize_persian_text(name)
+
+        # بررسی اتحادیه
+        union = Union.objects.filter(
+            id=union_id,
+            is_active=True
+        ).first()
+        if not union:
+            raise ResourceNotFoundError('اتحادیه مورد نظر یافت نشد')
 
         # بررسی دسته‌بندی
         category = ProductCategory.objects.filter(
@@ -50,9 +63,7 @@ class ProductService(BaseService):
             is_active=True
         ).first()
         if not category:
-            raise ResourceNotFoundError(
-                'دسته‌بندی مورد نظر یافت نشد'
-            )
+            raise ResourceNotFoundError('دسته‌بندی مورد نظر یافت نشد')
 
         # بررسی واحد
         unit = ProductUnit.objects.filter(
@@ -64,11 +75,11 @@ class ProductService(BaseService):
                 'واحد اندازه‌گیری مورد نظر یافت نشد'
             )
 
-        # بررسی تکراری نبودن نام در دسته‌بندی
-        if ProductSelector.exists_by_name(name, category_id):
+        # بررسی تکراری نبودن نام در همان اتحادیه
+        if ProductSelector.exists_by_name_in_union(name, union_id):
             raise ResourceAlreadyExistsError(
                 f'محصولی با نام "{name}" '
-                f'در این دسته‌بندی قبلاً ثبت شده است'
+                f'در این اتحادیه قبلاً ثبت شده است'
             )
 
         # بررسی تکراری نبودن بارکد
@@ -82,6 +93,7 @@ class ProductService(BaseService):
 
         with self.transaction():
             product = Product.objects.create(
+                union=union,
                 name=name,
                 category=category,
                 unit=unit,
@@ -97,6 +109,7 @@ class ProductService(BaseService):
             self.log_info(
                 f'Product created: {product.name}',
                 product_id=product.id,
+                union_id=union_id,
                 category_id=category_id,
                 by=requesting_user.id
             )
@@ -106,6 +119,7 @@ class ProductService(BaseService):
         self,
         *,
         product_id: int,
+        union_id: Optional[int] = None,
         name: Optional[str] = None,
         category_id: Optional[int] = None,
         unit_id: Optional[int] = None,
@@ -120,12 +134,8 @@ class ProductService(BaseService):
         requesting_user
     ) -> Product:
         """ویرایش محصول"""
-        if not requesting_user.is_admin:
-            raise PermissionError(
-                'فقط ادمین می‌تواند محصول ویرایش کند'
-            )
-
         product = Product.objects.select_related(
+            'union',
             'category',
             'unit'
         ).filter(id=product_id).first()
@@ -133,7 +143,29 @@ class ProductService(BaseService):
         if not product:
             raise ResourceNotFoundError('محصول مورد نظر یافت نشد')
 
+        # بررسی دسترسی
+        self._check_update_permission(
+            requesting_user=requesting_user,
+            product=product
+        )
+
         update_fields = ['updated_at']
+
+        # تغییر اتحادیه (فقط ادمین)
+        if union_id is not None and union_id != product.union_id:
+            if not requesting_user.is_admin:
+                raise PermissionError(
+                    'فقط ادمین می‌تواند اتحادیه محصول را تغییر دهد'
+                )
+            from apps.organizations.models import Union
+            union = Union.objects.filter(
+                id=union_id,
+                is_active=True
+            ).first()
+            if not union:
+                raise ResourceNotFoundError('اتحادیه مورد نظر یافت نشد')
+            product.union = union
+            update_fields.append('union')
 
         # بررسی و تغییر دسته‌بندی
         if category_id is not None and category_id != product.category_id:
@@ -142,9 +174,7 @@ class ProductService(BaseService):
                 is_active=True
             ).first()
             if not category:
-                raise ResourceNotFoundError(
-                    'دسته‌بندی مورد نظر یافت نشد'
-                )
+                raise ResourceNotFoundError('دسته‌بندی مورد نظر یافت نشد')
             product.category = category
             update_fields.append('category')
 
@@ -164,19 +194,17 @@ class ProductService(BaseService):
         # تغییر نام
         if name is not None and name != product.name:
             name = normalize_persian_text(name)
-            target_category_id = (
-                category_id
-                if category_id is not None
-                else product.category_id
+            target_union_id = (
+                union_id if union_id is not None else product.union_id
             )
-            if ProductSelector.exists_by_name(
+            if ProductSelector.exists_by_name_in_union(
                 name,
-                target_category_id,
+                target_union_id,
                 exclude_id=product_id
             ):
                 raise ResourceAlreadyExistsError(
                     f'محصولی با نام "{name}" '
-                    f'در این دسته‌بندی قبلاً ثبت شده است'
+                    f'در این اتحادیه قبلاً ثبت شده است'
                 )
             product.name = name
             product.slug = self._generate_unique_slug(
@@ -242,19 +270,20 @@ class ProductService(BaseService):
         requesting_user
     ) -> Product:
         """آپلود تصویر محصول"""
-        if not requesting_user.is_admin:
-            raise PermissionError(
-                'فقط ادمین می‌تواند تصویر محصول را تغییر دهد'
-            )
-
-        product = Product.objects.filter(id=product_id).first()
+        product = Product.objects.select_related(
+            'union'
+        ).filter(id=product_id).first()
         if not product:
             raise ResourceNotFoundError('محصول مورد نظر یافت نشد')
+
+        self._check_update_permission(
+            requesting_user=requesting_user,
+            product=product
+        )
 
         from apps.common.utils import validate_image_file
         validate_image_file(image)
 
-        # حذف تصویر قبلی
         if product.image:
             product.image.delete(save=False)
 
@@ -264,11 +293,56 @@ class ProductService(BaseService):
 
         return product
 
+    # ─── Permission Helpers ──────────────────────────────────────────────────
+
     @staticmethod
-    def _generate_unique_slug(
-        name: str,
-        exclude_id: int = None
-    ) -> str:
+    def _check_create_permission(requesting_user, union_id: int) -> None:
+        """
+        ادمین: می‌تواند برای هر اتحادیه‌ای محصول بسازد.
+        رئیس اتحادیه: فقط برای اتحادیه خودش.
+        """
+        if requesting_user.is_admin:
+            return
+
+        if requesting_user.role == 'union_manager':
+            from apps.organizations.models import Union
+            is_manager = Union.objects.filter(
+                id=union_id,
+                manager=requesting_user
+            ).exists()
+            if not is_manager:
+                raise PermissionError(
+                    'شما فقط می‌توانید برای اتحادیه خودتان محصول ایجاد کنید'
+                )
+            return
+
+        raise PermissionError('شما دسترسی لازم برای ایجاد محصول را ندارید')
+
+    @staticmethod
+    def _check_update_permission(requesting_user, product: Product) -> None:
+        """
+        ادمین: می‌تواند هر محصولی را ویرایش کند.
+        رئیس اتحادیه: فقط محصولات اتحادیه خودش.
+        """
+        if requesting_user.is_admin:
+            return
+
+        if requesting_user.role == 'union_manager':
+            from apps.organizations.models import Union
+            is_manager = Union.objects.filter(
+                id=product.union_id,
+                manager=requesting_user
+            ).exists()
+            if not is_manager:
+                raise PermissionError(
+                    'شما فقط می‌توانید محصولات اتحادیه خودتان را ویرایش کنید'
+                )
+            return
+
+        raise PermissionError('شما دسترسی لازم برای ویرایش محصول را ندارید')
+
+    @staticmethod
+    def _generate_unique_slug(name: str, exclude_id: int = None) -> str:
         """تولید slug یکتا"""
         base_slug = slugify(name, allow_unicode=True)
         slug = base_slug

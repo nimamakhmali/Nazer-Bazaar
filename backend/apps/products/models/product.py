@@ -1,19 +1,17 @@
 """
 مدل محصول (Product)
 
-محصولات عمومی هستند و به اتحادیه خاصی تعلق ندارند.
-هر اتحادیه می‌تواند برای محصولاتی که در حوزه کاری‌شان است
-قیمت مصوب روزانه ثبت کند.
+محصولات به یک اتحادیه مشخص تعلق دارند.
+هر اتحادیه محصولات حوزه کاری خود را مدیریت می‌کند.
 
-مثال محصولات:
-    - مرغ گرم (واحد: کیلوگرم)
-    - تخم‌مرغ (واحد: عدد)
-    - برنج ایرانی (واحد: کیلوگرم)
-    - روغن نباتی (واحد: لیتر)
+مثال:
+    - اتحادیه مرغ و ماهی → مرغ گرم، ماهی قزل‌آلا
+    - اتحادیه خواربار → برنج ایرانی، روغن نباتی
+    - اتحادیه لبنیات → شیر، پنیر، ماست
 
 نکته مهم:
-    محصول = یک کالای کلی در سیستم
-    OfficialPrice = قیمت مصوب این کالا توسط یک اتحادیه در یک روز
+    محصول = یک کالای کلی متعلق به یک اتحادیه
+    OfficialPrice = قیمت مصوب این کالا توسط اتحادیه در یک روز
     StorePrice = قیمت این کالا در یک فروشگاه خاص
 """
 from django.db import models
@@ -25,11 +23,19 @@ class Product(BaseModel):
     محصول/کالا در سیستم.
 
     روابط:
+        union:          اتحادیه صاحب این محصول
         category:       دسته‌بندی محصول
         unit:           واحد اندازه‌گیری
         official_prices: قیمت‌های مصوب (در app pricing)
         store_prices:   قیمت‌های فروشگاه‌ها (در app pricing)
     """
+    union = models.ForeignKey(
+        'organizations.Union',
+        on_delete=models.PROTECT,
+        related_name='products',
+        verbose_name='اتحادیه',
+        help_text='اتحادیه‌ای که این محصول را مدیریت می‌کند'
+    )
     category = models.ForeignKey(
         'ProductCategory',
         on_delete=models.PROTECT,
@@ -110,8 +116,12 @@ class Product(BaseModel):
         db_table = 'products_product'
         verbose_name = 'محصول'
         verbose_name_plural = 'محصولات'
-        ordering = ['category', 'order', 'name']
+        ordering = ['union', 'category', 'order', 'name']
         indexes = [
+            models.Index(
+                fields=['union', 'is_active'],
+                name='idx_product_union_active'
+            ),
             models.Index(
                 fields=['category', 'is_active'],
                 name='idx_product_category_active'
@@ -121,9 +131,19 @@ class Product(BaseModel):
                 name='idx_product_active_featured'
             ),
         ]
+        constraints = [
+            models.UniqueConstraint(
+                fields=['union', 'name'],
+                name='unique_product_name_per_union'
+            ),
+        ]
 
     def __str__(self) -> str:
-        return f'{self.name} ({self.unit.symbol})'
+        return f'{self.name} ({self.unit.symbol}) - {self.union.name}'
+
+    @property
+    def union_name(self) -> str:
+        return self.union.name
 
     @property
     def category_name(self) -> str:
@@ -146,6 +166,7 @@ class Product(BaseModel):
         """
         آخرین قیمت مصوب این محصول.
         اگر union_id داده شود، قیمت آن اتحادیه را برمی‌گرداند.
+        در غیر این صورت قیمت اتحادیه خود محصول را برمی‌گرداند.
         """
         from django.utils import timezone
         from apps.pricing.models import OfficialPrice
@@ -154,6 +175,6 @@ class Product(BaseModel):
             effective_date__lte=timezone.now().date(),
             is_active=True
         )
-        if union_id:
-            qs = qs.filter(union_id=union_id)
+        target_union_id = union_id or self.union_id
+        qs = qs.filter(union_id=target_union_id)
         return qs.order_by('-effective_date').first()

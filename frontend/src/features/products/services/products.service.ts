@@ -1,10 +1,13 @@
 import apiClient from "@/services/api.client";
 import { ENDPOINTS } from "@/services/endpoints";
-import type { ProductCreateRequest } from "../types/products.types";
+import type { ProductCreateRequest, ProductUpdateRequest } from "../types/products.types";
 
 export const productsService = {
   getProducts: (params?: Record<string, unknown>) =>
     apiClient.get(ENDPOINTS.PRODUCTS.LIST, { params }),
+
+  getProductsByUnion: (unionId: number, params?: Record<string, unknown>) =>
+    apiClient.get(ENDPOINTS.PRODUCTS.LIST, { params: { union: unionId, ...params } }),
 
   getProduct: (id: number) =>
     apiClient.get(ENDPOINTS.PRODUCTS.DETAIL(id)),
@@ -12,7 +15,7 @@ export const productsService = {
   createProduct: (data: ProductCreateRequest) =>
     apiClient.post(ENDPOINTS.PRODUCTS.LIST, data),
 
-  updateProduct: (id: number, data: Partial<ProductCreateRequest>) =>
+  updateProduct: (id: number, data: ProductUpdateRequest) =>
     apiClient.patch(ENDPOINTS.PRODUCTS.DETAIL(id), data),
 
   uploadImage: (id: number, file: File) => {
@@ -38,8 +41,8 @@ export const productsService = {
   getUnits: () =>
     apiClient.get(ENDPOINTS.PRODUCTS.UNITS),
 
-  exportProducts: () =>
-    apiClient.get(ENDPOINTS.PRODUCTS.EXPORT, { responseType: "blob" }),
+  exportProducts: (params?: Record<string, unknown>) =>
+    apiClient.get(ENDPOINTS.PRODUCTS.EXPORT, { responseType: "blob", params }),
 
   importProducts: (file: File, updateExisting = false) => {
     const formData = new FormData();

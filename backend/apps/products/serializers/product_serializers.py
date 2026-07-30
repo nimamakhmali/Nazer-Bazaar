@@ -17,6 +17,10 @@ class ProductUnitSerializer(serializers.ModelSerializer):
 
 class ProductListSerializer(serializers.ModelSerializer):
     """لیست محصولات"""
+    union_name = serializers.CharField(
+        source='union.name',
+        read_only=True
+    )
     category_name = serializers.CharField(
         source='category.name',
         read_only=True
@@ -36,6 +40,8 @@ class ProductListSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'slug',
+            'union',
+            'union_name',
             'category',
             'category_name',
             'unit',
@@ -59,6 +65,10 @@ class ProductDetailSerializer(serializers.ModelSerializer):
         read_only=True
     )
     full_name = serializers.CharField(read_only=True)
+    union_name = serializers.CharField(
+        source='union.name',
+        read_only=True
+    )
     category_name = serializers.CharField(
         source='category.name',
         read_only=True
@@ -75,6 +85,8 @@ class ProductDetailSerializer(serializers.ModelSerializer):
             'name',
             'slug',
             'full_name',
+            'union',
+            'union_name',
             'category',
             'category_name',
             'category_detail',
@@ -97,6 +109,7 @@ class ProductDetailSerializer(serializers.ModelSerializer):
 
 class ProductCreateSerializer(serializers.Serializer):
     """ایجاد محصول"""
+    union_id = serializers.IntegerField()
     name = serializers.CharField(max_length=200)
     category_id = serializers.IntegerField()
     unit_id = serializers.IntegerField()
@@ -134,9 +147,18 @@ class ProductCreateSerializer(serializers.Serializer):
                 )
         return value or None
 
+    def validate_union_id(self, value: int) -> int:
+        from apps.organizations.models import Union
+        if not Union.objects.filter(id=value, is_active=True).exists():
+            raise serializers.ValidationError(
+                'اتحادیه مورد نظر یافت نشد یا غیرفعال است'
+            )
+        return value
+
 
 class ProductUpdateSerializer(serializers.Serializer):
     """ویرایش محصول"""
+    union_id = serializers.IntegerField(required=False)
     name = serializers.CharField(max_length=200, required=False)
     category_id = serializers.IntegerField(required=False)
     unit_id = serializers.IntegerField(required=False)
@@ -161,6 +183,14 @@ class ProductUpdateSerializer(serializers.Serializer):
     is_featured = serializers.BooleanField(required=False)
     is_active = serializers.BooleanField(required=False)
     specifications = serializers.DictField(required=False)
+
+    def validate_union_id(self, value: int) -> int:
+        from apps.organizations.models import Union
+        if not Union.objects.filter(id=value, is_active=True).exists():
+            raise serializers.ValidationError(
+                'اتحادیه مورد نظر یافت نشد یا غیرفعال است'
+            )
+        return value
 
 
 class ProductImportSerializer(serializers.Serializer):

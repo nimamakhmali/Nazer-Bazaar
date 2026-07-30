@@ -10,6 +10,7 @@ from apps.products.models import Product
 class ProductAdmin(admin.ModelAdmin):
     list_display = [
         'name',
+        'union',
         'category',
         'unit',
         'brand',
@@ -22,6 +23,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = [
         'is_active',
         'is_featured',
+        'union',
         'category',
         'unit',
     ]
@@ -30,6 +32,7 @@ class ProductAdmin(admin.ModelAdmin):
         'barcode',
         'brand',
         'description',
+        'union__name',
     ]
     list_editable = ['order', 'is_featured', 'is_active']
     readonly_fields = [
@@ -39,12 +42,13 @@ class ProductAdmin(admin.ModelAdmin):
         'product_image_preview',
         'full_name',
     ]
-    autocomplete_fields = ['category', 'unit']
-    ordering = ['category__name', 'order', 'name']
+    autocomplete_fields = ['union', 'category', 'unit']
+    ordering = ['union__name', 'category__name', 'order', 'name']
 
     fieldsets = (
         ('اطلاعات اصلی', {
             'fields': (
+                'union',
                 'category',
                 'name',
                 'slug',
@@ -101,5 +105,8 @@ class ProductAdmin(admin.ModelAdmin):
 
     def mark_as_featured(self, request, queryset):
         queryset.update(is_featured=True)
-        self.message_user(request, 'محصولات انتخابی به عنوان ویژه علامت‌گذاری شدند')
+        self.message_user(
+            request,
+            'محصولات انتخابی به عنوان ویژه علامت‌گذاری شدند'
+        )
     mark_as_featured.short_description = 'علامت‌گذاری به عنوان ویژه'

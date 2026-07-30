@@ -23,10 +23,7 @@ from apps.products.permissions import CanManageProduct
 
 
 class ProductUnitListView(APIView):
-    """
-    GET /api/v1/products/units/
-    لیست واحدهای اندازه‌گیری
-    """
+    """GET /api/v1/products/units/"""
     permission_classes = [AllowAny]
 
     @extend_schema(
@@ -50,12 +47,18 @@ class ProductListCreateView(APIView):
     def get_permissions(self):
         if self.request.method == 'GET':
             return [AllowAny()]
-        return [CanManageProduct()]
+        return [IsAuthenticated()]
 
     @extend_schema(
         summary='لیست محصولات',
         tags=['products'],
         parameters=[
+            OpenApiParameter(
+                name='union',
+                description='فیلتر بر اساس اتحادیه',
+                required=False,
+                type=int
+            ),
             OpenApiParameter(
                 name='category',
                 description='فیلتر بر اساس دسته‌بندی',
@@ -78,11 +81,14 @@ class ProductListCreateView(APIView):
         responses={200: ProductListSerializer(many=True)}
     )
     def get(self, request) -> Response:
+        union_id = request.query_params.get('union')
         category_id = request.query_params.get('category')
         featured = request.query_params.get('featured')
         search = request.query_params.get('search')
 
-        if category_id:
+        if union_id:
+            products = ProductSelector.get_by_union(int(union_id))
+        elif category_id:
             include_children = request.query_params.get(
                 'include_children', 'true'
             ).lower() == 'true'
@@ -137,7 +143,7 @@ class ProductDetailView(APIView):
     def get_permissions(self):
         if self.request.method == 'GET':
             return [AllowAny()]
-        return [CanManageProduct()]
+        return [IsAuthenticated()]
 
     def _get_product(self, product_id: int):
         product = ProductSelector.get_by_id(product_id)
@@ -186,10 +192,8 @@ class ProductDetailView(APIView):
 
 
 class ProductImageUploadView(APIView):
-    """
-    POST /api/v1/products/{id}/upload-image/
-    """
-    permission_classes = [CanManageProduct]
+    """POST /api/v1/products/{id}/upload-image/"""
+    permission_classes = [IsAuthenticated]
     parser_classes = [MultiPartParser, FormParser]
 
     @extend_schema(
