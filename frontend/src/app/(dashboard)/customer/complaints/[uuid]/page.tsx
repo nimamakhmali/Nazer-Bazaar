@@ -27,6 +27,7 @@ import Link              from "next/link";
 // ─────────────────────────────────────────────────────────────────────────────
 interface ComplaintDetail {
   uuid:            string;
+  tracking_code:   string;  // ✅ اضافه شد
   customer: {
     id: number; full_name: string;
     phone_number: string; role: string;
@@ -38,6 +39,7 @@ interface ComplaintDetail {
   title:           string;
   description:     string;
   price_reported:  number;
+  price_reported_formatted: string;  // ✅ اضافه شد
   price_proof:     string | null;
   status:          string;
   status_display:  string;
@@ -116,8 +118,11 @@ export default function CustomerComplaintDetailPage() {
   const fetchComplaint = async () => {
     try {
       const r = await apiClient.get(ENDPOINTS.COMPLAINTS.DETAIL(uuid));
-      setComplaint(r.data?.data ?? r.data);
-    } catch {
+      const data = r.data?.data ?? r.data;
+      console.log("✅ Complaint Data:", data);  // ✅ Debug
+      setComplaint(data);
+    } catch (err) {
+      console.error("❌ Fetch Error:", err);
       toast.error("شکایت یافت نشد");
       router.push("/customer/complaints");
     } finally {
@@ -151,23 +156,14 @@ export default function CustomerComplaintDetailPage() {
   const guide = STATUS_GUIDES[complaint.status];
 
   // Build timeline
+// ✅ Build timeline - ساده‌شده
   const timelineSteps: TimelineStep[] = [
     {
       status: "submitted",
-      label:  "ثبت شکایت",
-      date:   complaint.created_at,
-      by:     complaint.customer.full_name,
+      label: "ثبت شکایت",
+      date: complaint.created_at,
+      by: complaint.customer.full_name,
     },
-    { status: "reviewing",  label: "در حال بررسی" },
-    { status: "referred",   label: "ارجاع به بازرس" },
-    { status: "inspecting", label: "در حال بازرسی" },
-    {
-      status: "confirmed",
-      label:  "تایید شکایت",
-      date:   complaint.status === "confirmed" ? complaint.updated_at : undefined,
-      note:   complaint.resolution_note ?? undefined,
-    },
-    { status: "closed", label: "مختومه" },
   ];
 
   // Public responses only
@@ -259,12 +255,14 @@ export default function CustomerComplaintDetailPage() {
               ))}
             </div>
 
-            {/* Price */}
+            {/* ✅ Price - استفاده از price_reported_formatted */}
             <div className="p-4 bg-red-50 border border-red-100 rounded-xl mb-4">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-red-800">قیمتی که پرداختید:</p>
                 <p className="text-xl font-bold text-red-700">
-                  {formatPrice(complaint.price_reported)} ریال
+                  {complaint.price_reported_formatted 
+                    ? `${complaint.price_reported_formatted} ریال`
+                    : `${formatPrice(complaint.price_reported)} ریال`}
                 </p>
               </div>
             </div>
@@ -382,23 +380,27 @@ export default function CustomerComplaintDetailPage() {
         {/* ── Sidebar ── */}
         <div className="space-y-4">
 
-          {/* UUID */}
+          {/* ✅ Tracking Code - نمایش کد عددی */}
           <Card padding="md">
             <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
               کد پیگیری
             </p>
-            <div className="p-3 bg-slate-50 rounded-xl">
-              <p className="font-mono text-xs text-slate-600 break-all">
-                {complaint.uuid}
+            <div className="p-4 bg-primary-50 border-2 border-primary-100 rounded-xl text-center">
+              <p className="font-mono text-3xl font-bold text-primary-800 tracking-wider">
+                {complaint.tracking_code || complaint.uuid}
+              </p>
+              <p className="text-[10px] text-slate-400 mt-2">
+                این کد را یادداشت کنید
               </p>
             </div>
             <button
               onClick={() => {
-                navigator.clipboard.writeText(complaint.uuid);
+                const code = complaint.tracking_code || complaint.uuid;
+                navigator.clipboard.writeText(code);
                 toast.success("کد کپی شد");
               }}
-              className="mt-2 w-full text-xs text-primary-600 hover:text-primary-800
-                          font-semibold transition-colors"
+              className="mt-3 w-full py-2.5 bg-primary-700 text-white rounded-xl text-sm 
+                         font-bold hover:bg-primary-800 transition-colors"
             >
               📋 کپی کد پیگیری
             </button>
@@ -485,7 +487,7 @@ export default function CustomerComplaintDetailPage() {
               <div>
                 <p className="text-sm font-bold text-primary-800 mb-1">راهنما</p>
                 <p className="text-xs text-primary-700 leading-relaxed">
-                  برای پیگیری شکایت می‌توانید از کد UUID استفاده کنید.
+                  برای پیگیری شکایت می‌توانید از کد رهگیری استفاده کنید.
                   زمان رسیدگی معمولاً ۳ تا ۷ روز کاری است.
                 </p>
               </div>

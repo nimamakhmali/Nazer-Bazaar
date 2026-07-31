@@ -191,46 +191,46 @@ export default function ComplaintNewPage() {
     setStep((s) => s - 1);
   };
 
-  // ── Submit ─────────────────────────────────────────────────────────────────
-  const handleSubmit = async () => {
-    setSubmitting(true);
-    setErrors({});
-    try {
-      const priceNum = Number(toEnglishNumber(form.price_reported));
+// ── Submit ─────────────────────────────────────────────────────────────────
+const handleSubmit = async () => {
+  setSubmitting(true);
+  setErrors({});
+  try {
+    const priceNum = Number(toEnglishNumber(form.price_reported));
 
-      // ✅ FIX: ارسال با FormData (برای پشتیبانی از فایل)
-      const fd = new FormData();
-      fd.append("store", String(form.store!.id));
-      fd.append("product", String(form.product!.id));
-      fd.append("title", form.title.trim());
-      fd.append("description", form.description.trim());
-      fd.append("price_reported", String(priceNum));
-      
-      // ✅ فقط اگر فایل وجود داشت اضافه کن
-      if (form.price_proof) {
-        fd.append("price_proof", form.price_proof);
-      }
-
-      const r = await apiClient.post(ENDPOINTS.COMPLAINTS.LIST, fd, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-
-      const data = r.data?.data ?? r.data;
-      const uuid = data?.uuid ?? data?.id ?? "unknown";
-      setResultUUID(String(uuid));
-      setSubmitted(true);
-      toast.success("شکایت شما با موفقیت ثبت شد");
-    } catch (err: any) {
-      console.error("❌ Submit Error:", err);
-      console.error("Response:", err.response?.data);
-      
-      const msg = parseApiError(err);
-      setErrors({ submit: msg });
-      toast.error(msg);
-    } finally {
-      setSubmitting(false);
+    const fd = new FormData();
+    fd.append("store", String(form.store!.id));
+    fd.append("product", String(form.product!.id));
+    fd.append("title", form.title.trim());
+    fd.append("description", form.description.trim());
+    fd.append("price_reported", String(priceNum));
+    
+    if (form.price_proof) {
+      fd.append("price_proof", form.price_proof);
     }
-  };
+
+    const r = await apiClient.post(ENDPOINTS.COMPLAINTS.LIST, fd, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+
+    const data = r.data?.data ?? r.data;
+    
+    // ✅ FIX: اول tracking_code رو چک کن، اگر نبود uuid
+    const trackingCode = data?.tracking_code ?? data?.uuid ?? "unknown";
+    setResultUUID(String(trackingCode));
+    setSubmitted(true);
+    toast.success("شکایت شما با موفقیت ثبت شد");
+  } catch (err: any) {
+    console.error("❌ Submit Error:", err);
+    console.error("Response:", err.response?.data);
+    
+    const msg = parseApiError(err);
+    setErrors({ submit: msg });
+    toast.error(msg);
+  } finally {
+    setSubmitting(false);
+  }
+};
 
   // ── Price calculations ─────────────────────────────────────────────────────
   const priceNum       = Number(toEnglishNumber(form.price_reported || "0"));
@@ -241,72 +241,65 @@ export default function ComplaintNewPage() {
   const violationAmt   = isOverpriced ? priceNum - officialPrice : 0;
 
   // ─────────────────────────────────────────────────────────────────────────
-  // SUCCESS STATE
-  if (submitted) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-4">
-        <div className="w-full max-w-md">
-          <div className="bg-white rounded-3xl shadow-2xl p-8 text-center">
-            {/* Success icon */}
-            <div className="relative inline-flex mb-6">
-              <div className="h-24 w-24 rounded-full bg-green-100 flex items-center
-                               justify-center">
-                <CheckCircleSolid className="h-14 w-14 text-green-500" />
-              </div>
-              <div className="absolute -top-1 -right-1 h-8 w-8 rounded-full bg-green-500
-                               flex items-center justify-center animate-bounce">
-                <span className="text-white text-lg">✓</span>
-              </div>
+// SUCCESS STATE
+if (submitted) {
+  return (
+    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="w-full max-w-md">
+        <div className="bg-white rounded-3xl shadow-2xl p-8 text-center">
+          {/* Success icon */}
+          <div className="relative inline-flex mb-6">
+            <div className="h-24 w-24 rounded-full bg-green-100 flex items-center justify-center">
+              <CheckCircleSolid className="h-14 w-14 text-green-500" />
             </div>
-
-            <h2 className="text-2xl font-bold text-slate-800 mb-2">
-              شکایت ثبت شد!
-            </h2>
-            <p className="text-slate-500 text-sm mb-6 leading-relaxed">
-              شکایت شما با موفقیت در سامانه ثبت شد و به کارشناسان ارجاع داده می‌شود.
-            </p>
-
-            {/* UUID */}
-            <div className="bg-primary-50 border border-primary-100 rounded-2xl p-4 mb-6">
-              <p className="text-xs text-primary-500 mb-1 font-medium">
-                کد پیگیری شکایت
-              </p>
-              <p className="font-mono text-sm font-bold text-primary-800 break-all">
-                {resultUUID}
-              </p>
+            <div className="absolute -top-1 -right-1 h-8 w-8 rounded-full bg-green-500 flex items-center justify-center animate-bounce">
+              <span className="text-white text-lg">✓</span>
             </div>
-
-            {/* Copy button */}
-            <button
-              onClick={() => {
-                navigator.clipboard.writeText(resultUUID);
-                toast.success("کد پیگیری کپی شد");
-              }}
-              className="w-full mb-3 py-3 bg-primary-700 text-white rounded-xl
-                         font-bold text-sm hover:bg-primary-800 transition-colors"
-            >
-              کپی کد پیگیری
-            </button>
-
-            <Link href={`/complaints/track/${resultUUID}`}>
-              <button className="w-full py-3 border-2 border-primary-200 text-primary-700
-                                  rounded-xl font-bold text-sm hover:bg-primary-50
-                                  transition-colors mb-3">
-                رهگیری شکایت
-              </button>
-            </Link>
-
-            <Link href="/">
-              <button className="w-full py-2.5 text-slate-500 text-sm hover:text-slate-700
-                                  transition-colors">
-                بازگشت به صفحه اصلی
-              </button>
-            </Link>
           </div>
+
+          <h2 className="text-2xl font-bold text-slate-800 mb-2">شکایت ثبت شد!</h2>
+          <p className="text-slate-500 text-sm mb-6 leading-relaxed">
+            شکایت شما با موفقیت در سامانه ثبت شد و به کارشناسان ارجاع داده می‌شود.
+          </p>
+
+          {/* ✅ Tracking Code */}
+          <div className="bg-primary-50 border border-primary-100 rounded-2xl p-4 mb-6">
+            <p className="text-xs text-primary-500 mb-1 font-medium">کد پیگیری شکایت</p>
+            <p className="font-mono text-3xl font-bold text-primary-800 tracking-wider">
+              {resultUUID}
+            </p>
+            <p className="text-[10px] text-slate-400 mt-2">
+              این کد را یادداشت کنید
+            </p>
+          </div>
+
+          {/* Copy button */}
+          <button
+            onClick={() => {
+              navigator.clipboard.writeText(resultUUID);
+              toast.success("کد پیگیری کپی شد");
+            }}
+            className="w-full mb-3 py-3 bg-primary-700 text-white rounded-xl font-bold text-sm hover:bg-primary-800 transition-colors"
+          >
+            کپی کد پیگیری
+          </button>
+
+          <Link href={`/complaints/track/${resultUUID}`}>
+            <button className="w-full py-3 border-2 border-primary-200 text-primary-700 rounded-xl font-bold text-sm hover:bg-primary-50 transition-colors mb-3">
+              رهگیری شکایت
+            </button>
+          </Link>
+
+          <Link href="/">
+            <button className="w-full py-2.5 text-slate-500 text-sm hover:text-slate-700 transition-colors">
+              بازگشت به صفحه اصلی
+            </button>
+          </Link>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   // ─────────────────────────────────────────────────────────────────────────
   // MAIN FORM
