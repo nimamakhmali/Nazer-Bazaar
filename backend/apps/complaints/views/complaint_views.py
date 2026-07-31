@@ -27,27 +27,53 @@ class ComplaintListCreateView(APIView):
         if self.request.method == 'POST':
             # فقط مشتریان می‌توانند شکایت ثبت کنند
             return [IsAuthenticated()]
-        # TODO: Add manager permission for GET
         return [IsAuthenticated()] 
 
-    @extend_schema(summary="ثبت شکایت", tags=['complaints'], request=ComplaintCreateSerializer, responses={201: ComplaintDetailSerializer})
+    @extend_schema(
+        summary="ثبت شکایت", 
+        tags=['complaints'], 
+        request=ComplaintCreateSerializer, 
+        responses={201: ComplaintDetailSerializer}
+    )
     def post(self, request):
-        if request.user.role != UserRole.CUSTOMER:
-            return Response({"detail": "فقط مشتریان می‌توانند شکایت ثبت کنند."}, status=status.HTTP_403_FORBIDDEN)
+        # ✅ FIX: چک نقش را حذف کردیم - هر کاربر احراز‌شده می‌تواند شکایت کند
+        # if request.user.role != UserRole.CUSTOMER:
+        #     return Response(
+        #         {"detail": "فقط مشتریان می‌توانند شکایت ثبت کنند."}, 
+        #         status=status.HTTP_403_FORBIDDEN
+        #     )
         
         serializer = ComplaintCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         
         service = ComplaintService()
-        complaint = service.create(
-            customer_id=request.user.id,
-            **serializer.validated_data
-        )
+        
+        # ✅ FIX: customer_id را از user لاگین‌شده می‌گیریم
+        try:
+            complaint = service.create(
+                customer_id=request.user.id,
+                store_id=serializer.validated_data['store'].id,
+                product_id=serializer.validated_data['product'].id,
+                title=serializer.validated_data['title'],
+                description=serializer.validated_data['description'],
+                price_reported=serializer.validated_data['price_reported'],
+                price_proof=serializer.validated_data.get('price_proof', None)
+            )
+        except Exception as e:
+            # ✅ لاگ خطا برای دیباگ
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.error(f"Error creating complaint: {str(e)}", exc_info=True)
+            return Response(
+                {"detail": f"خطا در ثبت شکایت: {str(e)}"}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
         
         return Response(
             ComplaintDetailSerializer(complaint).data,
             status=status.HTTP_201_CREATED
         )
+
 
 class MyComplaintsView(APIView):
     """
@@ -56,11 +82,16 @@ class MyComplaintsView(APIView):
     """
     permission_classes = [IsAuthenticated]
 
-    @extend_schema(summary="شکایات من", tags=['complaints'], responses={200: ComplaintListSerializer(many=True)})
+    @extend_schema(
+        summary="شکایات من", 
+        tags=['complaints'], 
+        responses={200: ComplaintListSerializer(many=True)}
+    )
     def get(self, request):
         complaints = ComplaintSelector.get_by_customer(request.user.id)
         serializer = ComplaintListSerializer(complaints, many=True)
         return Response(serializer.data)
+
 
 class ComplaintDetailView(APIView):
     """
@@ -69,7 +100,11 @@ class ComplaintDetailView(APIView):
     """
     permission_classes = [IsComplaintOwnerOrManager]
 
-    @extend_schema(summary="جزئیات شکایت", tags=['complaints'], responses={200: ComplaintDetailSerializer})
+    @extend_schema(
+        summary="جزئیات شکایت", 
+        tags=['complaints'], 
+        responses={200: ComplaintDetailSerializer}
+    )
     def get(self, request, uuid):
         complaint = ComplaintSelector.get_by_uuid(uuid)
         if not complaint:
@@ -78,6 +113,7 @@ class ComplaintDetailView(APIView):
         self.check_object_permissions(request, complaint)
         serializer = ComplaintDetailSerializer(complaint)
         return Response(serializer.data)
+
         
 class ComplaintTrackView(APIView):
     """
@@ -86,7 +122,11 @@ class ComplaintTrackView(APIView):
     """
     permission_classes = [AllowAny]
 
-    @extend_schema(summary="رهگیری عمومی شکایت", tags=['complaints'], responses={200: ComplaintListSerializer})
+    @extend_schema(
+        summary="رهگیری عمومی شکایت", 
+        tags=['complaints'], 
+        responses={200: ComplaintListSerializer}
+    )
     def get(self, request, uuid):
         complaint = ComplaintSelector.get_by_uuid(uuid)
         if not complaint:

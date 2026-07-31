@@ -198,13 +198,15 @@ export default function ComplaintNewPage() {
     try {
       const priceNum = Number(toEnglishNumber(form.price_reported));
 
-      // ارسال با FormData (برای پشتیبانی از فایل)
+      // ✅ FIX: ارسال با FormData (برای پشتیبانی از فایل)
       const fd = new FormData();
-      fd.append("store",          String(form.store!.id));
-      fd.append("product",        String(form.product!.id));
-      fd.append("title",          form.title.trim());
-      fd.append("description",    form.description.trim());
+      fd.append("store", String(form.store!.id));
+      fd.append("product", String(form.product!.id));
+      fd.append("title", form.title.trim());
+      fd.append("description", form.description.trim());
       fd.append("price_reported", String(priceNum));
+      
+      // ✅ فقط اگر فایل وجود داشت اضافه کن
       if (form.price_proof) {
         fd.append("price_proof", form.price_proof);
       }
@@ -218,7 +220,10 @@ export default function ComplaintNewPage() {
       setResultUUID(String(uuid));
       setSubmitted(true);
       toast.success("شکایت شما با موفقیت ثبت شد");
-    } catch (err) {
+    } catch (err: any) {
+      console.error("❌ Submit Error:", err);
+      console.error("Response:", err.response?.data);
+      
       const msg = parseApiError(err);
       setErrors({ submit: msg });
       toast.error(msg);

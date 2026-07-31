@@ -141,7 +141,13 @@ export default function ProfilePage() {
 
       toast.success("اطلاعات پروفایل با موفقیت بروزرسانی شد");
       setIsEditing(false);
-    } catch (err) {
+    } catch (err: unknown) {
+        if (err && typeof err === "object" && "response" in err) {
+          const axiosErr = err as { response?: { data?: unknown; status?: number } };
+          console.error("=== API ERROR ===");
+          console.error("Status:", axiosErr.response?.status);
+          console.error("Data:", JSON.stringify(axiosErr.response?.data, null, 2));
+      }
       toast.error(parseApiError(err));
     } finally {
       setIsSaving(false);

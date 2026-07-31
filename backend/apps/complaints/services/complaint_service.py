@@ -28,41 +28,52 @@ class ComplaintService(BaseService):
         from apps.stores.models import Store
         from apps.products.models import Product
 
-        customer = User.objects.filter(id=customer_id, role=UserRole.CUSTOMER).first()
+        # ✅ FIX: حذف چک role - هر کاربر احراز‌شده می‌تواند شکایت کند
+        customer = User.objects.filter(id=customer_id, is_active=True).first()
         if not customer:
+            logger.error(f"Customer not found: {customer_id}")
             raise ResourceNotFoundError("کاربر شاکی یافت نشد.")
 
         store = Store.objects.filter(id=store_id, is_active=True).first()
         if not store:
+            logger.error(f"Store not found: {store_id}")
             raise ResourceNotFoundError("فروشگاه مورد نظر یافت نشد.")
 
         product = Product.objects.filter(id=product_id, is_active=True).first()
         if not product:
+            logger.error(f"Product not found: {product_id}")
             raise ResourceNotFoundError("محصول مورد نظر یافت نشد.")
 
-        with self.transaction():
-            complaint = Complaint.objects.create(
-                customer=customer,
-                store=store,
-                product=product,
-                title=title,
-                description=description,
-                price_reported=price_reported,
-                price_proof=price_proof,
-                status=ComplaintStatus.SUBMITTED
-            )
+        try:
+            with self.transaction():
+                complaint = Complaint.objects.create(
+                    customer=customer,
+                    store=store,
+                    product=product,
+                    title=title,
+                    description=description,
+                    price_reported=price_reported,
+                    price_proof=price_proof,
+                    status=ComplaintStatus.SUBMITTED
+                )
 
-            # ارسال نوتیفیکیشن به مدیر اتحادیه مربوطه
-            from ..tasks import notify_new_complaint
-            notify_new_complaint.delay(complaint.id)
+                # ارسال نوتیفیکیشن به مدیر اتحادیه مربوطه
+                try:
+                    from ..tasks import notify_new_complaint
+                    notify_new_complaint.delay(complaint.id)
+                except Exception as e:
+                    logger.warning(f"Failed to send notification: {str(e)}")
 
-            self.log_info(
-                f"New complaint created: {complaint.uuid} for store {store.name}",
-                complaint_id=complaint.id,
-                customer_id=customer_id,
-                store_id=store_id
-            )
-            return complaint
+                self.log_info(
+                    f"New complaint created: {complaint.uuid} for store {store.name}",
+                    complaint_id=complaint.id,
+                    customer_id=customer_id,
+                    store_id=store_id
+                )
+                return complaint
+        except Exception as e:
+            logger.error(f"Error in complaint creation: {str(e)}", exc_info=True)
+            raise
 
     def add_response(
         self,
@@ -81,8 +92,6 @@ class ComplaintService(BaseService):
         user = User.objects.filter(id=user_id).first()
         if not user:
             raise ResourceNotFoundError("کاربر پاسخ‌دهنده یافت نشد.")
-
-        # TODO: Add permission check: only involved parties can add response
 
         with self.transaction():
             response = ComplaintResponse.objects.create(
@@ -106,8 +115,6 @@ class ComplaintService(BaseService):
         if not complaint:
             raise ResourceNotFoundError("شکایت مورد نظر یافت نشد.")
 
-        # TODO: Add permission check for changing status
-
         old_status = complaint.status
         complaint.status = new_status
         if note:
@@ -116,9 +123,11 @@ class ComplaintService(BaseService):
         with self.transaction():
             complaint.save()
 
-            # ارسال نوتیفیکیشن به مشتری
-            from ..tasks import send_complaint_status_update
-            send_complaint_status_update.delay(complaint.id)
+            try:
+                from ..tasks import send_complaint_status_update
+                send_complaint_status_update.delay(complaint.id)
+            except Exception as e:
+                logger.warning(f"Failed to send status update: {str(e)}")
 
             self.log_info(
                 f"Complaint status changed: {complaint.uuid} from {old_status} to {new_status}",

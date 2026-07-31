@@ -4891,3 +4891,313 @@ NameError: name 'Page' is not defined
 [WARNING] 2026-07-30 22:35:37,240 basehttp 21445 138784848996032 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 400 114
 [WARNING] 2026-07-30 22:35:38,222 log 21445 138784848996032 Bad Request: /api/v1/auth/users/profile/
 [WARNING] 2026-07-30 22:35:38,223 basehttp 21445 138784848996032 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 400 114
+[INFO] 2026-07-31 14:48:05,368 autoreload 299446 135272109228160 Watching for file changes with StatReloader
+[WARNING] 2026-07-31 14:48:07,986 log 299446 135271383299776 Not Found: /
+[WARNING] 2026-07-31 14:48:07,987 basehttp 299446 135271383299776 "GET / HTTP/1.1" 404 16957
+[INFO] 2026-07-31 14:48:23,888 basehttp 299446 135271383299776 "GET /admin/ HTTP/1.1" 200 42246
+[INFO] 2026-07-31 14:48:23,903 basehttp 299446 135271383299776 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:23,906 basehttp 299446 135271367567040 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:23,908 basehttp 299446 135271359174336 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:23,912 basehttp 299446 135271350781632 "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:23,912 basehttp 299446 135271135835840 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:23,917 basehttp 299446 135271135835840 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:23,919 basehttp 299446 135271350781632 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:23,954 basehttp 299446 135271383299776 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:23,954 basehttp 299446 135271359174336 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:23,954 basehttp 299446 135271367567040 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:31,722 basehttp 299446 135271383299776 "GET /admin/accounts/user/ HTTP/1.1" 200 42506
+[INFO] 2026-07-31 14:48:31,748 basehttp 299446 135271350781632 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:31,759 basehttp 299446 135271350781632 "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:31,849 basehttp 299446 135271383299776 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-31 14:48:31,914 basehttp 299446 135271383299776 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:37,193 basehttp 299446 135271383299776 "GET /admin/accounts/user/1/change/ HTTP/1.1" 200 66349
+[INFO] 2026-07-31 14:48:37,216 basehttp 299446 135271350781632 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:37,222 basehttp 299446 135271359174336 "GET /static/admin/js/collapse.js HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:37,223 basehttp 299446 135271350781632 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:37,226 basehttp 299446 135271135835840 "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+[INFO] 2026-07-31 14:48:37,229 basehttp 299446 135271367567040 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15292
+[INFO] 2026-07-31 14:48:37,237 basehttp 299446 135271367567040 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:37,283 basehttp 299446 135271367567040 "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[INFO] 2026-07-31 14:48:37,375 basehttp 299446 135271383299776 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-31 14:48:37,479 basehttp 299446 135271383299776 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[INFO] 2026-07-31 14:48:37,480 basehttp 299446 135271367567040 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+[INFO] 2026-07-31 14:48:37,480 basehttp 299446 135271350781632 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+[INFO] 2026-07-31 14:48:56,551 basehttp 299446 135271127443136 "OPTIONS /api/v1/geography/provinces/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:48:56,553 basehttp 299446 135271119050432 "OPTIONS /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:48:56,559 basehttp 299446 135271110657728 "OPTIONS /api/v1/geography/provinces/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:48:56,563 basehttp 299446 135271102265024 "OPTIONS /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 0
+[WARNING] 2026-07-31 14:48:56,659 log 299446 135271127443136 Unauthorized: /api/v1/geography/provinces/
+[WARNING] 2026-07-31 14:48:56,659 basehttp 299446 135271127443136 "GET /api/v1/geography/provinces/ HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:48:56,697 log 299446 135271119050432 Unauthorized: /api/v1/pricing/official-prices/
+[WARNING] 2026-07-31 14:48:56,698 basehttp 299446 135271119050432 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 401 293
+[INFO] 2026-07-31 14:48:56,708 basehttp 299446 135271127443136 "OPTIONS /api/v1/auth/token/refresh/ HTTP/1.1" 200 0
+[WARNING] 2026-07-31 14:48:56,791 log 299446 135271102265024 Unauthorized: /api/v1/geography/provinces/
+[WARNING] 2026-07-31 14:48:56,807 basehttp 299446 135271102265024 "GET /api/v1/geography/provinces/ HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:48:56,949 log 299446 135271110657728 Unauthorized: /api/v1/pricing/official-prices/
+[WARNING] 2026-07-31 14:48:56,951 basehttp 299446 135271110657728 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 401 293
+[INFO] 2026-07-31 14:48:57,045 basehttp 299446 135271127443136 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 353
+[WARNING] 2026-07-31 14:48:57,191 log 299446 135271127443136 Unauthorized: /api/v1/geography/provinces/
+[WARNING] 2026-07-31 14:48:57,191 basehttp 299446 135271127443136 "GET /api/v1/geography/provinces/ HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:48:57,230 log 299446 135271110657728 Unauthorized: /api/v1/pricing/official-prices/
+[WARNING] 2026-07-31 14:48:57,230 basehttp 299446 135271110657728 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:48:57,439 log 299446 135271110657728 Unauthorized: /api/v1/geography/provinces/
+[WARNING] 2026-07-31 14:48:57,440 basehttp 299446 135271110657728 "GET /api/v1/geography/provinces/ HTTP/1.1" 401 293
+[INFO] 2026-07-31 14:48:57,447 basehttp 299446 135271127443136 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 353
+[WARNING] 2026-07-31 14:48:57,499 log 299446 135271102265024 Unauthorized: /api/v1/pricing/official-prices/
+[WARNING] 2026-07-31 14:48:57,500 basehttp 299446 135271102265024 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:48:57,664 log 299446 135271110657728 Unauthorized: /api/v1/pricing/official-prices/
+[WARNING] 2026-07-31 14:48:57,674 basehttp 299446 135271110657728 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:48:57,703 log 299446 135271127443136 Unauthorized: /api/v1/geography/provinces/
+[WARNING] 2026-07-31 14:48:57,706 basehttp 299446 135271127443136 "GET /api/v1/geography/provinces/ HTTP/1.1" 401 293
+[INFO] 2026-07-31 14:48:57,763 basehttp 299446 135271102265024 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 353
+[WARNING] 2026-07-31 14:48:57,901 log 299446 135271102265024 Unauthorized: /api/v1/pricing/official-prices/
+[WARNING] 2026-07-31 14:48:57,913 basehttp 299446 135271102265024 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:48:57,943 log 299446 135271127443136 Unauthorized: /api/v1/geography/provinces/
+[WARNING] 2026-07-31 14:48:57,944 basehttp 299446 135271127443136 "GET /api/v1/geography/provinces/ HTTP/1.1" 401 293
+[INFO] 2026-07-31 14:48:58,061 basehttp 299446 135271127443136 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 353
+[WARNING] 2026-07-31 14:48:58,221 log 299446 135271127443136 Unauthorized: /api/v1/geography/provinces/
+[WARNING] 2026-07-31 14:48:58,222 basehttp 299446 135271127443136 "GET /api/v1/geography/provinces/ HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:50:11,317 log 299446 135271127443136 Unauthorized: /api/v1/geography/provinces/
+[WARNING] 2026-07-31 14:50:11,318 basehttp 299446 135271127443136 "GET /api/v1/geography/provinces/ HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:50:11,322 log 299446 135271102265024 Unauthorized: /api/v1/pricing/official-prices/
+[WARNING] 2026-07-31 14:50:11,323 basehttp 299446 135271102265024 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 401 293
+[INFO] 2026-07-31 14:50:11,449 basehttp 299446 135271102265024 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 353
+[WARNING] 2026-07-31 14:50:11,725 log 299446 135271102265024 Unauthorized: /api/v1/geography/provinces/
+[WARNING] 2026-07-31 14:50:11,735 basehttp 299446 135271102265024 "GET /api/v1/geography/provinces/ HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:50:11,767 log 299446 135271127443136 Unauthorized: /api/v1/pricing/official-prices/
+[WARNING] 2026-07-31 14:50:11,769 basehttp 299446 135271127443136 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 401 293
+[INFO] 2026-07-31 14:50:11,959 basehttp 299446 135271127443136 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 353
+[WARNING] 2026-07-31 14:50:12,064 log 299446 135271127443136 Unauthorized: /api/v1/pricing/official-prices/
+[WARNING] 2026-07-31 14:50:12,065 basehttp 299446 135271127443136 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 401 293
+[INFO] 2026-07-31 14:50:18,062 basehttp 299446 135271127443136 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:50:18,062 basehttp 299446 135271102265024 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[WARNING] 2026-07-31 14:50:18,151 log 299446 135271127443136 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-07-31 14:50:18,152 basehttp 299446 135271127443136 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:50:18,315 log 299446 135271102265024 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-07-31 14:50:18,317 basehttp 299446 135271102265024 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[INFO] 2026-07-31 14:50:18,384 basehttp 299446 135271127443136 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 353
+[WARNING] 2026-07-31 14:50:18,499 log 299446 135271127443136 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-07-31 14:50:18,500 basehttp 299446 135271127443136 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:50:18,623 log 299446 135271102265024 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-07-31 14:50:18,624 basehttp 299446 135271102265024 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[INFO] 2026-07-31 14:50:18,719 basehttp 299446 135271102265024 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 353
+[WARNING] 2026-07-31 14:50:18,846 log 299446 135271102265024 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-07-31 14:50:18,847 basehttp 299446 135271102265024 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[WARNING] 2026-07-31 14:50:19,622 log 299446 135271102265024 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-07-31 14:50:19,623 basehttp 299446 135271102265024 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[INFO] 2026-07-31 14:50:28,399 basehttp 299446 135271102265024 "OPTIONS /api/v1/auth/otp/request/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:50:28,465 otp_service 299446 135271102265024 [DEV] SMS to 09944574949: کد تایید سامانه پایش قیمت: 443293
+[INFO] 2026-07-31 14:50:28,465 base_service 299446 135271102265024 OTP sent to 09944574949
+[INFO] 2026-07-31 14:50:28,619 basehttp 299446 135271102265024 "POST /api/v1/auth/otp/request/ HTTP/1.1" 200 142
+[INFO] 2026-07-31 14:50:42,826 basehttp 299446 135271350781632 "GET /admin/accounts/verifycode/ HTTP/1.1" 200 41031
+[INFO] 2026-07-31 14:50:42,993 basehttp 299446 135271350781632 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-31 14:50:49,690 basehttp 299446 135271102265024 "OPTIONS /api/v1/auth/otp/verify/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:50:49,745 base_service 299446 135271102265024 User logged in: 09944574949
+[INFO] 2026-07-31 14:50:49,919 basehttp 299446 135271102265024 "POST /api/v1/auth/otp/verify/ HTTP/1.1" 200 1090
+[INFO] 2026-07-31 14:50:50,650 basehttp 299446 135271102265024 "GET /api/v1/auth/me/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 14:50:50,737 basehttp 299446 135271102265024 "GET /api/v1/auth/me/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 14:50:50,836 basehttp 299446 135271102265024 "OPTIONS /api/v1/auth/users/profile/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:50:50,837 basehttp 299446 135271127443136 "OPTIONS /api/v1/auth/users/profile/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:50:50,942 basehttp 299446 135271102265024 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 14:50:51,101 basehttp 299446 135271102265024 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 368
+[WARNING] 2026-07-31 14:51:24,915 log 299446 135271102265024 Bad Request: /api/v1/auth/users/profile/
+[WARNING] 2026-07-31 14:51:24,916 basehttp 299446 135271102265024 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 400 114
+[WARNING] 2026-07-31 14:52:59,505 log 299446 135271102265024 Bad Request: /api/v1/auth/users/profile/
+[WARNING] 2026-07-31 14:52:59,505 basehttp 299446 135271102265024 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 400 114
+[WARNING] 2026-07-31 14:53:21,623 log 299446 135271102265024 Bad Request: /api/v1/auth/users/profile/
+[WARNING] 2026-07-31 14:53:21,623 basehttp 299446 135271102265024 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 400 114
+[INFO] 2026-07-31 14:53:42,630 basehttp 299446 135271350781632 "GET /admin/accounts/user/ HTTP/1.1" 200 42506
+[INFO] 2026-07-31 14:53:42,754 basehttp 299446 135271350781632 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-31 14:53:44,959 basehttp 299446 135271350781632 "GET /admin/accounts/user/1/change/ HTTP/1.1" 200 66348
+[INFO] 2026-07-31 14:53:45,115 basehttp 299446 135271350781632 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-31 14:56:11,709 basehttp 299446 135271119050432 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-07-31 14:56:11,896 basehttp 299446 135271110657728 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 944
+[INFO] 2026-07-31 14:56:12,028 basehttp 299446 135271119050432 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-07-31 14:56:12,158 basehttp 299446 135271110657728 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 944
+[INFO] 2026-07-31 14:56:21,799 basehttp 299446 135271110657728 "OPTIONS /api/v1/auth/otp/request/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:56:21,836 otp_service 299446 135271110657728 [DEV] SMS to 09944574949: کد تایید سامانه پایش قیمت: 560056
+[INFO] 2026-07-31 14:56:21,837 base_service 299446 135271110657728 OTP sent to 09944574949
+[INFO] 2026-07-31 14:56:22,003 basehttp 299446 135271110657728 "POST /api/v1/auth/otp/request/ HTTP/1.1" 200 142
+[INFO] 2026-07-31 14:56:35,144 basehttp 299446 135271350781632 "GET /admin/accounts/verifycode/ HTTP/1.1" 200 41556
+[INFO] 2026-07-31 14:56:35,268 basehttp 299446 135271350781632 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-31 14:56:41,700 basehttp 299446 135271110657728 "OPTIONS /api/v1/auth/otp/verify/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:56:41,742 base_service 299446 135271110657728 User logged in: 09944574949
+[INFO] 2026-07-31 14:56:41,908 basehttp 299446 135271110657728 "POST /api/v1/auth/otp/verify/ HTTP/1.1" 200 1090
+[INFO] 2026-07-31 14:56:42,807 basehttp 299446 135271110657728 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:56:42,808 basehttp 299446 135271119050432 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:56:42,977 basehttp 299446 135271119050432 "GET /api/v1/auth/me/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 14:56:43,139 basehttp 299446 135271119050432 "GET /api/v1/auth/me/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 14:56:43,217 basehttp 299446 135271119050432 "OPTIONS /api/v1/auth/users/profile/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:56:43,217 basehttp 299446 135271110657728 "OPTIONS /api/v1/auth/users/profile/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 14:56:43,314 basehttp 299446 135271110657728 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 14:56:43,484 basehttp 299446 135271110657728 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 368
+[WARNING] 2026-07-31 14:56:57,724 log 299446 135271110657728 Bad Request: /api/v1/auth/users/profile/
+[WARNING] 2026-07-31 14:56:57,724 basehttp 299446 135271110657728 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 400 186
+[WARNING] 2026-07-31 14:56:58,705 log 299446 135271110657728 Bad Request: /api/v1/auth/users/profile/
+[WARNING] 2026-07-31 14:56:58,706 basehttp 299446 135271110657728 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 400 186
+[WARNING] 2026-07-31 14:56:59,140 log 299446 135271110657728 Bad Request: /api/v1/auth/users/profile/
+[WARNING] 2026-07-31 14:56:59,140 basehttp 299446 135271110657728 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 400 186
+[INFO] 2026-07-31 15:00:15,203 basehttp 299446 135271110657728 "GET /api/v1/auth/me/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 15:00:15,508 basehttp 299446 135271119050432 "GET /api/v1/auth/me/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 15:00:15,816 basehttp 299446 135271119050432 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 15:00:15,972 basehttp 299446 135271119050432 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 368
+[WARNING] 2026-07-31 15:00:39,615 log 299446 135271119050432 Bad Request: /api/v1/auth/users/profile/
+[WARNING] 2026-07-31 15:00:39,616 basehttp 299446 135271119050432 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 400 186
+[WARNING] 2026-07-31 15:01:34,750 log 299446 135271119050432 Bad Request: /api/v1/auth/users/profile/
+[WARNING] 2026-07-31 15:01:34,750 basehttp 299446 135271119050432 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 400 114
+[WARNING] 2026-07-31 15:01:44,637 log 299446 135271119050432 Bad Request: /api/v1/auth/users/profile/
+[WARNING] 2026-07-31 15:01:44,637 basehttp 299446 135271119050432 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 400 114
+[INFO] 2026-07-31 15:02:00,234 basehttp 299446 135271350781632 "GET /admin/accounts/user/1/change/ HTTP/1.1" 200 66348
+[INFO] 2026-07-31 15:02:03,774 basehttp 299446 135271350781632 "GET /admin/accounts/user/ HTTP/1.1" 200 42506
+[INFO] 2026-07-31 15:02:03,929 basehttp 299446 135271350781632 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-31 15:02:12,200 basehttp 299446 135271350781632 "GET /admin/accounts/user/4/change/ HTTP/1.1" 200 66479
+[INFO] 2026-07-31 15:02:12,337 basehttp 299446 135271350781632 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-31 15:02:20,326 basehttp 299446 135271350781632 "POST /admin/accounts/user/4/change/ HTTP/1.1" 302 0
+[INFO] 2026-07-31 15:02:20,618 basehttp 299446 135271350781632 "GET /admin/accounts/user/ HTTP/1.1" 200 42731
+[INFO] 2026-07-31 15:02:20,803 basehttp 299446 135271350781632 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-31 15:02:24,124 basehttp 299446 135271350781632 "GET /admin/accounts/user/ HTTP/1.1" 200 42506
+[INFO] 2026-07-31 15:02:24,262 basehttp 299446 135271350781632 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-31 15:02:28,040 basehttp 299446 135271102265024 "GET /api/v1/auth/me/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 15:02:28,155 basehttp 299446 135271102265024 "GET /api/v1/auth/me/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 15:02:28,372 basehttp 299446 135271102265024 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 15:02:28,476 basehttp 299446 135271102265024 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 368
+[INFO] 2026-07-31 15:02:35,247 base_service 299446 135271119050432 Profile updated: 09944574949
+[INFO] 2026-07-31 15:02:35,441 basehttp 299446 135271119050432 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 200 471
+[INFO] 2026-07-31 15:02:43,299 basehttp 299446 135271119050432 "OPTIONS /api/v1/products/?page_size=20 HTTP/1.1" 200 0
+[INFO] 2026-07-31 15:02:43,674 basehttp 299446 135271119050432 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 2813
+[INFO] 2026-07-31 15:02:44,027 basehttp 299446 135271119050432 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 2813
+[INFO] 2026-07-31 15:02:44,273 basehttp 299446 135271119050432 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 2813
+[INFO] 2026-07-31 15:02:50,127 basehttp 299446 135271119050432 "OPTIONS /api/v1/stores/?search=%D8%AA%D8%B4&status=active&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-31 15:02:50,280 basehttp 299446 135271119050432 "GET /api/v1/stores/?search=%D8%AA%D8%B4&status=active&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-07-31 15:02:55,330 basehttp 299446 135271119050432 "OPTIONS /api/v1/stores/?search=%D9%81%D8%B1&status=active&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-31 15:02:55,621 basehttp 299446 135271119050432 "GET /api/v1/stores/?search=%D9%81%D8%B1&status=active&page_size=10 HTTP/1.1" 200 466
+[INFO] 2026-07-31 15:02:56,615 basehttp 299446 135271119050432 "OPTIONS /api/v1/pricing/official-prices/today/?product=7 HTTP/1.1" 200 0
+[WARNING] 2026-07-31 15:02:56,712 log 299446 135271119050432 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-31 15:02:56,713 basehttp 299446 135271119050432 "GET /api/v1/pricing/official-prices/today/?product=7 HTTP/1.1" 400 75
+[INFO] 2026-07-31 15:03:43,291 basehttp 299446 135271119050432 "OPTIONS /api/v1/complaints/ HTTP/1.1" 200 0
+[WARNING] 2026-07-31 15:03:43,512 log 299446 135271119050432 Bad Request: /api/v1/complaints/
+[WARNING] 2026-07-31 15:03:43,512 basehttp 299446 135271119050432 "POST /api/v1/complaints/ HTTP/1.1" 400 201
+[WARNING] 2026-07-31 15:03:55,277 log 299446 135271119050432 Bad Request: /api/v1/complaints/
+[WARNING] 2026-07-31 15:03:55,278 basehttp 299446 135271119050432 "POST /api/v1/complaints/ HTTP/1.1" 400 201
+[INFO] 2026-07-31 15:04:05,342 basehttp 299446 135271119050432 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 2813
+[INFO] 2026-07-31 15:04:05,891 basehttp 299446 135271119050432 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 2813
+[INFO] 2026-07-31 15:04:07,936 basehttp 299446 135271119050432 "GET /api/v1/stores/?search=%D9%81%D8%B1&status=active&page_size=10 HTTP/1.1" 200 466
+[INFO] 2026-07-31 15:04:08,418 basehttp 299446 135271119050432 "OPTIONS /api/v1/stores/?search=%D9%81%D8%B1%D9%88&status=active&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-31 15:04:08,720 basehttp 299446 135271119050432 "GET /api/v1/stores/?search=%D9%81%D8%B1%D9%88&status=active&page_size=10 HTTP/1.1" 200 466
+[WARNING] 2026-07-31 15:04:10,630 log 299446 135271119050432 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-31 15:04:10,630 basehttp 299446 135271119050432 "GET /api/v1/pricing/official-prices/today/?product=7 HTTP/1.1" 400 75
+[INFO] 2026-07-31 15:04:15,531 basehttp 299446 135271119050432 "OPTIONS /api/v1/pricing/official-prices/today/?product=3 HTTP/1.1" 200 0
+[WARNING] 2026-07-31 15:04:15,652 log 299446 135271119050432 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-31 15:04:15,652 basehttp 299446 135271119050432 "GET /api/v1/pricing/official-prices/today/?product=3 HTTP/1.1" 400 75
+[ERROR] 2026-07-31 15:05:12,434 api_exceptions 299446 135271119050432 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 42, in post
+    complaint = service.create(
+                ^^^^^^^^^^^^^^^
+TypeError: ComplaintService.create() got an unexpected keyword argument 'store'
+[ERROR] 2026-07-31 15:05:12,583 log 299446 135271119050432 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-07-31 15:05:12,583 basehttp 299446 135271119050432 "POST /api/v1/complaints/ HTTP/1.1" 500 111
+[ERROR] 2026-07-31 15:10:24,828 api_exceptions 299446 135271110657728 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 42, in post
+    complaint = service.create(
+                ^^^^^^^^^^^^^^^
+TypeError: ComplaintService.create() got an unexpected keyword argument 'store'
+[ERROR] 2026-07-31 15:10:24,936 log 299446 135271110657728 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-07-31 15:10:24,936 basehttp 299446 135271110657728 "POST /api/v1/complaints/ HTTP/1.1" 500 111
+[INFO] 2026-07-31 15:11:12,005 basehttp 299446 135271110657728 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 2813
+[INFO] 2026-07-31 15:11:12,332 basehttp 299446 135271110657728 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 2813
+[INFO] 2026-07-31 15:11:14,504 basehttp 299446 135271110657728 "OPTIONS /api/v1/stores/?search=%D9%81%D8%B1%D9%88%D8%B4&status=active&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-31 15:11:14,734 basehttp 299446 135271110657728 "GET /api/v1/stores/?search=%D9%81%D8%B1%D9%88%D8%B4&status=active&page_size=10 HTTP/1.1" 200 466
+[WARNING] 2026-07-31 15:11:17,331 log 299446 135271110657728 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-31 15:11:17,332 basehttp 299446 135271110657728 "GET /api/v1/pricing/official-prices/today/?product=3 HTTP/1.1" 400 75
+[ERROR] 2026-07-31 15:12:34,981 api_exceptions 299446 135271110657728 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 42, in post
+    complaint = service.create(
+                ^^^^^^^^^^^^^^^
+TypeError: ComplaintService.create() got an unexpected keyword argument 'store'
+[ERROR] 2026-07-31 15:12:35,114 log 299446 135271110657728 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-07-31 15:12:35,115 basehttp 299446 135271110657728 "POST /api/v1/complaints/ HTTP/1.1" 500 111
+[ERROR] 2026-07-31 15:12:38,125 api_exceptions 299446 135271110657728 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 42, in post
+    complaint = service.create(
+                ^^^^^^^^^^^^^^^
+TypeError: ComplaintService.create() got an unexpected keyword argument 'store'
+[ERROR] 2026-07-31 15:12:38,250 log 299446 135271110657728 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-07-31 15:12:38,251 basehttp 299446 135271110657728 "POST /api/v1/complaints/ HTTP/1.1" 500 111
+[ERROR] 2026-07-31 15:19:05,685 api_exceptions 299446 135271110657728 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 42, in post
+    complaint = service.create(
+                ^^^^^^^^^^^^^^^
+TypeError: ComplaintService.create() got an unexpected keyword argument 'store'
+[ERROR] 2026-07-31 15:19:05,786 log 299446 135271110657728 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-07-31 15:19:05,786 basehttp 299446 135271110657728 "POST /api/v1/complaints/ HTTP/1.1" 500 111
+[INFO] 2026-07-31 15:19:16,944 basehttp 299446 135271102265024 "OPTIONS /api/v1/auth/logout/ HTTP/1.1" 200 0
+[WARNING] 2026-07-31 15:19:17,076 log 299446 135271102265024 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-07-31 15:19:17,076 basehttp 299446 135271102265024 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-07-31 15:19:28,905 basehttp 299446 135271102265024 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-07-31 15:19:29,110 basehttp 299446 135271350781632 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 944
+[INFO] 2026-07-31 15:19:29,274 basehttp 299446 135271102265024 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-07-31 15:19:29,367 basehttp 299446 135271350781632 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 944
+[WARNING] 2026-07-31 15:19:34,797 log 299446 135271350781632 Bad Request: /api/v1/pricing/compare/
+[WARNING] 2026-07-31 15:19:34,798 basehttp 299446 135271350781632 "GET /api/v1/pricing/compare/?product=5 HTTP/1.1" 400 81
+[INFO] 2026-07-31 15:20:20,355 basehttp 299446 135271110657728 "OPTIONS /api/v1/pricing/official-prices/today/?product=5 HTTP/1.1" 200 0
+[WARNING] 2026-07-31 15:20:20,491 log 299446 135271110657728 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-31 15:20:20,492 basehttp 299446 135271110657728 "GET /api/v1/pricing/official-prices/today/?product=5 HTTP/1.1" 400 75
+[ERROR] 2026-07-31 15:20:25,740 api_exceptions 299446 135271110657728 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 42, in post
+    complaint = service.create(
+                ^^^^^^^^^^^^^^^
+TypeError: ComplaintService.create() got an unexpected keyword argument 'store'
+[ERROR] 2026-07-31 15:20:25,856 log 299446 135271110657728 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-07-31 15:20:25,857 basehttp 299446 135271110657728 "POST /api/v1/complaints/ HTTP/1.1" 500 111
+[INFO] 2026-07-31 15:29:39,487 autoreload 299446 135272109228160 /home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py changed, reloading.
+[INFO] 2026-07-31 15:29:40,907 autoreload 361141 131985143242880 Watching for file changes with StatReloader
+[INFO] 2026-07-31 15:29:56,258 autoreload 361141 131985143242880 /home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/services/complaint_service.py changed, reloading.
+[INFO] 2026-07-31 15:29:57,404 autoreload 361261 135117445464192 Watching for file changes with StatReloader
+[INFO] 2026-07-31 15:30:57,565 basehttp 361261 135116720436928 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 2813
+[INFO] 2026-07-31 15:30:57,797 basehttp 361261 135116720436928 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 2813
+[INFO] 2026-07-31 15:31:19,973 autoreload 362043 126197486428288 Watching for file changes with StatReloader
+[INFO] 2026-07-31 15:31:37,871 basehttp 362043 126196666853056 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 944
+[INFO] 2026-07-31 15:31:37,874 basehttp 362043 126196675245760 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-07-31 15:31:38,037 basehttp 362043 126196759086784 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 2813
+[INFO] 2026-07-31 15:31:38,250 basehttp 362043 126196759086784 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 2813
+[INFO] 2026-07-31 15:31:42,021 basehttp 362043 126196759086784 "GET /api/v1/stores/?search=%D9%81%D8%B1%D9%88%D8%B4&status=active&page_size=10 HTTP/1.1" 200 466
+[INFO] 2026-07-31 15:31:42,155 basehttp 362043 126196759086784 "OPTIONS /api/v1/stores/?search=%D9%81%D8%B1%D9%88%D8%B4%DA%AF&status=active&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-31 15:31:42,442 basehttp 362043 126196759086784 "GET /api/v1/stores/?search=%D9%81%D8%B1%D9%88%D8%B4%DA%AF&status=active&page_size=10 HTTP/1.1" 200 466
+[INFO] 2026-07-31 15:31:43,162 basehttp 362043 126196759086784 "OPTIONS /api/v1/stores/?search=%D9%81%D8%B1%D9%88%D8%B4%DA%AF%D8%A7%D9%87+%D8%AA%D8%B3&status=active&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-07-31 15:31:43,532 basehttp 362043 126196759086784 "GET /api/v1/stores/?search=%D9%81%D8%B1%D9%88%D8%B4%DA%AF%D8%A7%D9%87+%D8%AA%D8%B3&status=active&page_size=10 HTTP/1.1" 200 466
+[WARNING] 2026-07-31 15:31:47,244 log 362043 126196759086784 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-07-31 15:31:47,244 basehttp 362043 126196759086784 "GET /api/v1/pricing/official-prices/today/?product=5 HTTP/1.1" 400 75
+[INFO] 2026-07-31 15:32:22,192 signals 362043 126196759086784 New complaint created with UUID: 6bbf3ac9-9ed0-453d-a570-d6407a3b7e84
+[WARNING] 2026-07-31 15:32:41,436 complaint_service 362043 126196759086784 Failed to send notification: Error 111 connecting to localhost:6379. Connection refused.
+[INFO] 2026-07-31 15:32:41,436 base_service 362043 126196759086784 New complaint created: 6bbf3ac9-9ed0-453d-a570-d6407a3b7e84 for store فروشگاه تست
+[INFO] 2026-07-31 15:32:41,740 basehttp 362043 126196759086784 "POST /api/v1/complaints/ HTTP/1.1" 201 792
+[INFO] 2026-07-31 15:32:58,565 basehttp 362043 126196653217472 "OPTIONS /api/v1/complaints/track/6bbf3ac9-9ed0-453d-a570-d6407a3b7e84/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 15:32:58,566 basehttp 362043 126196759086784 "OPTIONS /api/v1/complaints/track/6bbf3ac9-9ed0-453d-a570-d6407a3b7e84/ HTTP/1.1" 200 0
+[INFO] 2026-07-31 15:32:58,805 basehttp 362043 126196759086784 "GET /api/v1/complaints/track/6bbf3ac9-9ed0-453d-a570-d6407a3b7e84/ HTTP/1.1" 200 267
+[INFO] 2026-07-31 15:32:59,016 basehttp 362043 126196759086784 "GET /api/v1/complaints/track/6bbf3ac9-9ed0-453d-a570-d6407a3b7e84/ HTTP/1.1" 200 267
+[INFO] 2026-07-31 15:33:03,346 basehttp 362043 126196759086784 "GET /api/v1/complaints/track/6bbf3ac9-9ed0-453d-a570-d6407a3b7e84/ HTTP/1.1" 200 267
+[INFO] 2026-07-31 15:33:04,451 basehttp 362043 126196759086784 "GET /api/v1/complaints/track/6bbf3ac9-9ed0-453d-a570-d6407a3b7e84/ HTTP/1.1" 200 267
