@@ -185,3 +185,30 @@ class CreateOrganizationUserSerializer(serializers.Serializer):
 class ChangeRoleSerializer(serializers.Serializer):
     """تغییر نقش کاربر"""
     role = serializers.ChoiceField(choices=UserRole.choices)
+    
+    
+class UserBasicWithNationalCodeSerializer(serializers.ModelSerializer):
+    """
+    اطلاعات کاربر برای تخصیص مدیریت.
+    شامل وضعیت کد ملی برای چک در فرانت‌اند.
+    """
+    full_name        = serializers.CharField(read_only=True)
+    has_national_code = serializers.SerializerMethodField()
+    role_display     = serializers.CharField(
+        source='get_role_display',
+        read_only=True
+    )
+
+    class Meta:
+        model  = User
+        fields = [
+            'id',
+            'full_name',
+            'phone_number',
+            'role',
+            'role_display',
+            'has_national_code',
+        ]
+
+    def get_has_national_code(self, obj: User) -> bool:
+        return bool(obj.national_code and obj.national_code.strip())    

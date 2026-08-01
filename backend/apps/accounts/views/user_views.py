@@ -5,18 +5,21 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from drf_spectacular.utils import extend_schema
+from drf_spectacular.utils import extend_schema, OpenApiParameter
 
 from apps.common.permissions import IsAdminUser
 from apps.common.exceptions import ResourceNotFoundError
 from apps.common.pagination import StandardResultsPagination
+from apps.common.choices import UserRole
 
+from apps.accounts.models import User
 from apps.accounts.serializers import (
     UserProfileSerializer,
     UserUpdateSerializer,
     UserAdminSerializer,
     CreateOrganizationUserSerializer,
     ChangeRoleSerializer,
+    UserBasicWithNationalCodeSerializer,
 )
 from apps.accounts.services import UserService
 from apps.accounts.selectors import UserSelector
@@ -196,3 +199,68 @@ class ChangeUserRoleView(APIView):
             'message': 'نقش کاربر با موفقیت تغییر کرد',
             'data': UserAdminSerializer(user).data
         })
+        
+        
+class OrganizationUserSearchView(APIView):
+    """
+    GET /api/v1/auth/users/org-search/
+    جستجوی کاربران سازمانی (غیر شهروند) برای تخصیص مدیریت
+    فقط ادمین و ناظر استانداری
+    """
+    permission_classes = [IsAdminUser]
+
+    @extend_schema(
+        summary='جستجوی کاربران سازمانی',
+        tags=['users'],
+        parameters=[
+            OpenApiParameter(
+                name='q',
+                description='جستجو بر اساس نام یا شماره موبایل',
+                required=False,
+                type=str
+            ),
+            OpenApiParameter(
+                name='role',
+                description='فیلتر بر اساس نقش',
+                required=False,
+                type=str
+            ),
+        ],
+        responses={200: UserBasicWithNationalCodeSerializer(many=True)}
+    )
+    def get(self, request) -> Response:
+        q    = request.query_params.get('q', '').strip()
+        role = request.query_params.get('role', '').strip()
+
+        # فقط کاربران غیر شهروند
+        NON_CUSTOMER_ROLES = [
+            UserRole.PROVINCE_MANAGER,
+            UserRole.CHAMBER_MANAGER,
+            UserRole.UNION_MANAGER,
+            UserRole.STORE_OWNER,
+            UserRole.INSPECTOR,
+        ]
+
+        qs = User.objects.filter(
+            is_active=True,
+            role__in=NON_CUSTOMER_ROLES
+        )
+
+        if role and role in NON_CUSTOMER_ROLES:
+            qs = qs.filter(role=role)
+
+        if q:
+            from django.db.models import Q
+            qs = qs.filter(
+                Q(first_name__icontains=q) |
+                Q(last_name__icontains=q)  |
+                Q(phone_number__icontains=q)
+            )
+
+        qs = qs.order_by('first_name', 'last_name')[:20]
+
+        serializer = UserBasicWithNationalCodeSerializer(qs, many=True)
+        return Response({
+            'success': True,
+            'data': serializer.data
+        })        

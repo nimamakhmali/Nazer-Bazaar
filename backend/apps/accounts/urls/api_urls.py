@@ -13,6 +13,7 @@ from apps.accounts.views import (
     AdminUserListView,
     AdminUserDetailView,
     ChangeUserRoleView,
+    OrganizationUserSearchView,
 )
 
 app_name = 'accounts_api'
@@ -55,6 +56,11 @@ urlpatterns = [
         'users/profile/',
         UserProfileView.as_view(),
         name='user-profile'
+    ),
+    path(
+        'users/org-search/',
+        OrganizationUserSearchView.as_view(),
+        name='user-org-search'
     ),
     path(
         'users/',

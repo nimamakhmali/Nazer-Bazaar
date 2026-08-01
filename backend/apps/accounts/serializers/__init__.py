@@ -12,6 +12,7 @@ from .user_serializers import (
     UserAdminSerializer,
     CreateOrganizationUserSerializer,
     ChangeRoleSerializer,
+    UserBasicWithNationalCodeSerializer,
 )
 
 __all__ = [
@@ -26,4 +27,5 @@ __all__ = [
     'UserAdminSerializer',
     'CreateOrganizationUserSerializer',
     'ChangeRoleSerializer',
+    'UserBasicWithNationalCodeSerializer',
 ]

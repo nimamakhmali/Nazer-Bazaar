@@ -115,3 +115,45 @@ class ChamberUpdateSerializer(serializers.Serializer):
         allow_null=True
     )
     is_active = serializers.BooleanField(required=False)
+    
+    
+class AssignManagerSerializer(serializers.Serializer):
+    """
+    تخصیص مدیر/رئیس - بر اساس شناسه کاربر.
+    بک‌اند چک کد ملی را انجام می‌دهد.
+    """
+    manager_id = serializers.IntegerField(
+        help_text='شناسه کاربر مورد نظر برای تخصیص'
+    )
+
+    def validate_manager_id(self, value: int) -> int:
+        from apps.accounts.models import User
+        from apps.common.choices import UserRole
+
+        NON_CUSTOMER_ROLES = [
+            UserRole.PROVINCE_MANAGER,
+            UserRole.CHAMBER_MANAGER,
+            UserRole.UNION_MANAGER,
+            UserRole.STORE_OWNER,
+            UserRole.INSPECTOR,
+        ]
+
+        user = User.objects.filter(
+            id=value,
+            is_active=True,
+            role__in=NON_CUSTOMER_ROLES
+        ).first()
+
+        if not user:
+            raise serializers.ValidationError(
+                'کاربر سازمانی با این شناسه یافت نشد'
+            )
+
+        # چک کد ملی — اگر کد ملی ندارد خطا می‌دهیم
+        if not user.national_code or not user.national_code.strip():
+            raise serializers.ValidationError(
+                f'کد ملی مدیر «{user.full_name}» در سامانه ثبت نشده است. '
+                f'لطفاً ابتدا کد ملی این کاربر را در پروفایل وی ثبت کنید.'
+            )
+
+        return value    

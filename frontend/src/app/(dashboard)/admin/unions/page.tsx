@@ -3,53 +3,52 @@
 import { useState, useEffect, useCallback } from "react";
 import {
   PlusIcon, PencilSquareIcon, MagnifyingGlassIcon,
-  ShieldCheckIcon, UserIcon, BuildingStorefrontIcon,
+  ShieldCheckIcon, UserIcon,
 } from "@heroicons/react/24/outline";
-import { PageHeader } from "@/components/layout/PageHeader";
-import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
-import { Modal } from "@/components/ui/Modal";
-import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
-import { Input } from "@/components/ui/Input";
-import { Select } from "@/components/ui/Select";
-import { Toggle } from "@/components/ui/Toggle";
-import { SkeletonTable } from "@/components/ui/Skeleton";
-import { EmptyState } from "@/components/ui/EmptyState";
-import { Pagination } from "@/components/common/Pagination";
-import apiClient from "@/services/api.client";
-import { ENDPOINTS } from "@/services/endpoints";
+import { PageHeader }         from "@/components/layout/PageHeader";
+import { Button }             from "@/components/ui/Button";
+import { Badge }              from "@/components/ui/Badge";
+import { Modal }              from "@/components/ui/Modal";
+import { ConfirmDialog }      from "@/components/ui/ConfirmDialog";
+import { Input }              from "@/components/ui/Input";
+import { Select }             from "@/components/ui/Select";
+import { EmptyState }         from "@/components/ui/EmptyState";
+import { Pagination }         from "@/components/common/Pagination";
+import { AssignManagerModal } from "@/features/organizations/components/AssignManagerModal";
+import apiClient              from "@/services/api.client";
+import { ENDPOINTS }          from "@/services/endpoints";
 import { parseApiError, extractArray, extractCount } from "@/utils/error.utils";
-import toast from "react-hot-toast";
+import toast                  from "react-hot-toast";
 
 interface Union {
-  id: number;
-  name: string;
-  chamber: number;
-  chamber_name: string;
-  city_name: string;
-  province_name: string;
-  manager: number | null;
-  manager_name: string;
-  manager_phone: string;
-  description: string;
-  license_number: string;
+  id:               number;
+  name:             string;
+  chamber:          number;
+  chamber_name:     string;
+  city_name:        string;
+  province_name:    string;
+  manager:          number | null;
+  manager_name:     string;
+  manager_phone:    string;
+  description:      string;
+  license_number:   string;
   established_year: number | null;
-  phone: string;
-  address: string;
-  stores_count: number;
-  full_path: string;
-  is_active: boolean;
+  phone:            string;
+  address:          string;
+  stores_count:     number;
+  full_path:        string;
+  is_active:        boolean;
 }
 
 interface Chamber { id: number; name: string; city_name: string; }
 
 interface UnionForm {
-  chamber_id: string;
-  name: string;
-  description: string;
-  license_number: string;
-  phone: string;
-  address: string;
+  chamber_id:       string;
+  name:             string;
+  description:      string;
+  license_number:   string;
+  phone:            string;
+  address:          string;
   established_year: string;
 }
 
@@ -67,18 +66,18 @@ export default function AdminUnionsPage() {
   const [totalCount, setTotalCount] = useState(0);
   const [search,     setSearch]     = useState("");
 
-  const [showModal,   setShowModal]   = useState(false);
-  const [showAssign,  setShowAssign]  = useState(false);
-  const [showToggle,  setShowToggle]  = useState(false);
-  const [selected,    setSelected]    = useState<Union | null>(null);
-  const [form,        setForm]        = useState<UnionForm>(DEFAULT_FORM);
-  const [managerId,   setManagerId]   = useState("");
-  const [saving,      setSaving]      = useState(false);
+  const [showModal,  setShowModal]  = useState(false);
+  const [showAssign, setShowAssign] = useState(false);
+  const [showToggle, setShowToggle] = useState(false);
+  const [selected,   setSelected]   = useState<Union | null>(null);
+  const [form,       setForm]       = useState<UnionForm>(DEFAULT_FORM);
+  const [saving,     setSaving]     = useState(false);
 
   const isEdit = !!selected && showModal;
 
   useEffect(() => {
-    apiClient.get(ENDPOINTS.ORGANIZATIONS.CHAMBERS, { params: { page_size: 500 } })
+    apiClient
+      .get(ENDPOINTS.ORGANIZATIONS.CHAMBERS, { params: { page_size: 500 } })
       .then((res) => {
         const data = res.data?.data ?? res.data;
         setChambers(extractArray<Chamber>(data));
@@ -91,8 +90,8 @@ export default function AdminUnionsPage() {
     try {
       const params: Record<string, unknown> = { page, page_size: 9 };
       if (search) params.search = search;
-      const res  = await apiClient.get(ENDPOINTS.ORGANIZATIONS.UNIONS, { params });
-      const data = res.data?.data ?? res.data;
+      const res   = await apiClient.get(ENDPOINTS.ORGANIZATIONS.UNIONS, { params });
+      const data  = res.data?.data ?? res.data;
       setUnions(extractArray<Union>(data));
       const count = extractCount(data, 0);
       setTotalCount(count);
@@ -105,9 +104,13 @@ export default function AdminUnionsPage() {
   }, [page, search]);
 
   useEffect(() => { fetchUnions(); }, [fetchUnions]);
-  useEffect(() => { setPage(1); }, [search]);
+  useEffect(() => { setPage(1); },    [search]);
 
-  const openCreate = () => { setSelected(null); setForm(DEFAULT_FORM); setShowModal(true); };
+  const openCreate = () => {
+    setSelected(null);
+    setForm(DEFAULT_FORM);
+    setShowModal(true);
+  };
 
   const openEdit = (u: Union) => {
     setSelected(u);
@@ -138,10 +141,14 @@ export default function AdminUnionsPage() {
         phone:          form.phone,
         address:        form.address,
       };
-      if (form.established_year) payload.established_year = Number(form.established_year);
+      if (form.established_year)
+        payload.established_year = Number(form.established_year);
 
       if (isEdit && selected) {
-        await apiClient.patch(ENDPOINTS.ORGANIZATIONS.UNION(selected.id), payload);
+        await apiClient.patch(
+          ENDPOINTS.ORGANIZATIONS.UNION(selected.id),
+          payload
+        );
         toast.success("اتحادیه ویرایش شد");
       } else {
         await apiClient.post(ENDPOINTS.ORGANIZATIONS.UNIONS, payload);
@@ -156,28 +163,32 @@ export default function AdminUnionsPage() {
     }
   };
 
-  const handleAssign = async () => {
-    if (!selected || !managerId) { toast.error("شناسه رئیس الزامی است"); return; }
-    setSaving(true);
+  // ─── تخصیص رئیس — از AssignManagerModal ──────────────────────────────────
+  const handleAssign = async (managerId: number) => {
+    if (!selected) return;
     try {
-      await apiClient.post(ENDPOINTS.ORGANIZATIONS.UNION_ASSIGN(selected.id), {
-        manager_id: Number(managerId),
-      });
-      toast.success("رئیس اتحادیه تخصیص یافت");
+      await apiClient.post(
+        ENDPOINTS.ORGANIZATIONS.UNION_ASSIGN(selected.id),
+        { manager_id: managerId }
+      );
+      toast.success("رئیس اتحادیه با موفقیت تخصیص یافت");
       setShowAssign(false);
       fetchUnions();
     } catch (err) {
       toast.error(parseApiError(err));
-    } finally {
-      setSaving(false);
+      throw err;
     }
   };
 
   const handleToggle = async () => {
     if (!selected) return;
     try {
-      await apiClient.post(ENDPOINTS.ORGANIZATIONS.UNION_TOGGLE(selected.id));
-      toast.success(selected.is_active ? "اتحادیه غیرفعال شد" : "اتحادیه فعال شد");
+      await apiClient.post(
+        ENDPOINTS.ORGANIZATIONS.UNION_TOGGLE(selected.id)
+      );
+      toast.success(
+        selected.is_active ? "اتحادیه غیرفعال شد" : "اتحادیه فعال شد"
+      );
       setShowToggle(false);
       fetchUnions();
     } catch (err) {
@@ -195,9 +206,16 @@ export default function AdminUnionsPage() {
       <PageHeader
         title="اتحادیه‌ها"
         subtitle={`${totalCount.toLocaleString("fa-IR")} اتحادیه صنفی`}
-        breadcrumbs={[{ label: "ادمین" }, { label: "سازمان‌ها" }, { label: "اتحادیه‌ها" }]}
+        breadcrumbs={[
+          { label: "ادمین" },
+          { label: "سازمان‌ها" },
+          { label: "اتحادیه‌ها" },
+        ]}
         actions={
-          <Button onClick={openCreate} leftIcon={<PlusIcon className="h-4 w-4" />}>
+          <Button
+            onClick={openCreate}
+            leftIcon={<PlusIcon className="h-4 w-4" />}
+          >
             اتحادیه جدید
           </Button>
         }
@@ -221,7 +239,10 @@ export default function AdminUnionsPage() {
       {isLoading ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="bg-white rounded-2xl border border-slate-100 p-5 animate-pulse space-y-3">
+            <div
+              key={i}
+              className="bg-white rounded-2xl border border-slate-100 p-5 animate-pulse space-y-3"
+            >
               <div className="flex gap-3">
                 <div className="h-12 w-12 bg-slate-200 rounded-xl flex-shrink-0" />
                 <div className="space-y-2 flex-1">
@@ -250,12 +271,16 @@ export default function AdminUnionsPage() {
                 <div className="flex items-start gap-3 mb-4">
                   <div
                     className="h-12 w-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: "linear-gradient(135deg,#C49A2E,#DEB94A)" }}
+                    style={{
+                      background: "linear-gradient(135deg,#C49A2E,#DEB94A)",
+                    }}
                   >
                     <ShieldCheckIcon className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-slate-800 truncate">{union.name}</h3>
+                    <h3 className="font-bold text-slate-800 truncate">
+                      {union.name}
+                    </h3>
                     <p className="text-xs text-slate-400 mt-0.5 truncate">
                       {union.chamber_name} — {union.city_name}
                     </p>
@@ -281,7 +306,9 @@ export default function AdminUnionsPage() {
                         <p className="text-xs font-semibold text-slate-700 truncate">
                           {union.manager_name}
                         </p>
-                        <p className="text-[10px] text-slate-400 mt-0.5">رئیس اتحادیه</p>
+                        <p className="text-[10px] text-slate-400 mt-0.5">
+                          رئیس اتحادیه
+                        </p>
                       </>
                     ) : (
                       <p className="text-xs text-slate-400 flex items-center gap-1 h-full">
@@ -305,7 +332,10 @@ export default function AdminUnionsPage() {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => { setSelected(union); setManagerId(""); setShowAssign(true); }}
+                    onClick={() => {
+                      setSelected(union);
+                      setShowAssign(true);
+                    }}
                     leftIcon={<UserIcon className="h-3.5 w-3.5" />}
                   >
                     تخصیص رئیس
@@ -313,7 +343,10 @@ export default function AdminUnionsPage() {
                   <Button
                     variant={union.is_active ? "danger" : "success"}
                     size="sm"
-                    onClick={() => { setSelected(union); setShowToggle(true); }}
+                    onClick={() => {
+                      setSelected(union);
+                      setShowToggle(true);
+                    }}
                   >
                     {union.is_active ? "غیرفعال" : "فعال"}
                   </Button>
@@ -324,13 +357,17 @@ export default function AdminUnionsPage() {
 
           {totalPages > 1 && (
             <div className="flex justify-center">
-              <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
+              <Pagination
+                page={page}
+                totalPages={totalPages}
+                onPageChange={setPage}
+              />
             </div>
           )}
         </>
       )}
 
-      {/* Modals */}
+      {/* Modal ایجاد/ویرایش */}
       <Modal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
@@ -338,7 +375,9 @@ export default function AdminUnionsPage() {
         size="md"
         footer={
           <>
-            <Button variant="ghost" onClick={() => setShowModal(false)}>انصراف</Button>
+            <Button variant="ghost" onClick={() => setShowModal(false)}>
+              انصراف
+            </Button>
             <Button onClick={handleSave} isLoading={saving}>
               {isEdit ? "ذخیره تغییرات" : "ایجاد اتحادیه"}
             </Button>
@@ -351,21 +390,30 @@ export default function AdminUnionsPage() {
             placeholder="انتخاب اتاق اصناف..."
             options={chamberOptions}
             value={form.chamber_id}
-            onChange={(e) => setForm((p) => ({ ...p, chamber_id: e.target.value }))}
+            onChange={(e) =>
+              setForm((p) => ({ ...p, chamber_id: e.target.value }))
+            }
             required
           />
           <Input
             label="نام اتحادیه"
             placeholder="مثال: اتحادیه مرغ و ماهی"
             value={form.name}
-            onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
+            onChange={(e) =>
+              setForm((p) => ({ ...p, name: e.target.value }))
+            }
             required
           />
           <Input
             label="شماره پروانه"
             placeholder="شماره پروانه فعالیت"
             value={form.license_number}
-            onChange={(e) => setForm((p) => ({ ...p, license_number: e.target.value }))}
+            onChange={(e) =>
+              setForm((p) => ({
+                ...p,
+                license_number: e.target.value,
+              }))
+            }
             dir="ltr"
           />
           <div className="grid grid-cols-2 gap-4">
@@ -373,14 +421,21 @@ export default function AdminUnionsPage() {
               label="تلفن"
               placeholder="021-XXXXXXXX"
               value={form.phone}
-              onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
+              onChange={(e) =>
+                setForm((p) => ({ ...p, phone: e.target.value }))
+              }
               dir="ltr"
             />
             <Input
               label="سال تأسیس"
               placeholder="مثال: 1370"
               value={form.established_year}
-              onChange={(e) => setForm((p) => ({ ...p, established_year: e.target.value }))}
+              onChange={(e) =>
+                setForm((p) => ({
+                  ...p,
+                  established_year: e.target.value,
+                }))
+              }
               type="number"
               dir="ltr"
             />
@@ -389,13 +444,19 @@ export default function AdminUnionsPage() {
             label="آدرس"
             placeholder="آدرس دفتر اتحادیه"
             value={form.address}
-            onChange={(e) => setForm((p) => ({ ...p, address: e.target.value }))}
+            onChange={(e) =>
+              setForm((p) => ({ ...p, address: e.target.value }))
+            }
           />
           <div className="space-y-1.5">
-            <label className="block text-sm font-medium text-slate-700">توضیحات</label>
+            <label className="block text-sm font-medium text-slate-700">
+              توضیحات
+            </label>
             <textarea
               value={form.description}
-              onChange={(e) => setForm((p) => ({ ...p, description: e.target.value }))}
+              onChange={(e) =>
+                setForm((p) => ({ ...p, description: e.target.value }))
+              }
               placeholder="توضیحات اتحادیه..."
               rows={3}
               className="w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-100 focus:border-primary-500 resize-none"
@@ -404,41 +465,30 @@ export default function AdminUnionsPage() {
         </div>
       </Modal>
 
-      <Modal
+      {/* Modal تخصیص رئیس — با کامپوننت جدید */}
+      <AssignManagerModal
         isOpen={showAssign}
         onClose={() => setShowAssign(false)}
+        onConfirm={handleAssign}
         title="تخصیص رئیس اتحادیه"
-        size="sm"
-        footer={
-          <>
-            <Button variant="ghost" onClick={() => setShowAssign(false)}>انصراف</Button>
-            <Button onClick={handleAssign} isLoading={saving}>تخصیص</Button>
-          </>
+        entityName={selected?.name ?? ""}
+        entityMeta={
+          selected
+            ? `${selected.chamber_name} — ${selected.city_name}`
+            : ""
         }
-      >
-        <div className="space-y-4">
-          {selected && (
-            <div className="p-3 bg-slate-50 rounded-xl">
-              <p className="text-sm font-semibold text-slate-700">{selected.name}</p>
-              <p className="text-xs text-slate-400">{selected.chamber_name}</p>
-            </div>
-          )}
-          <Input
-            label="شناسه کاربر (union_manager)"
-            placeholder="شناسه عددی"
-            value={managerId}
-            onChange={(e) => setManagerId(e.target.value)}
-            type="number"
-            hint="شناسه کاربر با نقش رئیس اتحادیه"
-          />
-        </div>
-      </Modal>
+        roleFilter="union_manager"
+      />
 
       <ConfirmDialog
         isOpen={showToggle}
         onClose={() => setShowToggle(false)}
         onConfirm={handleToggle}
-        title={selected?.is_active ? "غیرفعال کردن اتحادیه" : "فعال کردن اتحادیه"}
+        title={
+          selected?.is_active
+            ? "غیرفعال کردن اتحادیه"
+            : "فعال کردن اتحادیه"
+        }
         message={`آیا از ${selected?.is_active ? "غیرفعال" : "فعال"} کردن «${selected?.name}» اطمینان دارید؟`}
         confirmLabel={selected?.is_active ? "غیرفعال کن" : "فعال کن"}
         variant={selected?.is_active ? "danger" : "warning"}

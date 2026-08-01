@@ -9,13 +9,15 @@ from .chamber_serializers import (
     ChamberDetailSerializer,
     ChamberCreateSerializer,
     ChamberUpdateSerializer,
+    AssignManagerSerializer, 
 )
 from .union_serializers import (
     UnionListSerializer,
     UnionDetailSerializer,
     UnionCreateSerializer,
     UnionUpdateSerializer,
-    AssignManagerSerializer,
+    #AssignManagerSerializer,
+    #AssignManagerSerializer, 
 )
 
 __all__ = [

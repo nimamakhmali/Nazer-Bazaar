@@ -5845,3 +5845,518 @@ TypeError: ComplaintTrackView.get() got an unexpected keyword argument 'uuid'
 [INFO] 2026-07-31 20:17:21,584 basehttp 565309 137639703344832 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
 [INFO] 2026-07-31 20:17:23,049 basehttp 565309 137639703344832 "GET /api/v1/complaints/my/?page=1&page_size=10 HTTP/1.1" 200 2109
 [INFO] 2026-07-31 20:17:23,199 basehttp 565309 137639703344832 "GET /api/v1/complaints/my/?page=1&page_size=10 HTTP/1.1" 200 2109
+[WARNING] 2026-07-31 20:19:22,544 log 565309 137639600580288 Not Found: /
+[WARNING] 2026-07-31 20:19:22,545 basehttp 565309 137639600580288 "GET / HTTP/1.1" 404 16957
+[INFO] 2026-07-31 20:19:23,925 basehttp 565309 137639703344832 "GET /api/v1/auth/me/ HTTP/1.1" 200 402
+[INFO] 2026-07-31 20:19:24,039 basehttp 565309 137639703344832 "GET /api/v1/auth/me/ HTTP/1.1" 200 402
+[INFO] 2026-07-31 20:19:24,329 basehttp 565309 137639703344832 "GET /api/v1/complaints/my/?page=1&page_size=10 HTTP/1.1" 200 2109
+[INFO] 2026-07-31 20:19:24,489 basehttp 565309 137639703344832 "GET /api/v1/complaints/my/?page=1&page_size=10 HTTP/1.1" 200 2109
+[INFO] 2026-07-31 20:19:26,810 basehttp 565309 137639600580288 "GET /admin/ HTTP/1.1" 200 41905
+[INFO] 2026-07-31 20:19:33,350 basehttp 565309 137639600580288 "GET /admin/organizations/union/ HTTP/1.1" 200 43968
+[INFO] 2026-07-31 20:19:33,568 basehttp 565309 137639600580288 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-31 20:19:35,842 basehttp 565309 137639600580288 "GET /admin/organizations/union/2/change/ HTTP/1.1" 200 48137
+[INFO] 2026-07-31 20:19:35,875 basehttp 565309 137639592187584 "GET /static/admin/js/collapse.js HTTP/1.1" 304 0
+[INFO] 2026-07-31 20:19:36,033 basehttp 565309 137639600580288 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-07-31 20:19:37,636 basehttp 565309 137639600580288 "GET /admin/autocomplete/?app_label=organizations&model_name=union&field_name=manager HTTP/1.1" 200 46
+[INFO] 2026-07-31 20:19:37,878 basehttp 565309 137639600580288 "GET /__debug__/history_sidebar/?store_id=c84f32e8704c457482eaa6df755237dd HTTP/1.1" 200 10300
+[INFO] 2026-07-31 20:19:41,758 basehttp 565309 137639592187584 "GET /admin/accounts/user/add/?_to_field=id&_popup=1 HTTP/1.1" 200 23052
+[INFO] 2026-07-31 20:19:42,034 basehttp 565309 137639592187584 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-01 15:41:40,904 autoreload 51534 136800462925952 Watching for file changes with StatReloader
+[WARNING] 2026-08-01 15:43:00,808 log 51534 136799737345728 Not Found: /
+[WARNING] 2026-08-01 15:43:00,809 basehttp 51534 136799737345728 "GET / HTTP/1.1" 404 16957
+[INFO] 2026-08-01 15:43:00,882 basehttp 51534 136799725807296 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14601
+[INFO] 2026-08-01 15:43:00,882 basehttp 51534 136799737345728 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 16675
+[INFO] 2026-08-01 15:43:00,899 basehttp 51534 136799725807296 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+[INFO] 2026-08-01 15:43:00,923 basehttp 51534 136799737345728 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4742
+[INFO] 2026-08-01 15:43:05,932 basehttp 51534 136799737345728 "GET /admin/ HTTP/1.1" 200 41905
+[INFO] 2026-08-01 15:43:05,951 basehttp 51534 136799737345728 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:43:05,956 basehttp 51534 136799725807296 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:43:05,957 basehttp 51534 136799713220288 "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:43:05,958 basehttp 51534 136799704827584 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:43:05,958 basehttp 51534 136799696434880 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:43:05,968 basehttp 51534 136799704827584 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:43:05,968 basehttp 51534 136799696434880 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:43:06,042 basehttp 51534 136799704827584 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:43:06,043 basehttp 51534 136799696434880 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:43:06,045 basehttp 51534 136799737345728 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:43:18,324 basehttp 51534 136799696434880 "GET /admin/organizations/union/ HTTP/1.1" 200 43971
+[INFO] 2026-08-01 15:43:18,362 basehttp 51534 136799704827584 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+[INFO] 2026-08-01 15:43:18,366 basehttp 51534 136799737345728 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:43:18,370 basehttp 51534 136799725807296 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[INFO] 2026-08-01 15:43:18,375 basehttp 51534 136799684896448 "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+[INFO] 2026-08-01 15:43:18,395 basehttp 51534 136799684896448 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[INFO] 2026-08-01 15:43:18,400 basehttp 51534 136799737345728 "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+[INFO] 2026-08-01 15:43:18,405 basehttp 51534 136799704827584 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+[INFO] 2026-08-01 15:43:18,406 basehttp 51534 136799725807296 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[INFO] 2026-08-01 15:43:18,420 basehttp 51534 136799713220288 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+[INFO] 2026-08-01 15:43:18,430 basehttp 51534 136799713220288 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:43:18,448 basehttp 51534 136799737345728 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+[INFO] 2026-08-01 15:43:18,485 basehttp 51534 136799737345728 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[INFO] 2026-08-01 15:43:18,528 basehttp 51534 136799737345728 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[INFO] 2026-08-01 15:43:18,664 basehttp 51534 136799696434880 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-01 15:43:18,785 basehttp 51534 136799696434880 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[INFO] 2026-08-01 15:43:18,787 basehttp 51534 136799737345728 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+[INFO] 2026-08-01 15:44:07,586 basehttp 51534 136799338886848 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-08-01 15:44:07,823 basehttp 51534 136799330494144 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 944
+[INFO] 2026-08-01 15:44:08,004 basehttp 51534 136799338886848 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-08-01 15:44:08,145 basehttp 51534 136799330494144 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 944
+[INFO] 2026-08-01 15:48:11,544 basehttp 51534 136799330494144 "OPTIONS /api/v1/auth/login/ HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:48:11,868 base_service 51534 136799330494144 User logged in with password: 09056419609
+[INFO] 2026-08-01 15:48:12,004 basehttp 51534 136799330494144 "POST /api/v1/auth/login/ HTTP/1.1" 200 1120
+[INFO] 2026-08-01 15:48:12,831 basehttp 51534 136799330494144 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:48:12,832 basehttp 51534 136799338886848 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:48:13,008 basehttp 51534 136799330494144 "GET /api/v1/auth/me/ HTTP/1.1" 200 400
+[INFO] 2026-08-01 15:48:13,233 basehttp 51534 136799330494144 "GET /api/v1/auth/me/ HTTP/1.1" 200 400
+[INFO] 2026-08-01 15:48:13,462 basehttp 51534 136799338886848 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:48:13,462 basehttp 51534 136799330494144 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:48:13,694 basehttp 51534 136799330494144 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2272
+[INFO] 2026-08-01 15:48:13,922 basehttp 51534 136799330494144 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2272
+[INFO] 2026-08-01 15:48:17,965 basehttp 51534 136799338886848 "OPTIONS /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:48:17,966 basehttp 51534 136799311611584 "OPTIONS /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:48:17,967 basehttp 51534 136799330494144 "OPTIONS /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:48:17,967 basehttp 51534 136799320004288 "OPTIONS /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:48:18,569 basehttp 51534 136799311611584 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-08-01 15:48:19,156 basehttp 51534 136799320004288 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-08-01 15:48:20,056 basehttp 51534 136799311611584 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-08-01 15:48:20,419 basehttp 51534 136799320004288 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-08-01 15:48:31,088 basehttp 51534 136799320004288 "OPTIONS /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 200 0
+[WARNING] 2026-08-01 15:48:31,322 log 51534 136799320004288 Not Found: /api/v1/organizations/unions/2/assign-manager/
+[WARNING] 2026-08-01 15:48:31,323 basehttp 51534 136799320004288 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 404 101
+[INFO] 2026-08-01 15:50:53,553 basehttp 51534 136799320004288 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2272
+[INFO] 2026-08-01 15:50:53,770 basehttp 51534 136799320004288 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2272
+[INFO] 2026-08-01 15:50:53,823 basehttp 51534 136799311611584 "GET /api/v1/auth/me/ HTTP/1.1" 200 400
+[INFO] 2026-08-01 15:50:53,934 basehttp 51534 136799311611584 "GET /api/v1/auth/me/ HTTP/1.1" 200 400
+[INFO] 2026-08-01 15:50:54,083 basehttp 51534 136799311611584 "OPTIONS /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:50:54,084 basehttp 51534 136799320004288 "OPTIONS /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:50:54,084 basehttp 51534 136799330494144 "OPTIONS /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:50:54,084 basehttp 51534 136799338886848 "OPTIONS /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-08-01 15:50:54,547 basehttp 51534 136799330494144 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 624
+[INFO] 2026-08-01 15:50:55,058 basehttp 51534 136799320004288 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1927
+[INFO] 2026-08-01 15:50:55,158 basehttp 51534 136799330494144 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 624
+[INFO] 2026-08-01 15:50:55,590 basehttp 51534 136799320004288 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 1927
+[INFO] 2026-08-01 15:51:11,541 basehttp 51534 136799330494144 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-08-01 15:51:12,246 basehttp 51534 136799320004288 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-08-01 15:51:12,849 basehttp 51534 136799330494144 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-08-01 15:51:13,204 basehttp 51534 136799338886848 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-08-01 18:14:33,853 autoreload 51534 136800462925952 /home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/accounts/views/user_views.py changed, reloading.
+[INFO] 2026-08-01 18:14:34,822 autoreload 206639 125830696403072 Watching for file changes with StatReloader
+[INFO] 2026-08-01 18:14:37,427 autoreload 206639 125830696403072 /home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/accounts/views/user_views.py changed, reloading.
+[INFO] 2026-08-01 18:14:38,146 autoreload 206803 138087470121088 Watching for file changes with StatReloader
+[INFO] 2026-08-01 18:14:57,639 autoreload 206803 138087470121088 /home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/accounts/serializers/user_serializers.py changed, reloading.
+[INFO] 2026-08-01 18:14:58,301 autoreload 207482 123192534413440 Watching for file changes with StatReloader
+[INFO] 2026-08-01 18:15:09,683 autoreload 207482 123192534413440 /home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/accounts/serializers/user_serializers.py changed, reloading.
+[INFO] 2026-08-01 18:15:10,331 autoreload 207918 136515192340608 Watching for file changes with StatReloader
+[INFO] 2026-08-01 18:26:21,205 autoreload 229900 123478629634176 Watching for file changes with StatReloader
+[INFO] 2026-08-01 18:26:43,083 autoreload 231134 137738503917696 Watching for file changes with StatReloader
+[INFO] 2026-08-01 18:28:48,779 autoreload 231134 137738503917696 /home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/accounts/views/user_views.py changed, reloading.
+[INFO] 2026-08-01 18:28:49,653 autoreload 235958 138193870196864 Watching for file changes with StatReloader
+[INFO] 2026-08-01 18:29:04,253 autoreload 235958 138193870196864 /home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/accounts/serializers/__init__.py changed, reloading.
+[INFO] 2026-08-01 18:29:05,080 autoreload 236543 124721323094144 Watching for file changes with StatReloader
+[INFO] 2026-08-01 18:31:24,138 autoreload 236543 124721323094144 /home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/accounts/views/__init__.py changed, reloading.
+[INFO] 2026-08-01 18:31:25,005 autoreload 241272 131986338508928 Watching for file changes with StatReloader
+[INFO] 2026-08-01 18:31:51,539 autoreload 242483 130950986383488 Watching for file changes with StatReloader
+[INFO] 2026-08-01 18:32:34,839 autoreload 243956 123963190595712 Watching for file changes with StatReloader
+[WARNING] 2026-08-01 18:32:39,406 log 243956 123962464925376 Not Found: /
+[WARNING] 2026-08-01 18:32:39,407 basehttp 243956 123962464925376 "GET / HTTP/1.1" 404 16956
+[INFO] 2026-08-01 18:32:43,215 basehttp 243956 123962464925376 "GET /admin/ HTTP/1.1" 200 41905
+[INFO] 2026-08-01 18:32:52,839 basehttp 243956 123962464925376 "GET /admin/organizations/union/ HTTP/1.1" 200 43968
+[INFO] 2026-08-01 18:32:52,979 basehttp 243956 123962464925376 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-01 18:32:56,939 basehttp 243956 123962464925376 "GET /admin/organizations/union/2/change/ HTTP/1.1" 200 48137
+[INFO] 2026-08-01 18:32:56,963 basehttp 243956 123962444998336 "GET /static/admin/css/vendor/select2/select2.css HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:32:56,963 basehttp 243956 123962436605632 "GET /static/admin/css/autocomplete.css HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:32:56,963 basehttp 243956 123962218510016 "GET /static/admin/js/collapse.js HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:32:56,969 basehttp 243956 123962201724608 "GET /static/admin/js/vendor/select2/i18n/en.js HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:32:56,969 basehttp 243956 123962210117312 "GET /static/admin/js/vendor/select2/select2.full.js HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:32:56,978 basehttp 243956 123962201724608 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:32:56,978 basehttp 243956 123962218510016 "GET /static/admin/js/autocomplete.js HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:32:56,979 basehttp 243956 123962210117312 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:32:57,024 basehttp 243956 123962210117312 "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:32:57,090 basehttp 243956 123962464925376 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-01 18:32:58,652 basehttp 243956 123962464925376 "GET /admin/autocomplete/?app_label=organizations&model_name=union&field_name=manager HTTP/1.1" 200 46
+[INFO] 2026-08-01 18:32:58,884 basehttp 243956 123962464925376 "GET /__debug__/history_sidebar/?store_id=452b32eea9534c0daa10f964d2e792b0 HTTP/1.1" 200 10300
+[INFO] 2026-08-01 18:33:03,172 basehttp 243956 123962464925376 "GET /admin/organizations/union/ HTTP/1.1" 200 43968
+[INFO] 2026-08-01 18:33:12,936 basehttp 243956 123962210117312 "GET /admin/ HTTP/1.1" 200 41905
+[INFO] 2026-08-01 18:33:15,797 basehttp 243956 123962210117312 "GET /admin/accounts/user/ HTTP/1.1" 200 42514
+[INFO] 2026-08-01 18:33:15,812 basehttp 243956 123962201724608 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:33:15,820 basehttp 243956 123962201724608 "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:33:15,933 basehttp 243956 123962210117312 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-01 18:33:22,183 basehttp 243956 123962210117312 "GET /admin/accounts/user/3/change/ HTTP/1.1" 200 66327
+[INFO] 2026-08-01 18:33:22,202 basehttp 243956 123962201724608 "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:33:22,203 basehttp 243956 123962218510016 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:33:22,327 basehttp 243956 123962210117312 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-01 18:33:22,406 basehttp 243956 123962210117312 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 304 0
+[INFO] 2026-08-01 18:33:23,975 basehttp 243956 123962210117312 "GET /admin/accounts/user/ HTTP/1.1" 200 42514
+[INFO] 2026-08-01 18:33:26,873 basehttp 243956 123962210117312 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66431
+[INFO] 2026-08-01 18:33:27,007 basehttp 243956 123962210117312 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-01 18:33:36,506 basehttp 243956 123962210117312 "POST /admin/accounts/user/7/change/ HTTP/1.1" 302 0
+[INFO] 2026-08-01 18:33:36,800 basehttp 243956 123962210117312 "GET /admin/accounts/user/ HTTP/1.1" 200 42739
+[INFO] 2026-08-01 18:33:36,972 basehttp 243956 123962210117312 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-01 18:33:39,144 basehttp 243956 123962210117312 "GET /admin/accounts/user/7/change/ HTTP/1.1" 200 66430
+[INFO] 2026-08-01 18:33:41,033 basehttp 243956 123962210117312 "GET /admin/accounts/user/ HTTP/1.1" 200 42514
+[INFO] 2026-08-01 18:33:44,391 basehttp 243956 123962210117312 "GET /admin/ HTTP/1.1" 200 41905
+[INFO] 2026-08-01 18:33:49,736 basehttp 243956 123962210117312 "GET /admin/organizations/union/ HTTP/1.1" 200 43968
+[INFO] 2026-08-01 18:33:49,868 basehttp 243956 123962210117312 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-01 18:33:52,962 basehttp 243956 123962210117312 "GET /admin/organizations/union/2/change/ HTTP/1.1" 200 48137
+[INFO] 2026-08-01 18:33:53,097 basehttp 243956 123962210117312 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-01 18:33:54,691 basehttp 243956 123962210117312 "GET /admin/autocomplete/?app_label=organizations&model_name=union&field_name=manager HTTP/1.1" 200 96
+[INFO] 2026-08-01 18:33:54,926 basehttp 243956 123962210117312 "GET /__debug__/history_sidebar/?store_id=d272fdb24ba84ec69f55b1764298f498 HTTP/1.1" 200 10300
+[INFO] 2026-08-01 18:34:14,263 basehttp 243956 123962464925376 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-08-01 18:34:14,441 basehttp 243956 123962193331904 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:34:14,577 basehttp 243956 123962464925376 "GET /api/v1/geography/provinces/ HTTP/1.1" 200 152
+[INFO] 2026-08-01 18:34:14,702 basehttp 243956 123962193331904 "GET /api/v1/pricing/official-prices/?page=1&is_today=true HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:34:27,459 basehttp 243956 123962193331904 "OPTIONS /api/v1/auth/login/ HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:27,739 base_service 243956 123962193331904 User logged in with password: 09184423221
+[INFO] 2026-08-01 18:34:27,867 basehttp 243956 123962193331904 "POST /api/v1/auth/login/ HTTP/1.1" 200 1147
+[INFO] 2026-08-01 18:34:32,290 basehttp 243956 123962464925376 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:32,294 basehttp 243956 123962193331904 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:32,450 basehttp 243956 123962464925376 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:34:32,608 basehttp 243956 123962464925376 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:34:32,728 basehttp 243956 123962193331904 "OPTIONS /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:32,728 basehttp 243956 123962464925376 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:32,734 basehttp 243956 123962182842048 "OPTIONS /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:32,739 basehttp 243956 123962174449344 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:32,744 basehttp 243956 123961681639104 "OPTIONS /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:32,745 basehttp 243956 123962166056640 "OPTIONS /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:33,133 basehttp 243956 123962464925376 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:34:33,323 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:34:33,376 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:34:33,685 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:34:33,756 basehttp 243956 123962464925376 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:34:33,822 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:34:49,173 basehttp 243956 123962193331904 "OPTIONS /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:49,180 basehttp 243956 123962464925376 "OPTIONS /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:49,354 basehttp 243956 123962193331904 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:34:49,536 basehttp 243956 123962193331904 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:34:53,033 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:34:53,159 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:34:56,231 basehttp 243956 123962464925376 "OPTIONS /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:56,233 basehttp 243956 123962193331904 "OPTIONS /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:34:56,459 basehttp 243956 123962193331904 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:34:56,653 basehttp 243956 123962193331904 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:35:01,047 basehttp 243956 123962193331904 "OPTIONS /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:35:01,049 basehttp 243956 123962464925376 "OPTIONS /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 200 0
+[WARNING] 2026-08-01 18:35:01,167 log 243956 123962464925376 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-08-01 18:35:01,168 basehttp 243956 123962464925376 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-08-01 18:35:01,339 log 243956 123962464925376 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-08-01 18:35:01,339 basehttp 243956 123962464925376 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[INFO] 2026-08-01 18:35:03,403 basehttp 243956 123962464925376 "OPTIONS /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:35:03,403 basehttp 243956 123962193331904 "OPTIONS /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 0
+[ERROR] 2026-08-01 18:35:03,436 api_exceptions 243956 123962193331904 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:35:03,560 log 243956 123962193331904 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:35:03,561 basehttp 243956 123962193331904 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 500 111
+[ERROR] 2026-08-01 18:35:03,651 api_exceptions 243956 123962193331904 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:35:03,745 log 243956 123962193331904 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:35:03,745 basehttp 243956 123962193331904 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 500 111
+[INFO] 2026-08-01 18:35:07,777 basehttp 243956 123962193331904 "OPTIONS /api/v1/complaints/?page=1&page_size=15&status=submitted HTTP/1.1" 200 0
+[ERROR] 2026-08-01 18:35:07,814 api_exceptions 243956 123962193331904 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:35:07,911 log 243956 123962193331904 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:35:07,911 basehttp 243956 123962193331904 "GET /api/v1/complaints/?page=1&page_size=15&status=submitted HTTP/1.1" 500 111
+[ERROR] 2026-08-01 18:35:09,021 api_exceptions 243956 123962193331904 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:35:09,103 log 243956 123962193331904 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:35:09,103 basehttp 243956 123962193331904 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 500 111
+[INFO] 2026-08-01 18:35:09,902 basehttp 243956 123962193331904 "OPTIONS /api/v1/complaints/?page=1&page_size=15&status=reviewing HTTP/1.1" 200 0
+[ERROR] 2026-08-01 18:35:09,929 api_exceptions 243956 123962193331904 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:35:10,020 log 243956 123962193331904 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:35:10,021 basehttp 243956 123962193331904 "GET /api/v1/complaints/?page=1&page_size=15&status=reviewing HTTP/1.1" 500 111
+[INFO] 2026-08-01 18:35:19,502 basehttp 243956 123962193331904 "OPTIONS /api/v1/auth/logout/ HTTP/1.1" 200 0
+[WARNING] 2026-08-01 18:35:19,616 log 243956 123962193331904 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-08-01 18:35:19,617 basehttp 243956 123962193331904 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-08-01 18:35:30,448 base_service 243956 123962193331904 User logged in with password: 09056419609
+[INFO] 2026-08-01 18:35:30,555 basehttp 243956 123962193331904 "POST /api/v1/auth/login/ HTTP/1.1" 200 1120
+[ERROR] 2026-08-01 18:35:31,007 api_exceptions 243956 123962193331904 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:35:31,096 log 243956 123962193331904 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:35:31,097 basehttp 243956 123962193331904 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 500 111
+[ERROR] 2026-08-01 18:35:31,117 api_exceptions 243956 123962193331904 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:35:31,199 log 243956 123962193331904 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:35:31,199 basehttp 243956 123962193331904 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 500 111
+[INFO] 2026-08-01 18:35:39,247 basehttp 243956 123962193331904 "OPTIONS /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:35:39,247 basehttp 243956 123962464925376 "OPTIONS /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:35:39,247 basehttp 243956 123961681639104 "OPTIONS /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:35:39,248 basehttp 243956 123962182842048 "OPTIONS /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:35:39,697 basehttp 243956 123961681639104 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-08-01 18:35:40,142 basehttp 243956 123962193331904 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-08-01 18:35:40,658 basehttp 243956 123961681639104 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1548
+[INFO] 2026-08-01 18:35:40,999 basehttp 243956 123962193331904 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-08-01 18:35:42,041 basehttp 243956 123961681639104 "OPTIONS /api/v1/auth/users/org-search/?role=union_manager HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:35:42,041 basehttp 243956 123962193331904 "OPTIONS /api/v1/auth/users/org-search/?role=union_manager HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:35:42,223 basehttp 243956 123962193331904 "GET /api/v1/auth/users/org-search/?role=union_manager HTTP/1.1" 200 180
+[INFO] 2026-08-01 18:35:42,396 basehttp 243956 123962193331904 "GET /api/v1/auth/users/org-search/?role=union_manager HTTP/1.1" 200 180
+[INFO] 2026-08-01 18:36:18,802 basehttp 243956 123962193331904 "GET /api/v1/auth/users/org-search/?role=union_manager HTTP/1.1" 200 180
+[INFO] 2026-08-01 18:36:18,918 basehttp 243956 123962193331904 "GET /api/v1/auth/users/org-search/?role=union_manager HTTP/1.1" 200 180
+[INFO] 2026-08-01 18:36:20,866 basehttp 243956 123962193331904 "GET /api/v1/auth/users/org-search/?role=union_manager HTTP/1.1" 200 180
+[INFO] 2026-08-01 18:36:21,056 basehttp 243956 123962193331904 "GET /api/v1/auth/users/org-search/?role=union_manager HTTP/1.1" 200 180
+[INFO] 2026-08-01 18:36:22,635 basehttp 243956 123962193331904 "GET /api/v1/auth/users/org-search/?role=union_manager HTTP/1.1" 200 180
+[INFO] 2026-08-01 18:36:22,780 basehttp 243956 123962193331904 "GET /api/v1/auth/users/org-search/?role=union_manager HTTP/1.1" 200 180
+[INFO] 2026-08-01 18:38:56,129 basehttp 243956 123962193331904 "OPTIONS /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:38:56,195 base_service 243956 123962193331904 Manager assigned to Union: اتحادیه صنف خواربار و بنکداران شهرستان همدان → reza makhmali
+[INFO] 2026-08-01 18:38:56,386 basehttp 243956 123962193331904 "POST /api/v1/organizations/unions/2/assign-manager/ HTTP/1.1" 200 932
+[INFO] 2026-08-01 18:38:56,751 basehttp 243956 123962193331904 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1542
+[WARNING] 2026-08-01 18:39:04,042 log 243956 123962193331904 Bad Request: /api/v1/auth/logout/
+[WARNING] 2026-08-01 18:39:04,043 basehttp 243956 123962193331904 "POST /api/v1/auth/logout/ HTTP/1.1" 400 132
+[INFO] 2026-08-01 18:39:17,363 base_service 243956 123962193331904 User logged in with password: 09184423221
+[INFO] 2026-08-01 18:39:17,468 basehttp 243956 123962193331904 "POST /api/v1/auth/login/ HTTP/1.1" 200 1147
+[INFO] 2026-08-01 18:39:18,356 basehttp 243956 123961681639104 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1542
+[INFO] 2026-08-01 18:39:18,873 basehttp 243956 123962193331904 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-08-01 18:39:19,228 basehttp 243956 123961681639104 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1542
+[INFO] 2026-08-01 18:39:19,452 basehttp 243956 123962193331904 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-08-01 18:39:24,014 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:39:24,099 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:39:24,666 basehttp 243956 123961681639104 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1542
+[INFO] 2026-08-01 18:39:25,108 basehttp 243956 123962193331904 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-08-01 18:39:25,630 basehttp 243956 123961681639104 "GET /api/v1/organizations/unions/?page=1&page_size=9 HTTP/1.1" 200 1542
+[INFO] 2026-08-01 18:39:25,863 basehttp 243956 123962193331904 "GET /api/v1/organizations/chambers/?page_size=500 HTTP/1.1" 200 1927
+[INFO] 2026-08-01 18:39:28,261 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:39:28,328 basehttp 243956 123961681639104 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:39:28,330 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:39:28,578 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:39:28,627 basehttp 243956 123962193331904 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:39:28,685 basehttp 243956 123962464925376 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:39:29,205 basehttp 243956 123962464925376 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:39:29,338 basehttp 243956 123962464925376 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:39:31,684 basehttp 243956 123962464925376 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:39:31,854 basehttp 243956 123962464925376 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:39:33,448 basehttp 243956 123962464925376 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:39:33,465 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:39:33,466 basehttp 243956 123962193331904 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:39:33,745 basehttp 243956 123962182842048 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:39:33,792 basehttp 243956 123962193331904 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:39:33,851 basehttp 243956 123962464925376 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:39:35,378 basehttp 243956 123962193331904 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:39:35,539 basehttp 243956 123962464925376 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:39:35,761 basehttp 243956 123962193331904 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:39:35,849 basehttp 243956 123962464925376 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:39:38,700 basehttp 243956 123962464925376 "OPTIONS /api/v1/auth/users/profile/ HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:39:38,700 basehttp 243956 123962193331904 "OPTIONS /api/v1/auth/users/profile/ HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:39:38,811 basehttp 243956 123962464925376 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:39:38,952 basehttp 243956 123962464925376 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:39:41,694 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:39:41,824 basehttp 243956 123962464925376 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:39:41,883 basehttp 243956 123962193331904 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:39:42,124 basehttp 243956 123961681639104 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:39:42,176 basehttp 243956 123962182842048 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:39:42,243 basehttp 243956 123962193331904 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:39:43,494 basehttp 243956 123962193331904 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:39:43,640 basehttp 243956 123962193331904 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:39:44,907 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:39:44,999 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:39:47,152 basehttp 243956 123962193331904 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:39:47,329 basehttp 243956 123962193331904 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 944
+[WARNING] 2026-08-01 18:39:48,489 log 243956 123962193331904 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-08-01 18:39:48,489 basehttp 243956 123962193331904 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-08-01 18:39:48,602 log 243956 123962193331904 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-08-01 18:39:48,602 basehttp 243956 123962193331904 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[INFO] 2026-08-01 18:39:53,814 basehttp 243956 123962193331904 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:39:53,920 basehttp 243956 123962193331904 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:40:06,697 basehttp 243956 123962166056640 "GET /admin/organizations/union/2/change/ HTTP/1.1" 200 48203
+[INFO] 2026-08-01 18:40:06,835 basehttp 243956 123962166056640 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-01 18:40:16,207 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:40:16,469 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:40:16,645 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:40:16,754 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:40:22,081 basehttp 243956 123962193331904 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:40:22,245 basehttp 243956 123962193331904 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:40:23,851 basehttp 243956 123962193331904 "OPTIONS /api/v1/pricing/store-prices/today/?store=3 HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:40:24,036 basehttp 243956 123962193331904 "GET /api/v1/pricing/store-prices/today/?store=3 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:40:27,943 basehttp 243956 123962193331904 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:40:28,078 basehttp 243956 123962193331904 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:40:28,936 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:40:29,035 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[WARNING] 2026-08-01 18:40:30,501 log 243956 123962193331904 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-08-01 18:40:30,502 basehttp 243956 123962193331904 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-08-01 18:40:30,605 log 243956 123962193331904 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-08-01 18:40:30,605 basehttp 243956 123962193331904 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[ERROR] 2026-08-01 18:40:31,358 api_exceptions 243956 123962193331904 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:40:31,485 log 243956 123962193331904 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:40:31,485 basehttp 243956 123962193331904 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 500 111
+[ERROR] 2026-08-01 18:40:31,520 api_exceptions 243956 123962193331904 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:40:31,624 log 243956 123962193331904 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:40:31,624 basehttp 243956 123962193331904 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 500 111
+[INFO] 2026-08-01 18:47:24,998 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:47:25,210 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:47:25,363 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:47:25,429 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:47:42,130 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:47:42,230 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:47:42,474 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:47:42,624 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:47:48,049 basehttp 243956 123962193331904 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:47:48,222 basehttp 243956 123962193331904 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:47:49,650 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:47:49,939 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:47:50,102 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:47:50,209 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:47:51,856 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:47:51,966 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:47:52,261 basehttp 243956 123962193331904 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:47:52,427 basehttp 243956 123962193331904 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:47:56,170 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:47:56,370 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:47:56,530 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:47:56,618 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:47:58,069 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:47:58,171 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:47:58,349 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:47:58,485 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[WARNING] 2026-08-01 18:48:13,895 log 243956 123962193331904 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-08-01 18:48:13,896 basehttp 243956 123962193331904 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-08-01 18:48:13,990 log 243956 123962193331904 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-08-01 18:48:13,990 basehttp 243956 123962193331904 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[ERROR] 2026-08-01 18:48:17,477 api_exceptions 243956 123962193331904 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:48:17,564 log 243956 123962193331904 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:48:17,564 basehttp 243956 123962193331904 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 500 111
+[ERROR] 2026-08-01 18:48:17,591 api_exceptions 243956 123962193331904 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:48:17,673 log 243956 123962193331904 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:48:17,673 basehttp 243956 123962193331904 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 500 111
+[WARNING] 2026-08-01 18:48:19,082 log 243956 123962193331904 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-08-01 18:48:19,083 basehttp 243956 123962193331904 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-08-01 18:48:19,190 log 243956 123962193331904 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-08-01 18:48:19,191 basehttp 243956 123962193331904 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[INFO] 2026-08-01 18:48:24,031 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:48:24,143 basehttp 243956 123962193331904 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:48:25,619 basehttp 243956 123962193331904 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:48:25,773 basehttp 243956 123962193331904 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:48:29,235 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:48:29,486 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:48:29,689 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:48:29,745 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:48:43,613 basehttp 243956 123962182842048 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:48:43,805 basehttp 243956 123962182842048 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[ERROR] 2026-08-01 18:48:43,936 api_exceptions 243956 123962182842048 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:48:44,054 log 243956 123962182842048 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:48:44,054 basehttp 243956 123962182842048 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 500 111
+[ERROR] 2026-08-01 18:48:44,088 api_exceptions 243956 123962182842048 Unhandled exception occurred
+Traceback (most recent call last):
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/venv/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/complaints/views/complaint_views.py", line 163, in get
+    from apps.common.pagination import StandardResultsSetPagination
+ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common.pagination' (/home/nimamakhmali/Documents/Rayan Pajouhan/724/Nazer-Bazaar/backend/apps/common/pagination/__init__.py)
+[ERROR] 2026-08-01 18:48:44,213 log 243956 123962182842048 Internal Server Error: /api/v1/complaints/
+[ERROR] 2026-08-01 18:48:44,214 basehttp 243956 123962182842048 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 500 111
+[WARNING] 2026-08-01 18:48:47,068 log 243956 123962182842048 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-08-01 18:48:47,069 basehttp 243956 123962182842048 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[WARNING] 2026-08-01 18:48:47,174 log 243956 123962182842048 Bad Request: /api/v1/pricing/history/
+[WARNING] 2026-08-01 18:48:47,175 basehttp 243956 123962182842048 "GET /api/v1/pricing/history/?page=1&page_size=20 HTTP/1.1" 400 91
+[INFO] 2026-08-01 18:48:49,517 basehttp 243956 123962193331904 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:48:50,029 basehttp 243956 123962182842048 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:48:50,041 basehttp 243956 123962464925376 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:48:50,251 basehttp 243956 123962193331904 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:48:50,357 basehttp 243956 123962182842048 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:48:50,426 basehttp 243956 123962464925376 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:49:00,000 basehttp 243956 123962464925376 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:49:00,134 basehttp 243956 123962464925376 "GET /api/v1/stores/?page=1&page_size=12 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:49:04,340 basehttp 243956 123962193331904 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:49:04,587 basehttp 243956 123962182842048 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:49:04,610 basehttp 243956 123962464925376 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:49:04,889 basehttp 243956 123962193331904 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 18:49:04,952 basehttp 243956 123962182842048 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 18:49:05,008 basehttp 243956 123962464925376 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 18:51:22,730 basehttp 243956 123962464925376 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:51:22,871 basehttp 243956 123962464925376 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 944
+[INFO] 2026-08-01 18:51:38,658 basehttp 243956 123962464925376 "OPTIONS /api/v1/pricing/official-prices/2/ HTTP/1.1" 200 0
+[INFO] 2026-08-01 18:51:38,734 base_service 243956 123962464925376 OfficialPrice updated: id=2
+[INFO] 2026-08-01 18:51:39,020 basehttp 243956 123962464925376 "PATCH /api/v1/pricing/official-prices/2/ HTTP/1.1" 200 801
+[INFO] 2026-08-01 18:51:39,274 basehttp 243956 123962464925376 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 948
+[INFO] 2026-08-01 18:52:22,281 basehttp 243956 123962464925376 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:52:22,379 basehttp 243956 123962464925376 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:52:31,440 basehttp 243956 123962464925376 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 948
+[INFO] 2026-08-01 18:52:31,682 basehttp 243956 123962464925376 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 948
+[INFO] 2026-08-01 18:54:24,517 basehttp 243956 123962464925376 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:54:24,605 basehttp 243956 123962464925376 "GET /api/v1/auth/me/ HTTP/1.1" 200 406
+[INFO] 2026-08-01 18:54:52,427 basehttp 243956 123962464925376 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 948
+[INFO] 2026-08-01 18:54:52,560 basehttp 243956 123962464925376 "GET /api/v1/pricing/official-prices/?page=1&page_size=15 HTTP/1.1" 200 948
+[INFO] 2026-08-01 19:01:36,784 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 19:01:37,132 basehttp 243956 123962464925376 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 19:01:37,315 basehttp 243956 123962193331904 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 19:01:37,486 basehttp 243956 123962182842048 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 19:01:37,585 basehttp 243956 123962166056640 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 19:01:37,660 basehttp 243956 123962193331904 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-01 19:01:37,889 basehttp 243956 123962166056640 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 19:01:38,046 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-01 19:01:38,208 basehttp 243956 123962166056640 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-01 19:01:38,290 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466

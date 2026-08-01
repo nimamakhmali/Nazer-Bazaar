@@ -11,6 +11,7 @@ export const ENDPOINTS = {
     USER: (id: number) => `/auth/users/${id}/`,
     USER_ROLE: (id: number) => `/auth/users/${id}/role/`,
     PROFILE: "/auth/users/profile/",
+    ORG_SEARCH: "/auth/users/org-search/",
   },
 
   // Geography

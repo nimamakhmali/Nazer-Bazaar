@@ -11,6 +11,7 @@ from .user_views import (
     AdminUserListView,
     AdminUserDetailView,
     ChangeUserRoleView,
+    OrganizationUserSearchView,
 )
 
 __all__ = [
@@ -24,4 +25,5 @@ __all__ = [
     'AdminUserListView',
     'AdminUserDetailView',
     'ChangeUserRoleView',
+    'OrganizationUserSearchView',
 ]
