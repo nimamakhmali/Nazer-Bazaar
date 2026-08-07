@@ -28,7 +28,7 @@ import {
   ChartBarIcon,
   MegaphoneIcon,
   CurrencyDollarIcon,
-  Bars3Icon,
+  ClockIcon,
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
@@ -145,18 +145,52 @@ const chamberMenu: NavGroup[] = [
 const unionMenu: NavGroup[] = [
   {
     items: [
-      { label: "داشبورد",   href: "/dashboard",      icon: HomeIcon },
-      { label: "نمای کلی", href: "/union/overview",  icon: ChartBarIcon },
+      { label: "داشبورد", href: "/union/overview", icon: HomeIcon },
     ],
   },
   {
-    title: "مدیریت",
+    title: "فروشگاه‌ها",
     items: [
-      { label: "فروشگاه‌ها",    href: "/union/stores",           icon: BuildingStorefrontIcon },
-      { label: "ثبت قیمت",      href: "/union/pricing/official", icon: CurrencyDollarIcon },
-      { label: "قیمت‌های مصوب", href: "/union/pricing",          icon: CurrencyDollarIcon },
-      { label: "تاریخچه",       href: "/union/pricing/history",  icon: ChartBarIcon },
-      { label: "شکایات",        href: "/union/complaints",       icon: MegaphoneIcon },
+      {
+        label: "فروشگاه‌های عضو",
+        href: "/union/stores",
+        icon: BuildingStorefrontIcon,
+      },
+    ],
+  },
+  {
+    title: "مدیریت کالا",
+    items: [
+      {
+        label: "کالاها و قیمت مصوب",
+        href: "/union/products",
+        icon: CubeIcon,
+      },
+      {
+        label: "ثبت قیمت مصوب",
+        href: "/union/pricing/official",
+        icon: CurrencyDollarIcon,
+      },
+      {
+        label: "قیمت‌های مصوب",
+        href: "/union/pricing",
+        icon: ChartBarIcon,
+      },
+      {
+        label: "تاریخچه قیمت",
+        href: "/union/pricing/history",
+        icon: ClockIcon,
+      },
+    ],
+  },
+  {
+    title: "نظارت",
+    items: [
+      {
+        label: "شکایات",
+        href: "/union/complaints",
+        icon: MegaphoneIcon,
+      },
     ],
   },
 ];

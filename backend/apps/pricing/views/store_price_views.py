@@ -10,6 +10,8 @@ from drf_spectacular.utils import extend_schema, OpenApiParameter
 from apps.common.exceptions import ResourceNotFoundError
 from apps.common.pagination import StandardResultsPagination
 
+from apps.pricing.models import PriceHistory
+
 from apps.pricing.selectors import (
     StorePriceSelector,
     PriceHistorySelector,
@@ -298,6 +300,9 @@ class PriceStatsView(APIView):
         })
 
 
+# apps/pricing/views/store_price_views.py
+# فقط PriceHistoryView را جایگزین کن
+
 class PriceHistoryView(APIView):
     """
     GET /api/v1/pricing/history/
@@ -321,30 +326,51 @@ class PriceHistoryView(APIView):
                 required=False,
                 type=int
             ),
+            OpenApiParameter(
+                name='union',
+                description='فیلتر بر اساس اتحادیه',
+                required=False,
+                type=int
+            ),
         ],
         responses={200: PriceHistorySerializer(many=True)}
     )
     def get(self, request) -> Response:
         product_id = request.query_params.get('product')
-        store_id = request.query_params.get('store')
+        store_id   = request.query_params.get('store')
+        union_id   = request.query_params.get('union')
 
         if product_id:
-            history = PriceHistorySelector.get_by_product(
-                int(product_id)
-            )
+            history = PriceHistorySelector.get_by_product(int(product_id))
         elif store_id:
             history = PriceHistorySelector.get_by_store(int(store_id))
+        elif union_id:
+            history = PriceHistorySelector.get_by_union(int(union_id))
         else:
-            return Response(
-                {
-                    'success': False,
-                    'message': 'شناسه محصول یا فروشگاه الزامی است'
-                },
-                status=status.HTTP_400_BAD_REQUEST
-            )
+            # اگر هیچ فیلتری نبود — برای union_manager خودش را برگردان
+            user = request.user
+            if hasattr(user, 'role') and user.role == 'union_manager':
+                try:
+                    from apps.organizations.models import Union
+                    union = Union.objects.filter(
+                        manager=user, is_active=True
+                    ).first()
+                    if union:
+                        history = PriceHistorySelector.get_by_union(union.id)
+                    else:
+                        history = PriceHistory.objects.none()
+                except Exception:
+                    history = PriceHistory.objects.none()
+            else:
+                return Response(
+                    {
+                        'success': False,
+                        'message': 'شناسه محصول، فروشگاه یا اتحادیه الزامی است'
+                    },
+                    status=status.HTTP_400_BAD_REQUEST
+                )
 
-        serializer = PriceHistorySerializer(history, many=True)
-        return Response({
-            'success': True,
-            'data': serializer.data
-        })
+        paginator = StandardResultsPagination()
+        paginated = paginator.paginate_queryset(history, request)
+        serializer = PriceHistorySerializer(paginated, many=True)
+        return paginator.get_paginated_response(serializer.data)

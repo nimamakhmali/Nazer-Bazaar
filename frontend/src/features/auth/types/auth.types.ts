@@ -28,18 +28,23 @@ export interface AuthTokens {
 export interface UserBasicInfo {
   id: number;
   full_name: string;
+  first_name: string;
+  last_name: string;
   phone_number: string;
-  masked_phone: string;
-  role: Role;
+  masked_phone?: string;
+  email: string | null;
+  national_code: string | null;
+  role: string;
   role_display: string;
   is_phone_verified: boolean;
   avatar: string | null;
-  first_name: string;
-  last_name: string;
-  email: string | null;
-  national_code: string | null;
   date_joined: string;
   last_login_at: string | null;
+  // فیلدهای سازمانی
+  union_id: number | null;
+  chamber_id: number | null;
+  province_office_id: number | null;
+
 }
 
 export interface LoginResponse {
@@ -64,3 +69,6 @@ export interface MeResponse extends UserBasicInfo {}
 
 // ─── Store Types ──────────────────────────────────────────
 export type AuthStep = "phone" | "code";
+
+
+

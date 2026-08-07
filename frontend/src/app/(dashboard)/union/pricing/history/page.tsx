@@ -15,6 +15,8 @@ import { formatPrice }  from "@/utils/number.utils";
 import { toJalali }     from "@/utils/date.utils";
 import toast            from "react-hot-toast";
 import { cn }           from "@/lib/cn";
+import { useAuthStore } from "@/store";
+import type { UserBasicInfo } from "@/features/auth/types/auth.types";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer,
@@ -57,23 +59,32 @@ export default function UnionPricingHistoryPage() {
   const [totalCount, setTotalCount] = useState(0);
   const [search,     setSearch]     = useState("");
 
-  const fetchHistory = useCallback(async () => {
-    setIsLoading(true);
-    try {
-      const params: Record<string, unknown> = { page, page_size: 20 };
-      if (search) params.search = search;
-      const res  = await apiClient.get(ENDPOINTS.PRICING.HISTORY, { params });
-      const data = res.data?.data ?? res.data;
-      setHistory(extractArray<PriceHistory>(data));
-      const count = extractCount(data, 0);
-      setTotalCount(count);
-      setTotalPages(Math.ceil(count / 20) || 1);
-    } catch (err) {
-      toast.error(parseApiError(err));
-    } finally {
-      setIsLoading(false);
-    }
-  }, [page, search]);
+// fetchHistory را تغییر بده — union_id را از me بگیر و پاس بده
+
+const fetchHistory = useCallback(async () => {
+  setIsLoading(true);
+  try {
+    const params: Record<string, unknown> = { page, page_size: 20 };
+    if (search) params.search = search;
+
+    // union_id را اضافه کن
+    const storeUser = useAuthStore.getState().user as UserBasicInfo | null;
+    const unionId = storeUser?.union_id;
+    if (unionId) params.union = unionId;
+
+    const res  = await apiClient.get(ENDPOINTS.PRICING.HISTORY, { params });
+    const data = res.data?.data ?? res.data;
+    setHistory(extractArray<PriceHistory>(data));
+    const count = extractCount(data, 0);
+    setTotalCount(count);
+    setTotalPages(Math.ceil(count / 20) || 1);
+  } catch (err) {
+    toast.error(parseApiError(err));
+  } finally {
+    setIsLoading(false);
+  }
+}, [page, search]);
+
 
   useEffect(() => { fetchHistory(); },    [fetchHistory]);
   useEffect(() => { setPage(1); },        [search]);
@@ -122,7 +133,7 @@ export default function UnionPricingHistoryPage() {
                   tickFormatter={(v) => `${(v / 1000).toFixed(0)}K`}
                 />
                 <Tooltip
-                  formatter={(v: number) => [formatPrice(v) + " ریال", "قیمت"]}
+                  formatter={(v: number | undefined) => [formatPrice(v ?? 0) + " ریال", "قیمت"]}
                   contentStyle={{
                     fontFamily: "Vazirmatn", borderRadius: "12px",
                     border: "1px solid #e2e8f0", fontSize: "11px",

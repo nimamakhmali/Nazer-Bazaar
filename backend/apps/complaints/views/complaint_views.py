@@ -16,6 +16,9 @@ from apps.complaints.serializers import (
     ComplaintDetailSerializer,
 )
 from apps.complaints.permissions import IsComplaintOwnerOrManager
+
+from apps.complaints.models import Complaint
+
 import logging
 
 logger = logging.getLogger(__name__)
@@ -95,17 +98,18 @@ class ComplaintListCreateView(APIView):
         if user.role == UserRole.ADMIN:
             queryset = ComplaintSelector.get_all()
         
-        elif user.role == UserRole.PROVINCE_MANAGER:
-            # شکایات استانی که مدیرش این کاربر است
+        elif user.role == UserRole.UNION_MANAGER:
             try:
-                from apps.organizations.models import ProvinceOffice
-                office = ProvinceOffice.objects.filter(manager=user).first()
-                if office:
-                    queryset = ComplaintSelector.get_for_province(office.province_id)
+                from apps.organizations.models import Union
+                union = Union.objects.filter(manager=user, is_active=True).first()
+                if union:
+                    queryset = ComplaintSelector.get_for_union(union.id)
                 else:
-                    queryset = ComplaintSelector.get_all().none()
-            except:
-                queryset = ComplaintSelector.get_all().none()
+                    queryset = Complaint.objects.none()
+            except Exception:
+                queryset = Complaint.objects.none()
+                
+                
         
         elif user.role == UserRole.CHAMBER_MANAGER:
             # شکایات اتاق اصنافی که مدیرش این کاربر است
@@ -114,18 +118,6 @@ class ComplaintListCreateView(APIView):
                 chamber = Chamber.objects.filter(manager=user).first()
                 if chamber:
                     queryset = ComplaintSelector.get_for_chamber(chamber.id)
-                else:
-                    queryset = ComplaintSelector.get_all().none()
-            except:
-                queryset = ComplaintSelector.get_all().none()
-        
-        elif user.role == UserRole.UNION_MANAGER:
-            # شکایات اتحادیه‌ای که مدیرش این کاربر است
-            try:
-                from apps.organizations.models import Union
-                union = Union.objects.filter(manager=user).first()
-                if union:
-                    queryset = ComplaintSelector.get_for_union(union.id)
                 else:
                     queryset = ComplaintSelector.get_all().none()
             except:
@@ -160,8 +152,8 @@ class ComplaintListCreateView(APIView):
             )
         
         # ✅ Pagination
-        from apps.common.pagination import StandardResultsSetPagination
-        paginator = StandardResultsSetPagination()
+        from apps.common.pagination import StandardResultsPagination
+        paginator = StandardResultsPagination()
         page = paginator.paginate_queryset(queryset, request)
         
         if page is not None:

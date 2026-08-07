@@ -1,92 +1,33 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 import { useAuthStore } from "@/store";
-import { authService } from "../services/auth.service";
-import { Button } from "@/components/ui/Button";
-import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
-import { cn } from "@/lib/cn";
+import apiClient from "@/services/api.client";
+import { ENDPOINTS } from "@/services/endpoints";
+import { CONFIG } from "@/constants/config";
+import Cookies from "js-cookie";
+import toast from "react-hot-toast";
 
-interface LogoutButtonProps {
-  variant?: "button" | "menu-item";
-  className?: string;
-}
-
-export const LogoutButton = ({
-  variant = "button",
-  className,
-}: LogoutButtonProps) => {
-  const [showConfirm, setShowConfirm] = useState(false);
-  const [isLoading, setIsLoading]     = useState(false);
+export const LogoutButton = ({ children }: { children?: React.ReactNode }) => {
   const { logout } = useAuthStore();
   const router = useRouter();
 
   const handleLogout = async () => {
-    setIsLoading(true);
+    const refreshToken = Cookies.get(CONFIG.REFRESH_TOKEN_KEY);
     try {
-      await authService.logout();
+      await apiClient.post(ENDPOINTS.AUTH.LOGOUT, {
+        refresh: refreshToken ?? "",
+      });
     } catch {
-      // حتی اگر خطا داشت logout می‌کنیم
-    } finally {
-      logout();
-      router.replace("/login");
+      // حتی اگر سرور خطا داد، logout محلی انجام شود
     }
+    logout();
+    router.push("/login");
   };
 
-  if (variant === "menu-item") {
-    return (
-      <>
-        <button
-          onClick={() => setShowConfirm(true)}
-          className={cn(
-            "flex items-center gap-2 w-full px-3 py-2 text-sm rounded-lg",
-            "text-red-600 hover:bg-red-50 transition-colors",
-            className
-          )}
-        >
-          <ArrowRightOnRectangleIcon className="h-4 w-4" />
-          خروج از سامانه
-        </button>
-
-        <ConfirmDialog
-          isOpen={showConfirm}
-          onClose={() => setShowConfirm(false)}
-          onConfirm={handleLogout}
-          title="خروج از سامانه"
-          message="آیا می‌خواهید از سامانه خارج شوید؟"
-          confirmLabel="بله، خارج می‌شوم"
-          cancelLabel="انصراف"
-          variant="warning"
-          isLoading={isLoading}
-        />
-      </>
-    );
-  }
-
   return (
-    <>
-      <Button
-        variant="danger"
-        onClick={() => setShowConfirm(true)}
-        leftIcon={<ArrowRightOnRectangleIcon className="h-4 w-4" />}
-        className={className}
-      >
-        خروج
-      </Button>
-
-      <ConfirmDialog
-        isOpen={showConfirm}
-        onClose={() => setShowConfirm(false)}
-        onConfirm={handleLogout}
-        title="خروج از سامانه"
-        message="آیا می‌خواهید از سامانه خارج شوید؟"
-        confirmLabel="بله، خارج می‌شوم"
-        cancelLabel="انصراف"
-        variant="warning"
-        isLoading={isLoading}
-      />
-    </>
+    <button onClick={handleLogout}>
+      {children ?? "خروج"}
+    </button>
   );
 };

@@ -157,25 +157,23 @@ class LogoutView(APIView):
     """
     permission_classes = [IsAuthenticated]
 
-    @extend_schema(
-        summary='خروج از سیستم',
-        tags=['auth'],
-        request=RefreshTokenSerializer,
-    )
     def post(self, request) -> Response:
-        serializer = RefreshTokenSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-
-        service = AuthService()
-        service.logout(
-            refresh_token=serializer.validated_data['refresh']
-        )
+        # refresh token اختیاری است — اگر نبود هم logout کن
+        refresh_token = request.data.get('refresh', None)
+        
+        if refresh_token:
+            try:
+                service = AuthService()
+                service.logout(refresh_token=refresh_token)
+            except Exception:
+                pass  # حتی اگر token نامعتبر بود، logout انجام شود
 
         return Response({
             'success': True,
             'message': 'خروج با موفقیت انجام شد'
         })
-
+        
+        
 
 class RefreshTokenView(APIView):
     """

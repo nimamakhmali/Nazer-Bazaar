@@ -55,6 +55,9 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'avatar',
             'date_joined',
             'last_login_at',
+            'union_id',
+            'chamber_id', 
+            'province_office_id',
         ]
         read_only_fields = [
             'phone_number',
@@ -63,6 +66,42 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'date_joined',
             'last_login_at',
         ]
+
+
+    # apps/accounts/serializers/user_serializers.py
+    # در UserProfileSerializer این فیلد را اضافه کن
+
+    union_id = serializers.SerializerMethodField()
+    chamber_id = serializers.SerializerMethodField()
+    province_office_id = serializers.SerializerMethodField()
+
+    def get_union_id(self, obj):
+        """union_id رئیس اتحادیه"""
+        try:
+            from apps.organizations.models import Union
+            union = Union.objects.filter(manager=obj, is_active=True).first()
+            return union.id if union else None
+        except Exception:
+            return None
+
+    def get_chamber_id(self, obj):
+        """chamber_id مدیر اتاق اصناف"""
+        try:
+            from apps.organizations.models import Chamber
+            chamber = Chamber.objects.filter(manager=obj, is_active=True).first()
+            return chamber.id if chamber else None
+        except Exception:
+            return None
+
+    def get_province_office_id(self, obj):
+        """province_office_id مدیر استانداری"""
+        try:
+            from apps.organizations.models import ProvinceOffice
+            office = ProvinceOffice.objects.filter(manager=obj, is_active=True).first()
+            return office.id if office else None
+        except Exception:
+            return None
+
 
     def get_masked_phone(self, obj: User) -> str:
         from apps.common.utils import mask_mobile
