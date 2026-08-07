@@ -29,7 +29,8 @@ class UserBasicSerializer(serializers.ModelSerializer):
 
 class UserProfileSerializer(serializers.ModelSerializer):
     """
-    پروفایل کامل کاربر - برای نمایش به خودش
+    پروفایل کامل کاربر - برای نمایش به خودش و /auth/me/
+    شامل اطلاعات سازمانی بر اساس نقش
     """
     full_name = serializers.CharField(read_only=True)
     role_display = serializers.CharField(
@@ -37,6 +38,14 @@ class UserProfileSerializer(serializers.ModelSerializer):
         read_only=True
     )
     masked_phone = serializers.SerializerMethodField()
+
+    # ── فیلدهای سازمانی (role-based) ─────────────────────────────────────────
+    union_id = serializers.SerializerMethodField()
+    union_name = serializers.SerializerMethodField()
+    chamber_id = serializers.SerializerMethodField()
+    chamber_name = serializers.SerializerMethodField()
+    province_office_id = serializers.SerializerMethodField()
+    province_id = serializers.SerializerMethodField()
 
     class Meta:
         model = User
@@ -55,9 +64,13 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'avatar',
             'date_joined',
             'last_login_at',
+            # ── سازمانی ──
             'union_id',
-            'chamber_id', 
+            'union_name',
+            'chamber_id',
+            'chamber_name',
             'province_office_id',
+            'province_id',
         ]
         read_only_fields = [
             'phone_number',
@@ -67,45 +80,81 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'last_login_at',
         ]
 
+    def get_masked_phone(self, obj: User) -> str:
+        from apps.common.utils import mask_mobile
+        return mask_mobile(obj.phone_number)
 
-    # apps/accounts/serializers/user_serializers.py
-    # در UserProfileSerializer این فیلد را اضافه کن
-
-    union_id = serializers.SerializerMethodField()
-    chamber_id = serializers.SerializerMethodField()
-    province_office_id = serializers.SerializerMethodField()
-
-    def get_union_id(self, obj):
-        """union_id رئیس اتحادیه"""
+    def get_union_id(self, obj) -> int | None:
+        if obj.role != UserRole.UNION_MANAGER:
+            return None
         try:
             from apps.organizations.models import Union
-            union = Union.objects.filter(manager=obj, is_active=True).first()
+            union = Union.objects.filter(
+                manager=obj, is_active=True
+            ).only('id').first()
             return union.id if union else None
         except Exception:
             return None
 
-    def get_chamber_id(self, obj):
-        """chamber_id مدیر اتاق اصناف"""
+    def get_union_name(self, obj) -> str | None:
+        if obj.role != UserRole.UNION_MANAGER:
+            return None
+        try:
+            from apps.organizations.models import Union
+            union = Union.objects.filter(
+                manager=obj, is_active=True
+            ).only('id', 'name').first()
+            return union.name if union else None
+        except Exception:
+            return None
+
+    def get_chamber_id(self, obj) -> int | None:
+        if obj.role != UserRole.CHAMBER_MANAGER:
+            return None
         try:
             from apps.organizations.models import Chamber
-            chamber = Chamber.objects.filter(manager=obj, is_active=True).first()
+            chamber = Chamber.objects.filter(
+                manager=obj, is_active=True
+            ).only('id').first()
             return chamber.id if chamber else None
         except Exception:
             return None
 
-    def get_province_office_id(self, obj):
-        """province_office_id مدیر استانداری"""
+    def get_chamber_name(self, obj) -> str | None:
+        if obj.role != UserRole.CHAMBER_MANAGER:
+            return None
+        try:
+            from apps.organizations.models import Chamber
+            chamber = Chamber.objects.filter(
+                manager=obj, is_active=True
+            ).only('id', 'name').first()
+            return chamber.name if chamber else None
+        except Exception:
+            return None
+
+    def get_province_office_id(self, obj) -> int | None:
+        if obj.role != UserRole.PROVINCE_MANAGER:
+            return None
         try:
             from apps.organizations.models import ProvinceOffice
-            office = ProvinceOffice.objects.filter(manager=obj, is_active=True).first()
+            office = ProvinceOffice.objects.filter(
+                manager=obj, is_active=True
+            ).only('id').first()
             return office.id if office else None
         except Exception:
             return None
 
-
-    def get_masked_phone(self, obj: User) -> str:
-        from apps.common.utils import mask_mobile
-        return mask_mobile(obj.phone_number)
+    def get_province_id(self, obj) -> int | None:
+        if obj.role != UserRole.PROVINCE_MANAGER:
+            return None
+        try:
+            from apps.organizations.models import ProvinceOffice
+            office = ProvinceOffice.objects.filter(
+                manager=obj, is_active=True
+            ).only('id', 'province_id').first()
+            return office.province_id if office else None
+        except Exception:
+            return None
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
@@ -152,6 +201,7 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         if value and value.strip():
             return value.strip()
         return None
+
 
 class UserAdminSerializer(serializers.ModelSerializer):
     """
@@ -224,22 +274,22 @@ class CreateOrganizationUserSerializer(serializers.Serializer):
 class ChangeRoleSerializer(serializers.Serializer):
     """تغییر نقش کاربر"""
     role = serializers.ChoiceField(choices=UserRole.choices)
-    
-    
+
+
 class UserBasicWithNationalCodeSerializer(serializers.ModelSerializer):
     """
     اطلاعات کاربر برای تخصیص مدیریت.
     شامل وضعیت کد ملی برای چک در فرانت‌اند.
     """
-    full_name        = serializers.CharField(read_only=True)
+    full_name = serializers.CharField(read_only=True)
     has_national_code = serializers.SerializerMethodField()
-    role_display     = serializers.CharField(
+    role_display = serializers.CharField(
         source='get_role_display',
         read_only=True
     )
 
     class Meta:
-        model  = User
+        model = User
         fields = [
             'id',
             'full_name',
@@ -250,4 +300,4 @@ class UserBasicWithNationalCodeSerializer(serializers.ModelSerializer):
         ]
 
     def get_has_national_code(self, obj: User) -> bool:
-        return bool(obj.national_code and obj.national_code.strip())    
+        return bool(obj.national_code and obj.national_code.strip())

@@ -15,12 +15,28 @@ export interface UserProfile {
   avatar: string | null;
   date_joined: string;
   last_login_at: string | null;
+  // ── فیلدهای سازمانی (از API /auth/me/ برمی‌گردند) ──
+  union_id: number | null;
+  union_name: string | null;
+  chamber_id: number | null;
+  chamber_name: string | null;
+  province_office_id: number | null;
+  province_id: number | null;
 }
 
 export interface UserAdmin extends UserProfile {
   is_active: boolean;
   created_at: string;
   updated_at: string;
+}
+
+export interface UserBasicInfo {
+  id: number;
+  full_name: string;
+  phone_number: string;
+  role: Role;
+  union_id?: number | null;
+  union_name?: string | null;
 }
 
 export interface CreateUserRequest {

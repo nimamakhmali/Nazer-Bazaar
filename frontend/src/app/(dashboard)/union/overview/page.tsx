@@ -209,23 +209,39 @@ export default function UnionOverviewPage() {
   const today = getTodayJalali();
 
   // ── بارگذاری اولیه ──────────────────────────────────────────────────────────
-  const loadDashboard = useCallback(async () => {
+const loadDashboard = useCallback(async () => {
     setLoading(true);
     try {
+      // ۱. گرفتن union_id — ابتدا از store، سپس از API
+      let currentUnionId: number | null = null;
 
       const storeUser = useAuthStore.getState().user;
-      let currentUnionId: number | null = 
-        storeUser?.union_id ?? null;
+      if (storeUser?.union_id) {
+        currentUnionId = storeUser.union_id;
+      }
 
-      // ۲. اگر در store نبود، از API بگیر
       if (!currentUnionId) {
         const meRes = await apiClient.get(ENDPOINTS.AUTH.ME);
         const meData = meRes.data?.data ?? meRes.data;
         currentUnionId = meData?.union_id ?? null;
-        
-        // به‌روزرسانی store
         if (meData) {
           useAuthStore.getState().setUser(meData);
+        }
+      }
+
+      if (!currentUnionId) {
+        // ۲. fallback: جستجوی مستقیم اتحادیه
+        try {
+          const unionsRes = await apiClient.get(ENDPOINTS.ORGANIZATIONS.UNIONS, {
+            params: { managed_by_me: true, page_size: 1 },
+          });
+          const unionsData = unionsRes.data?.data ?? unionsRes.data;
+          const unionsList = extractArray<{ id: number; name: string }>(unionsData);
+          if (unionsList.length > 0) {
+            currentUnionId = unionsList[0].id;
+          }
+        } catch {
+          // silent
         }
       }
 
@@ -234,10 +250,10 @@ export default function UnionOverviewPage() {
         setLoading(false);
         return;
       }
-      
+
       setUnionId(currentUnionId);
 
-      // ۲. بارگذاری موازی داده‌ها
+      // ادامه بارگذاری موازی — بقیه کد تغییر نمی‌کند
       const [
         unionRes,
         storesRes,
@@ -282,15 +298,10 @@ export default function UnionOverviewPage() {
 
       if (storesRes.status === "fulfilled") {
         const sd = storesRes.value.data?.data ?? storesRes.value.data;
-        const storeList = extractArray<{
-          id: number;
-          status: string;
-        }>(sd);
+        const storeList = extractArray<{ id: number; status: string }>(sd);
         totalStores = storeList.length;
         activeStores = storeList.filter((s) => s.status === "active").length;
-        suspendedStores = storeList.filter(
-          (s) => s.status === "suspended"
-        ).length;
+        suspendedStores = storeList.filter((s) => s.status === "suspended").length;
         pendingStores = storeList.filter((s) => s.status === "pending").length;
       }
 
@@ -335,11 +346,10 @@ export default function UnionOverviewPage() {
         setComplaints(cList.slice(0, 5));
       }
 
-      // Chart data from history
+      // Chart
       if (historyRes.status === "fulfilled") {
         const hd = historyRes.value.data?.data ?? historyRes.value.data;
-        const historyList = extractArray<PriceHistoryItem>(hd);
-        buildChartData(historyList);
+        buildChartData(extractArray<PriceHistoryItem>(hd));
       } else {
         buildChartData([]);
       }
@@ -356,8 +366,8 @@ export default function UnionOverviewPage() {
         complaints_reviewed: complaintsReviewed,
         complaints_pending: complaintsPending,
       });
-    } catch {
-      // silent
+    } catch (err) {
+      toast.error("خطا در بارگذاری داشبورد");
     } finally {
       setLoading(false);
     }

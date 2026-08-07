@@ -11,7 +11,7 @@ class ComplaintAttachmentSerializer(serializers.ModelSerializer):
 
 class ComplaintResponseSerializer(serializers.ModelSerializer):
     user = UserBasicSerializer(read_only=True)
-    
+
     class Meta:
         model = ComplaintResponse
         fields = ['id', 'user', 'response_text', 'is_internal_note', 'created_at']
@@ -35,21 +35,22 @@ class ComplaintListSerializer(serializers.ModelSerializer):
     product_name = serializers.CharField(source='product.name', read_only=True)
     status_display = serializers.CharField(source='get_status_display', read_only=True)
     tracking_code = serializers.CharField(read_only=True)
-    
-    # ✅ NEW: اطلاعات ارجاع
+
+    # ✅ FIX: به جای IntegerField از SerializerMethodField استفاده می‌کنیم
+    # چون hours_since_created یک @property است و در queryset annotate نشده
     escalation_level = serializers.IntegerField(read_only=True)
     is_overdue = serializers.SerializerMethodField()
-    hours_since_created = serializers.IntegerField(read_only=True)
+    hours_since_created = serializers.SerializerMethodField()
 
     class Meta:
         model = Complaint
         fields = [
-            'uuid', 
+            'uuid',
             'tracking_code',
-            'title', 
+            'title',
             'store_name',
             'product_name',
-            'status', 
+            'status',
             'status_display',
             'escalation_level',
             'is_overdue',
@@ -57,10 +58,18 @@ class ComplaintListSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
         ]
-    
-    def get_is_overdue(self, obj):
-        """آیا شکایت از زمان مقرر گذشته؟"""
-        return obj.is_overdue_48h or obj.is_overdue_96h
+
+    def get_is_overdue(self, obj) -> bool:
+        try:
+            return bool(obj.is_overdue_48h or obj.is_overdue_96h)
+        except Exception:
+            return False
+
+    def get_hours_since_created(self, obj) -> int:
+        try:
+            return int(obj.hours_since_created)
+        except Exception:
+            return 0
 
 
 class ComplaintDetailSerializer(serializers.ModelSerializer):
@@ -71,48 +80,36 @@ class ComplaintDetailSerializer(serializers.ModelSerializer):
     attachments = ComplaintAttachmentSerializer(many=True, read_only=True)
     responses = ComplaintResponseSerializer(many=True, read_only=True)
     tracking_code = serializers.CharField(read_only=True)
-    
-    # ✅ قیمت فرمت شده
+
     price_reported_formatted = serializers.SerializerMethodField()
-    
-    # ✅ NEW: اطلاعات ارجاع
-    assigned_union_manager_name = serializers.CharField(
-        source='assigned_union_manager.full_name', 
-        read_only=True, 
-        allow_null=True
-    )
-    assigned_chamber_manager_name = serializers.CharField(
-        source='assigned_chamber_manager.full_name', 
-        read_only=True, 
-        allow_null=True
-    )
-    assigned_province_manager_name = serializers.CharField(
-        source='assigned_province_manager.full_name', 
-        read_only=True, 
-        allow_null=True
-    )
-    
+
+    # ✅ FIX: null-safe با SerializerMethodField به جای source با null
+    assigned_union_manager_name = serializers.SerializerMethodField()
+    assigned_chamber_manager_name = serializers.SerializerMethodField()
+    assigned_province_manager_name = serializers.SerializerMethodField()
+
     escalation_level = serializers.IntegerField(read_only=True)
-    hours_since_created = serializers.IntegerField(read_only=True)
-    is_overdue_48h = serializers.BooleanField(read_only=True)
-    is_overdue_96h = serializers.BooleanField(read_only=True)
+    # ✅ FIX: SerializerMethodField برای property های محاسباتی
+    hours_since_created = serializers.SerializerMethodField()
+    is_overdue_48h = serializers.SerializerMethodField()
+    is_overdue_96h = serializers.SerializerMethodField()
 
     class Meta:
         model = Complaint
         fields = [
-            'uuid', 
+            'uuid',
             'tracking_code',
-            'customer', 
-            'store', 
-            'store_name', 
-            'product', 
+            'customer',
+            'store',
+            'store_name',
+            'product',
             'product_name',
-            'title', 
-            'description', 
+            'title',
+            'description',
             'price_reported',
             'price_reported_formatted',
             'price_proof',
-            'status', 
+            'status',
             'status_display',
             'assigned_to',
             'assigned_union_manager_name',
@@ -125,15 +122,56 @@ class ComplaintDetailSerializer(serializers.ModelSerializer):
             'escalated_at_48h',
             'escalated_at_96h',
             'resolution_note',
-            'created_at', 
-            'updated_at', 
-            'attachments', 
-            'responses'
+            'created_at',
+            'updated_at',
+            'attachments',
+            'responses',
         ]
-    
-    def get_price_reported_formatted(self, obj):
-        """فرمت قیمت با جداکننده هزارگان"""
+
+    def get_price_reported_formatted(self, obj) -> str:
         try:
             return f"{int(obj.price_reported):,}".replace(',', '٬')
-        except:
+        except Exception:
             return str(obj.price_reported)
+
+    def get_assigned_union_manager_name(self, obj) -> str | None:
+        try:
+            if obj.assigned_union_manager_id:
+                return obj.assigned_union_manager.full_name
+            return None
+        except Exception:
+            return None
+
+    def get_assigned_chamber_manager_name(self, obj) -> str | None:
+        try:
+            if obj.assigned_chamber_manager_id:
+                return obj.assigned_chamber_manager.full_name
+            return None
+        except Exception:
+            return None
+
+    def get_assigned_province_manager_name(self, obj) -> str | None:
+        try:
+            if obj.assigned_province_manager_id:
+                return obj.assigned_province_manager.full_name
+            return None
+        except Exception:
+            return None
+
+    def get_hours_since_created(self, obj) -> int:
+        try:
+            return int(obj.hours_since_created)
+        except Exception:
+            return 0
+
+    def get_is_overdue_48h(self, obj) -> bool:
+        try:
+            return bool(obj.is_overdue_48h)
+        except Exception:
+            return False
+
+    def get_is_overdue_96h(self, obj) -> bool:
+        try:
+            return bool(obj.is_overdue_96h)
+        except Exception:
+            return False

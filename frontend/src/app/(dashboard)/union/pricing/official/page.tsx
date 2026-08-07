@@ -69,14 +69,42 @@ export default function UnionOfficialPricingPage() {
   const today = getTodayJalali();
 
   // ── بارگذاری اولیه: محصولات اتحادیه + قیمت‌های امروز ───────────────────
-  useEffect(() => {
+useEffect(() => {
     const load = async () => {
       setLoading(true);
       try {
-        // گرفتن اطلاعات کاربر جاری برای یافتن union_id
-        const meRes    = await apiClient.get(ENDPOINTS.AUTH.ME);
-        const meData   = meRes.data?.data ?? meRes.data;
-        const currentUnionId: number = meData?.union_id ?? null;
+        // ۱. گرفتن union_id
+        let currentUnionId: number | null = null;
+
+        const storeUser = (await import("@/store")).useAuthStore.getState().user;
+        if (storeUser?.union_id) {
+          currentUnionId = storeUser.union_id;
+        }
+
+        if (!currentUnionId) {
+          const meRes = await apiClient.get(ENDPOINTS.AUTH.ME);
+          const meData = meRes.data?.data ?? meRes.data;
+          currentUnionId = meData?.union_id ?? null;
+          if (meData) {
+            (await import("@/store")).useAuthStore.getState().setUser(meData);
+          }
+        }
+
+        // ۲. fallback از لیست اتحادیه‌ها
+        if (!currentUnionId) {
+          try {
+            const { ENDPOINTS: EP } = await import("@/services/endpoints");
+            const unionsRes = await apiClient.get(EP.ORGANIZATIONS.UNIONS, {
+              params: { page_size: 1 },
+            });
+            const unionsData = unionsRes.data?.data ?? unionsRes.data;
+            const unionsList = extractArray<{ id: number }>(unionsData);
+            if (unionsList.length > 0) currentUnionId = unionsList[0].id;
+          } catch {
+            // silent
+          }
+        }
+
         setUnionId(currentUnionId);
 
         if (!currentUnionId) {
@@ -85,7 +113,7 @@ export default function UnionOfficialPricingPage() {
           return;
         }
 
-        // فقط محصولات همین اتحادیه را بارگذاری می‌کنیم
+        // ۳. بارگذاری موازی محصولات + قیمت‌های امروز
         const [productsRes, todayRes] = await Promise.all([
           apiClient.get(ENDPOINTS.PRODUCTS.LIST, {
             params: { union: currentUnionId, page_size: 200 },
@@ -95,28 +123,28 @@ export default function UnionOfficialPricingPage() {
           }),
         ]);
 
-        const prodData    = productsRes.data?.data ?? productsRes.data;
-        const products    = extractArray<Product>(prodData);
+        const prodData = productsRes.data?.data ?? productsRes.data;
+        const products = extractArray<Product>(prodData);
 
-        const todayData   = todayRes.data?.data ?? todayRes.data;
+        const todayData = todayRes.data?.data ?? todayRes.data;
         const todayPrices = extractArray<TodayPrice>(todayData);
 
         const todayMap = new Map<number, TodayPrice>(
-          todayPrices.map((tp) => [tp.product, tp]),
+          todayPrices.map((tp) => [tp.product, tp])
         );
 
         setRows(
           products.map((p) => {
             const tp = todayMap.get(p.id);
             return {
-              product:        p,
-              todayPrice:     tp?.price ?? null,
+              product: p,
+              todayPrice: tp?.price ?? null,
               yesterdayPrice: null,
-              inputValue:     tp ? String(tp.price) : "",
-              priceId:        tp?.id ?? null,
-              isSaved:        !!tp,
+              inputValue: tp ? String(tp.price) : "",
+              priceId: tp?.id ?? null,
+              isSaved: !!tp,
             };
-          }),
+          })
         );
       } catch (err) {
         toast.error(parseApiError(err));
