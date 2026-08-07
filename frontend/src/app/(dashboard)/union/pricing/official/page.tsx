@@ -16,7 +16,7 @@ import apiClient           from "@/services/api.client";
 import { ENDPOINTS }       from "@/services/endpoints";
 import { parseApiError, extractArray } from "@/utils/error.utils";
 import { formatPrice }     from "@/utils/number.utils";
-import { getTodayJalali }  from "@/utils/date.utils";
+import { getTodayJalali, getTodayGregorian } from "@/utils/date.utils";
 import { CONFIG }          from "@/constants/config";
 import toast               from "react-hot-toast";
 import { cn }              from "@/lib/cn";
@@ -61,12 +61,16 @@ function getPriceStatus(input: string, yesterday: number | null) {
 
 // ─────────────────────────────────────────────────────────────────────────────
 export default function UnionOfficialPricingPage() {
-  const [rows,     setRows]     = useState<PriceRow[]>([]);
-  const [loading,  setLoading]  = useState(true);
-  const [saving,   setSaving]   = useState(false);
+  const [rows, setRows] = useState<PriceRow[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
   const [savingId, setSavingId] = useState<number | null>(null);
-  const [unionId,  setUnionId]  = useState<number | null>(null);
-  const today = getTodayJalali();
+  const [unionId, setUnionId] = useState<number | null>(null);
+
+  // نمایش به کاربر — شمسی
+  const todayDisplay = getTodayJalali();
+  // ارسال به API — میلادی
+  const todayAPI = getTodayGregorian();
 
   // ── بارگذاری اولیه: محصولات اتحادیه + قیمت‌های امروز ───────────────────
 useEffect(() => {
@@ -156,7 +160,7 @@ useEffect(() => {
   }, []);
 
   // ── ثبت قیمت تکی ────────────────────────────────────────────────────────
-  const saveSingle = async (row: PriceRow) => {
+const saveSingle = async (row: PriceRow) => {
     const price = Number(row.inputValue);
     if (!price || price <= 0) {
       toast.error("قیمت معتبر وارد کنید");
@@ -169,17 +173,17 @@ useEffect(() => {
     setSavingId(row.product.id);
     try {
       await apiClient.post(ENDPOINTS.PRICING.OFFICIAL_PRICES, {
-        union_id:       unionId,
-        product_id:     row.product.id,
+        union_id: unionId,
+        product_id: row.product.id,
         price,
-        effective_date: today,
+        effective_date: todayAPI,   // ✅ میلادی
       });
       setRows((prev) =>
         prev.map((r) =>
           r.product.id === row.product.id
             ? { ...r, isSaved: true, todayPrice: price }
-            : r,
-        ),
+            : r
+        )
       );
       toast.success(`قیمت ${row.product.name} ثبت شد`);
     } catch (err) {
@@ -191,42 +195,42 @@ useEffect(() => {
 
   // ── ثبت همه قیمت‌ها ─────────────────────────────────────────────────────
   const saveAll = async () => {
-    const toSave = rows.filter(
-      (r) => r.inputValue && Number(r.inputValue) > 0 && !r.isSaved,
-    );
-    if (toSave.length === 0) {
-      toast.error("قیمتی برای ثبت وجود ندارد");
-      return;
-    }
-    if (!unionId) {
-      toast.error("اطلاعات اتحادیه یافت نشد");
-      return;
-    }
-    setSaving(true);
-    try {
-      await apiClient.post(ENDPOINTS.PRICING.OFFICIAL_PRICES_BULK, {
-        union_id:       unionId,
-        effective_date: today,
-        prices: toSave.map((r) => ({
-          product_id: r.product.id,
-          price:      Number(r.inputValue),
-        })),
-      });
-      setRows((prev) =>
-        prev.map((r) => {
-          const saved = toSave.find((s) => s.product.id === r.product.id);
-          return saved
-            ? { ...r, isSaved: true, todayPrice: Number(r.inputValue) }
-            : r;
-        }),
+      const toSave = rows.filter(
+        (r) => r.inputValue && Number(r.inputValue) > 0 && !r.isSaved
       );
-      toast.success(`${toSave.length} قیمت با موفقیت ثبت شد`);
-    } catch (err) {
-      toast.error(parseApiError(err));
-    } finally {
-      setSaving(false);
-    }
-  };
+      if (toSave.length === 0) {
+        toast.error("قیمتی برای ثبت وجود ندارد");
+        return;
+      }
+      if (!unionId) {
+        toast.error("اطلاعات اتحادیه یافت نشد");
+        return;
+      }
+      setSaving(true);
+      try {
+        await apiClient.post(ENDPOINTS.PRICING.OFFICIAL_PRICES_BULK, {
+          union_id: unionId,
+          effective_date: todayAPI,   // ✅ میلادی
+          prices: toSave.map((r) => ({
+            product_id: r.product.id,
+            price: Number(r.inputValue),
+          })),
+        });
+        setRows((prev) =>
+          prev.map((r) => {
+            const saved = toSave.find((s) => s.product.id === r.product.id);
+            return saved
+              ? { ...r, isSaved: true, todayPrice: Number(r.inputValue) }
+              : r;
+          })
+        );
+        toast.success(`${toSave.length} قیمت با موفقیت ثبت شد`);
+      } catch (err) {
+        toast.error(parseApiError(err));
+      } finally {
+        setSaving(false);
+      }
+    };
 
   const updateInput = (productId: number, value: string) => {
     setRows((prev) =>
@@ -250,7 +254,7 @@ useEffect(() => {
     <div className="space-y-6">
       <PageHeader
         title="ثبت قیمت مصوب"
-        subtitle={`تاریخ: ${today}`}
+        subtitle={`تاریخ: ${todayDisplay}`}
         breadcrumbs={[
           { label: "اتحادیه" },
           { label: "قیمت‌گذاری" },
