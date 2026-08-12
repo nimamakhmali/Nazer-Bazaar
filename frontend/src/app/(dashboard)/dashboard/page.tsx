@@ -1,79 +1,93 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import Link from "next/link";
 import {
-  BuildingStorefrontIcon, ShieldCheckIcon,
-  ClipboardDocumentListIcon, CurrencyDollarIcon,
-  ExclamationTriangleIcon, UserGroupIcon,
-  ArrowTrendingUpIcon, ClockIcon,
+  BuildingStorefrontIcon,
+  ShieldCheckIcon,
+  ClipboardDocumentListIcon,
+  CurrencyDollarIcon,
+  ExclamationTriangleIcon,
+  UserGroupIcon,
+  BuildingOffice2Icon,
+  ArrowLeftIcon,
+  CheckBadgeIcon,
+  ClockIcon,
+  ChartBarIcon,
+  DocumentChartBarIcon,
 } from "@heroicons/react/24/outline";
 import { useAuthStore } from "@/store";
-import { StatCard } from "@/components/ui/StatCard";
-import { Card, CardHeader, CardTitle } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import { PageHeader } from "@/components/layout/PageHeader";
-import { SkeletonStatCard } from "@/components/ui/Skeleton";
-import { ROLE_DASHBOARD_MAP, ROLE_LABELS } from "@/constants/roles";
-import { toJalaliWithTime, getTodayJalali } from "@/utils/date.utils";
-import { formatPrice } from "@/utils/number.utils";
-import apiClient from "@/services/api.client";
-import { ENDPOINTS } from "@/services/endpoints";
-import { extractArray } from "@/utils/error.utils";
-import type { Role } from "@/types/common.types";
+import { Card }              from "@/components/ui/Card";
+import { Badge }             from "@/components/ui/Badge";
+import { Button }            from "@/components/ui/Button";
+import { Spinner }           from "@/components/ui/Spinner";
+import { SkeletonStatCard }  from "@/components/ui/Skeleton";
+import { ROLE_LABELS }       from "@/constants/roles";
+import { toJalali, getTodayJalali } from "@/utils/date.utils";
+import { formatPrice }       from "@/utils/number.utils";
+import { extractArray, extractCount } from "@/utils/error.utils";
+import apiClient             from "@/services/api.client";
+import { ENDPOINTS }         from "@/services/endpoints";
+import type { Role }         from "@/types/common.types";
 import {
-  LineChart, Line, XAxis, YAxis,
-  CartesianGrid, Tooltip, ResponsiveContainer, Legend,
+  PieChart, Pie, Cell, Tooltip,
+  ResponsiveContainer, Legend,
 } from "recharts";
-import { cn } from "@/lib/cn";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
 // ─────────────────────────────────────────────────────────────────────────────
-interface DashboardStats {
-  stores_count?:        number;
-  active_stores?:       number;
-  unions_count?:        number;
-  complaints_open?:     number;
-  complaints_today?:    number;
-  prices_today?:        number;
-  users_count?:         number;
-  overpriced_count?:    number;
-  pending_stores?:      number;
-}
 
 interface RecentComplaint {
   uuid:           string;
   title:          string;
   store_name:     string;
+  product_name:   string;
   status:         string;
   status_display: string;
   created_at:     string;
 }
 
-interface PriceChartPoint {
-  date:         string;
-  official:     number;
-  store_avg:    number;
+interface OverpricedStore {
+  id:                    number;
+  store_name:            string;
+  product_name:          string;
+  price:                 number;
+  official_price_amount: number;
+  violation_amount:      number;
+}
+
+interface OfficialPriceItem {
+  id:               number;
+  product_name:     string;
+  union_name:       string;
+  price:            number;
+  price_formatted:  string;
+  effective_date:   string;
+  is_today:         boolean;
+  is_active:        boolean;
+}
+
+// ─── آمار واقعی محاسبه‌شده از لیست شکایات ───────────────────────────────────
+interface ComplaintStats {
+  total:      number;
+  open:       number;       // submitted + reviewing + referred + inspecting
+  closed:     number;       // confirmed + rejected + closed
+  submitted:  number;
+  reviewing:  number;
+  confirmed:  number;
+  rejected:   number;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Role-based welcome messages
+// Constants
 // ─────────────────────────────────────────────────────────────────────────────
-const WELCOME: Record<Role, string> = {
-  admin:            "خوش آمدید، ادمین کل. نمای کلی سامانه را مشاهده می‌کنید.",
-  province_manager: "خوش آمدید. وضعیت استان زیر نظر شما نمایش داده شده است.",
-  chamber_manager:  "خوش آمدید. آمار اتاق اصناف شهر شما اینجاست.",
-  union_manager:    "خوش آمدید. وضعیت اتحادیه و قیمت‌گذاری امروز را ببینید.",
-  store_owner:      "خوش آمدید. وضعیت فروشگاه‌های شما نمایش داده شده است.",
-  inspector:        "خوش آمدید. شکایات محوله و فروشگاه‌های متخلف اینجاست.",
-  customer:         "خوش آمدید. آمار شکایات شما نمایش داده شده است.",
-};
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Complaint Status Badge
-// ─────────────────────────────────────────────────────────────────────────────
-const COMPLAINT_VARIANT: Record<string,
-  "success"|"danger"|"warning"|"info"|"default"
+const OPEN_STATUSES   = ["submitted", "reviewing", "referred", "inspecting"];
+const CLOSED_STATUSES = ["confirmed", "rejected", "closed"];
+
+const COMPLAINT_VARIANT: Record<
+  string, "success" | "danger" | "warning" | "info" | "default"
 > = {
   submitted:  "info",
   reviewing:  "warning",
@@ -84,561 +98,1188 @@ const COMPLAINT_VARIANT: Record<string,
   closed:     "default",
 };
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Mock chart data (replaced with real API when available)
-// ─────────────────────────────────────────────────────────────────────────────
-const MOCK_CHART: PriceChartPoint[] = [
-  { date: "شنبه",     official: 45000, store_avg: 44200 },
-  { date: "یکشنبه",   official: 45000, store_avg: 44800 },
-  { date: "دوشنبه",   official: 46000, store_avg: 45500 },
-  { date: "سه‌شنبه",  official: 46000, store_avg: 47200 },
-  { date: "چهارشنبه", official: 47000, store_avg: 46800 },
-  { date: "پنجشنبه",  official: 47000, store_avg: 47100 },
-  { date: "جمعه",     official: 48000, store_avg: 47500 },
-];
+const WELCOME: Record<Role, string> = {
+  admin:            "نمای کلی سامانه — تمام آمار و دسترسی‌ها در اختیار شماست",
+  province_manager: "وضعیت استان زیر نظر شما نمایش داده شده است",
+  chamber_manager:  "آمار اتاق اصناف شهر شما اینجاست",
+  union_manager:    "وضعیت اتحادیه و قیمت‌گذاری امروز را ببینید",
+  store_owner:      "وضعیت فروشگاه‌های شما نمایش داده شده است",
+  inspector:        "شکایات محوله و فروشگاه‌های متخلف اینجاست",
+  customer:         "آمار شکایات شما نمایش داده شده است",
+};
+
+// رنگ‌های نمودار دایره‌ای وضعیت شکایات
+const PIE_COLORS: Record<string, string> = {
+  "در انتظار":       "#2E6DB4",
+  "در حال بررسی":   "#D97706",
+  "تایید شده":       "#1A7A4A",
+  "رد شده":          "#C0392B",
+  "مختومه":          "#64748B",
+  "ارجاع شده":       "#7C3AED",
+  "در بازرسی":       "#EA580C",
+};
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Component
+// Helper: محاسبه آمار از لیست شکایات
 // ─────────────────────────────────────────────────────────────────────────────
+
+function calcComplaintStats(complaints: RecentComplaint[]): ComplaintStats {
+  return {
+    total:     complaints.length,
+    open:      complaints.filter((c) => OPEN_STATUSES.includes(c.status)).length,
+    closed:    complaints.filter((c) => CLOSED_STATUSES.includes(c.status)).length,
+    submitted: complaints.filter((c) => c.status === "submitted").length,
+    reviewing: complaints.filter((c) => c.status === "reviewing").length,
+    confirmed: complaints.filter((c) => c.status === "confirmed").length,
+    rejected:  complaints.filter((c) => c.status === "rejected").length,
+  };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Main Component
+// ─────────────────────────────────────────────────────────────────────────────
+
 export default function DashboardPage() {
-  const { user }                          = useAuthStore();
-  const role                              = user?.role as Role | undefined;
-  const [stats,      setStats]            = useState<DashboardStats>({});
-  const [complaints, setComplaints]       = useState<RecentComplaint[]>([]);
-  const [loadingStats, setLoadingStats]   = useState(true);
+  const { user } = useAuthStore();
+  const role     = user?.role as Role | undefined;
 
-  // ── fetch quick stats ──────────────────────────────────────────────────────
-  useEffect(() => {
-    const fetchStats = async () => {
-      setLoadingStats(true);
-      try {
-        const [storesRes, complaintsRes] = await Promise.allSettled([
-          apiClient.get(ENDPOINTS.STORES.LIST,    { params: { page_size: 1 } }),
-          apiClient.get(ENDPOINTS.COMPLAINTS.MY,  { params: { page_size: 5 } }),
-        ]);
+  const [complaints,     setComplaints]     = useState<RecentComplaint[]>([]);
+  const [overpriced,     setOverpriced]     = useState<OverpricedStore[]>([]);
+  const [todayPrices,    setTodayPrices]    = useState<OfficialPriceItem[]>([]);
+  const [storeCount,     setStoreCount]     = useState<number | null>(null);
+  const [complaintCount, setComplaintCount] = useState<number | null>(null);
+  const [loading,        setLoading]        = useState(true);
 
-        if (storesRes.status === "fulfilled") {
-          const d = storesRes.value.data?.data ?? storesRes.value.data;
-          setStats((prev) => ({
-            ...prev,
-            active_stores:  typeof d?.count === "number" ? d.count : 0,
-          }));
-        }
+  // ── Fetch واقعی از API ────────────────────────────────────────────────────
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    try {
+      const tasks = await Promise.allSettled([
+        // شکایات — page_size بزرگ تا آمار دقیق‌تری داشته باشیم
+        apiClient.get(ENDPOINTS.COMPLAINTS.LIST, { params: { page_size: 100 } }),
+        // گران‌فروشان
+        apiClient.get(ENDPOINTS.PRICING.OVERPRICED, { params: { page_size: 5 } }),
+        // قیمت‌های مصوب امروز
+        apiClient.get(ENDPOINTS.PRICING.OFFICIAL_PRICES_TODAY, { params: { page_size: 10 } }),
+        // تعداد فروشگاه‌ها
+        apiClient.get(ENDPOINTS.STORES.LIST, { params: { page_size: 1 } }),
+      ]);
 
-        if (complaintsRes.status === "fulfilled") {
-          const d = complaintsRes.value.data?.data ?? complaintsRes.value.data;
-          setComplaints(extractArray<RecentComplaint>(d).slice(0, 5));
-        }
-      } finally {
-        setLoadingStats(false);
+      if (tasks[0].status === "fulfilled") {
+        const d = tasks[0].value.data?.data ?? tasks[0].value.data;
+        const list = extractArray<RecentComplaint>(d);
+        setComplaints(list);
+        setComplaintCount(extractCount(d, list.length));
       }
-    };
-    fetchStats();
+      if (tasks[1].status === "fulfilled") {
+        const d = tasks[1].value.data?.data ?? tasks[1].value.data;
+        setOverpriced(extractArray<OverpricedStore>(d).slice(0, 5));
+      }
+      if (tasks[2].status === "fulfilled") {
+        const d = tasks[2].value.data?.data ?? tasks[2].value.data;
+        setTodayPrices(extractArray<OfficialPriceItem>(d).slice(0, 8));
+      }
+      if (tasks[3].status === "fulfilled") {
+        const d = tasks[3].value.data?.data ?? tasks[3].value.data;
+        setStoreCount(extractCount(d, 0));
+      }
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  // ── stat cards per role ────────────────────────────────────────────────────
-  const statCards = getStatCards(role, stats);
+  useEffect(() => { fetchData(); }, [fetchData]);
 
-  // ── greeting ──────────────────────────────────────────────────────────────
   const greeting = getGreeting();
+  const stats    = calcComplaintStats(complaints);
+
+  if (!role) return null;
 
   return (
-    <div className="space-y-8">
-      {/* ── Header ── */}
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <div className="flex items-center gap-3 mb-2">
-            <div className="h-10 w-10 rounded-xl bg-primary-100 flex items-center justify-center">
-              <span className="text-xl">{greeting.emoji}</span>
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-primary-700">
-                {greeting.text}، {user?.first_name || user?.full_name || "کاربر"}
-              </h1>
-              <p className="text-sm text-slate-500 mt-0.5">
-                {role ? WELCOME[role] : ""}
-              </p>
-            </div>
+    <div className="space-y-6">
+
+      {/* ── Header Banner ── */}
+      <HeaderBanner
+        greeting={greeting}
+        userName={user?.first_name || user?.full_name || "کاربر"}
+        role={role}
+      />
+
+      {/* ── Role-based content ── */}
+      {role === "admin" && (
+        <AdminDashboard
+          loading={loading}
+          complaints={complaints}
+          complaintStats={stats}
+          complaintCount={complaintCount}
+          overpriced={overpriced}
+          todayPrices={todayPrices}
+          storeCount={storeCount}
+        />
+      )}
+      {role === "union_manager" && (
+        <UnionDashboard
+          loading={loading}
+          complaints={complaints}
+          complaintStats={stats}
+          overpriced={overpriced}
+          todayPrices={todayPrices}
+        />
+      )}
+      {role === "chamber_manager" && (
+        <ChamberDashboard
+          loading={loading}
+          complaints={complaints}
+          complaintStats={stats}
+        />
+      )}
+      {role === "province_manager" && (
+        <ProvinceDashboard
+          loading={loading}
+          complaints={complaints}
+          complaintStats={stats}
+        />
+      )}
+      {role === "store_owner" && (
+        <StoreDashboard
+          loading={loading}
+          complaints={complaints}
+          todayPrices={todayPrices}
+        />
+      )}
+      {role === "inspector" && (
+        <InspectorDashboard
+          loading={loading}
+          complaints={complaints}
+          complaintStats={stats}
+          overpriced={overpriced}
+        />
+      )}
+      {role === "customer" && (
+        <CustomerDashboard
+          loading={loading}
+          complaints={complaints}
+          complaintStats={stats}
+        />
+      )}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Header Banner
+// ─────────────────────────────────────────────────────────────────────────────
+
+function HeaderBanner({
+  greeting,
+  userName,
+  role,
+}: {
+  greeting: { text: string; emoji: string };
+  userName: string;
+  role:     Role;
+}) {
+  return (
+    <div
+      className="rounded-2xl overflow-hidden relative"
+      style={{
+        background: "linear-gradient(135deg, #0F2347 0%, #1B3A6B 55%, #2E6DB4 100%)",
+      }}
+    >
+      {/* decorative */}
+      <div className="absolute top-0 left-0 w-64 h-64 rounded-full opacity-5
+                      bg-white -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-48 h-48 rounded-full opacity-5
+                      bg-white translate-x-1/4 translate-y-1/4 pointer-events-none" />
+
+      <div className="relative px-6 py-6 flex items-center justify-between gap-4">
+        <div className="text-white">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-2xl">{greeting.emoji}</span>
+            <h1 className="text-xl font-bold">
+              {greeting.text}، {userName}
+            </h1>
+          </div>
+          <p className="text-sm text-blue-200 mt-1">{WELCOME[role]}</p>
+          <div className="flex items-center gap-4 mt-3">
+            <span className="inline-flex items-center gap-1.5 text-xs
+                             bg-white/10 text-blue-100 px-3 py-1 rounded-full">
+              <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+              سیستم آنلاین
+            </span>
+            <span className="text-xs text-blue-300">نسخه ۱.۰.۰</span>
           </div>
         </div>
-        <div className="text-left flex-shrink-0">
-          <p className="text-sm font-semibold text-primary-600">{getTodayJalali()}</p>
+        <div className="text-left flex-shrink-0 hidden sm:block">
+          <p className="text-2xl font-bold text-white">{getTodayJalali()}</p>
+          <p className="text-xs text-blue-300 mt-1">{ROLE_LABELS[role]}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ADMIN DASHBOARD
+// ─────────────────────────────────────────────────────────────────────────────
+
+function AdminDashboard({
+  loading,
+  complaints,
+  complaintStats,
+  complaintCount,
+  overpriced,
+  todayPrices,
+  storeCount,
+}: {
+  loading:        boolean;
+  complaints:     RecentComplaint[];
+  complaintStats: ComplaintStats;
+  complaintCount: number | null;
+  overpriced:     OverpricedStore[];
+  todayPrices:    OfficialPriceItem[];
+  storeCount:     number | null;
+}) {
+  return (
+    <div className="space-y-6">
+
+      {/* ── ۴ کارت آماری واقعی ── */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        {loading ? (
+          Array.from({ length: 4 }).map((_, i) => <SkeletonStatCard key={i} />)
+        ) : (
+          <>
+            <RealStatCard
+              label="فروشگاه‌های سامانه"
+              value={storeCount !== null ? storeCount.toLocaleString("fa-IR") : "—"}
+              sub="تعداد کل فروشگاه‌ها"
+              icon={<BuildingStorefrontIcon className="h-6 w-6" />}
+              color="text-emerald-600"
+              iconBg="bg-emerald-50"
+              href="/admin/stores"
+            />
+            <RealStatCard
+              label="شکایات ثبت‌شده"
+              value={
+                complaintCount !== null
+                  ? complaintCount.toLocaleString("fa-IR")
+                  : complaintStats.total.toLocaleString("fa-IR")
+              }
+              sub="مجموع کل شکایات"
+              icon={<ClipboardDocumentListIcon className="h-6 w-6" />}
+              color="text-primary-600"
+              iconBg="bg-primary-50"
+              href="/admin/complaints"
+            />
+            <RealStatCard
+              label="شکایات در جریان"
+              value={complaintStats.open.toLocaleString("fa-IR")}
+              sub="نیاز به پیگیری"
+              icon={<ClockIcon className="h-6 w-6" />}
+              color="text-amber-600"
+              iconBg="bg-amber-50"
+              href="/admin/complaints"
+            />
+            <RealStatCard
+              label="گران‌فروشان امروز"
+              value={overpriced.length.toLocaleString("fa-IR")}
+              sub="فروشگاه متخلف"
+              icon={<ExclamationTriangleIcon className="h-6 w-6" />}
+              color="text-red-600"
+              iconBg="bg-red-50"
+              href="/admin/stores"
+            />
+          </>
+        )}
+      </div>
+
+      {/* ── دسترسی سریع ── */}
+      <AdminQuickAccess />
+
+      {/* ── نمودار وضعیت شکایات + قیمت‌های امروز ── */}
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <ComplaintStatusChart
+          stats={complaintStats}
+          loading={loading}
+        />
+        <TodayPricesCard
+          prices={todayPrices}
+          loading={loading}
+        />
+      </div>
+
+      {/* ── جداول پایین ── */}
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <RecentComplaintsTable
+          complaints={complaints.slice(0, 6)}
+          loading={loading}
+          viewAllHref="/admin/complaints"
+        />
+        <OverpricedStoresTable
+          overpriced={overpriced}
+          loading={loading}
+        />
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// نمودار وضعیت شکایات — Pie Chart واقعی
+// ─────────────────────────────────────────────────────────────────────────────
+
+function ComplaintStatusChart({
+  stats,
+  loading,
+}: {
+  stats:   ComplaintStats;
+  loading: boolean;
+}) {
+  // ساخت داده برای Pie از آمار واقعی
+  const pieData = [
+    { name: "در انتظار",     value: stats.submitted  },
+    { name: "در حال بررسی", value: stats.reviewing  },
+    { name: "تایید شده",     value: stats.confirmed  },
+    { name: "رد شده",        value: stats.rejected   },
+    { name: "مختومه",        value: stats.closed     },
+  ].filter((d) => d.value > 0); // فقط آیتم‌هایی که مقدار دارند
+
+  const isEmpty = stats.total === 0;
+
+  return (
+    <Card padding="md">
+      <div className="flex items-center justify-between mb-4">
+        <div>
+          <h3 className="font-bold text-primary-700">وضعیت شکایات</h3>
           <p className="text-xs text-slate-400 mt-0.5">
-            {role ? ROLE_LABELS[role] : ""}
+            توزیع شکایات بر اساس وضعیت — داده واقعی
           </p>
         </div>
+        <Badge variant="info" size="sm">
+          {stats.total.toLocaleString("fa-IR")} کل
+        </Badge>
       </div>
 
-      {/* ── Stat Cards ── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-        {loadingStats
-          ? Array.from({ length: 4 }).map((_, i) => <SkeletonStatCard key={i} />)
-          : statCards.map((card) => (
-              <StatCard key={card.title} {...card} />
-            ))}
-      </div>
-
-      {/* ── Main Grid ── */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-
-        {/* ── Price Chart ── */}
-        <Card className="xl:col-span-2" padding="md">
-          <CardHeader>
-            <CardTitle subtitle="میانگین قیمت فروشگاه‌ها در مقابل قیمت مصوب">
-              نمودار قیمت‌ها — ۷ روز گذشته
-            </CardTitle>
-            <Badge variant="info" size="sm">هفته جاری</Badge>
-          </CardHeader>
-
-          <div className="h-60">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart
-                data={MOCK_CHART}
-                margin={{ top: 5, right: 10, left: 10, bottom: 5 }}
+      {loading ? (
+        <div className="flex items-center justify-center h-52">
+          <Spinner size="lg" />
+        </div>
+      ) : isEmpty ? (
+        /* ── حالت خالی — صادقانه ── */
+        <div className="flex flex-col items-center justify-center h-52 gap-3">
+          <ClipboardDocumentListIcon className="h-12 w-12 text-slate-200" />
+          <p className="text-sm font-semibold text-slate-400">
+            هیچ شکایتی ثبت نشده است
+          </p>
+          <p className="text-xs text-slate-300">
+            پس از ثبت شکایات، نمودار نمایش داده می‌شود
+          </p>
+        </div>
+      ) : (
+        <div className="h-52">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={pieData}
+                cx="50%"
+                cy="50%"
+                innerRadius={55}
+                outerRadius={85}
+                paddingAngle={3}
+                dataKey="value"
               >
-                <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-                <XAxis
-                  dataKey="date"
-                  tick={{ fontSize: 11, fill: "#94a3b8" }}
-                  axisLine={false}
-                  tickLine={false}
-                />
-                <YAxis
-                  tick={{ fontSize: 11, fill: "#94a3b8" }}
-                  axisLine={false}
-                  tickLine={false}
-                  tickFormatter={(v) => `${(v / 1000).toFixed(0)}K`}
-                />
-                <Tooltip
-                  formatter={(value: number, name: string) => [
-                    formatPrice(value) + " ریال",
-                    name === "official" ? "قیمت مصوب" : "میانگین فروشگاه",
-                  ]}
-                  labelStyle={{ fontFamily: "Vazirmatn" }}
-                  contentStyle={{
-                    fontFamily: "Vazirmatn",
-                    borderRadius: "12px",
-                    border:      "1px solid #e2e8f0",
-                    fontSize:    "12px",
-                  }}
-                />
-                <Legend
-                  formatter={(value) =>
-                    value === "official" ? "قیمت مصوب" : "میانگین فروشگاه"
-                  }
-                  wrapperStyle={{ fontSize: "12px", fontFamily: "Vazirmatn" }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="official"
-                  stroke="#1B3A6B"
-                  strokeWidth={2.5}
-                  dot={{ fill: "#1B3A6B", r: 4 }}
-                  activeDot={{ r: 6 }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="store_avg"
-                  stroke="#C49A2E"
-                  strokeWidth={2.5}
-                  strokeDasharray="5 3"
-                  dot={{ fill: "#C49A2E", r: 4 }}
-                  activeDot={{ r: 6 }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </Card>
+                {pieData.map((entry) => (
+                  <Cell
+                    key={entry.name}
+                    fill={PIE_COLORS[entry.name] ?? "#94a3b8"}
+                  />
+                ))}
+              </Pie>
+              <Tooltip
+                formatter={(value: number, name: string) => [
+                  value.toLocaleString("fa-IR"),
+                  name,
+                ]}
+                contentStyle={{
+                  fontFamily:   "Vazirmatn",
+                  borderRadius: "12px",
+                  border:       "1px solid #e2e8f0",
+                  fontSize:     "11px",
+                }}
+              />
+              <Legend
+                wrapperStyle={{ fontSize: "11px", fontFamily: "Vazirmatn" }}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      )}
 
-        {/* ── Quick Actions ── */}
-        <Card padding="md">
-          <CardHeader>
-            <CardTitle subtitle="دسترسی سریع به امکانات">
-              اقدام سریع
-            </CardTitle>
-          </CardHeader>
-          <QuickActions role={role} />
-        </Card>
+      {/* خلاصه عددی */}
+      {!loading && !isEmpty && (
+        <div className="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-100">
+          <SummaryChip label="در جریان"  value={stats.open}    color="text-amber-600"   bg="bg-amber-50"   />
+          <SummaryChip label="بسته شده"  value={stats.closed}  color="text-slate-500"   bg="bg-slate-50"   />
+          <SummaryChip label="تایید شده" value={stats.confirmed} color="text-emerald-600" bg="bg-emerald-50" />
+        </div>
+      )}
+    </Card>
+  );
+}
+
+function SummaryChip({
+  label, value, color, bg,
+}: {
+  label: string; value: number; color: string; bg: string;
+}) {
+  return (
+    <div className={`${bg} rounded-xl p-2.5 text-center`}>
+      <p className={`text-lg font-bold ${color}`}>
+        {value.toLocaleString("fa-IR")}
+      </p>
+      <p className="text-[10px] text-slate-500 mt-0.5">{label}</p>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// قیمت‌های مصوب امروز
+// ─────────────────────────────────────────────────────────────────────────────
+
+function TodayPricesCard({
+  prices,
+  loading,
+}: {
+  prices:  OfficialPriceItem[];
+  loading: boolean;
+}) {
+  const isEmpty = !loading && prices.length === 0;
+
+  return (
+    <Card padding="none">
+      <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
+        <div>
+          <h3 className="font-bold text-primary-700">قیمت‌های مصوب امروز</h3>
+          <p className="text-xs text-slate-400 mt-0.5">
+            آخرین قیمت‌های ثبت‌شده — {getTodayJalali()}
+          </p>
+        </div>
+        <Link href="/admin/pricing">
+          <Button variant="ghost" size="sm">مشاهده همه</Button>
+        </Link>
       </div>
 
-      {/* ── Recent Complaints ── */}
-      {complaints.length > 0 && (
-        <Card padding="none">
-          <div className="px-6 py-4 border-b border-slate-100">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-base font-bold text-primary-700">
-                  آخرین شکایات
-                </h3>
-                <p className="text-xs text-slate-500 mt-0.5">
-                  جدیدترین شکایات ثبت‌شده
+      {loading ? (
+        <div className="flex items-center justify-center py-12">
+          <Spinner size="md" />
+        </div>
+      ) : isEmpty ? (
+        <div className="flex flex-col items-center justify-center py-12 gap-2">
+          <CurrencyDollarIcon className="h-10 w-10 text-slate-200" />
+          <p className="text-sm text-slate-400">
+            قیمتی برای امروز ثبت نشده است
+          </p>
+        </div>
+      ) : (
+        <ul className="divide-y divide-slate-50">
+          {prices.map((p) => (
+            <li
+              key={p.id}
+              className="flex items-center gap-3 px-5 py-3.5
+                         hover:bg-slate-50/60 transition-colors"
+            >
+              <div className="h-8 w-8 rounded-lg bg-secondary-50 flex items-center
+                              justify-center flex-shrink-0">
+                <CurrencyDollarIcon className="h-4 w-4 text-secondary-500" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-semibold text-slate-800 truncate">
+                  {p.product_name}
+                </p>
+                <p className="text-xs text-slate-400 truncate">{p.union_name}</p>
+              </div>
+              <div className="flex-shrink-0 text-left">
+                <p className="text-sm font-bold text-primary-700">
+                  {formatPrice(p.price)} ریال
                 </p>
               </div>
-              <Badge variant="warning" size="sm">
-                {complaints.length} مورد
-              </Badge>
-            </div>
-          </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </Card>
+  );
+}
 
-          <div className="divide-y divide-slate-50">
-            {complaints.map((c) => (
-              <div
-                key={c.uuid}
-                className="flex items-center gap-4 px-6 py-3.5
-                           hover:bg-slate-50/70 transition-colors"
-              >
+// ─────────────────────────────────────────────────────────────────────────────
+// Admin Quick Access
+// ─────────────────────────────────────────────────────────────────────────────
+
+const QUICK_LINKS = [
+  {
+    href:  "/admin/users",
+    label: "کاربران",
+    sub:   "مدیران سازمانی",
+    icon:  <UserGroupIcon className="h-5 w-5" />,
+    color: "bg-primary-50 text-primary-600 hover:bg-primary-100",
+  },
+  {
+    href:  "/admin/province-offices",
+    label: "استانداری‌ها",
+    sub:   "دفاتر و ناظران",
+    icon:  <BuildingOffice2Icon className="h-5 w-5" />,
+    color: "bg-purple-50 text-purple-600 hover:bg-purple-100",
+  },
+  {
+    href:  "/admin/chambers",
+    label: "اتاق اصناف",
+    sub:   "مدیریت اتاق‌ها",
+    icon:  <BuildingStorefrontIcon className="h-5 w-5" />,
+    color: "bg-blue-50 text-blue-600 hover:bg-blue-100",
+  },
+  {
+    href:  "/admin/unions",
+    label: "اتحادیه‌ها",
+    sub:   "رؤسا و اتحادیه‌ها",
+    icon:  <ShieldCheckIcon className="h-5 w-5" />,
+    color: "bg-secondary-50 text-secondary-600 hover:bg-secondary-100",
+  },
+  {
+    href:  "/admin/products",
+    label: "محصولات",
+    sub:   "محصولات و دسته‌ها",
+    icon:  <CurrencyDollarIcon className="h-5 w-5" />,
+    color: "bg-emerald-50 text-emerald-600 hover:bg-emerald-100",
+  },
+  {
+    href:  "/admin/stores",
+    label: "فروشگاه‌ها",
+    sub:   "تایید و مدیریت",
+    icon:  <CheckBadgeIcon className="h-5 w-5" />,
+    color: "bg-orange-50 text-orange-600 hover:bg-orange-100",
+  },
+  {
+    href:  "/admin/complaints",
+    label: "شکایات",
+    sub:   "پیگیری شکایات",
+    icon:  <ClipboardDocumentListIcon className="h-5 w-5" />,
+    color: "bg-red-50 text-red-600 hover:bg-red-100",
+  },
+  {
+    href:  "/admin/pricing",
+    label: "قیمت‌گذاری",
+    sub:   "قیمت مصوب و فروشگاه",
+    icon:  <ChartBarIcon className="h-5 w-5" />,
+    color: "bg-teal-50 text-teal-600 hover:bg-teal-100",
+  },
+];
+
+function AdminQuickAccess() {
+  return (
+    <Card padding="md">
+      <div className="mb-4">
+        <h3 className="font-bold text-primary-700">دسترسی سریع</h3>
+        <p className="text-xs text-slate-400 mt-0.5">
+          بخش‌های پرکاربرد پنل مدیریت
+        </p>
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {QUICK_LINKS.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className={`flex flex-col items-center gap-2 p-4 rounded-xl
+                        transition-all text-center group ${link.color}`}
+          >
+            <div className="group-hover:scale-110 transition-transform">
+              {link.icon}
+            </div>
+            <div>
+              <p className="text-sm font-bold">{link.label}</p>
+              <p className="text-xs opacity-70 hidden sm:block mt-0.5">
+                {link.sub}
+              </p>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </Card>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// جدول آخرین شکایات — مشترک بین نقش‌ها
+// ─────────────────────────────────────────────────────────────────────────────
+
+function RecentComplaintsTable({
+  complaints,
+  loading,
+  viewAllHref,
+}: {
+  complaints:   RecentComplaint[];
+  loading:      boolean;
+  viewAllHref?: string;
+}) {
+  return (
+    <Card padding="none">
+      <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
+        <div>
+          <h3 className="font-bold text-primary-700">آخرین شکایات</h3>
+          <p className="text-xs text-slate-400 mt-0.5">
+            جدیدترین شکایات ثبت‌شده
+          </p>
+        </div>
+        {viewAllHref && (
+          <Link href={viewAllHref}>
+            <Button variant="ghost" size="sm">مشاهده همه</Button>
+          </Link>
+        )}
+      </div>
+
+      {loading ? (
+        <div className="flex items-center justify-center py-12">
+          <Spinner size="md" />
+        </div>
+      ) : complaints.length === 0 ? (
+        <div className="flex flex-col items-center justify-center py-10 gap-2">
+          <ClipboardDocumentListIcon className="h-10 w-10 text-slate-200" />
+          <p className="text-sm text-slate-400">شکایتی ثبت نشده است</p>
+        </div>
+      ) : (
+        <ul className="divide-y divide-slate-50">
+          {complaints.map((c) => (
+            <li key={c.uuid}>
+              <div className="flex items-center gap-3 px-5 py-3.5
+                             hover:bg-slate-50/80 transition-colors">
                 <div className="h-8 w-8 rounded-lg bg-orange-50 flex items-center
                                 justify-center flex-shrink-0">
-                  <ClipboardDocumentListIcon className="h-4 w-4 text-orange-500" />
+                  <ClipboardDocumentListIcon className="h-4 w-4 text-orange-400" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-slate-800 truncate">
+                  <p className="text-sm font-semibold text-slate-800 truncate">
                     {c.title}
                   </p>
-                  <p className="text-xs text-slate-400 truncate">
-                    {c.store_name}
-                  </p>
+                  <p className="text-xs text-slate-400 truncate">{c.store_name}</p>
                 </div>
-                <div className="flex items-center gap-3 flex-shrink-0">
+                <div className="flex flex-col items-end gap-1 flex-shrink-0">
                   <Badge
                     variant={COMPLAINT_VARIANT[c.status] ?? "default"}
                     size="sm"
                   >
                     {c.status_display}
                   </Badge>
-                  <span className="text-xs text-slate-400 hidden sm:block">
-                    {toJalaliWithTime(c.created_at)}
+                  <span className="text-[10px] text-slate-300">
+                    {toJalali(c.created_at)}
                   </span>
                 </div>
               </div>
-            ))}
-          </div>
-        </Card>
+            </li>
+          ))}
+        </ul>
       )}
+    </Card>
+  );
+}
 
-      {/* ── System Info ── */}
-      <SystemInfoBanner role={role} />
+// ─────────────────────────────────────────────────────────────────────────────
+// جدول گران‌فروشان — مشترک
+// ─────────────────────────────────────────────────────────────────────────────
+
+function OverpricedStoresTable({
+  overpriced,
+  loading,
+}: {
+  overpriced: OverpricedStore[];
+  loading:    boolean;
+}) {
+  return (
+    <Card padding="none">
+      <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
+        <div>
+          <h3 className="font-bold text-primary-700">فروشگاه‌های گران‌فروش</h3>
+          <p className="text-xs text-slate-400 mt-0.5">
+            قیمت بالاتر از سقف مصوب — داده واقعی
+          </p>
+        </div>
+        <Link href="/admin/stores">
+          <Button variant="ghost" size="sm">مشاهده همه</Button>
+        </Link>
+      </div>
+
+      {loading ? (
+        <div className="flex items-center justify-center py-12">
+          <Spinner size="md" />
+        </div>
+      ) : overpriced.length === 0 ? (
+        <div className="flex flex-col items-center justify-center py-10 gap-2">
+          <CheckBadgeIcon className="h-10 w-10 text-green-200" />
+          <p className="text-sm font-semibold text-slate-400">
+            گران‌فروشی گزارش نشده است
+          </p>
+          <p className="text-xs text-slate-300">
+            تمام فروشگاه‌ها در محدوده مجاز قیمت‌گذاری کرده‌اند
+          </p>
+        </div>
+      ) : (
+        <ul className="divide-y divide-slate-50">
+          {overpriced.map((s) => (
+            <li
+              key={s.id}
+              className="flex items-center gap-3 px-5 py-3.5
+                         hover:bg-red-50/30 transition-colors"
+            >
+              <div className="h-8 w-8 rounded-lg bg-red-50 flex items-center
+                              justify-center flex-shrink-0">
+                <ExclamationTriangleIcon className="h-4 w-4 text-red-400" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-semibold text-slate-800 truncate">
+                  {s.store_name}
+                </p>
+                <p className="text-xs text-slate-400 truncate">
+                  {s.product_name}
+                </p>
+              </div>
+              <div className="flex-shrink-0 text-left">
+                <p className="text-xs font-bold text-red-600">
+                  +{formatPrice(s.violation_amount)} ریال
+                </p>
+                <p className="text-[10px] text-slate-400 mt-0.5">مبلغ تخلف</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </Card>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// UNION DASHBOARD
+// ─────────────────────────────────────────────────────────────────────────────
+
+function UnionDashboard({
+  loading,
+  complaints,
+  complaintStats,
+  overpriced,
+  todayPrices,
+}: {
+  loading:        boolean;
+  complaints:     RecentComplaint[];
+  complaintStats: ComplaintStats;
+  overpriced:     OverpricedStore[];
+  todayPrices:    OfficialPriceItem[];
+}) {
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {loading ? (
+          Array.from({ length: 3 }).map((_, i) => <SkeletonStatCard key={i} />)
+        ) : (
+          <>
+            <RealStatCard
+              label="قیمت‌های مصوب امروز"
+              value={todayPrices.length.toLocaleString("fa-IR")}
+              sub="ثبت‌شده تا این لحظه"
+              icon={<CurrencyDollarIcon className="h-6 w-6" />}
+              color="text-primary-600"
+              iconBg="bg-primary-50"
+              href="/union/pricing/official"
+              actionLabel="ثبت قیمت"
+            />
+            <RealStatCard
+              label="شکایات اتحادیه"
+              value={complaintStats.total.toLocaleString("fa-IR")}
+              sub={`${complaintStats.open} مورد در جریان`}
+              icon={<ClipboardDocumentListIcon className="h-6 w-6" />}
+              color="text-orange-600"
+              iconBg="bg-orange-50"
+              href="/union/complaints"
+            />
+            <RealStatCard
+              label="گران‌فروشان امروز"
+              value={overpriced.length.toLocaleString("fa-IR")}
+              sub="فروشگاه متخلف"
+              icon={<ExclamationTriangleIcon className="h-6 w-6" />}
+              color="text-red-600"
+              iconBg="bg-red-50"
+              href="/union/stores"
+            />
+          </>
+        )}
+      </div>
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <ComplaintStatusChart stats={complaintStats} loading={loading} />
+        <TodayPricesCard prices={todayPrices} loading={loading} />
+      </div>
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <RecentComplaintsTable
+          complaints={complaints.slice(0, 5)}
+          loading={loading}
+          viewAllHref="/union/complaints"
+        />
+        <OverpricedStoresTable overpriced={overpriced} loading={loading} />
+      </div>
     </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CHAMBER DASHBOARD
+// ─────────────────────────────────────────────────────────────────────────────
+
+function ChamberDashboard({
+  loading,
+  complaints,
+  complaintStats,
+}: {
+  loading:        boolean;
+  complaints:     RecentComplaint[];
+  complaintStats: ComplaintStats;
+}) {
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {loading ? (
+          Array.from({ length: 2 }).map((_, i) => <SkeletonStatCard key={i} />)
+        ) : (
+          <>
+            <RealStatCard
+              label="شکایات شهر"
+              value={complaintStats.total.toLocaleString("fa-IR")}
+              sub={`${complaintStats.open} مورد در جریان`}
+              icon={<ClipboardDocumentListIcon className="h-6 w-6" />}
+              color="text-primary-600"
+              iconBg="bg-primary-50"
+              href="/chamber/complaints"
+            />
+            <RealStatCard
+              label="فروشگاه‌های در انتظار"
+              value="—"
+              sub="نیاز به بررسی و تایید"
+              icon={<ClockIcon className="h-6 w-6" />}
+              color="text-amber-600"
+              iconBg="bg-amber-50"
+              href="/chamber/stores/pending"
+              actionLabel="بررسی"
+            />
+          </>
+        )}
+      </div>
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <ComplaintStatusChart stats={complaintStats} loading={loading} />
+        <RecentComplaintsTable
+          complaints={complaints.slice(0, 6)}
+          loading={loading}
+          viewAllHref="/chamber/complaints"
+        />
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PROVINCE DASHBOARD
+// ─────────────────────────────────────────────────────────────────────────────
+
+function ProvinceDashboard({
+  loading,
+  complaints,
+  complaintStats,
+}: {
+  loading:        boolean;
+  complaints:     RecentComplaint[];
+  complaintStats: ComplaintStats;
+}) {
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {loading ? (
+          Array.from({ length: 3 }).map((_, i) => <SkeletonStatCard key={i} />)
+        ) : (
+          <>
+            <RealStatCard
+              label="شکایات استان"
+              value={complaintStats.total.toLocaleString("fa-IR")}
+              sub="مجموع کل"
+              icon={<ClipboardDocumentListIcon className="h-6 w-6" />}
+              color="text-primary-600"
+              iconBg="bg-primary-50"
+              href="/province/complaints"
+            />
+            <RealStatCard
+              label="در جریان"
+              value={complaintStats.open.toLocaleString("fa-IR")}
+              sub="نیاز به پیگیری"
+              icon={<ClockIcon className="h-6 w-6" />}
+              color="text-amber-600"
+              iconBg="bg-amber-50"
+              href="/province/complaints"
+            />
+            <RealStatCard
+              label="بسته شده"
+              value={complaintStats.closed.toLocaleString("fa-IR")}
+              sub="تایید یا رد"
+              icon={<CheckBadgeIcon className="h-6 w-6" />}
+              color="text-emerald-600"
+              iconBg="bg-emerald-50"
+              href="/province/reports"
+            />
+          </>
+        )}
+      </div>
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <ComplaintStatusChart stats={complaintStats} loading={loading} />
+        <RecentComplaintsTable
+          complaints={complaints.slice(0, 6)}
+          loading={loading}
+          viewAllHref="/province/complaints"
+        />
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// STORE DASHBOARD
+// ─────────────────────────────────────────────────────────────────────────────
+
+function StoreDashboard({
+  loading,
+  complaints,
+  todayPrices,
+}: {
+  loading:     boolean;
+  complaints:  RecentComplaint[];
+  todayPrices: OfficialPriceItem[];
+}) {
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {loading ? (
+          Array.from({ length: 3 }).map((_, i) => <SkeletonStatCard key={i} />)
+        ) : (
+          <>
+            <RealStatCard
+              label="فروشگاه‌های من"
+              value="—"
+              sub="مدیریت فروشگاه‌ها"
+              icon={<BuildingStorefrontIcon className="h-6 w-6" />}
+              color="text-primary-600"
+              iconBg="bg-primary-50"
+              href="/store/my-stores"
+            />
+            <RealStatCard
+              label="قیمت‌گذاری امروز"
+              value={todayPrices.length.toLocaleString("fa-IR")}
+              sub="محصول قیمت‌گذاری شده"
+              icon={<CurrencyDollarIcon className="h-6 w-6" />}
+              color="text-emerald-600"
+              iconBg="bg-emerald-50"
+              href="/store/pricing"
+              actionLabel="ثبت قیمت"
+            />
+            <RealStatCard
+              label="شکایات دریافتی"
+              value={complaints.length.toLocaleString("fa-IR")}
+              sub="مجموع شکایات"
+              icon={<ClipboardDocumentListIcon className="h-6 w-6" />}
+              color="text-red-600"
+              iconBg="bg-red-50"
+              href="/customer/complaints"
+            />
+          </>
+        )}
+      </div>
+      <TodayPricesCard prices={todayPrices} loading={loading} />
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// INSPECTOR DASHBOARD
+// ─────────────────────────────────────────────────────────────────────────────
+
+function InspectorDashboard({
+  loading,
+  complaints,
+  complaintStats,
+  overpriced,
+}: {
+  loading:        boolean;
+  complaints:     RecentComplaint[];
+  complaintStats: ComplaintStats;
+  overpriced:     OverpricedStore[];
+}) {
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {loading ? (
+          Array.from({ length: 2 }).map((_, i) => <SkeletonStatCard key={i} />)
+        ) : (
+          <>
+            <RealStatCard
+              label="شکایات محوله"
+              value={complaintStats.total.toLocaleString("fa-IR")}
+              sub={`${complaintStats.open} در انتظار بررسی`}
+              icon={<ClipboardDocumentListIcon className="h-6 w-6" />}
+              color="text-orange-600"
+              iconBg="bg-orange-50"
+              href="/inspector/complaints"
+            />
+            <RealStatCard
+              label="فروشگاه‌های متخلف"
+              value={overpriced.length.toLocaleString("fa-IR")}
+              sub="گران‌فروشی امروز"
+              icon={<ExclamationTriangleIcon className="h-6 w-6" />}
+              color="text-red-600"
+              iconBg="bg-red-50"
+              href="/inspector/overpriced"
+            />
+          </>
+        )}
+      </div>
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <RecentComplaintsTable
+          complaints={complaints.slice(0, 6)}
+          loading={loading}
+          viewAllHref="/inspector/complaints"
+        />
+        <OverpricedStoresTable overpriced={overpriced} loading={loading} />
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CUSTOMER DASHBOARD
+// ─────────────────────────────────────────────────────────────────────────────
+
+function CustomerDashboard({
+  loading,
+  complaints,
+  complaintStats,
+}: {
+  loading:        boolean;
+  complaints:     RecentComplaint[];
+  complaintStats: ComplaintStats;
+}) {
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {loading ? (
+          Array.from({ length: 2 }).map((_, i) => <SkeletonStatCard key={i} />)
+        ) : (
+          <>
+            <RealStatCard
+              label="شکایات من"
+              value={complaintStats.total.toLocaleString("fa-IR")}
+              sub={`${complaintStats.open} در جریان`}
+              icon={<ClipboardDocumentListIcon className="h-6 w-6" />}
+              color="text-primary-600"
+              iconBg="bg-primary-50"
+              href="/customer/complaints"
+            />
+            <RealStatCard
+              label="ثبت شکایت جدید"
+              value=""
+              sub="گزارش گران‌فروشی"
+              icon={<ExclamationTriangleIcon className="h-6 w-6" />}
+              color="text-orange-600"
+              iconBg="bg-orange-50"
+              href="/complaints/new"
+              actionLabel="ثبت شکایت"
+            />
+          </>
+        )}
+      </div>
+      {complaints.length > 0 && (
+        <RecentComplaintsTable
+          complaints={complaints.slice(0, 5)}
+          loading={loading}
+          viewAllHref="/customer/complaints"
+        />
+      )}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RealStatCard — کارت آماری با داده واقعی
+// ─────────────────────────────────────────────────────────────────────────────
+
+function RealStatCard({
+  label,
+  value,
+  sub,
+  icon,
+  color,
+  iconBg,
+  href,
+  actionLabel,
+}: {
+  label:        string;
+  value:        string;
+  sub?:         string;
+  icon:         React.ReactNode;
+  color:        string;
+  iconBg:       string;
+  href:         string;
+  actionLabel?: string;
+}) {
+  return (
+    <Link href={href}>
+      <div
+        className="bg-white rounded-2xl border border-slate-100 shadow-card p-5
+                   hover:shadow-card-hover transition-all group cursor-pointer h-full"
+      >
+        <div className="flex items-start justify-between mb-4">
+          <div
+            className={`p-3 rounded-xl ${iconBg} ${color}
+                        group-hover:scale-110 transition-transform`}
+          >
+            {icon}
+          </div>
+          <ArrowLeftIcon
+            className="h-4 w-4 text-slate-200 group-hover:text-primary-400
+                       transition-colors"
+          />
+        </div>
+
+        {value ? (
+          <p className="text-3xl font-bold text-slate-800 mb-1">{value}</p>
+        ) : (
+          <div className="h-9 mb-1" />
+        )}
+
+        <p className="text-sm font-semibold text-slate-600">{label}</p>
+
+        {sub && (
+          <p className="text-xs text-slate-400 mt-0.5">{sub}</p>
+        )}
+
+        {actionLabel && (
+          <span
+            className={`inline-block mt-2 text-xs font-semibold px-2.5 py-1
+                        rounded-full ${iconBg} ${color}`}
+          >
+            {actionLabel} ←
+          </span>
+        )}
+      </div>
+    </Link>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helpers
 // ─────────────────────────────────────────────────────────────────────────────
-function getGreeting() {
+
+function getGreeting(): { text: string; emoji: string } {
   const h = new Date().getHours();
-  if (h < 12) return { text: "صبح بخیر",   emoji: "🌅" };
-  if (h < 17) return { text: "روز بخیر",   emoji: "☀️" };
-  if (h < 21) return { text: "عصر بخیر",   emoji: "🌇" };
-  return           { text: "شب بخیر",      emoji: "🌙" };
-}
-
-function getStatCards(
-  role:  Role | undefined,
-  stats: DashboardStats
-): React.ComponentProps<typeof StatCard>[] {
-  switch (role) {
-    case "admin":
-      return [
-        {
-          title:   "کاربران سیستم",
-          value:   (stats.users_count ?? 0).toLocaleString("fa-IR"),
-          variant: "primary",
-          icon:    <UserGroupIcon />,
-          trend:   { value: 12, label: "این ماه" },
-        },
-        {
-          title:   "فروشگاه‌های فعال",
-          value:   (stats.active_stores ?? 0).toLocaleString("fa-IR"),
-          variant: "success",
-          icon:    <BuildingStorefrontIcon />,
-          trend:   { value: 5, label: "این هفته" },
-        },
-        {
-          title:   "اتحادیه‌ها",
-          value:   (stats.unions_count ?? 0).toLocaleString("fa-IR"),
-          variant: "secondary",
-          icon:    <ShieldCheckIcon />,
-        },
-        {
-          title:   "شکایات باز",
-          value:   (stats.complaints_open ?? 0).toLocaleString("fa-IR"),
-          variant: "danger",
-          icon:    <ClipboardDocumentListIcon />,
-          trend:   { value: -8, label: "نسبت به هفته قبل", direction: "down" },
-        },
-      ];
-
-    case "union_manager":
-      return [
-        {
-          title:   "فروشگاه‌های عضو",
-          value:   (stats.active_stores ?? 0).toLocaleString("fa-IR"),
-          variant: "primary",
-          icon:    <BuildingStorefrontIcon />,
-        },
-        {
-          title:   "قیمت‌های امروز",
-          value:   (stats.prices_today ?? 0).toLocaleString("fa-IR"),
-          variant: "success",
-          icon:    <CurrencyDollarIcon />,
-        },
-        {
-          title:   "گران‌فروشان",
-          value:   (stats.overpriced_count ?? 0).toLocaleString("fa-IR"),
-          variant: "danger",
-          icon:    <ExclamationTriangleIcon />,
-        },
-        {
-          title:   "شکایات این ماه",
-          value:   (stats.complaints_open ?? 0).toLocaleString("fa-IR"),
-          variant: "warning",
-          icon:    <ClipboardDocumentListIcon />,
-        },
-      ];
-
-    case "store_owner":
-      return [
-        {
-          title:   "فروشگاه‌های من",
-          value:   (stats.active_stores ?? 0).toLocaleString("fa-IR"),
-          variant: "primary",
-          icon:    <BuildingStorefrontIcon />,
-        },
-        {
-          title:   "شکایات دریافتی",
-          value:   (stats.complaints_open ?? 0).toLocaleString("fa-IR"),
-          variant: "danger",
-          icon:    <ClipboardDocumentListIcon />,
-        },
-        {
-          title:   "قیمت‌گذاری امروز",
-          value:   (stats.prices_today ?? 0).toLocaleString("fa-IR"),
-          variant: "success",
-          icon:    <CurrencyDollarIcon />,
-        },
-        {
-          title:   "در انتظار تایید",
-          value:   (stats.pending_stores ?? 0).toLocaleString("fa-IR"),
-          variant: "warning",
-          icon:    <ClockIcon />,
-        },
-      ];
-
-    default:
-      return [
-        {
-          title:   "فروشگاه‌های فعال",
-          value:   (stats.active_stores ?? 0).toLocaleString("fa-IR"),
-          variant: "primary",
-          icon:    <BuildingStorefrontIcon />,
-        },
-        {
-          title:   "شکایات",
-          value:   (stats.complaints_open ?? 0).toLocaleString("fa-IR"),
-          variant: "warning",
-          icon:    <ClipboardDocumentListIcon />,
-        },
-        {
-          title:   "قیمت‌های مصوب امروز",
-          value:   (stats.prices_today ?? 0).toLocaleString("fa-IR"),
-          variant: "success",
-          icon:    <CurrencyDollarIcon />,
-        },
-        {
-          title:   "اتحادیه‌ها",
-          value:   (stats.unions_count ?? 0).toLocaleString("fa-IR"),
-          variant: "secondary",
-          icon:    <ShieldCheckIcon />,
-        },
-      ];
-  }
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Quick Actions (role-based)
-// ─────────────────────────────────────────────────────────────────────────────
-function QuickActions({ role }: { role: Role | undefined }) {
-  const actions = getQuickActions(role);
-
-  return (
-    <div className="space-y-2">
-      {actions.map((action) => (
-        <a
-          key={action.href}
-          href={action.href}
-          className={cn(
-            "flex items-center gap-3 p-3 rounded-xl transition-all group",
-            "hover:shadow-sm border border-transparent hover:border-slate-100",
-            action.color
-          )}
-        >
-          <div className={cn(
-            "h-9 w-9 rounded-lg flex items-center justify-center flex-shrink-0",
-            action.iconBg
-          )}>
-            <action.icon className={cn("h-4 w-4", action.iconColor)} />
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-slate-800 group-hover:text-primary-700
-                          transition-colors">
-              {action.label}
-            </p>
-            <p className="text-xs text-slate-400 truncate">{action.description}</p>
-          </div>
-          <ArrowTrendingUpIcon className="h-4 w-4 text-slate-300 group-hover:text-primary-400
-                                          transition-colors flex-shrink-0 rotate-90" />
-        </a>
-      ))}
-    </div>
-  );
-}
-
-interface QuickAction {
-  label:       string;
-  description: string;
-  href:        string;
-  icon:        React.ComponentType<{ className?: string }>;
-  color:       string;
-  iconBg:      string;
-  iconColor:   string;
-}
-
-function getQuickActions(role: Role | undefined): QuickAction[] {
-  switch (role) {
-    case "admin":
-      return [
-        {
-          label:       "مدیریت کاربران",
-          description: "افزودن و ویرایش کاربران سازمانی",
-          href:        "/admin/users",
-          icon:        UserGroupIcon,
-          color:       "hover:bg-primary-50",
-          iconBg:      "bg-primary-100",
-          iconColor:   "text-primary-600",
-        },
-        {
-          label:       "مدیریت اتحادیه‌ها",
-          description: "افزودن اتحادیه جدید، تخصیص رئیس",
-          href:        "/admin/unions",
-          icon:        ShieldCheckIcon,
-          color:       "hover:bg-secondary-50",
-          iconBg:      "bg-secondary-100",
-          iconColor:   "text-secondary-600",
-        },
-        {
-          label:       "مدیریت محصولات",
-          description: "افزودن و ویرایش محصولات",
-          href:        "/admin/products",
-          icon:        CurrencyDollarIcon,
-          color:       "hover:bg-green-50",
-          iconBg:      "bg-green-100",
-          iconColor:   "text-green-600",
-        },
-      ];
-
-    case "union_manager":
-      return [
-        {
-          label:       "ثبت قیمت مصوب",
-          description: "ثبت قیمت‌های امروز برای محصولات",
-          href:        "/union/pricing/official",
-          icon:        CurrencyDollarIcon,
-          color:       "hover:bg-primary-50",
-          iconBg:      "bg-primary-100",
-          iconColor:   "text-primary-600",
-        },
-        {
-          label:       "فروشگاه‌های متخلف",
-          description: "مشاهده گران‌فروشان اتحادیه",
-          href:        "/union/stores",
-          icon:        ExclamationTriangleIcon,
-          color:       "hover:bg-red-50",
-          iconBg:      "bg-red-100",
-          iconColor:   "text-red-600",
-        },
-        {
-          label:       "شکایات",
-          description: "بررسی شکایات اتحادیه",
-          href:        "/union/complaints",
-          icon:        ClipboardDocumentListIcon,
-          color:       "hover:bg-orange-50",
-          iconBg:      "bg-orange-100",
-          iconColor:   "text-orange-600",
-        },
-      ];
-
-    case "store_owner":
-      return [
-        {
-          label:       "قیمت‌گذاری امروز",
-          description: "ثبت قیمت محصولات فروشگاه",
-          href:        "/store/pricing",
-          icon:        CurrencyDollarIcon,
-          color:       "hover:bg-primary-50",
-          iconBg:      "bg-primary-100",
-          iconColor:   "text-primary-600",
-        },
-        {
-          label:       "مدارک فروشگاه",
-          description: "آپلود و مدیریت مدارک",
-          href:        "/store/my-stores",
-          icon:        BuildingStorefrontIcon,
-          color:       "hover:bg-secondary-50",
-          iconBg:      "bg-secondary-100",
-          iconColor:   "text-secondary-600",
-        },
-      ];
-
-    default:
-      return [
-        {
-          label:       "مشاهده قیمت‌ها",
-          description: "قیمت‌های مصوب امروز",
-          href:        "/prices",
-          icon:        CurrencyDollarIcon,
-          color:       "hover:bg-primary-50",
-          iconBg:      "bg-primary-100",
-          iconColor:   "text-primary-600",
-        },
-        {
-          label:       "ثبت شکایت",
-          description: "گزارش گران‌فروشی",
-          href:        "/complaints/new",
-          icon:        ClipboardDocumentListIcon,
-          color:       "hover:bg-orange-50",
-          iconBg:      "bg-orange-100",
-          iconColor:   "text-orange-600",
-        },
-      ];
-  }
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// System Info Banner
-// ─────────────────────────────────────────────────────────────────────────────
-function SystemInfoBanner({ role }: { role: Role | undefined }) {
-  if (!role || role === "customer") return null;
-
-  return (
-    <div className="rounded-2xl overflow-hidden"
-         style={{
-           background: "linear-gradient(135deg,#1B3A6B 0%,#2E6DB4 100%)",
-         }}>
-      <div className="px-6 py-5 flex items-center justify-between gap-4">
-        <div className="text-white">
-          <p className="text-sm font-bold opacity-90">
-            سامانه پایش قیمت کالا
-          </p>
-          <p className="text-xs opacity-60 mt-0.5">
-            نسخه ۱.۰.۰ — {getTodayJalali()}
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-xs text-green-300 font-medium">سیستم آنلاین</span>
-        </div>
-      </div>
-    </div>
-  );
+  if (h < 12) return { text: "صبح بخیر",  emoji: "🌅" };
+  if (h < 17) return { text: "روز بخیر",  emoji: "☀️" };
+  if (h < 21) return { text: "عصر بخیر",  emoji: "🌇" };
+  return           { text: "شب بخیر",     emoji: "🌙" };
 }

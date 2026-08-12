@@ -3,33 +3,41 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import {
-  UserCircleIcon, PhoneIcon, EnvelopeIcon,
-  IdentificationCardIcon, ShieldCheckIcon,
-  CalendarIcon, ClockIcon, CheckCircleIcon,
-  XCircleIcon, ArrowPathIcon, KeyIcon,
-  BuildingStorefrontIcon, ClipboardDocumentListIcon,
+  UserCircleIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+  IdentificationIcon,
+  ShieldCheckIcon,
+  CalendarIcon,
+  ClockIcon,
+  CheckCircleIcon,
+  XCircleIcon,
+  KeyIcon,
+  BuildingStorefrontIcon,
+  ClipboardDocumentListIcon,
 } from "@heroicons/react/24/outline";
-import { PageHeader } from "@/components/layout/PageHeader";
-import { Card, CardHeader, CardTitle } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { Avatar } from "@/components/ui/Avatar";
-import { Modal } from "@/components/ui/Modal";
-import { Select } from "@/components/ui/Select";
+import { PageHeader }    from "@/components/layout/PageHeader";
+import { Card }          from "@/components/ui/Card";
+import { Badge }         from "@/components/ui/Badge";
+import { Button }        from "@/components/ui/Button";
+import { Avatar }        from "@/components/ui/Avatar";
+import { Modal }         from "@/components/ui/Modal";
+import { Select }        from "@/components/ui/Select";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
-import { PageLoader } from "@/components/ui/Spinner";
-import apiClient from "@/services/api.client";
-import { ENDPOINTS } from "@/services/endpoints";
+import { PageLoader }    from "@/components/ui/Spinner";
+import apiClient         from "@/services/api.client";
+import { ENDPOINTS }     from "@/services/endpoints";
 import { parseApiError, extractArray } from "@/utils/error.utils";
 import { toJalaliWithTime } from "@/utils/date.utils";
-import { ROLE_LABELS } from "@/constants/roles";
-import type { Role } from "@/types/common.types";
-import toast from "react-hot-toast";
-import { cn } from "@/lib/cn";
+import { ROLE_LABELS }   from "@/constants/roles";
+import type { Role }     from "@/types/common.types";
+import toast             from "react-hot-toast";
+import { cn }            from "@/lib/cn";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
 // ─────────────────────────────────────────────────────────────────────────────
+
 interface UserDetail {
   id:                number;
   full_name:         string;
@@ -65,49 +73,58 @@ interface RelatedComplaint {
   created_at:     string;
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Constants
+// ─────────────────────────────────────────────────────────────────────────────
+
 const ROLE_OPTIONS = [
-  { value: "admin",            label: ROLE_LABELS.admin },
+  { value: "admin",            label: ROLE_LABELS.admin            },
   { value: "province_manager", label: ROLE_LABELS.province_manager },
-  { value: "chamber_manager",  label: ROLE_LABELS.chamber_manager },
-  { value: "union_manager",    label: ROLE_LABELS.union_manager },
-  { value: "store_owner",      label: ROLE_LABELS.store_owner },
-  { value: "inspector",        label: ROLE_LABELS.inspector },
-  { value: "customer",         label: ROLE_LABELS.customer },
+  { value: "chamber_manager",  label: ROLE_LABELS.chamber_manager  },
+  { value: "union_manager",    label: ROLE_LABELS.union_manager    },
+  { value: "store_owner",      label: ROLE_LABELS.store_owner      },
+  { value: "inspector",        label: ROLE_LABELS.inspector        },
+  { value: "customer",         label: ROLE_LABELS.customer         },
 ];
 
 type TabId = "info" | "stores" | "complaints" | "activity";
 
-const TABS: { id: TabId; label: string; icon: React.ComponentType<{className?:string}> }[] = [
-  { id: "info",       label: "اطلاعات",       icon: UserCircleIcon },
-  { id: "stores",     label: "فروشگاه‌ها",     icon: BuildingStorefrontIcon },
-  { id: "complaints", label: "شکایات",        icon: ClipboardDocumentListIcon },
-  { id: "activity",   label: "فعالیت‌ها",     icon: ClockIcon },
+const TABS: {
+  id:    TabId;
+  label: string;
+  icon:  React.ComponentType<{ className?: string }>;
+}[] = [
+  { id: "info",       label: "اطلاعات",    icon: UserCircleIcon           },
+  { id: "stores",     label: "فروشگاه‌ها", icon: BuildingStorefrontIcon   },
+  { id: "complaints", label: "شکایات",     icon: ClipboardDocumentListIcon },
+  { id: "activity",   label: "فعالیت‌ها",  icon: ClockIcon                },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Component
+// Main Component
 // ─────────────────────────────────────────────────────────────────────────────
+
 export default function AdminUserDetailPage() {
-  const { id } = useParams<{ id: string }>();
-  const router = useRouter();
+  const { id }  = useParams<{ id: string }>();
+  const router  = useRouter();
 
-  const [user, setUser] = useState<UserDetail | null>(null);
-  const [stores, setStores] = useState<RelatedStore[]>([]);
+  const [user,       setUser]       = useState<UserDetail | null>(null);
+  const [stores,     setStores]     = useState<RelatedStore[]>([]);
   const [complaints, setComplaints] = useState<RelatedComplaint[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<TabId>("info");
+  const [isLoading,  setIsLoading]  = useState(true);
+  const [activeTab,  setActiveTab]  = useState<TabId>("info");
 
-  // modals
-  const [showChangeRole, setShowChangeRole] = useState(false);
-  const [showDeactivate, setShowDeactivate] = useState(false);
+  // modal states
+  const [showChangeRole,    setShowChangeRole]    = useState(false);
+  const [showDeactivate,    setShowDeactivate]    = useState(false);
   const [showResetPassword, setShowResetPassword] = useState(false);
-  const [newRole, setNewRole] = useState<Role | "">("");
-  const [isSaving, setIsSaving] = useState(false);
+  const [newRole,           setNewRole]           = useState<Role | "">("");
+  const [isSaving,          setIsSaving]          = useState(false);
 
-  // ── fetch ──────────────────────────────────────────────────────────────────
+  // ── Fetch user ─────────────────────────────────────────────────────────────
   const fetchUser = async () => {
     try {
-      const res = await apiClient.get(ENDPOINTS.AUTH.USER(Number(id)));
+      const res  = await apiClient.get(ENDPOINTS.AUTH.USER(Number(id)));
       const data = res.data?.data ?? res.data;
       setUser(data);
       setNewRole(data.role);
@@ -117,11 +134,9 @@ export default function AdminUserDetailPage() {
     }
   };
 
-  const fetchRelated = async () => {
-    if (!user) return;
-
-    // Stores (if store_owner)
-    if (user.role === "store_owner") {
+  // ── Fetch related data ─────────────────────────────────────────────────────
+  const fetchRelated = async (u: UserDetail) => {
+    if (u.role === "store_owner") {
       try {
         const r = await apiClient.get(ENDPOINTS.STORES.LIST, {
           params: { owner: id, page_size: 10 },
@@ -131,8 +146,7 @@ export default function AdminUserDetailPage() {
       } catch { /* silent */ }
     }
 
-    // Complaints (if customer or inspector)
-    if (user.role === "customer" || user.role === "inspector") {
+    if (u.role === "customer" || u.role === "inspector") {
       try {
         const r = await apiClient.get(ENDPOINTS.COMPLAINTS.MY, {
           params: { page_size: 10 },
@@ -149,21 +163,19 @@ export default function AdminUserDetailPage() {
       await fetchUser();
       setIsLoading(false);
     };
-    load();
+    void load();
   }, [id]);
 
   useEffect(() => {
-    if (user) fetchRelated();
+    if (user) void fetchRelated(user);
   }, [user]);
 
-  // ── change role ────────────────────────────────────────────────────────────
+  // ── Change role ────────────────────────────────────────────────────────────
   const handleChangeRole = async () => {
     if (!newRole || newRole === user?.role) return;
     setIsSaving(true);
     try {
-      await apiClient.patch(ENDPOINTS.AUTH.CHANGE_ROLE(Number(id)), {
-        role: newRole,
-      });
+      await apiClient.patch(ENDPOINTS.AUTH.USER_ROLE(Number(id)), { role: newRole });
       toast.success("نقش کاربر با موفقیت تغییر یافت");
       setShowChangeRole(false);
       await fetchUser();
@@ -174,7 +186,7 @@ export default function AdminUserDetailPage() {
     }
   };
 
-  // ── deactivate ─────────────────────────────────────────────────────────────
+  // ── Deactivate ─────────────────────────────────────────────────────────────
   const handleDeactivate = async () => {
     setIsSaving(true);
     try {
@@ -189,13 +201,12 @@ export default function AdminUserDetailPage() {
     }
   };
 
-  // ── reset password ─────────────────────────────────────────────────────────
+  // ── Reset password ─────────────────────────────────────────────────────────
   const handleResetPassword = async () => {
     setIsSaving(true);
     try {
-      // این endpoint فرضی است - در صورت نیاز پیاده‌سازی شود
-      await apiClient.post(`/api/v1/auth/users/${id}/reset-password/`);
-      toast.success("رمز عبور بازنشانی و به موبایل کاربر ارسال شد");
+      await apiClient.post(`/auth/users/${id}/reset-password/`);
+      toast.success("رمز عبور بازنشانی شد و به موبایل کاربر ارسال می‌شود");
       setShowResetPassword(false);
     } catch (err) {
       toast.error(parseApiError(err));
@@ -204,8 +215,9 @@ export default function AdminUserDetailPage() {
     }
   };
 
+  // ── Render ─────────────────────────────────────────────────────────────────
   if (isLoading) return <PageLoader />;
-  if (!user) return null;
+  if (!user)     return null;
 
   return (
     <div className="space-y-6">
@@ -218,11 +230,13 @@ export default function AdminUserDetailPage() {
         ]}
         actions={
           <div className="flex items-center gap-2 flex-wrap">
-            {user.is_active ? (
-              <Badge variant="success" dot size="md">فعال</Badge>
-            ) : (
-              <Badge variant="default" dot size="md">غیرفعال</Badge>
-            )}
+            <Badge
+              variant={user.is_active ? "success" : "default"}
+              dot
+              size="md"
+            >
+              {user.is_active ? "فعال" : "غیرفعال"}
+            </Badge>
 
             <Button
               variant="outline"
@@ -257,32 +271,29 @@ export default function AdminUserDetailPage() {
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
         {/* ── Sidebar ── */}
         <div className="space-y-5">
+          {/* Avatar card */}
           <Card padding="md">
             <div className="text-center">
               <div className="inline-block mb-4">
                 <Avatar
                   name={user.full_name}
-                  src={user.avatar}
+                  src={user.avatar ?? undefined}
                   size="xl"
                   status={user.is_phone_verified ? "online" : "offline"}
                 />
               </div>
-              <h2 className="text-xl font-bold text-slate-800">
-                {user.full_name}
-              </h2>
-              <p className="text-sm text-slate-500 mt-1">
-                {user.phone_number}
-              </p>
+              <h2 className="text-xl font-bold text-slate-800">{user.full_name}</h2>
+              <p className="text-sm text-slate-500 mt-1">{user.phone_number}</p>
               <div className="mt-4">
-                <Badge variant="primary" size="md">
-                  {user.role_display}
-                </Badge>
+                <Badge variant="primary" size="md">{user.role_display}</Badge>
               </div>
             </div>
           </Card>
 
+          {/* Meta info */}
           <Card padding="sm">
             <div className="divide-y divide-slate-100">
               <InfoRow
@@ -293,7 +304,11 @@ export default function AdminUserDetailPage() {
               <InfoRow
                 icon={ClockIcon}
                 label="آخرین ورود"
-                value={user.last_login_at ? toJalaliWithTime(user.last_login_at) : "—"}
+                value={
+                  user.last_login_at
+                    ? toJalaliWithTime(user.last_login_at)
+                    : "—"
+                }
               />
               <InfoRow
                 icon={PhoneIcon}
@@ -317,21 +332,22 @@ export default function AdminUserDetailPage() {
               </p>
               <div className="text-center p-4 bg-primary-50 rounded-xl">
                 <p className="text-3xl font-bold text-primary-700">
-                  {stores.length}
+                  {stores.length.toLocaleString("fa-IR")}
                 </p>
                 <p className="text-xs text-primary-600 mt-1">فروشگاه ثبت شده</p>
               </div>
             </Card>
           )}
 
-          {(user.role === "customer" || user.role === "inspector") && complaints.length > 0 && (
+          {(user.role === "customer" || user.role === "inspector") &&
+            complaints.length > 0 && (
             <Card padding="md">
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
                 شکایات
               </p>
               <div className="text-center p-4 bg-orange-50 rounded-xl">
                 <p className="text-3xl font-bold text-orange-700">
-                  {complaints.length}
+                  {complaints.length.toLocaleString("fa-IR")}
                 </p>
                 <p className="text-xs text-orange-600 mt-1">شکایت ثبت شده</p>
               </div>
@@ -339,19 +355,20 @@ export default function AdminUserDetailPage() {
           )}
         </div>
 
-        {/* ── Main ── */}
+        {/* ── Main panel ── */}
         <Card className="lg:col-span-2" padding="none">
+
           {/* Tabs */}
           <div className="px-5 py-3 border-b border-slate-100 flex gap-1 bg-slate-50/50">
             {TABS.map((tab) => {
-              // hide stores tab if not store_owner
-              if (tab.id === "stores" && user.role !== "store_owner") return null;
-              // hide complaints tab if not customer/inspector
-              if (tab.id === "complaints" && user.role !== "customer" && user.role !== "inspector") return null;
+              if (tab.id === "stores"     && user.role !== "store_owner") return null;
+              if (tab.id === "complaints" &&
+                user.role !== "customer"  && user.role !== "inspector")   return null;
 
               return (
                 <button
                   key={tab.id}
+                  type="button"
                   onClick={() => setActiveTab(tab.id)}
                   className={cn(
                     "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold",
@@ -370,10 +387,10 @@ export default function AdminUserDetailPage() {
 
           {/* Tab Content */}
           <div className="p-5">
-            {activeTab === "info" && <InfoTab user={user} />}
-            {activeTab === "stores" && <StoresTab stores={stores} />}
+            {activeTab === "info"       && <InfoTab       user={user}             />}
+            {activeTab === "stores"     && <StoresTab     stores={stores}         />}
             {activeTab === "complaints" && <ComplaintsTab complaints={complaints} />}
-            {activeTab === "activity" && <ActivityTab userId={Number(id)} />}
+            {activeTab === "activity"   && <ActivityTab   />}
           </div>
         </Card>
       </div>
@@ -383,26 +400,7 @@ export default function AdminUserDetailPage() {
         isOpen={showChangeRole}
         onClose={() => { setShowChangeRole(false); setNewRole(user.role); }}
         title="تغییر نقش کاربر"
-        description={`تغییر نقش ${user.full_name}`}
         size="sm"
-        footer={
-          <>
-            <Button
-              variant="ghost"
-              onClick={() => { setShowChangeRole(false); setNewRole(user.role); }}
-            >
-              انصراف
-            </Button>
-            <Button
-              onClick={handleChangeRole}
-              isLoading={isSaving}
-              disabled={!newRole || newRole === user.role}
-              leftIcon={<CheckCircleIcon className="h-4 w-4" />}
-            >
-              تایید تغییر
-            </Button>
-          </>
-        }
       >
         <div className="space-y-4">
           <Select
@@ -416,6 +414,25 @@ export default function AdminUserDetailPage() {
             <p className="text-xs text-amber-800">
               ⚠️ تغییر نقش کاربر ممکن است دسترسی‌های او را تغییر دهد.
             </p>
+          </div>
+          {/* Footer داخل Modal — بدون footer prop */}
+          <div className="flex gap-2 pt-2">
+            <Button
+              variant="ghost"
+              fullWidth
+              onClick={() => { setShowChangeRole(false); setNewRole(user.role); }}
+            >
+              انصراف
+            </Button>
+            <Button
+              fullWidth
+              onClick={handleChangeRole}
+              isLoading={isSaving}
+              disabled={!newRole || newRole === user.role}
+              leftIcon={<CheckCircleIcon className="h-4 w-4" />}
+            >
+              تایید تغییر
+            </Button>
           </div>
         </div>
       </Modal>
@@ -450,12 +467,13 @@ export default function AdminUserDetailPage() {
 // ─────────────────────────────────────────────────────────────────────────────
 // Sub-components
 // ─────────────────────────────────────────────────────────────────────────────
+
 function InfoRow({
   icon: Icon,
   label,
   value,
 }: {
-  icon: React.ComponentType<{ className?: string }>;
+  icon:  React.ComponentType<{ className?: string }>;
   label: string;
   value: React.ReactNode;
 }) {
@@ -471,21 +489,28 @@ function InfoRow({
 }
 
 function InfoTab({ user }: { user: UserDetail }) {
-  const fields = [
-    { icon: UserCircleIcon,         label: "نام",          value: user.first_name },
-    { icon: UserCircleIcon,         label: "نام خانوادگی", value: user.last_name },
-    { icon: PhoneIcon,              label: "موبایل",       value: user.phone_number },
-    { icon: EnvelopeIcon,           label: "ایمیل",        value: user.email || "—" },
-    { icon: IdentificationCardIcon, label: "کد ملی",       value: user.national_code || "—" },
-    { icon: ShieldCheckIcon,        label: "نقش",          value: user.role_display },
+  const fields: {
+    icon:  React.ComponentType<{ className?: string }>;
+    label: string;
+    value: string;
+  }[] = [
+    { icon: UserCircleIcon,  label: "نام",          value: user.first_name          },
+    { icon: UserCircleIcon,  label: "نام خانوادگی", value: user.last_name           },
+    { icon: PhoneIcon,       label: "موبایل",       value: user.phone_number        },
+    { icon: EnvelopeIcon,    label: "ایمیل",        value: user.email    || "—"     },
+    { icon: IdentificationIcon, label: "کد ملی",    value: user.national_code || "—" },
+    { icon: ShieldCheckIcon, label: "نقش",          value: user.role_display        },
   ];
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {fields.map(({ icon: I, label, value }) => (
-        <div key={label} className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl">
+        <div
+          key={label}
+          className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl"
+        >
           <div className="h-10 w-10 rounded-lg bg-white border border-slate-200
-                           flex items-center justify-center flex-shrink-0">
+                          flex items-center justify-center flex-shrink-0">
             <I className="h-5 w-5 text-slate-400" />
           </div>
           <div className="min-w-0">
@@ -516,14 +541,15 @@ function StoresTab({ stores }: { stores: RelatedStore[] }) {
           className="flex items-center gap-3 p-4 rounded-xl border border-slate-100
                      hover:bg-slate-50 transition-colors"
         >
-          <div className="h-10 w-10 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
+          <div className="h-10 w-10 rounded-xl bg-primary-50 flex items-center
+                          justify-center flex-shrink-0">
             <BuildingStorefrontIcon className="h-5 w-5 text-primary-600" />
           </div>
           <div className="flex-1 min-w-0">
             <p className="font-bold text-slate-800 truncate">{store.name}</p>
             <p className="text-xs text-slate-500">{store.union_name}</p>
           </div>
-          <StatusBadge status={store.status} label={store.status_display} />
+          <StoreBadge status={store.status} label={store.status_display} />
         </div>
       ))}
     </div>
@@ -548,7 +574,8 @@ function ComplaintsTab({ complaints }: { complaints: RelatedComplaint[] }) {
           className="flex items-center gap-3 p-4 rounded-xl border border-slate-100
                      hover:bg-slate-50 transition-colors"
         >
-          <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+          <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center
+                          justify-center flex-shrink-0">
             <ClipboardDocumentListIcon className="h-5 w-5 text-orange-500" />
           </div>
           <div className="flex-1 min-w-0">
@@ -562,20 +589,24 @@ function ComplaintsTab({ complaints }: { complaints: RelatedComplaint[] }) {
   );
 }
 
-function ActivityTab({ userId }: { userId: number }) {
-  // فعلاً placeholder - می‌توان timeline ورودها یا تغییرات را نمایش داد
+function ActivityTab() {
   return (
     <div className="text-center py-12">
       <ClockIcon className="h-12 w-12 text-slate-300 mx-auto mb-3" />
-      <p className="text-slate-500 text-sm">تاریخچه فعالیت کاربر در آینده اضافه می‌شود</p>
+      <p className="text-slate-500 text-sm">
+        تاریخچه فعالیت کاربر در آینده اضافه می‌شود
+      </p>
     </div>
   );
 }
 
-function StatusBadge({ status, label }: { status: string; label: string }) {
-  const map: Record<string, "success"|"danger"|"warning"|"default"> = {
-    active: "success", pending: "warning", suspended: "danger",
-    rejected: "danger", closed: "default",
+function StoreBadge({ status, label }: { status: string; label: string }) {
+  const map: Record<string, "success" | "danger" | "warning" | "default"> = {
+    active:    "success",
+    pending:   "warning",
+    suspended: "danger",
+    rejected:  "danger",
+    closed:    "default",
   };
   return (
     <Badge variant={map[status] ?? "default"} size="sm" dot>
@@ -585,9 +616,16 @@ function StatusBadge({ status, label }: { status: string; label: string }) {
 }
 
 function ComplaintBadge({ status, label }: { status: string; label: string }) {
-  const map: Record<string, "success"|"danger"|"warning"|"info"|"default"> = {
-    submitted: "info", reviewing: "warning", referred: "warning",
-    inspecting: "warning", confirmed: "success", rejected: "danger", closed: "default",
+  const map: Record<
+    string, "success" | "danger" | "warning" | "info" | "default"
+  > = {
+    submitted:  "info",
+    reviewing:  "warning",
+    referred:   "warning",
+    inspecting: "warning",
+    confirmed:  "success",
+    rejected:   "danger",
+    closed:     "default",
   };
   return (
     <Badge variant={map[status] ?? "default"} size="sm" dot>

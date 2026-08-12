@@ -6360,3 +6360,1148 @@ ImportError: cannot import name 'StandardResultsSetPagination' from 'apps.common
 [INFO] 2026-08-01 19:01:38,046 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
 [INFO] 2026-08-01 19:01:38,208 basehttp 243956 123962166056640 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
 [INFO] 2026-08-01 19:01:38,290 basehttp 243956 123962193331904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 466
+[INFO] 2026-08-09 02:11:54,174 autoreload 10752 2632 Watching for file changes with StatReloader
+[INFO] 2026-08-09 02:12:05,924 basehttp 10752 13184 "GET /admin HTTP/1.1" 301 0
+[INFO] 2026-08-09 02:12:06,195 basehttp 10752 6468 "GET /admin/ HTTP/1.1" 302 0
+[INFO] 2026-08-09 02:12:06,691 basehttp 10752 6468 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 17389
+[INFO] 2026-08-09 02:12:06,727 basehttp 10752 4296 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+[INFO] 2026-08-09 02:12:06,741 basehttp 10752 4296 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+[INFO] 2026-08-09 02:12:06,758 basehttp 10752 4296 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+[INFO] 2026-08-09 02:12:06,772 basehttp 10752 4296 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 16675
+[INFO] 2026-08-09 02:12:06,799 basehttp 10752 6468 "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+[INFO] 2026-08-09 02:12:06,818 basehttp 10752 700 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+[INFO] 2026-08-09 02:12:06,858 basehttp 10752 4296 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14601
+[INFO] 2026-08-09 02:12:06,872 basehttp 10752 4296 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+[INFO] 2026-08-09 02:12:06,882 basehttp 10752 6468 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+[INFO] 2026-08-09 02:12:06,930 basehttp 10752 700 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[INFO] 2026-08-09 02:12:06,965 basehttp 10752 4296 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4742
+[WARNING] 2026-08-09 02:12:07,206 log 10752 4296 Not Found: /favicon.ico
+[WARNING] 2026-08-09 02:12:07,207 basehttp 10752 4296 "GET /favicon.ico HTTP/1.1" 404 16654
+[INFO] 2026-08-09 02:15:06,973 basehttp 10752 5432 "OPTIONS /api/v1/auth/login/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:15:12,272 base_service 10752 5432 User logged in with password: 09123456789
+[INFO] 2026-08-09 02:15:13,459 basehttp 10752 5432 "POST /api/v1/auth/login/ HTTP/1.1" 200 1353
+[INFO] 2026-08-09 02:15:14,323 basehttp 10752 5432 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:15:14,323 basehttp 10752 11852 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:15:15,222 basehttp 10752 5432 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 02:15:15,328 basehttp 10752 5432 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:15:15,330 basehttp 10752 5432 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:15:15,602 basehttp 10752 11852 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 02:15:17,773 basehttp 10752 5432 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2762
+[INFO] 2026-08-09 02:15:18,006 basehttp 10752 11852 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2762
+[INFO] 2026-08-09 02:17:36,788 basehttp 10752 4588 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 17389
+[INFO] 2026-08-09 02:17:37,390 basehttp 10752 7984 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 02:17:37,524 basehttp 10752 7984 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 02:17:37,856 basehttp 10752 7984 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2762
+[INFO] 2026-08-09 02:17:38,098 basehttp 10752 13568 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2762
+[INFO] 2026-08-09 02:17:50,172 basehttp 10752 7984 "OPTIONS /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:17:50,172 basehttp 10752 13264 "OPTIONS /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:17:50,172 basehttp 10752 13568 "OPTIONS /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:17:50,178 basehttp 10752 7984 "OPTIONS /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:17:50,678 basehttp 10752 13568 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 67
+[INFO] 2026-08-09 02:17:50,956 basehttp 10752 7984 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 67
+[INFO] 2026-08-09 02:17:50,957 basehttp 10752 13264 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 300
+[INFO] 2026-08-09 02:17:51,161 basehttp 10752 7984 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 300
+[INFO] 2026-08-09 02:17:52,594 basehttp 10752 7984 "OPTIONS /api/v1/auth/users/org-search/?role=province_manager HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:17:52,594 basehttp 10752 13264 "OPTIONS /api/v1/auth/users/org-search/?role=province_manager HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:17:53,723 basehttp 10752 13264 "GET /api/v1/auth/users/org-search/?role=province_manager HTTP/1.1" 200 231
+[INFO] 2026-08-09 02:17:54,182 basehttp 10752 7984 "GET /api/v1/auth/users/org-search/?role=province_manager HTTP/1.1" 200 231
+[INFO] 2026-08-09 02:18:16,290 basehttp 10752 7984 "OPTIONS /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:16,294 basehttp 10752 13264 "OPTIONS /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:16,294 basehttp 10752 13568 "OPTIONS /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:16,294 basehttp 10752 7984 "OPTIONS /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:16,294 basehttp 10752 12520 "OPTIONS /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:16,301 basehttp 10752 13568 "OPTIONS /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:16,303 basehttp 10752 7984 "OPTIONS /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:16,304 basehttp 10752 13568 "OPTIONS /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:16,304 basehttp 10752 12520 "OPTIONS /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:16,311 basehttp 10752 7984 "OPTIONS /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:16,311 basehttp 10752 13568 "OPTIONS /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:16,314 basehttp 10752 13568 "OPTIONS /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:16,593 basehttp 10752 11652 "OPTIONS /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:18:17,126 basehttp 10752 11652 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:18:17,258 basehttp 10752 13568 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 552
+[INFO] 2026-08-09 02:18:17,523 basehttp 10752 13264 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 537
+[INFO] 2026-08-09 02:18:17,658 basehttp 10752 7984 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 540
+[INFO] 2026-08-09 02:18:17,806 basehttp 10752 11684 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 525
+[INFO] 2026-08-09 02:18:18,058 basehttp 10752 13568 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:18:18,243 basehttp 10752 11652 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 501
+[INFO] 2026-08-09 02:18:18,326 basehttp 10752 12520 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 647
+[INFO] 2026-08-09 02:18:18,714 basehttp 10752 13264 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 552
+[INFO] 2026-08-09 02:18:18,851 basehttp 10752 7984 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 537
+[INFO] 2026-08-09 02:18:18,938 basehttp 10752 12520 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 647
+[INFO] 2026-08-09 02:18:19,011 basehttp 10752 13568 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 525
+[INFO] 2026-08-09 02:18:19,097 basehttp 10752 11684 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 540
+[INFO] 2026-08-09 02:18:19,106 basehttp 10752 11652 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 501
+[INFO] 2026-08-09 02:18:27,104 basehttp 10752 11652 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 02:18:27,220 basehttp 10752 11684 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 02:18:27,482 basehttp 10752 11684 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2762
+[INFO] 2026-08-09 02:18:27,709 basehttp 10752 11652 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2762
+[INFO] 2026-08-09 02:19:45,122 basehttp 10752 4588 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 17391
+[INFO] 2026-08-09 02:19:45,323 basehttp 10752 11652 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 02:19:45,623 basehttp 10752 11684 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 02:19:45,941 basehttp 10752 11684 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2762
+[INFO] 2026-08-09 02:19:46,206 basehttp 10752 11652 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2762
+[INFO] 2026-08-09 02:19:51,843 basehttp 10752 11652 "OPTIONS /api/v1/complaints/?page_size=6 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:19:51,843 basehttp 10752 13264 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:19:51,843 basehttp 10752 11684 "OPTIONS /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:19:51,843 basehttp 10752 13568 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:19:51,843 basehttp 10752 12520 "OPTIONS /api/v1/complaints/?page_size=6 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:19:51,843 basehttp 10752 7984 "OPTIONS /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:19:52,193 basehttp 10752 11652 "GET /api/v1/complaints/?page_size=6 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:19:52,608 basehttp 10752 13568 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 02:19:52,859 basehttp 10752 7984 "GET /api/v1/complaints/?page_size=6 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:19:53,143 basehttp 10752 11652 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 02:19:53,159 basehttp 10752 12520 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 02:19:53,359 basehttp 10752 11652 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 02:21:02,471 basehttp 10752 11652 "OPTIONS /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:02,471 basehttp 10752 13264 "OPTIONS /api/v1/products/units/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:02,472 basehttp 10752 13568 "OPTIONS /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:02,472 basehttp 10752 12520 "OPTIONS /api/v1/products/units/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:02,474 basehttp 10752 7984 "OPTIONS /api/v1/organizations/unions/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:02,474 basehttp 10752 11684 "OPTIONS /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:02,476 basehttp 10752 11652 "OPTIONS /api/v1/organizations/unions/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:02,478 basehttp 10752 13264 "OPTIONS /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:03,170 basehttp 10752 7984 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:03,190 basehttp 10752 13568 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 26
+[INFO] 2026-08-09 02:21:03,374 basehttp 10752 12520 "GET /api/v1/products/units/ HTTP/1.1" 200 26
+[INFO] 2026-08-09 02:21:03,755 basehttp 10752 13568 "GET /api/v1/products/units/ HTTP/1.1" 200 26
+[INFO] 2026-08-09 02:21:03,829 basehttp 10752 11684 "GET /api/v1/organizations/unions/?page_size=200 HTTP/1.1" 200 299
+[INFO] 2026-08-09 02:21:03,917 basehttp 10752 13264 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:03,994 basehttp 10752 7984 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 26
+[INFO] 2026-08-09 02:21:04,192 basehttp 10752 13568 "GET /api/v1/organizations/unions/?page_size=200 HTTP/1.1" 200 299
+[INFO] 2026-08-09 02:21:04,893 basehttp 10752 13568 "OPTIONS /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:04,894 basehttp 10752 7984 "OPTIONS /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:05,260 basehttp 10752 7984 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 416
+[INFO] 2026-08-09 02:21:05,459 basehttp 10752 13568 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 416
+[INFO] 2026-08-09 02:21:10,636 basehttp 10752 11652 "OPTIONS /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:10,637 basehttp 10752 7984 "OPTIONS /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:10,638 basehttp 10752 13264 "OPTIONS /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:10,638 basehttp 10752 12520 "OPTIONS /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:10,639 basehttp 10752 13568 "OPTIONS /api/v1/complaints/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:10,639 basehttp 10752 11684 "OPTIONS /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:10,639 basehttp 10752 11652 "OPTIONS /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:10,643 basehttp 10752 7984 "OPTIONS /api/v1/complaints/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:10,647 basehttp 10752 11684 "OPTIONS /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:10,648 basehttp 10752 13568 "OPTIONS /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:10,648 basehttp 10752 13264 "OPTIONS /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:10,648 basehttp 10752 12520 "OPTIONS /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 02:21:11,141 basehttp 10752 7984 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:11,290 basehttp 10752 13568 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:11,390 basehttp 10752 11684 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:11,741 basehttp 10752 7984 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:11,774 basehttp 10752 13264 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:11,807 basehttp 10752 12520 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:11,927 basehttp 10752 11652 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:12,102 basehttp 10752 13568 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:12,330 basehttp 10752 7984 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:12,399 basehttp 10752 11684 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:12,493 basehttp 10752 12520 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:12,498 basehttp 10752 13264 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:15,378 basehttp 10752 13264 "GET /api/v1/complaints/?page_size=6 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:15,761 basehttp 10752 12520 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 02:21:15,909 basehttp 10752 11684 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 02:21:16,173 basehttp 10752 7984 "GET /api/v1/complaints/?page_size=6 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:16,274 basehttp 10752 13264 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 02:21:16,391 basehttp 10752 12520 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 02:21:34,924 basehttp 10752 13264 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:35,091 basehttp 10752 13568 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:35,141 basehttp 10752 11684 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:35,174 basehttp 10752 12520 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:35,426 basehttp 10752 11652 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:35,691 basehttp 10752 7984 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:35,883 basehttp 10752 11684 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:35,888 basehttp 10752 13568 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:36,121 basehttp 10752 13264 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:36,134 basehttp 10752 7984 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:36,194 basehttp 10752 11652 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:36,214 basehttp 10752 12520 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:40,989 basehttp 10752 12520 "GET /api/v1/complaints/?page_size=6 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:41,020 basehttp 10752 11652 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 02:21:41,229 basehttp 10752 7984 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 02:21:41,524 basehttp 10752 13264 "GET /api/v1/complaints/?page_size=6 HTTP/1.1" 200 109
+[INFO] 2026-08-09 02:21:41,691 basehttp 10752 12520 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 02:21:41,691 basehttp 10752 11652 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 16:36:50,210 autoreload 14188 14032 Watching for file changes with StatReloader
+[INFO] 2026-08-09 16:37:15,266 basehttp 14188 6888 "GET /admin HTTP/1.1" 301 0
+[INFO] 2026-08-09 16:37:15,675 basehttp 14188 8696 "GET /admin/ HTTP/1.1" 302 0
+[INFO] 2026-08-09 16:37:16,181 basehttp 14188 8696 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 17389
+[INFO] 2026-08-09 16:37:16,221 basehttp 14188 5888 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+[INFO] 2026-08-09 16:37:16,227 basehttp 14188 1088 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+[INFO] 2026-08-09 16:37:16,552 basehttp 14188 13892 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 16675
+[INFO] 2026-08-09 16:37:16,565 basehttp 14188 8696 "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+[INFO] 2026-08-09 16:37:16,775 basehttp 14188 13792 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+[INFO] 2026-08-09 16:37:17,795 basehttp 14188 5888 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14601
+[INFO] 2026-08-09 16:37:17,806 basehttp 14188 5888 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+[INFO] 2026-08-09 16:37:18,006 basehttp 14188 11120 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+[INFO] 2026-08-09 16:37:18,197 basehttp 14188 11120 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4742
+[INFO] 2026-08-09 16:37:18,215 basehttp 14188 8696 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[INFO] 2026-08-09 16:37:18,216 basehttp 14188 13792 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+[WARNING] 2026-08-09 16:37:22,990 log 14188 13792 Not Found: /favicon.ico
+[WARNING] 2026-08-09 16:37:22,991 basehttp 14188 13792 "GET /favicon.ico HTTP/1.1" 404 16658
+[INFO] 2026-08-09 20:01:38,996 autoreload 12756 11392 Watching for file changes with StatReloader
+[INFO] 2026-08-09 20:02:09,670 basehttp 12756 7828 "GET /admin HTTP/1.1" 301 0
+[INFO] 2026-08-09 20:02:10,124 basehttp 12756 5112 "GET /admin/ HTTP/1.1" 302 0
+[INFO] 2026-08-09 20:02:11,480 basehttp 12756 5112 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 17392
+[INFO] 2026-08-09 20:02:11,521 basehttp 12756 5112 "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+[INFO] 2026-08-09 20:02:11,527 basehttp 12756 13188 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+[INFO] 2026-08-09 20:02:11,527 basehttp 12756 10528 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+[INFO] 2026-08-09 20:02:11,528 basehttp 12756 3740 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+[INFO] 2026-08-09 20:02:11,533 basehttp 12756 12344 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+[INFO] 2026-08-09 20:02:11,537 basehttp 12756 6664 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 16675
+[INFO] 2026-08-09 20:02:11,554 basehttp 12756 6664 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+[INFO] 2026-08-09 20:02:11,566 basehttp 12756 3740 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[INFO] 2026-08-09 20:02:11,566 basehttp 12756 12344 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+[INFO] 2026-08-09 20:02:11,571 basehttp 12756 5112 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14601
+[INFO] 2026-08-09 20:02:11,979 basehttp 12756 5112 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4742
+[INFO] 2026-08-09 20:04:54,156 basehttp 12756 11148 "OPTIONS /api/v1/auth/login/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:04:55,454 base_service 12756 11148 User logged in with password: 09123456789
+[INFO] 2026-08-09 20:04:55,821 basehttp 12756 11148 "POST /api/v1/auth/login/ HTTP/1.1" 200 1353
+[INFO] 2026-08-09 20:04:56,588 basehttp 12756 11148 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:04:56,588 basehttp 12756 7384 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:04:56,921 basehttp 12756 7384 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 20:04:57,037 basehttp 12756 11148 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 20:04:57,143 basehttp 12756 11148 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:04:57,143 basehttp 12756 7384 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:04:57,523 basehttp 12756 7384 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2762
+[INFO] 2026-08-09 20:04:57,738 basehttp 12756 11148 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2762
+[INFO] 2026-08-09 20:05:01,745 basehttp 12756 7384 "OPTIONS /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:05:01,745 basehttp 12756 11148 "OPTIONS /api/v1/complaints/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:05:01,747 basehttp 12756 7384 "OPTIONS /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:05:01,747 basehttp 12756 11148 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:05:01,747 basehttp 12756 7384 "OPTIONS /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:05:01,747 basehttp 12756 11148 "OPTIONS /api/v1/complaints/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:05:01,757 basehttp 12756 7384 "OPTIONS /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:05:02,057 basehttp 12756 14180 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:05:02,307 basehttp 12756 7384 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 109
+[WARNING] 2026-08-09 20:05:02,688 log 12756 480 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:05:02,688 basehttp 12756 480 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:05:03,138 basehttp 12756 14180 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 109
+[INFO] 2026-08-09 20:05:03,155 basehttp 12756 11148 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:05:03,238 basehttp 12756 6092 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[WARNING] 2026-08-09 20:05:03,354 log 12756 7384 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:05:03,354 basehttp 12756 7384 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:05:03,572 basehttp 12756 11148 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 20:05:03,633 basehttp 12756 14180 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:05:15,897 basehttp 12756 14180 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2762
+[WARNING] 2026-08-09 20:05:16,199 log 12756 6092 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:05:16,206 basehttp 12756 6092 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[WARNING] 2026-08-09 20:05:16,571 log 12756 14180 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:05:16,573 basehttp 12756 14180 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:05:16,583 basehttp 12756 480 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 20:05:16,619 basehttp 12756 7384 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:05:16,635 basehttp 12756 11148 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 109
+[INFO] 2026-08-09 20:05:17,102 basehttp 12756 7384 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 109
+[INFO] 2026-08-09 20:05:17,119 basehttp 12756 12640 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2762
+[INFO] 2026-08-09 20:05:17,224 basehttp 12756 480 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:05:17,293 basehttp 12756 14180 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 20:06:59,765 basehttp 12756 12908 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 20:06:59,946 basehttp 12756 12908 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 20:07:00,377 basehttp 12756 12908 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 109
+[WARNING] 2026-08-09 20:07:00,641 log 12756 2144 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:07:00,642 basehttp 12756 2144 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:07:00,753 basehttp 12756 1944 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:07:01,127 basehttp 12756 6464 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[WARNING] 2026-08-09 20:07:01,172 log 12756 12908 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:07:01,175 basehttp 12756 12908 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:07:01,365 basehttp 12756 2144 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:07:01,402 basehttp 12756 1152 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 109
+[INFO] 2026-08-09 20:07:01,543 basehttp 12756 1944 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 20:07:14,612 basehttp 12756 13700 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[INFO] 2026-08-09 20:07:15,359 basehttp 12756 13700 "GET /admin/ HTTP/1.1" 200 41528
+[INFO] 2026-08-09 20:07:17,388 basehttp 12756 2084 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[INFO] 2026-08-09 20:07:17,400 basehttp 12756 7500 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[INFO] 2026-08-09 20:07:17,414 basehttp 12756 10244 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[INFO] 2026-08-09 20:07:17,418 basehttp 12756 3000 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[INFO] 2026-08-09 20:07:53,021 basehttp 12756 12872 "GET /admin/accounts/user/ HTTP/1.1" 200 42862
+[INFO] 2026-08-09 20:07:53,076 basehttp 12756 12872 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+[INFO] 2026-08-09 20:07:53,089 basehttp 12756 10816 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[INFO] 2026-08-09 20:07:53,124 basehttp 12756 2000 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+[INFO] 2026-08-09 20:07:53,138 basehttp 12756 10816 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[INFO] 2026-08-09 20:07:53,140 basehttp 12756 12872 "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+[INFO] 2026-08-09 20:07:53,156 basehttp 12756 13596 "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+[INFO] 2026-08-09 20:07:53,156 basehttp 12756 2000 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[INFO] 2026-08-09 20:07:53,211 basehttp 12756 12076 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+[INFO] 2026-08-09 20:07:53,221 basehttp 12756 2000 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[INFO] 2026-08-09 20:07:53,255 basehttp 12756 12076 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[INFO] 2026-08-09 20:07:53,263 basehttp 12756 2000 "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+[INFO] 2026-08-09 20:07:53,270 basehttp 12756 12872 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+[INFO] 2026-08-09 20:07:53,326 basehttp 12756 12872 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[INFO] 2026-08-09 20:07:53,333 basehttp 12756 11828 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:07:53,365 basehttp 12756 11828 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[INFO] 2026-08-09 20:07:53,367 basehttp 12756 12872 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+[INFO] 2026-08-09 20:08:15,607 basehttp 12756 12872 "GET /admin/accounts/user/2/change/ HTTP/1.1" 200 66012
+[INFO] 2026-08-09 20:08:15,642 basehttp 12756 12872 "GET /static/admin/css/forms.css HTTP/1.1" 200 9090
+[INFO] 2026-08-09 20:08:15,662 basehttp 12756 12872 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11921
+[INFO] 2026-08-09 20:08:15,666 basehttp 12756 2000 "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+[INFO] 2026-08-09 20:08:15,667 basehttp 12756 11828 "GET /static/admin/js/collapse.js HTTP/1.1" 200 1803
+[INFO] 2026-08-09 20:08:15,669 basehttp 12756 12076 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15292
+[INFO] 2026-08-09 20:08:15,688 basehttp 12756 2000 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[INFO] 2026-08-09 20:08:15,756 basehttp 12756 2000 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[INFO] 2026-08-09 20:08:15,947 basehttp 12756 13596 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:08:16,032 basehttp 12756 2000 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+[INFO] 2026-08-09 20:08:16,043 basehttp 12756 13596 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[INFO] 2026-08-09 20:08:16,046 basehttp 12756 12076 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+[INFO] 2026-08-09 20:08:43,354 basehttp 12756 7500 "OPTIONS /api/v1/auth/logout/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:08:43,533 basehttp 12756 7500 "POST /api/v1/auth/logout/ HTTP/1.1" 200 71
+[INFO] 2026-08-09 20:08:50,145 basehttp 12756 7500 "OPTIONS /api/v1/auth/otp/request/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:08:50,656 base_service 12756 7500 OTP sent to 09123456799
+[INFO] 2026-08-09 20:08:50,813 basehttp 12756 7500 "POST /api/v1/auth/otp/request/ HTTP/1.1" 200 142
+[INFO] 2026-08-09 20:08:58,020 basehttp 12756 1672 "GET /admin/ HTTP/1.1" 200 41527
+[INFO] 2026-08-09 20:09:10,395 basehttp 12756 5084 "GET /admin/accounts/verifycode/ HTTP/1.1" 200 38033
+[INFO] 2026-08-09 20:09:10,575 basehttp 12756 5084 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:09:15,781 basehttp 12756 11012 "OPTIONS /api/v1/auth/otp/verify/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:09:15,873 base_service 12756 11012 User logged in: 09123456799
+[INFO] 2026-08-09 20:09:16,060 basehttp 12756 11012 "POST /api/v1/auth/otp/verify/ HTTP/1.1" 200 1213
+[INFO] 2026-08-09 20:09:35,558 basehttp 12756 12456 "OPTIONS /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:09:35,558 basehttp 12756 11012 "OPTIONS /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:09:35,812 basehttp 12756 11012 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-09 20:09:36,019 basehttp 12756 12456 "GET /api/v1/complaints/my/?page_size=5 HTTP/1.1" 200 2
+[INFO] 2026-08-09 20:10:15,436 basehttp 12756 12456 "OPTIONS /api/v1/complaints/my/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:10:15,436 basehttp 12756 11012 "OPTIONS /api/v1/complaints/my/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:10:15,648 basehttp 12756 11012 "GET /api/v1/complaints/my/?page=1&page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 20:10:15,896 basehttp 12756 12456 "GET /api/v1/complaints/my/?page=1&page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 20:10:20,782 basehttp 12756 12456 "OPTIONS /api/v1/auth/users/profile/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:10:20,782 basehttp 12756 11012 "OPTIONS /api/v1/auth/users/profile/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:10:20,946 basehttp 12756 12456 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 493
+[INFO] 2026-08-09 20:10:22,225 basehttp 12756 11012 "GET /api/v1/auth/users/profile/ HTTP/1.1" 200 493
+[INFO] 2026-08-09 20:13:04,539 base_service 12756 11012 Profile updated: 09123456799
+[INFO] 2026-08-09 20:13:04,736 basehttp 12756 11012 "PATCH /api/v1/auth/users/profile/ HTTP/1.1" 200 592
+[INFO] 2026-08-09 20:13:37,367 basehttp 12756 11012 "GET /api/v1/complaints/my/?page=1&page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 20:13:37,668 basehttp 12756 12456 "GET /api/v1/complaints/my/?page=1&page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 20:13:41,750 basehttp 12756 11012 "OPTIONS /api/v1/products/?page_size=20 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:13:41,750 basehttp 12756 12456 "OPTIONS /api/v1/products/?page_size=20 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:13:41,951 basehttp 12756 12456 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 109
+[INFO] 2026-08-09 20:13:42,097 basehttp 12756 11012 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 109
+[INFO] 2026-08-09 20:13:42,306 basehttp 12756 11012 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 109
+[INFO] 2026-08-09 20:14:02,127 basehttp 12756 11012 "OPTIONS /api/v1/stores/?search=%D8%B4%D8%B3%DB%8C&status=active&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:14:02,478 basehttp 12756 11012 "GET /api/v1/stores/?search=%D8%B4%D8%B3%DB%8C&status=active&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-08-09 20:14:03,557 basehttp 12756 11012 "OPTIONS /api/v1/stores/?search=%D8%B4%D8%B3&status=active&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:14:03,740 basehttp 12756 11012 "GET /api/v1/stores/?search=%D8%B4%D8%B3&status=active&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-08-09 20:15:45,781 basehttp 12756 9968 "GET /admin/ HTTP/1.1" 200 41527
+[INFO] 2026-08-09 20:15:56,877 basehttp 12756 9968 "GET /admin/stores/store/ HTTP/1.1" 200 39815
+[INFO] 2026-08-09 20:15:57,072 basehttp 12756 9968 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:15:59,932 basehttp 12756 9968 "GET /admin/ HTTP/1.1" 200 41527
+[INFO] 2026-08-09 20:16:02,373 basehttp 12756 9968 "GET /admin/accounts/user/ HTTP/1.1" 200 42873
+[INFO] 2026-08-09 20:16:02,679 basehttp 12756 9968 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:16:10,611 basehttp 12756 9968 "GET /admin/ HTTP/1.1" 200 41527
+[INFO] 2026-08-09 20:16:17,629 basehttp 12756 9968 "GET /admin/stores/store/ HTTP/1.1" 200 39815
+[INFO] 2026-08-09 20:16:17,819 basehttp 12756 9968 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:16:24,475 basehttp 12756 11012 "OPTIONS /api/v1/stores/?search=%D9%86%D9%88%D9%88&status=active&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:16:24,877 basehttp 12756 11012 "GET /api/v1/stores/?search=%D9%86%D9%88%D9%88&status=active&page_size=10 HTTP/1.1" 200 109
+[INFO] 2026-08-09 20:16:25,026 basehttp 12756 11012 "OPTIONS /api/v1/stores/?search=%D9%86%D9%88&status=active&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:16:25,369 basehttp 12756 11012 "GET /api/v1/stores/?search=%D9%86%D9%88&status=active&page_size=10 HTTP/1.1" 200 416
+[INFO] 2026-08-09 20:16:34,716 basehttp 12756 9968 "GET /admin/stores/store/1/change/ HTTP/1.1" 200 54752
+[INFO] 2026-08-09 20:16:34,778 basehttp 12756 8680 "GET /static/admin/css/vendor/select2/select2.css HTTP/1.1" 200 17358
+[INFO] 2026-08-09 20:16:34,785 basehttp 12756 12012 "GET /static/admin/css/autocomplete.css HTTP/1.1" 200 9114
+[INFO] 2026-08-09 20:16:34,836 basehttp 12756 7944 "GET /static/admin/js/autocomplete.js HTTP/1.1" 200 1060
+[INFO] 2026-08-09 20:16:34,854 basehttp 12756 6764 "GET /static/admin/js/vendor/select2/i18n/en.js HTTP/1.1" 200 844
+[INFO] 2026-08-09 20:16:34,871 basehttp 12756 6764 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[INFO] 2026-08-09 20:16:34,953 basehttp 12756 8632 "GET /static/admin/js/vendor/select2/select2.full.js HTTP/1.1" 200 173566
+[INFO] 2026-08-09 20:16:34,962 basehttp 12756 9968 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:16:48,898 basehttp 12756 9968 "GET /admin/stores/store/ HTTP/1.1" 200 39817
+[INFO] 2026-08-09 20:16:51,015 basehttp 12756 9968 "GET /admin/ HTTP/1.1" 200 41527
+[INFO] 2026-08-09 20:17:11,436 basehttp 12756 9968 "GET /admin/products/productcategory/ HTTP/1.1" 200 35991
+[INFO] 2026-08-09 20:17:11,607 basehttp 12756 9968 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:17:14,661 basehttp 12756 9968 "GET /admin/products/productcategory/add/ HTTP/1.1" 200 45728
+[INFO] 2026-08-09 20:17:14,840 basehttp 12756 9968 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:17:15,907 basehttp 12756 9968 "GET /admin/autocomplete/?app_label=products&model_name=productcategory&field_name=parent HTTP/1.1" 200 46
+[INFO] 2026-08-09 20:17:16,148 basehttp 12756 9968 "GET /__debug__/history_sidebar/?store_id=fa95cd13000e4d1fa2033ab6b3eb40e0 HTTP/1.1" 200 9902
+[INFO] 2026-08-09 20:17:20,052 basehttp 12756 9968 "GET /admin/autocomplete/?app_label=products&model_name=productcategory&field_name=parent HTTP/1.1" 200 46
+[INFO] 2026-08-09 20:17:20,282 basehttp 12756 9968 "GET /__debug__/history_sidebar/?store_id=87afd71f911043aab8ba69e396b8a071 HTTP/1.1" 200 9902
+[INFO] 2026-08-09 20:17:25,505 basehttp 12756 9968 "GET /admin/autocomplete/?term=%D9%86%D9%88%D8%B2&app_label=products&model_name=productcategory&field_name=parent HTTP/1.1" 200 46
+[INFO] 2026-08-09 20:17:25,731 basehttp 12756 9968 "GET /__debug__/history_sidebar/?store_id=07a191c2d728454aa8c4d5d065aaa1c1 HTTP/1.1" 200 9930
+[INFO] 2026-08-09 20:17:28,088 basehttp 12756 9968 - Broken pipe from ('127.0.0.1', 55985)
+[INFO] 2026-08-09 20:17:28,595 basehttp 12756 8632 - Broken pipe from ('127.0.0.1', 55995)
+[INFO] 2026-08-09 20:17:29,109 basehttp 12756 6764 "GET /admin/autocomplete/?term=&app_label=products&model_name=productcategory&field_name=parent HTTP/1.1" 200 46
+[INFO] 2026-08-09 20:17:29,339 basehttp 12756 6764 "GET /__debug__/history_sidebar/?store_id=0e41e96e4b49434ca275a4874328d1cd HTTP/1.1" 200 9913
+[INFO] 2026-08-09 20:17:31,851 basehttp 12756 6764 - Broken pipe from ('127.0.0.1', 55996)
+[INFO] 2026-08-09 20:17:32,633 basehttp 12756 7944 "GET /admin/autocomplete/?term=%D8%A7%D9%86%D8%B3%D8%A7%D9%86&app_label=products&model_name=productcategory&field_name=parent HTTP/1.1" 200 46
+[INFO] 2026-08-09 20:17:32,863 basehttp 12756 7944 "GET /__debug__/history_sidebar/?store_id=45aded4e48504ef6955d12d71b9e97cd HTTP/1.1" 200 9943
+[INFO] 2026-08-09 20:17:37,538 basehttp 12756 7944 "GET /admin/products/productcategory/add/?_to_field=id&_popup=1 HTTP/1.1" 200 27875
+[INFO] 2026-08-09 20:17:37,726 basehttp 12756 7944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:17:40,618 basehttp 12756 7944 "GET /admin/products/productcategory/add/?_to_field=id&_popup=1 HTTP/1.1" 200 27875
+[INFO] 2026-08-09 20:17:40,808 basehttp 12756 7944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:17:54,767 basehttp 12756 7944 "POST /admin/products/productcategory/add/ HTTP/1.1" 302 0
+[INFO] 2026-08-09 20:17:55,371 basehttp 12756 7944 "GET /admin/products/productcategory/ HTTP/1.1" 200 39785
+[INFO] 2026-08-09 20:17:55,577 basehttp 12756 7944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:18:06,993 basehttp 12756 7944 "GET /admin/products/productcategory/add/ HTTP/1.1" 200 45727
+[INFO] 2026-08-09 20:18:07,164 basehttp 12756 7944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:18:10,641 basehttp 12756 7944 "GET /admin/autocomplete/?app_label=products&model_name=productcategory&field_name=parent HTTP/1.1" 200 99
+[INFO] 2026-08-09 20:18:10,880 basehttp 12756 7944 "GET /__debug__/history_sidebar/?store_id=097382733a4047c6a495dd69bde99912 HTTP/1.1" 200 9903
+[INFO] 2026-08-09 20:18:19,453 basehttp 12756 7944 "POST /admin/products/productcategory/add/ HTTP/1.1" 302 0
+[INFO] 2026-08-09 20:18:20,052 basehttp 12756 7944 "GET /admin/products/productcategory/ HTTP/1.1" 200 40576
+[INFO] 2026-08-09 20:18:20,253 basehttp 12756 7944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:18:31,803 basehttp 12756 7944 "GET /admin/ HTTP/1.1" 200 41568
+[INFO] 2026-08-09 20:18:42,904 basehttp 12756 7944 "GET /admin/products/product/ HTTP/1.1" 200 36504
+[INFO] 2026-08-09 20:18:43,101 basehttp 12756 7944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:18:44,917 basehttp 12756 7944 "GET /admin/products/product/add/ HTTP/1.1" 200 52417
+[INFO] 2026-08-09 20:18:45,089 basehttp 12756 7944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:19:00,841 basehttp 12756 7944 "GET /admin/autocomplete/?app_label=products&model_name=product&field_name=union HTTP/1.1" 200 126
+[INFO] 2026-08-09 20:19:01,069 basehttp 12756 7944 "GET /__debug__/history_sidebar/?store_id=35eb25a698d741d7a15ad11c1e1ab31f HTTP/1.1" 200 9894
+[INFO] 2026-08-09 20:19:05,278 basehttp 12756 7944 "GET /admin/autocomplete/?app_label=products&model_name=product&field_name=category HTTP/1.1" 200 187
+[INFO] 2026-08-09 20:19:05,531 basehttp 12756 7944 "GET /__debug__/history_sidebar/?store_id=87c28a6e3fe848029dfc05abd18eb382 HTTP/1.1" 200 9897
+[INFO] 2026-08-09 20:19:28,030 basehttp 12756 7944 "GET /admin/autocomplete/?app_label=products&model_name=product&field_name=unit HTTP/1.1" 200 46
+[INFO] 2026-08-09 20:19:28,256 basehttp 12756 7944 "GET /__debug__/history_sidebar/?store_id=43be97802ff24950b222d127d577a535 HTTP/1.1" 200 9893
+[INFO] 2026-08-09 20:19:28,459 basehttp 12756 7944 "GET /admin/autocomplete/?app_label=products&model_name=product&field_name=unit HTTP/1.1" 200 46
+[INFO] 2026-08-09 20:19:28,685 basehttp 12756 7944 "GET /__debug__/history_sidebar/?store_id=701d07d0925b4e32b2891336db391451 HTTP/1.1" 200 9892
+[INFO] 2026-08-09 20:19:30,729 basehttp 12756 7944 "GET /admin/products/productunit/add/?_to_field=id&_popup=1 HTTP/1.1" 200 20966
+[INFO] 2026-08-09 20:19:30,932 basehttp 12756 7944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:19:45,872 basehttp 12756 7944 "POST /admin/products/productunit/add/?_to_field=id&_popup=1 HTTP/1.1" 200 13579
+[INFO] 2026-08-09 20:19:45,908 basehttp 12756 7944 "GET /static/admin/js/popup_response.js HTTP/1.1" 200 551
+[INFO] 2026-08-09 20:20:37,686 basehttp 12756 7944 "POST /admin/products/product/add/ HTTP/1.1" 302 0
+[INFO] 2026-08-09 20:20:38,362 basehttp 12756 7944 "GET /admin/products/product/ HTTP/1.1" 200 40994
+[INFO] 2026-08-09 20:20:38,538 basehttp 12756 7944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:20:42,196 basehttp 12756 11012 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 344
+[INFO] 2026-08-09 20:20:42,483 basehttp 12756 11012 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 344
+[INFO] 2026-08-09 20:20:46,644 basehttp 12756 7944 "GET /admin/products/product/add/ HTTP/1.1" 200 52417
+[INFO] 2026-08-09 20:20:49,828 basehttp 12756 7944 "GET /admin/ HTTP/1.1" 200 41546
+[INFO] 2026-08-09 20:21:03,925 basehttp 12756 7944 "GET /admin/stores/store/ HTTP/1.1" 200 39816
+[INFO] 2026-08-09 20:21:04,097 basehttp 12756 7944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:21:07,156 basehttp 12756 7944 "GET /admin/stores/store/1/change/ HTTP/1.1" 200 54751
+[INFO] 2026-08-09 20:21:07,351 basehttp 12756 7944 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[INFO] 2026-08-09 20:21:18,806 basehttp 12756 11012 "OPTIONS /api/v1/stores/?search=%D9%86%D9%88%D8%B2&status=active&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:21:19,114 basehttp 12756 11012 "GET /api/v1/stores/?search=%D9%86%D9%88%D8%B2&status=active&page_size=10 HTTP/1.1" 200 416
+[INFO] 2026-08-09 20:21:20,249 basehttp 12756 11012 "OPTIONS /api/v1/pricing/official-prices/today/?product=1 HTTP/1.1" 200 0
+[WARNING] 2026-08-09 20:21:20,374 log 12756 11012 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:21:20,374 basehttp 12756 11012 "GET /api/v1/pricing/official-prices/today/?product=1 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:37:39,293 basehttp 12756 10352 "OPTIONS /api/v1/complaints/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:37:39,756 signals 12756 10352 New complaint created: 44925658
+[ERROR] 2026-08-09 20:37:39,801 signals 12756 10352 Failed to auto-assign complaint 1: cannot import name 'NotificationService' from 'apps.notifications.services' (unknown location)
+[INFO] 2026-08-09 20:37:41,325 basehttp 12756 10352 "POST /api/v1/complaints/ HTTP/1.1" 201 965
+[INFO] 2026-08-09 20:37:56,718 basehttp 12756 10352 "OPTIONS /api/v1/complaints/track/44925658/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:37:57,260 basehttp 12756 10352 "GET /api/v1/complaints/track/44925658/ HTTP/1.1" 200 965
+[INFO] 2026-08-09 20:38:17,267 basehttp 12756 10352 "GET /api/v1/auth/me/ HTTP/1.1" 200 523
+[INFO] 2026-08-09 20:38:17,581 basehttp 12756 7320 "GET /api/v1/auth/me/ HTTP/1.1" 200 523
+[INFO] 2026-08-09 20:38:18,402 basehttp 12756 10352 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:38:18,551 basehttp 12756 7320 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[WARNING] 2026-08-09 20:38:18,809 log 12756 5888 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:38:18,809 basehttp 12756 5888 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:38:19,104 basehttp 12756 10352 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:38:19,113 basehttp 12756 6132 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 20:38:19,322 basehttp 12756 7320 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[WARNING] 2026-08-09 20:38:19,382 log 12756 11560 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:38:19,383 basehttp 12756 11560 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:38:19,922 basehttp 12756 10352 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 20:38:25,031 basehttp 12756 10352 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 344
+[INFO] 2026-08-09 20:38:25,225 basehttp 12756 11560 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 344
+[INFO] 2026-08-09 20:38:25,444 basehttp 12756 10352 "GET /api/v1/products/?page_size=20 HTTP/1.1" 200 344
+[WARNING] 2026-08-09 20:39:39,559 log 12756 7320 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:39:39,560 basehttp 12756 7320 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:39:39,861 basehttp 12756 6132 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 20:39:40,083 basehttp 12756 10352 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[INFO] 2026-08-09 20:39:40,285 basehttp 12756 11560 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[WARNING] 2026-08-09 20:39:40,453 log 12756 5888 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:39:40,453 basehttp 12756 5888 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:39:40,674 basehttp 12756 6132 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[INFO] 2026-08-09 20:39:40,859 basehttp 12756 7320 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 20:39:40,932 basehttp 12756 10352 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:39:41,083 basehttp 12756 10352 "POST /api/v1/auth/logout/ HTTP/1.1" 200 71
+[INFO] 2026-08-09 20:40:01,252 base_service 12756 10352 User logged in with password: 09123456789
+[INFO] 2026-08-09 20:40:01,467 basehttp 12756 10352 "POST /api/v1/auth/login/ HTTP/1.1" 200 1353
+[INFO] 2026-08-09 20:40:02,573 basehttp 12756 5888 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[WARNING] 2026-08-09 20:40:02,829 log 12756 6132 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:40:02,836 basehttp 12756 6132 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:40:02,958 basehttp 12756 10352 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[INFO] 2026-08-09 20:40:03,212 basehttp 12756 7320 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:40:03,467 basehttp 12756 6132 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[INFO] 2026-08-09 20:40:03,559 basehttp 12756 11560 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[WARNING] 2026-08-09 20:40:03,569 log 12756 5888 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:40:03,569 basehttp 12756 5888 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:40:03,721 basehttp 12756 10352 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:42:18,539 basehttp 12756 10352 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2822
+[INFO] 2026-08-09 20:42:18,794 basehttp 12756 5888 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2822
+[INFO] 2026-08-09 20:42:19,961 basehttp 12756 10352 "OPTIONS /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:42:19,961 basehttp 12756 5888 "OPTIONS /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:42:20,201 basehttp 12756 5888 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 20:42:20,421 basehttp 12756 10352 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 20:46:59,143 autoreload 8968 11012 Watching for file changes with StatReloader
+[INFO] 2026-08-09 20:47:23,033 basehttp 8968 13812 "GET /admin HTTP/1.1" 301 0
+[INFO] 2026-08-09 20:47:23,443 basehttp 8968 7448 "GET /admin/ HTTP/1.1" 302 0
+[INFO] 2026-08-09 20:47:24,232 basehttp 8968 7448 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 17391
+[INFO] 2026-08-09 20:47:24,258 basehttp 8968 7448 "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+[INFO] 2026-08-09 20:47:24,270 basehttp 8968 7448 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+[INFO] 2026-08-09 20:47:24,273 basehttp 8968 3292 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+[INFO] 2026-08-09 20:47:24,274 basehttp 8968 560 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+[INFO] 2026-08-09 20:47:24,275 basehttp 8968 3744 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+[INFO] 2026-08-09 20:47:24,276 basehttp 8968 9536 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 16675
+[INFO] 2026-08-09 20:47:24,280 basehttp 8968 10412 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14601
+[INFO] 2026-08-09 20:47:24,281 basehttp 8968 560 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[INFO] 2026-08-09 20:47:24,282 basehttp 8968 3744 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+[INFO] 2026-08-09 20:47:24,282 basehttp 8968 9536 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+[INFO] 2026-08-09 20:47:24,286 basehttp 8968 3744 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4742
+[INFO] 2026-08-09 20:47:36,980 basehttp 8968 920 "OPTIONS /api/v1/auth/login/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:37,687 base_service 8968 920 User logged in with password: 09123456789
+[INFO] 2026-08-09 20:47:37,903 basehttp 8968 920 "POST /api/v1/auth/login/ HTTP/1.1" 200 1353
+[INFO] 2026-08-09 20:47:38,759 basehttp 8968 920 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:38,759 basehttp 8968 5552 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:38,956 basehttp 8968 5552 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 20:47:39,084 basehttp 8968 920 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 20:47:39,153 basehttp 8968 5552 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:39,153 basehttp 8968 920 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:39,360 basehttp 8968 920 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2822
+[INFO] 2026-08-09 20:47:39,584 basehttp 8968 5552 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2822
+[INFO] 2026-08-09 20:47:44,974 basehttp 8968 3744 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 17573
+[INFO] 2026-08-09 20:47:46,830 basehttp 8968 920 "OPTIONS /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:46,831 basehttp 8968 5552 "OPTIONS /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:47,686 basehttp 8968 5552 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 20:47:47,869 basehttp 8968 920 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 20:47:48,355 basehttp 8968 5552 "OPTIONS /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:48,355 basehttp 8968 920 "OPTIONS /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:48,359 basehttp 8968 920 "OPTIONS /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:48,359 basehttp 8968 5552 "OPTIONS /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:48,362 basehttp 8968 920 "OPTIONS /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:48,362 basehttp 8968 5552 "OPTIONS /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:48,693 basehttp 8968 8456 "OPTIONS /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:48,696 basehttp 8968 6464 "OPTIONS /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:48,703 basehttp 8968 11904 "OPTIONS /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:48,703 basehttp 8968 13972 "OPTIONS /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:48,709 basehttp 8968 11904 "OPTIONS /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:48,715 basehttp 8968 13972 "OPTIONS /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:48,747 basehttp 8968 920 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 647
+[INFO] 2026-08-09 20:47:48,830 basehttp 8968 5552 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 537
+[INFO] 2026-08-09 20:47:49,478 basehttp 8968 8456 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 525
+[INFO] 2026-08-09 20:47:49,657 basehttp 8968 920 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 561
+[INFO] 2026-08-09 20:47:49,737 basehttp 8968 5552 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 647
+[INFO] 2026-08-09 20:47:50,118 basehttp 8968 13972 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 20:47:50,224 basehttp 8968 920 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 525
+[INFO] 2026-08-09 20:47:50,463 basehttp 8968 5552 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 561
+[INFO] 2026-08-09 20:47:50,582 basehttp 8968 11904 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 552
+[INFO] 2026-08-09 20:47:50,785 basehttp 8968 13972 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 20:47:50,836 basehttp 8968 6464 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 540
+[INFO] 2026-08-09 20:47:50,945 basehttp 8968 8456 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 537
+[INFO] 2026-08-09 20:47:51,249 basehttp 8968 5552 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 552
+[INFO] 2026-08-09 20:47:51,296 basehttp 8968 13972 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 540
+[INFO] 2026-08-09 20:47:53,812 basehttp 8968 13972 "OPTIONS /api/v1/complaints/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:53,812 basehttp 8968 8456 "OPTIONS /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:53,812 basehttp 8968 11904 "OPTIONS /api/v1/complaints/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:53,812 basehttp 8968 920 "OPTIONS /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:53,812 basehttp 8968 5552 "OPTIONS /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:53,812 basehttp 8968 6464 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:53,827 basehttp 8968 13972 "OPTIONS /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 20:47:53,827 basehttp 8968 920 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[WARNING] 2026-08-09 20:47:54,463 log 8968 5552 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:47:54,464 basehttp 8968 5552 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:47:54,819 basehttp 8968 11904 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[WARNING] 2026-08-09 20:47:55,075 log 8968 920 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 20:47:55,109 basehttp 8968 920 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 20:47:55,138 basehttp 8968 8456 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[INFO] 2026-08-09 20:47:55,171 basehttp 8968 6464 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:47:55,526 basehttp 8968 5552 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 20:47:55,562 basehttp 8968 8456 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 20:47:55,727 basehttp 8968 920 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[INFO] 2026-08-09 20:48:07,169 basehttp 8968 920 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 20:48:07,368 basehttp 8968 8456 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 20:49:05,128 basehttp 8968 3744 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[INFO] 2026-08-09 20:49:05,781 basehttp 8968 3744 "GET /admin/ HTTP/1.1" 200 41546
+[INFO] 2026-08-09 20:49:05,801 basehttp 8968 3744 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[INFO] 2026-08-09 20:49:05,814 basehttp 8968 3744 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[INFO] 2026-08-09 20:49:05,815 basehttp 8968 9536 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[INFO] 2026-08-09 20:49:05,815 basehttp 8968 560 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[INFO] 2026-08-09 21:42:42,249 basehttp 8968 9608 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 525
+[INFO] 2026-08-09 21:42:42,672 basehttp 8968 12244 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 537
+[INFO] 2026-08-09 21:42:42,698 basehttp 8968 2908 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 21:42:43,107 basehttp 8968 12604 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 647
+[INFO] 2026-08-09 21:42:43,353 basehttp 8968 9608 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 561
+[INFO] 2026-08-09 21:42:43,486 basehttp 8968 12244 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 525
+[INFO] 2026-08-09 21:42:43,741 basehttp 8968 12604 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 21:42:44,018 basehttp 8968 13132 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 552
+[INFO] 2026-08-09 21:42:44,158 basehttp 8968 12244 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 647
+[INFO] 2026-08-09 21:42:44,472 basehttp 8968 13132 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 552
+[INFO] 2026-08-09 21:42:44,653 basehttp 8968 2908 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 537
+[INFO] 2026-08-09 21:42:44,740 basehttp 8968 11556 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 540
+[INFO] 2026-08-09 21:42:44,750 basehttp 8968 12604 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 561
+[INFO] 2026-08-09 21:42:44,771 basehttp 8968 9608 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 21:42:45,022 basehttp 8968 2908 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 540
+[INFO] 2026-08-09 21:42:45,087 basehttp 8968 12604 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:16:48,758 basehttp 8968 8428 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:16:49,055 basehttp 8968 8076 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:16:49,544 basehttp 8968 8076 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:16:49,874 basehttp 8968 8428 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[WARNING] 2026-08-09 22:16:50,082 log 8968 1448 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 22:16:50,086 basehttp 8968 1448 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 22:16:50,390 basehttp 8968 1408 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[WARNING] 2026-08-09 22:16:50,677 log 8968 8428 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-09 22:16:50,679 basehttp 8968 8428 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-09 22:16:50,738 basehttp 8968 11976 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-09 22:16:50,793 basehttp 8968 8076 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:16:50,913 basehttp 8968 1448 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-09 22:17:07,651 basehttp 8968 1448 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:17:07,830 basehttp 8968 8076 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:19:45,830 basehttp 8968 8076 "OPTIONS /api/v1/complaints/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:19:45,832 basehttp 8968 11976 "OPTIONS /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:19:45,833 basehttp 8968 1408 "OPTIONS /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:19:45,835 basehttp 8968 8428 "OPTIONS /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:19:45,837 basehttp 8968 1448 "OPTIONS /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:19:45,843 basehttp 8968 11976 "OPTIONS /api/v1/complaints/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:19:45,843 basehttp 8968 8076 "OPTIONS /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:19:45,843 basehttp 8968 1408 "OPTIONS /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:19:45,851 basehttp 8968 8428 "OPTIONS /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:19:45,852 basehttp 8968 1448 "OPTIONS /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:19:45,861 basehttp 8968 8076 "OPTIONS /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:19:45,867 basehttp 8968 1448 "OPTIONS /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:19:46,667 basehttp 8968 1448 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:19:46,834 basehttp 8968 9720 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:19:46,890 basehttp 8968 8428 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:19:47,454 basehttp 8968 11976 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:19:47,550 basehttp 8968 1448 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:19:47,661 basehttp 8968 1408 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:19:47,859 basehttp 8968 8428 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:19:47,929 basehttp 8968 9720 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:19:47,989 basehttp 8968 8076 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:19:48,282 basehttp 8968 11976 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:19:48,291 basehttp 8968 1448 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:19:48,363 basehttp 8968 9720 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:20:13,743 basehttp 8968 9720 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:20:13,948 basehttp 8968 1448 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:27:25,183 basehttp 8968 12796 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:27:25,344 basehttp 8968 12796 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:27:25,388 basehttp 8968 12796 "OPTIONS /api/v1/auth/users/2/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:27:25,388 basehttp 8968 11188 "OPTIONS /api/v1/auth/users/2/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:27:26,658 basehttp 8968 11188 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 476
+[INFO] 2026-08-09 22:27:26,679 basehttp 8968 11188 "OPTIONS /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:27:27,202 basehttp 8968 12796 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 476
+[INFO] 2026-08-09 22:27:27,209 basehttp 8968 11188 "GET /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 22:27:27,442 basehttp 8968 11188 "GET /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 22:28:12,344 basehttp 8968 11188 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:28:12,557 basehttp 8968 12796 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:28:13,785 basehttp 8968 12796 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 476
+[INFO] 2026-08-09 22:28:14,098 basehttp 8968 11188 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 476
+[INFO] 2026-08-09 22:28:14,129 basehttp 8968 12796 "GET /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 22:28:14,338 basehttp 8968 11188 "GET /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 22:28:16,914 basehttp 8968 11188 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:28:17,189 basehttp 8968 12796 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:29:06,529 basehttp 8968 12796 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 537
+[INFO] 2026-08-09 22:29:06,977 basehttp 8968 11412 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:29:07,106 basehttp 8968 11188 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 647
+[INFO] 2026-08-09 22:29:07,215 basehttp 8968 9972 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 540
+[INFO] 2026-08-09 22:29:07,523 basehttp 8968 6948 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 525
+[INFO] 2026-08-09 22:29:07,621 basehttp 8968 11896 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 552
+[INFO] 2026-08-09 22:29:08,039 basehttp 8968 12796 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:29:08,069 basehttp 8968 9972 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 647
+[INFO] 2026-08-09 22:29:08,687 basehttp 8968 12796 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 525
+[INFO] 2026-08-09 22:29:08,754 basehttp 8968 9972 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 552
+[INFO] 2026-08-09 22:29:09,000 basehttp 8968 11188 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:29:09,071 basehttp 8968 11412 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 537
+[INFO] 2026-08-09 22:29:09,089 basehttp 8968 11896 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:29:09,298 basehttp 8968 6948 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 540
+[INFO] 2026-08-09 22:29:09,332 basehttp 8968 12796 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:29:09,438 basehttp 8968 11412 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:30:05,678 basehttp 8968 6948 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 540
+[INFO] 2026-08-09 22:30:05,835 basehttp 8968 12796 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 647
+[INFO] 2026-08-09 22:30:05,976 basehttp 8968 11412 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 537
+[INFO] 2026-08-09 22:30:06,047 basehttp 8968 11188 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 552
+[INFO] 2026-08-09 22:30:06,424 basehttp 8968 6948 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:30:06,870 basehttp 8968 11896 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 525
+[INFO] 2026-08-09 22:30:07,057 basehttp 8968 9972 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:30:07,343 basehttp 8968 11188 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 537
+[INFO] 2026-08-09 22:30:07,710 basehttp 8968 11412 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 647
+[INFO] 2026-08-09 22:30:07,962 basehttp 8968 12796 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 540
+[INFO] 2026-08-09 22:30:08,000 basehttp 8968 6948 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 552
+[INFO] 2026-08-09 22:30:08,143 basehttp 8968 11896 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:30:08,195 basehttp 8968 11412 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:30:08,321 basehttp 8968 9972 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:30:08,364 basehttp 8968 11188 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 525
+[INFO] 2026-08-09 22:30:08,552 basehttp 8968 11412 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:30:10,168 basehttp 8968 11412 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 476
+[INFO] 2026-08-09 22:30:14,827 basehttp 8968 11412 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 476
+[INFO] 2026-08-09 22:30:15,102 basehttp 8968 11188 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 476
+[INFO] 2026-08-09 22:30:15,219 basehttp 8968 11412 "GET /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 22:30:15,422 basehttp 8968 11188 "GET /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 22:30:47,232 basehttp 8968 11188 "OPTIONS /api/v1/auth/users/2/role/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:30:47,523 basehttp 8968 11188 "PATCH /api/v1/auth/users/2/role/ HTTP/1.1" 200 541
+[INFO] 2026-08-09 22:30:47,715 basehttp 8968 11188 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 475
+[INFO] 2026-08-09 22:30:47,901 basehttp 8968 11188 "GET /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 22:30:52,847 basehttp 8968 11188 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:30:52,997 basehttp 8968 11412 "GET /api/v1/auth/users/?role=customer&page=1&page_size=15 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:30:56,828 basehttp 8968 11412 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 475
+[INFO] 2026-08-09 22:30:57,048 basehttp 8968 11188 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 475
+[INFO] 2026-08-09 22:30:57,103 basehttp 8968 11412 "GET /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 22:30:57,254 basehttp 8968 11188 "GET /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 22:31:02,592 basehttp 8968 11188 "PATCH /api/v1/auth/users/2/role/ HTTP/1.1" 200 542
+[INFO] 2026-08-09 22:31:02,791 basehttp 8968 11188 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 476
+[INFO] 2026-08-09 22:31:03,075 basehttp 8968 11188 "GET /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 22:31:07,185 basehttp 8968 11188 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:31:07,478 basehttp 8968 11412 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:31:07,505 basehttp 8968 11412 "OPTIONS /api/v1/auth/users/1/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:07,505 basehttp 8968 11188 "OPTIONS /api/v1/auth/users/1/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:07,739 basehttp 8968 11188 "GET /api/v1/auth/users/1/ HTTP/1.1" 200 452
+[INFO] 2026-08-09 22:31:07,911 basehttp 8968 11412 "GET /api/v1/auth/users/1/ HTTP/1.1" 200 452
+[INFO] 2026-08-09 22:31:12,139 basehttp 8968 11412 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:31:12,273 basehttp 8968 11188 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:31:12,297 basehttp 8968 11412 "OPTIONS /api/v1/auth/users/3/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:12,297 basehttp 8968 11188 "OPTIONS /api/v1/auth/users/3/ HTTP/1.1" 200 0
+[WARNING] 2026-08-09 22:31:12,511 log 8968 11412 Not Found: /api/v1/auth/users/3/
+[WARNING] 2026-08-09 22:31:12,511 basehttp 8968 11412 "GET /api/v1/auth/users/3/ HTTP/1.1" 404 101
+[WARNING] 2026-08-09 22:31:12,730 log 8968 11188 Not Found: /api/v1/auth/users/3/
+[WARNING] 2026-08-09 22:31:12,731 basehttp 8968 11188 "GET /api/v1/auth/users/3/ HTTP/1.1" 404 101
+[INFO] 2026-08-09 22:31:13,503 basehttp 8968 11188 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2822
+[INFO] 2026-08-09 22:31:13,715 basehttp 8968 11412 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2822
+[INFO] 2026-08-09 22:31:22,277 basehttp 8968 11412 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:31:22,415 basehttp 8968 11188 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:31:22,441 basehttp 8968 11188 "OPTIONS /api/v1/auth/users/4/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:22,441 basehttp 8968 11412 "OPTIONS /api/v1/auth/users/4/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:22,685 basehttp 8968 11412 "GET /api/v1/auth/users/4/ HTTP/1.1" 200 455
+[INFO] 2026-08-09 22:31:22,967 basehttp 8968 11188 "GET /api/v1/auth/users/4/ HTTP/1.1" 200 455
+[INFO] 2026-08-09 22:31:28,650 basehttp 8968 11188 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:31:28,808 basehttp 8968 11412 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:31:29,041 basehttp 8968 11412 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 476
+[INFO] 2026-08-09 22:31:29,370 basehttp 8968 11188 "GET /api/v1/auth/users/2/ HTTP/1.1" 200 476
+[INFO] 2026-08-09 22:31:29,431 basehttp 8968 11412 "GET /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 22:31:29,629 basehttp 8968 11188 "GET /api/v1/complaints/my/?page_size=10 HTTP/1.1" 200 2
+[INFO] 2026-08-09 22:31:35,618 basehttp 8968 11188 "OPTIONS /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:35,619 basehttp 8968 11896 "OPTIONS /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:35,619 basehttp 8968 11412 "OPTIONS /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:35,620 basehttp 8968 9972 "OPTIONS /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:35,863 basehttp 8968 11188 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 67
+[INFO] 2026-08-09 22:31:36,227 basehttp 8968 9972 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 67
+[INFO] 2026-08-09 22:31:36,237 basehttp 8968 11896 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 300
+[INFO] 2026-08-09 22:31:36,493 basehttp 8968 9972 "GET /api/v1/organizations/province-offices/?page=1&page_size=10 HTTP/1.1" 200 300
+[INFO] 2026-08-09 22:31:37,140 basehttp 8968 11896 "OPTIONS /api/v1/auth/users/org-search/?role=province_manager HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:37,140 basehttp 8968 9972 "OPTIONS /api/v1/auth/users/org-search/?role=province_manager HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:37,385 basehttp 8968 11896 "GET /api/v1/auth/users/org-search/?role=province_manager HTTP/1.1" 200 231
+[INFO] 2026-08-09 22:31:37,551 basehttp 8968 9972 "GET /api/v1/auth/users/org-search/?role=province_manager HTTP/1.1" 200 231
+[INFO] 2026-08-09 22:31:58,475 basehttp 8968 11896 "OPTIONS /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:58,476 basehttp 8968 11412 "OPTIONS /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:58,476 basehttp 8968 9972 "OPTIONS /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:58,476 basehttp 8968 11188 "OPTIONS /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:31:58,806 basehttp 8968 11412 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 83
+[INFO] 2026-08-09 22:31:58,980 basehttp 8968 11896 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 274
+[INFO] 2026-08-09 22:31:59,195 basehttp 8968 9972 "GET /api/v1/geography/cities/?page_size=500 HTTP/1.1" 200 83
+[INFO] 2026-08-09 22:31:59,322 basehttp 8968 11412 "GET /api/v1/organizations/chambers/?page=1&page_size=9 HTTP/1.1" 200 274
+[INFO] 2026-08-09 22:32:00,441 basehttp 8968 11412 "OPTIONS /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:32:00,441 basehttp 8968 9972 "OPTIONS /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:32:00,726 basehttp 8968 9972 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 416
+[INFO] 2026-08-09 22:32:00,921 basehttp 8968 11412 "GET /api/v1/stores/?page=1&page_size=10 HTTP/1.1" 200 416
+[INFO] 2026-08-09 22:32:11,326 basehttp 8968 11896 "OPTIONS /api/v1/organizations/unions/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:32:11,331 basehttp 8968 12796 "OPTIONS /api/v1/products/units/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:32:11,331 basehttp 8968 11412 "OPTIONS /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:32:11,331 basehttp 8968 9972 "OPTIONS /api/v1/products/units/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:32:11,331 basehttp 8968 11188 "OPTIONS /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:32:11,331 basehttp 8968 6948 "OPTIONS /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:32:11,332 basehttp 8968 11896 "OPTIONS /api/v1/organizations/unions/?page_size=200 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:32:11,341 basehttp 8968 11412 "OPTIONS /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:32:12,017 basehttp 8968 11188 "GET /api/v1/products/units/ HTTP/1.1" 200 80
+[INFO] 2026-08-09 22:32:12,124 basehttp 8968 9972 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 344
+[INFO] 2026-08-09 22:32:12,683 basehttp 8968 11188 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 344
+[INFO] 2026-08-09 22:32:12,741 basehttp 8968 12796 "GET /api/v1/organizations/unions/?page_size=200 HTTP/1.1" 200 299
+[INFO] 2026-08-09 22:32:12,792 basehttp 8968 6948 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 342
+[INFO] 2026-08-09 22:32:12,914 basehttp 8968 11412 "GET /api/v1/products/units/ HTTP/1.1" 200 80
+[INFO] 2026-08-09 22:32:13,170 basehttp 8968 11188 "GET /api/v1/organizations/unions/?page_size=200 HTTP/1.1" 200 299
+[INFO] 2026-08-09 22:32:13,337 basehttp 8968 12796 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 342
+[INFO] 2026-08-09 22:32:33,627 basehttp 8968 12796 "OPTIONS /api/v1/products/1/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:32:34,178 basehttp 8968 12796 "PATCH /api/v1/products/1/ HTTP/1.1" 200 657
+[INFO] 2026-08-09 22:32:34,485 basehttp 8968 12796 "GET /api/v1/products/?page=1&page_size=12 HTTP/1.1" 200 344
+[INFO] 2026-08-09 22:32:53,672 basehttp 8968 12796 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 342
+[INFO] 2026-08-09 22:32:53,963 basehttp 8968 11188 "GET /api/v1/products/categories/?page_size=200 HTTP/1.1" 200 342
+[INFO] 2026-08-09 22:33:21,200 basehttp 8968 6948 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:33:21,647 basehttp 8968 11412 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:33:21,679 basehttp 8968 9972 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:33:22,000 basehttp 8968 6948 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:33:22,104 basehttp 8968 11188 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:33:22,164 basehttp 8968 12796 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:33:22,252 basehttp 8968 11896 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:33:22,531 basehttp 8968 11412 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:33:22,738 basehttp 8968 11188 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:33:22,861 basehttp 8968 6948 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:33:22,889 basehttp 8968 12796 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:33:22,897 basehttp 8968 9972 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:33:38,972 basehttp 8968 11188 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:33:39,261 basehttp 8968 9972 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:33:39,336 basehttp 8968 11896 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:33:39,543 basehttp 8968 12796 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:33:39,675 basehttp 8968 6948 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:33:39,796 basehttp 8968 11188 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:33:39,998 basehttp 8968 11412 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:33:40,258 basehttp 8968 11896 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:33:40,351 basehttp 8968 11188 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:33:40,361 basehttp 8968 12796 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:33:40,419 basehttp 8968 9972 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:33:40,553 basehttp 8968 6948 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:33:58,602 basehttp 8968 6948 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:33:58,769 basehttp 8968 9972 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:33:59,748 basehttp 8968 11412 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:00,032 basehttp 8968 12796 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:00,086 basehttp 8968 11896 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:00,193 basehttp 8968 11188 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:00,295 basehttp 8968 6948 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:00,961 basehttp 8968 6948 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:00,991 basehttp 8968 11188 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:01,205 basehttp 8968 9972 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:01,336 basehttp 8968 11896 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:01,431 basehttp 8968 11412 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:01,807 basehttp 8968 12796 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:02,489 basehttp 8968 11188 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:02,666 basehttp 8968 9972 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 540
+[INFO] 2026-08-09 22:34:02,892 basehttp 8968 11896 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 647
+[INFO] 2026-08-09 22:34:03,186 basehttp 8968 12796 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 552
+[INFO] 2026-08-09 22:34:03,336 basehttp 8968 11412 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 537
+[INFO] 2026-08-09 22:34:03,508 basehttp 8968 11188 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:03,590 basehttp 8968 6948 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 525
+[INFO] 2026-08-09 22:34:03,893 basehttp 8968 9972 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:34:04,316 basehttp 8968 6948 "GET /api/v1/auth/users/?role=inspector&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:04,517 basehttp 8968 11896 "GET /api/v1/auth/users/?role=chamber_manager&page_size=1 HTTP/1.1" 200 540
+[INFO] 2026-08-09 22:34:05,226 basehttp 8968 12796 "GET /api/v1/auth/users/?role=province_manager&page_size=1 HTTP/1.1" 200 647
+[INFO] 2026-08-09 22:34:05,235 basehttp 8968 11188 "GET /api/v1/auth/users/?role=admin&page_size=1 HTTP/1.1" 200 537
+[INFO] 2026-08-09 22:34:05,454 basehttp 8968 9972 "GET /api/v1/auth/users/?role=union_manager&page_size=1 HTTP/1.1" 200 525
+[INFO] 2026-08-09 22:34:05,461 basehttp 8968 6948 "GET /api/v1/auth/users/?role=customer&page_size=1 HTTP/1.1" 200 561
+[INFO] 2026-08-09 22:34:05,532 basehttp 8968 11412 "GET /api/v1/auth/users/?role=store_owner&page_size=1 HTTP/1.1" 200 552
+[INFO] 2026-08-09 22:34:10,338 basehttp 8968 11896 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:10,889 basehttp 8968 11188 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:10,898 basehttp 8968 6948 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:11,055 basehttp 8968 11896 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:11,109 basehttp 8968 9972 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:11,223 basehttp 8968 12796 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:11,381 basehttp 8968 11412 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:11,993 basehttp 8968 12796 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:12,037 basehttp 8968 9972 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:12,177 basehttp 8968 11896 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:12,192 basehttp 8968 11188 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:12,265 basehttp 8968 6948 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:53,548 basehttp 8968 8716 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:34:53,703 basehttp 8968 8716 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:34:54,930 basehttp 8968 8716 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:55,175 basehttp 8968 14116 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:55,419 basehttp 8968 12512 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:55,763 basehttp 8968 4820 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:56,001 basehttp 8968 11448 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:56,236 basehttp 8968 14116 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:56,319 basehttp 8968 8716 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:34:56,376 basehttp 8968 5020 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:56,592 basehttp 8968 12512 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:56,818 basehttp 8968 8716 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:56,859 basehttp 8968 11448 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:34:56,866 basehttp 8968 4820 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:46:49,771 basehttp 8968 2864 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:46:50,138 basehttp 8968 7700 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 22:46:51,123 basehttp 8968 2864 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:46:51,436 basehttp 8968 7700 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:46:52,290 basehttp 8968 10980 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:46:52,646 basehttp 8968 10860 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:46:52,688 basehttp 8968 6864 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:46:52,810 basehttp 8968 2864 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:46:52,826 basehttp 8968 7700 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:46:52,857 basehttp 8968 3716 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:46:53,502 basehttp 8968 7700 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:46:53,659 basehttp 8968 10980 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 22:46:53,706 basehttp 8968 6864 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:46:53,799 basehttp 8968 10860 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 22:47:09,480 basehttp 8968 6864 "OPTIONS /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:47:09,482 basehttp 8968 10860 "OPTIONS /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:47:10,023 basehttp 8968 10860 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 67
+[INFO] 2026-08-09 22:47:10,223 basehttp 8968 6864 "GET /api/v1/geography/provinces/?page=1&page_size=15 HTTP/1.1" 200 67
+[INFO] 2026-08-09 22:47:10,616 basehttp 8968 10980 "OPTIONS /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:47:10,616 basehttp 8968 10860 "OPTIONS /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-09 22:47:11,097 basehttp 8968 6864 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 67
+[INFO] 2026-08-09 22:47:11,315 basehttp 8968 10860 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 83
+[INFO] 2026-08-09 22:47:11,670 basehttp 8968 6864 "GET /api/v1/geography/cities/?page=1&page_size=15 HTTP/1.1" 200 83
+[INFO] 2026-08-09 22:47:11,687 basehttp 8968 10980 "GET /api/v1/geography/provinces/?page_size=100 HTTP/1.1" 200 67
+[WARNING] 2026-08-09 23:25:17,876 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:17,878 basehttp 8968 19264 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:17,988 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:17,990 basehttp 8968 20168 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:17,991 basehttp 8968 20168 "OPTIONS /api/v1/auth/token/refresh/ HTTP/1.1" 200 0
+[WARNING] 2026-08-09 23:25:18,095 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:18,097 basehttp 8968 19264 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:18,244 log 8968 18472 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:18,248 basehttp 8968 18472 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:18,331 log 8968 19476 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:18,335 basehttp 8968 19476 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:18,435 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:18,436 basehttp 8968 20168 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:18,468 log 8968 19324 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:18,469 basehttp 8968 19324 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:18,549 log 8968 5188 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:18,554 basehttp 8968 5188 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:18,671 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:18,672 basehttp 8968 20168 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:18,735 log 8968 19476 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:18,736 basehttp 8968 19476 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:18,793 log 8968 19324 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:18,824 basehttp 8968 19324 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:18,846 basehttp 8968 19264 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:18,989 log 8968 18472 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:18,990 basehttp 8968 18472 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:19,211 log 8968 18472 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:19,212 basehttp 8968 18472 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:19,329 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:19,331 basehttp 8968 20168 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:19,419 log 8968 19476 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:19,421 basehttp 8968 19476 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:19,588 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:19,589 basehttp 8968 20168 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:19,639 log 8968 5188 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:19,640 basehttp 8968 5188 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:19,743 basehttp 8968 18472 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:19,790 log 8968 19324 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:19,791 basehttp 8968 19324 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:19,888 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:19,889 basehttp 8968 20168 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:20,024 log 8968 18472 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:20,026 basehttp 8968 18472 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:20,090 log 8968 19476 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:20,093 basehttp 8968 19476 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:20,172 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:20,173 basehttp 8968 19264 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:20,309 log 8968 18472 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:20,310 basehttp 8968 18472 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:20,414 log 8968 19476 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:20,414 basehttp 8968 19476 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:20,422 log 8968 19324 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:20,423 basehttp 8968 19324 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:20,494 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:20,496 basehttp 8968 19264 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:20,596 log 8968 5188 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:20,597 basehttp 8968 5188 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:20,622 basehttp 8968 20168 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:20,726 log 8968 18472 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:20,727 basehttp 8968 18472 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:20,993 basehttp 8968 18472 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:21,085 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:21,086 basehttp 8968 20168 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:21,213 log 8968 5188 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:21,221 basehttp 8968 5188 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:21,240 log 8968 19476 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:21,241 basehttp 8968 19476 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:21,374 log 8968 18472 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:21,375 basehttp 8968 18472 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:21,488 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:21,489 basehttp 8968 20168 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:21,531 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:21,532 basehttp 8968 19264 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:21,553 log 8968 19324 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:21,555 basehttp 8968 19324 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:21,694 basehttp 8968 19476 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:21,823 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:21,824 basehttp 8968 20168 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:22,001 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:22,002 basehttp 8968 19264 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:22,146 log 8968 18472 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:22,146 basehttp 8968 18472 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:22,154 log 8968 5188 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:22,154 basehttp 8968 5188 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:22,219 log 8968 19324 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:22,220 basehttp 8968 19324 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:22,296 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:22,296 basehttp 8968 19264 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:22,373 log 8968 19476 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:22,373 basehttp 8968 19476 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:22,461 log 8968 18472 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:22,462 basehttp 8968 18472 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:22,468 basehttp 8968 20168 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:22,659 log 8968 19476 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:22,661 basehttp 8968 19476 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:22,790 log 8968 19324 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:22,791 basehttp 8968 19324 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:22,860 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:22,862 basehttp 8968 19264 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:22,919 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:22,920 basehttp 8968 20168 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:22,994 log 8968 18472 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:22,996 basehttp 8968 18472 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:23,096 basehttp 8968 19476 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:23,201 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:23,201 basehttp 8968 19264 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:23,384 log 8968 19324 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:23,388 basehttp 8968 19324 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:23,496 log 8968 19476 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:23,498 basehttp 8968 19476 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:23,543 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:23,545 basehttp 8968 20168 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:23,566 basehttp 8968 19264 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:23,655 log 8968 18472 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:23,656 basehttp 8968 18472 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:23,803 log 8968 19476 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:23,804 basehttp 8968 19476 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:23,931 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:23,932 basehttp 8968 20168 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:23,988 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:23,990 basehttp 8968 19264 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:24,047 log 8968 19324 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:24,081 basehttp 8968 19324 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:24,092 basehttp 8968 18472 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:24,276 log 8968 18472 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:24,332 log 8968 19324 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:24,377 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:24,458 basehttp 8968 19324 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:24,459 basehttp 8968 18472 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:24,463 basehttp 8968 19264 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:24,628 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:24,629 basehttp 8968 20168 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:24,708 basehttp 8968 19324 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:24,853 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:24,855 basehttp 8968 20168 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:24,954 log 8968 19324 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:24,968 basehttp 8968 19324 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:25,125 basehttp 8968 20168 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:25,172 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:25,173 basehttp 8968 19264 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:25,445 log 8968 20168 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:25,447 basehttp 8968 20168 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:25,562 basehttp 8968 19264 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:25,684 log 8968 19264 Unauthorized: /api/v1/complaints/
+[WARNING] 2026-08-09 23:25:25,685 basehttp 8968 19264 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:26,464 basehttp 8968 20168 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-09 23:25:26,464 basehttp 8968 19264 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[WARNING] 2026-08-09 23:25:27,480 log 8968 20168 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-08-09 23:25:27,481 basehttp 8968 20168 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:27,624 log 8968 19264 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-08-09 23:25:27,625 basehttp 8968 19264 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:27,713 basehttp 8968 20168 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:27,806 log 8968 20168 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-08-09 23:25:27,806 basehttp 8968 20168 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:25:27,903 log 8968 19264 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-08-09 23:25:27,904 basehttp 8968 19264 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:28,067 basehttp 8968 19264 "POST /api/v1/auth/token/refresh/ HTTP/1.1" 200 384
+[WARNING] 2026-08-09 23:25:28,165 log 8968 19264 Unauthorized: /api/v1/auth/me/
+[WARNING] 2026-08-09 23:25:28,165 basehttp 8968 19264 "GET /api/v1/auth/me/ HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:25:37,753 basehttp 8968 19264 "OPTIONS /api/v1/auth/login/ HTTP/1.1" 200 0
+[WARNING] 2026-08-09 23:25:37,834 log 8968 19264 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-08-09 23:25:37,834 basehttp 8968 19264 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:26:05,974 log 8968 19264 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-08-09 23:26:05,975 basehttp 8968 19264 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:26:07,173 log 8968 19264 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-08-09 23:26:07,174 basehttp 8968 19264 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:26:07,421 log 8968 19264 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-08-09 23:26:07,421 basehttp 8968 19264 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[WARNING] 2026-08-09 23:26:07,608 log 8968 19264 Unauthorized: /api/v1/auth/login/
+[WARNING] 2026-08-09 23:26:07,609 basehttp 8968 19264 "POST /api/v1/auth/login/ HTTP/1.1" 401 293
+[INFO] 2026-08-09 23:26:24,813 base_service 8968 19264 User logged in with password: 09123456789
+[INFO] 2026-08-09 23:26:24,963 basehttp 8968 19264 "POST /api/v1/auth/login/ HTTP/1.1" 200 1353
+[INFO] 2026-08-09 23:26:25,892 basehttp 8968 19264 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 23:26:26,073 basehttp 8968 20168 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-09 23:26:26,823 basehttp 8968 5188 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 23:26:27,214 basehttp 8968 19264 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 23:26:27,223 basehttp 8968 18472 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 23:26:27,680 basehttp 8968 5188 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-09 23:26:27,790 basehttp 8968 20168 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 23:26:28,014 basehttp 8968 19476 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 23:26:28,163 basehttp 8968 19324 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 23:26:28,212 basehttp 8968 19264 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 23:26:28,460 basehttp 8968 18472 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 23:26:28,612 basehttp 8968 5188 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-09 23:26:28,727 basehttp 8968 20168 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-09 23:26:28,775 basehttp 8968 19476 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 00:50:34,635 autoreload 21848 17940 Watching for file changes with StatReloader
+[INFO] 2026-08-10 00:50:54,100 basehttp 21848 2024 "GET /admin HTTP/1.1" 301 0
+[INFO] 2026-08-10 00:50:54,803 basehttp 21848 15768 "GET /admin/ HTTP/1.1" 302 0
+[INFO] 2026-08-10 00:50:55,106 basehttp 21848 15768 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 17391
+[INFO] 2026-08-10 00:50:55,131 basehttp 21848 15768 "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+[INFO] 2026-08-10 00:50:55,136 basehttp 21848 13736 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+[INFO] 2026-08-10 00:50:55,137 basehttp 21848 13384 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+[INFO] 2026-08-10 00:50:55,137 basehttp 21848 18524 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+[INFO] 2026-08-10 00:50:55,140 basehttp 21848 15768 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14601
+[INFO] 2026-08-10 00:50:55,142 basehttp 21848 19208 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+[INFO] 2026-08-10 00:50:55,145 basehttp 21848 15440 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 16675
+[INFO] 2026-08-10 00:50:55,147 basehttp 21848 18524 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[INFO] 2026-08-10 00:50:55,148 basehttp 21848 15768 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+[INFO] 2026-08-10 00:50:55,148 basehttp 21848 19208 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+[INFO] 2026-08-10 00:50:55,412 basehttp 21848 19208 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4742
+[WARNING] 2026-08-10 00:50:55,626 log 21848 19208 Not Found: /favicon.ico
+[WARNING] 2026-08-10 00:50:55,627 basehttp 21848 19208 "GET /favicon.ico HTTP/1.1" 404 16654
+[INFO] 2026-08-10 00:51:27,973 basehttp 21848 4980 "OPTIONS /api/v1/auth/login/ HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:51:28,620 base_service 21848 4980 User logged in with password: 09123456789
+[INFO] 2026-08-10 00:51:28,780 basehttp 21848 4980 "POST /api/v1/auth/login/ HTTP/1.1" 200 1353
+[INFO] 2026-08-10 00:51:29,632 basehttp 21848 13064 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:51:29,633 basehttp 21848 4980 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:51:29,829 basehttp 21848 13064 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-10 00:51:29,912 basehttp 21848 13064 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:51:29,925 basehttp 21848 13064 "OPTIONS /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:51:30,088 basehttp 21848 4980 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-10 00:51:30,358 basehttp 21848 13064 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2822
+[INFO] 2026-08-10 00:51:30,572 basehttp 21848 4980 "GET /api/v1/auth/users/?page=1&page_size=10 HTTP/1.1" 200 2822
+[INFO] 2026-08-10 00:52:21,523 basehttp 21848 4980 "OPTIONS /api/v1/complaints/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:52:21,523 basehttp 21848 13064 "OPTIONS /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:52:21,524 basehttp 21848 14692 "OPTIONS /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:52:21,524 basehttp 21848 10756 "OPTIONS /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:52:21,531 basehttp 21848 4980 "OPTIONS /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:52:21,532 basehttp 21848 13064 "OPTIONS /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:52:21,532 basehttp 21848 10756 "OPTIONS /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:52:21,532 basehttp 21848 14692 "OPTIONS /api/v1/complaints/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:52:21,533 basehttp 21848 4980 "OPTIONS /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:52:21,537 basehttp 21848 13064 "OPTIONS /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:52:21,538 basehttp 21848 10756 "OPTIONS /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:52:21,544 basehttp 21848 14692 "OPTIONS /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-10 00:52:22,037 basehttp 21848 13064 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 00:52:22,135 basehttp 21848 10756 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 00:52:22,689 basehttp 21848 13064 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 00:52:22,974 basehttp 21848 17172 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 00:52:23,189 basehttp 21848 10756 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 00:52:23,482 basehttp 21848 14692 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 00:52:23,746 basehttp 21848 4980 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 00:52:23,927 basehttp 21848 13064 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 00:52:24,041 basehttp 21848 6092 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-10 00:52:24,203 basehttp 21848 10756 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 00:52:24,464 basehttp 21848 14692 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 00:52:24,804 basehttp 21848 13064 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-10 01:28:51,650 basehttp 21848 14432 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-10 01:28:51,781 basehttp 21848 14432 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-10 01:28:51,869 basehttp 21848 14432 "OPTIONS /api/v1/complaints/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-08-10 01:28:51,869 basehttp 21848 12092 "OPTIONS /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-10 01:28:51,871 basehttp 21848 14432 "OPTIONS /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-10 01:28:51,873 basehttp 21848 12092 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-10 01:28:51,873 basehttp 21848 14432 "OPTIONS /api/v1/complaints/?page_size=100 HTTP/1.1" 200 0
+[INFO] 2026-08-10 01:28:51,878 basehttp 21848 12092 "OPTIONS /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 0
+[INFO] 2026-08-10 01:28:51,967 basehttp 21848 17020 "OPTIONS /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 200 0
+[INFO] 2026-08-10 01:28:51,969 basehttp 21848 17020 "OPTIONS /api/v1/stores/?page_size=1 HTTP/1.1" 200 0
+[INFO] 2026-08-10 01:28:52,161 basehttp 21848 14432 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[INFO] 2026-08-10 01:28:52,880 basehttp 21848 14432 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-10 01:28:53,026 basehttp 21848 16532 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[WARNING] 2026-08-10 01:28:53,083 log 21848 17020 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-10 01:28:53,085 basehttp 21848 17020 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-10 01:28:53,132 basehttp 21848 12092 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[WARNING] 2026-08-10 01:28:53,465 log 21848 16532 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-10 01:28:53,466 basehttp 21848 16532 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-10 01:28:53,600 basehttp 21848 4168 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-10 01:28:53,610 basehttp 21848 17020 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-10 01:28:58,331 basehttp 21848 17020 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 01:28:58,701 basehttp 21848 4168 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 01:28:58,801 basehttp 21848 17020 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 01:28:58,863 basehttp 21848 14432 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 01:28:59,029 basehttp 21848 12092 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 01:28:59,369 basehttp 21848 17020 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 01:28:59,542 basehttp 21848 14432 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 01:28:59,552 basehttp 21848 17824 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-10 01:28:59,685 basehttp 21848 4168 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 01:28:59,747 basehttp 21848 16532 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 01:29:00,099 basehttp 21848 14432 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-10 01:29:00,243 basehttp 21848 4168 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 01:30:58,430 basehttp 21848 4168 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-10 01:30:58,656 basehttp 21848 14432 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[WARNING] 2026-08-10 01:30:59,553 log 21848 16532 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-10 01:30:59,554 basehttp 21848 16532 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-10 01:30:59,677 basehttp 21848 17824 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-10 01:30:59,762 basehttp 21848 4168 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-10 01:30:59,799 basehttp 21848 14432 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[INFO] 2026-08-10 01:31:00,382 basehttp 21848 16532 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[WARNING] 2026-08-10 01:31:00,394 log 21848 17020 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-10 01:31:00,395 basehttp 21848 17020 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-10 01:31:00,507 basehttp 21848 17824 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-10 01:31:00,562 basehttp 21848 4168 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[INFO] 2026-08-10 02:02:13,840 basehttp 21848 8764 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-10 02:02:14,019 basehttp 21848 9868 "GET /api/v1/auth/me/ HTTP/1.1" 200 569
+[INFO] 2026-08-10 02:02:14,484 basehttp 21848 9868 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[INFO] 2026-08-10 02:02:14,723 basehttp 21848 8764 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[INFO] 2026-08-10 02:02:15,147 basehttp 21848 8764 "GET /api/v1/pricing/overpriced/?page_size=5 HTTP/1.1" 200 26
+[WARNING] 2026-08-10 02:02:15,153 log 21848 2444 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-10 02:02:15,154 basehttp 21848 2444 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-10 02:02:15,371 basehttp 21848 5356 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-10 02:02:15,433 basehttp 21848 9868 "GET /api/v1/complaints/?page_size=100 HTTP/1.1" 200 551
+[WARNING] 2026-08-10 02:02:15,607 log 21848 8764 Bad Request: /api/v1/pricing/official-prices/today/
+[WARNING] 2026-08-10 02:02:15,610 basehttp 21848 8764 "GET /api/v1/pricing/official-prices/today/?page_size=10 HTTP/1.1" 400 75
+[INFO] 2026-08-10 02:02:15,753 basehttp 21848 2444 "GET /api/v1/stores/?page_size=1 HTTP/1.1" 200 416
+[INFO] 2026-08-10 02:02:49,923 basehttp 21848 19840 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 02:02:50,126 basehttp 21848 16768 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-10 02:02:50,173 basehttp 21848 9868 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 02:02:50,604 basehttp 21848 8764 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 02:02:50,719 basehttp 21848 19840 "GET /api/v1/complaints/?status=closed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 02:02:50,798 basehttp 21848 2444 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 02:02:50,979 basehttp 21848 5356 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 02:02:51,340 basehttp 21848 8764 "GET /api/v1/complaints/?status=submitted&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 02:02:51,425 basehttp 21848 9868 "GET /api/v1/complaints/?status=reviewing&page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 02:02:51,486 basehttp 21848 2444 "GET /api/v1/complaints/?status=confirmed&page_size=1 HTTP/1.1" 200 109
+[INFO] 2026-08-10 02:02:51,602 basehttp 21848 16768 "GET /api/v1/complaints/?page=1&page_size=15 HTTP/1.1" 200 551
+[INFO] 2026-08-10 02:02:51,663 basehttp 21848 19840 "GET /api/v1/complaints/?page_size=1 HTTP/1.1" 200 551
+[INFO] 2026-08-10 02:04:09,550 basehttp 21848 16768 "OPTIONS /api/v1/complaints/74d4e048-c988-41ff-baa9-4a1dba6a3d6d/ HTTP/1.1" 200 0
+[INFO] 2026-08-10 02:04:09,550 basehttp 21848 19840 "OPTIONS /api/v1/complaints/74d4e048-c988-41ff-baa9-4a1dba6a3d6d/ HTTP/1.1" 200 0
+[INFO] 2026-08-10 02:04:10,846 basehttp 21848 19840 "GET /api/v1/complaints/74d4e048-c988-41ff-baa9-4a1dba6a3d6d/ HTTP/1.1" 200 965
+[INFO] 2026-08-10 02:04:12,580 basehttp 21848 16768 "GET /api/v1/complaints/74d4e048-c988-41ff-baa9-4a1dba6a3d6d/ HTTP/1.1" 200 965
