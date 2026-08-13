@@ -1,186 +1,164 @@
+"use client";
+
 import React from "react";
 import {
-  ClipboardDocumentListIcon,
-  PaperAirplaneIcon,
-  MagnifyingGlassCircleIcon,
   CheckCircleIcon,
+  ClockIcon,
   XCircleIcon,
-} from "@heroicons/react/24/outline";
-import { CheckCircleIcon as CheckCircleSolid } from "@heroicons/react/24/solid";
-import { cn } from "@/lib/cn";
+} from "@heroicons/react/24/solid";
 import { toJalaliWithTime } from "@/utils/date.utils";
+import { cn } from "@/lib/cn";
 
+// ─────────────────────────────────────────────────────────────────────────────
 export interface TimelineStep {
+  /** کلید وضعیت (باید با یکی از مقادیر ComplaintStatus بک‌اند یکی باشد) */
   status: string;
+  /** عنوان نمایشی مرحله */
   label: string;
-  date?: string;
-  by?: string;
-  note?: string;
+  /** تاریخ وقوع این مرحله (اگر هنوز اتفاق نیفتاده، خالی بگذارید) */
+  date?: string | null;
+  /** انجام‌دهنده این مرحله (اختیاری) */
+  by?: string | null;
+  /** توضیح تکمیلی برای این مرحله (اختیاری) */
+  description?: string | null;
 }
 
 interface ComplaintTimelineProps {
+  /** رویدادهای واقعی ثبت‌شده برای شکایت (حداقل شامل «ثبت شکایت» باشد) */
   steps: TimelineStep[];
+  /** وضعیت فعلی شکایت */
   currentStatus: string;
 }
 
-// ✅ جدید: Timeline ساده‌تر
-const TIMELINE_STAGES = [
-  {
-    id: "submitted",
-    label: "ثبت شکایت",
-    icon: ClipboardDocumentListIcon,
-    color: "blue",
-  },
-  {
-    id: "assigned",
-    label: "ارجاع به مسئولین",
-    icon: PaperAirplaneIcon,
-    color: "purple",
-  },
-  {
-    id: "reviewing",
-    label: "در حال بررسی",
-    icon: MagnifyingGlassCircleIcon,
-    color: "amber",
-  },
-  {
-    id: "result",
-    label: "نتیجه بررسی",
-    icon: CheckCircleIcon,
-    color: "green",
-  },
-  {
-    id: "closed",
-    label: "مختومه",
-    icon: XCircleIcon,
-    color: "slate",
-  },
+// ─────────────────────────────────────────────────────────────────────────────
+// مسیر استاندارد گردش‌کار شکایت (بدون احتساب حالت‌های پایانی)
+const BASE_FLOW: { key: string; label: string }[] = [
+  { key: "submitted", label: "ثبت شکایت" },
+  { key: "reviewing", label: "بررسی اولیه" },
+  { key: "referred", label: "ارجاع به بازرس" },
+  { key: "inspecting", label: "بازرسی میدانی" },
 ];
 
-const STATUS_TO_STAGE: Record<string, number> = {
-  submitted: 0,
-  reviewing: 2,
-  referred: 1,
-  inspecting: 2,
-  confirmed: 3,
-  rejected: 3,
-  closed: 4,
+const TERMINAL_LABELS: Record<string, string> = {
+  confirmed: "تایید نهایی",
+  rejected: "رد شکایت",
+  closed: "مختومه",
 };
 
-export function ComplaintTimeline({
-  steps,
-  currentStatus,
-}: ComplaintTimelineProps) {
-  const currentStageIndex = STATUS_TO_STAGE[currentStatus] ?? 0;
+const TERMINAL_STATUSES = Object.keys(TERMINAL_LABELS);
 
-  // پیدا کردن تاریخ ثبت
-  const submittedStep = steps.find((s) => s.status === "submitted");
+// ─────────────────────────────────────────────────────────────────────────────
+export function ComplaintTimeline({ steps, currentStatus }: ComplaintTimelineProps) {
+  const isTerminal = TERMINAL_STATUSES.includes(currentStatus);
+  const isRejected = currentStatus === "rejected";
+
+  // ایندکس فعلی در مسیر پایه (اگر وضعیت پایانی است، یعنی از کل مسیر پایه عبور کرده)
+  const baseIndex = BASE_FLOW.findIndex((s) => s.key === currentStatus);
+  const currentIndex = isTerminal ? BASE_FLOW.length : baseIndex;
+
+  // مرحله‌ی نهایی نمایش (تایید/رد/مختومه یا در انتظار نتیجه)
+  const finalStep = {
+    key: isTerminal ? currentStatus : "pending_result",
+    label: isTerminal ? TERMINAL_LABELS[currentStatus] : "نتیجه نهایی",
+  };
+
+  const displaySteps = [...BASE_FLOW, finalStep];
+
+  // نگاشت رویدادهای واقعی (steps ورودی) بر اساس status برای پیدا کردن تاریخ/انجام‌دهنده
+  const stepDataMap = new Map<string, TimelineStep>();
+  steps.forEach((s) => stepDataMap.set(s.status, s));
 
   return (
-    <div className="relative">
-      {TIMELINE_STAGES.map((stage, index) => {
-        const isActive = index === currentStageIndex;
-        const isDone = index < currentStageIndex;
-        const Icon = stage.icon;
+    <div className="relative pr-2">
+      {displaySteps.map((step, index) => {
+        const isLast = index === displaySteps.length - 1;
+        const eventData = stepDataMap.get(step.key);
 
-        // تاریخ مرحله
-        let stepDate = "";
-        let stepBy = "";
-        if (index === 0 && submittedStep) {
-          stepDate = submittedStep.date || "";
-          stepBy = submittedStep.by || "";
-        } else if (isActive) {
-          stepDate = "فعلی";
-        }
+        // وضعیت این مرحله نسبت به وضعیت فعلی
+        const isDone = index < currentIndex;
+        const isCurrent = index === currentIndex && !isTerminal;
+        const isFinalActive = isLast && isTerminal;
+        const isFinalRejected = isFinalActive && isRejected;
+        const isPending = !isDone && !isCurrent && !isFinalActive;
 
         return (
-          <div key={stage.id} className="flex gap-4 pb-8 last:pb-0 relative">
-            {/* Line */}
-            {index < TIMELINE_STAGES.length - 1 && (
+          <div key={step.key} className="flex gap-4 pb-8 last:pb-0">
+            {/* خط اتصال + آیکون */}
+            <div className="flex flex-col items-center flex-shrink-0">
               <div
                 className={cn(
-                  "absolute right-4 top-10 w-0.5 h-full transition-colors",
-                  isDone ? "bg-green-400" : "bg-slate-200"
+                  "h-9 w-9 rounded-full flex items-center justify-center border-2 z-10",
+                  isFinalRejected
+                    ? "bg-red-100 border-red-400"
+                    : isFinalActive
+                    ? "bg-green-100 border-green-400"
+                    : isDone
+                    ? "bg-primary-100 border-primary-400"
+                    : isCurrent
+                    ? "bg-primary-600 border-primary-600 animate-pulse"
+                    : "bg-slate-50 border-slate-200"
                 )}
-              />
-            )}
-
-            {/* Icon */}
-            <div
-              className={cn(
-                "relative z-10 h-9 w-9 rounded-full flex items-center justify-center flex-shrink-0 transition-all",
-                isDone
-                  ? "bg-green-500 text-white shadow-md"
-                  : isActive
-                  ? `bg-${stage.color}-500 text-white shadow-lg shadow-${stage.color}-200 ring-4 ring-${stage.color}-100`
-                  : "bg-slate-100 text-slate-400 border-2 border-slate-200"
-              )}
-            >
-              {isDone ? (
-                <CheckCircleSolid className="h-5 w-5" />
-              ) : (
-                <Icon className="h-4 w-4" />
+              >
+                {isFinalRejected ? (
+                  <XCircleIcon className="h-5 w-5 text-red-600" />
+                ) : isFinalActive ? (
+                  <CheckCircleIcon className="h-5 w-5 text-green-600" />
+                ) : isDone ? (
+                  <CheckCircleIcon className="h-5 w-5 text-primary-600" />
+                ) : isCurrent ? (
+                  <ClockIcon className="h-5 w-5 text-white" />
+                ) : (
+                  <div className="h-2.5 w-2.5 rounded-full bg-slate-300" />
+                )}
+              </div>
+              {!isLast && (
+                <div
+                  className={cn(
+                    "w-0.5 flex-1 mt-1",
+                    isDone ? "bg-primary-300" : "bg-slate-200"
+                  )}
+                />
               )}
             </div>
 
-            {/* Content */}
-            <div className="flex-1 pt-0.5">
+            {/* محتوای مرحله */}
+            <div className="flex-1 min-w-0 pt-1">
               <p
                 className={cn(
-                  "font-bold text-sm mb-0.5",
-                  isActive
-                    ? "text-primary-800"
-                    : isDone
+                  "text-sm font-bold",
+                  isFinalRejected
+                    ? "text-red-700"
+                    : isFinalActive
                     ? "text-green-700"
+                    : isDone
+                    ? "text-primary-700"
+                    : isCurrent
+                    ? "text-primary-800"
                     : "text-slate-400"
                 )}
               >
-                {stage.label}
+                {step.label}
               </p>
 
-              {stepDate && (
-                <p className="text-xs text-slate-500 mb-1">{stepDate}</p>
+              {eventData?.date && (
+                <p className="text-xs text-slate-400 mt-0.5">
+                  {toJalaliWithTime(eventData.date)}
+                  {eventData.by && ` — توسط ${eventData.by}`}
+                </p>
               )}
 
-              {stepBy && (
-                <p className="text-xs text-slate-400">توسط: {stepBy}</p>
+              {!eventData?.date && isCurrent && (
+                <p className="text-xs text-primary-500 mt-0.5">در حال انجام...</p>
               )}
 
-              {isActive && (
-                <div
-                  className={cn(
-                    "mt-2 inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-semibold",
-                    `bg-${stage.color}-100 text-${stage.color}-700`
-                  )}
-                >
-                  <span className="relative flex h-2 w-2">
-                    <span
-                      className={cn(
-                        "animate-ping absolute inline-flex h-full w-full rounded-full opacity-75",
-                        `bg-${stage.color}-400`
-                      )}
-                    />
-                    <span
-                      className={cn(
-                        "relative inline-flex rounded-full h-2 w-2",
-                        `bg-${stage.color}-500`
-                      )}
-                    />
-                  </span>
-                  {currentStatus === "submitted"
-                    ? "در انتظار"
-                    : currentStatus === "reviewing"
-                    ? "در حال بررسی"
-                    : currentStatus === "referred"
-                    ? "ارجاع شده"
-                    : currentStatus === "inspecting"
-                    ? "در حال بازرسی"
-                    : currentStatus === "confirmed"
-                    ? "تایید شد"
-                    : currentStatus === "rejected"
-                    ? "رد شد"
-                    : "بسته شد"}
-                </div>
+              {!eventData?.date && isPending && (
+                <p className="text-xs text-slate-300 mt-0.5">در انتظار</p>
+              )}
+
+              {eventData?.description && (
+                <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                  {eventData.description}
+                </p>
               )}
             </div>
           </div>
