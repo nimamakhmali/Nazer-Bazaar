@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from drf_spectacular.utils import extend_schema, OpenApiParameter
+from django.db.models import Q                          # ✅ NEW
 
 from apps.common.permissions import IsAdminUser
 from apps.common.exceptions import ResourceNotFoundError
@@ -63,6 +64,12 @@ class StoreListCreateView(APIView):
                 type=int
             ),
             OpenApiParameter(
+                name='status',                       # ✅ NEW
+                description='فیلتر بر اساس وضعیت (active, pending, suspended, rejected, closed)',
+                required=False,
+                type=str
+            ),
+            OpenApiParameter(
                 name='search',
                 description='جستجو در نام یا آدرس',
                 required=False,
@@ -76,9 +83,24 @@ class StoreListCreateView(APIView):
         city_id = request.query_params.get('city')
         province_id = request.query_params.get('province')
         search = request.query_params.get('search')
+        status_filter = request.query_params.get('status')   # ✅ NEW
 
+        # ── پایه queryset ────────────────────────────────────────────
         if union_id:
-            stores = StoreSelector.get_by_union_active(int(union_id))
+            # ✅ FIX: استفاده از get_by_union به جای get_by_union_active
+            # تا تمام وضعیت‌ها (active, pending, suspended, ...) برگردانده شوند
+            stores = StoreSelector.get_by_union(int(union_id))
+
+            # جستجو داخل اتحادیه
+            if search:
+                stores = stores.filter(
+                    Q(name__icontains=search) |
+                    Q(license_number__icontains=search) |
+                    Q(address__icontains=search) |
+                    Q(owner__first_name__icontains=search) |
+                    Q(owner__last_name__icontains=search)
+                )
+
         elif city_id:
             stores = StoreSelector.get_by_city(int(city_id))
         elif province_id:
@@ -91,6 +113,11 @@ class StoreListCreateView(APIView):
             )
         else:
             stores = StoreSelector.get_all_active()
+
+        # ── فیلتر وضعیت ──────────────────────────────────────────────
+        # ✅ NEW: پشتیبانی از فیلتر status برای تمام مسیرها
+        if status_filter:
+            stores = stores.filter(status=status_filter)
 
         paginator = StandardResultsPagination()
         paginated = paginator.paginate_queryset(stores, request)

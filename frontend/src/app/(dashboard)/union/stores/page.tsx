@@ -71,6 +71,12 @@ interface StorePrice {
   discount_percent: number;
 }
 
+interface StoreStats {
+  active: number;
+  pending: number;
+  suspended: number;
+}
+
 // ─── Schemas ──────────────────────────────────────────────────────────────────
 const suspendSchema = z.object({
   reason: z
@@ -122,6 +128,14 @@ export default function UnionStoresPage() {
   const [statusFilter, setStatusFilter] = useState("");
   const [unionId, setUnionId] = useState<number | null>(null);
 
+  // ✅ Stats از API جداگانه — نه از آرایه صفحه فعلی
+  const [stats, setStats] = useState<StoreStats>({
+    active: 0,
+    pending: 0,
+    suspended: 0,
+  });
+  const [loadingStats, setLoadingStats] = useState(true);
+
   // Detail drawer
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState<Store | null>(null);
@@ -164,6 +178,48 @@ export default function UnionStoresPage() {
     loadMe();
   }, []);
 
+  // ── ✅ بارگذاری آمار از API جداگانه ────────────────────────────────────────
+  const fetchStats = useCallback(async () => {
+    if (!unionId) return;
+    setLoadingStats(true);
+    try {
+      const [activeRes, pendingRes, suspendedRes] =
+        await Promise.allSettled([
+          apiClient.get(ENDPOINTS.STORES.LIST, {
+            params: { union: unionId, status: "active", page_size: 1 },
+          }),
+          apiClient.get(ENDPOINTS.STORES.LIST, {
+            params: { union: unionId, status: "pending", page_size: 1 },
+          }),
+          apiClient.get(ENDPOINTS.STORES.LIST, {
+            params: { union: unionId, status: "suspended", page_size: 1 },
+          }),
+        ]);
+
+      const getCount = (
+        r: PromiseSettledResult<{ data?: { count?: number; data?: { count?: number } } }>
+      ): number => {
+        if (r.status !== "fulfilled") return 0;
+        const raw = r.value.data;
+        return extractCount(raw, 0);
+      };
+
+      setStats({
+        active: getCount(activeRes),
+        pending: getCount(pendingRes),
+        suspended: getCount(suspendedRes),
+      });
+    } catch {
+      /* silent */
+    } finally {
+      setLoadingStats(false);
+    }
+  }, [unionId]);
+
+  useEffect(() => {
+    fetchStats();
+  }, [fetchStats]);
+
   // ── بارگذاری فروشگاه‌ها ─────────────────────────────────────────────────────
   const fetchStores = useCallback(async () => {
     if (!unionId) return;
@@ -196,6 +252,12 @@ export default function UnionStoresPage() {
   useEffect(() => {
     setPage(1);
   }, [search, statusFilter]);
+
+  // ── ✅ refetch مشترک بعد از هر mutation ─────────────────────────────────────
+  const refetchAfterMutation = useCallback(() => {
+    fetchStores();
+    fetchStats();
+  }, [fetchStores, fetchStats]);
 
   // ── باز کردن drawer جزئیات ────────────────────────────────────────────────
   const openStoreDrawer = async (store: Store) => {
@@ -232,7 +294,7 @@ export default function UnionStoresPage() {
       setSuspendModal(false);
       setSuspendingStore(null);
       suspendForm.reset();
-      fetchStores();
+      refetchAfterMutation(); // ✅ هر دو را آپدیت کن
       if (selectedStore?.id === suspendingStore.id) {
         setDrawerOpen(false);
       }
@@ -252,7 +314,7 @@ export default function UnionStoresPage() {
       toast.success(`فروشگاه "${reactivatingStore.name}" بازگردانده شد`);
       setReactivateConfirm(false);
       setReactivatingStore(null);
-      fetchStores();
+      refetchAfterMutation(); // ✅ هر دو را آپدیت کن
     } catch (err) {
       toast.error(parseApiError(err));
     } finally {
@@ -278,18 +340,13 @@ export default function UnionStoresPage() {
       toast.success("فروشگاه جدید ثبت شد و در انتظار تایید است");
       setRegisterModal(false);
       registerForm.reset();
-      fetchStores();
+      refetchAfterMutation(); // ✅ هر دو را آپدیت کن
     } catch (err) {
       toast.error(parseApiError(err));
     } finally {
       setSubmitting(false);
     }
   };
-
-  // ── Counts ──────────────────────────────────────────────────────────────────
-  const activeCount = stores.filter((s) => s.status === "active").length;
-  const pendingCount = stores.filter((s) => s.status === "pending").length;
-  const suspendedCount = stores.filter((s) => s.status === "suspended").length;
 
   return (
     <div className="space-y-6">
@@ -307,46 +364,53 @@ export default function UnionStoresPage() {
         }
       />
 
-      {/* Summary cards */}
+      {/* ── ✅ Summary cards — از API جداگانه ── */}
       <div className="grid grid-cols-3 gap-4">
-        {[
-          {
-            label: "فعال",
-            count: activeCount,
-            color: "bg-green-50 border-green-100 text-green-700",
-            dot: "bg-green-500",
-          },
-          {
-            label: "در انتظار تایید",
-            count: pendingCount,
-            color: "bg-amber-50 border-amber-100 text-amber-700",
-            dot: "bg-amber-500",
-          },
-          {
-            label: "تعلیق‌شده",
-            count: suspendedCount,
-            color: "bg-red-50 border-red-100 text-red-700",
-            dot: "bg-red-500",
-          },
-        ].map((item) => (
-          <div
-            key={item.label}
-            className={cn(
-              "flex items-center gap-3 p-4 rounded-xl border",
-              item.color
-            )}
-          >
-            <span
-              className={cn("h-3 w-3 rounded-full flex-shrink-0", item.dot)}
-            />
-            <div>
-              <p className="text-2xl font-bold">
-                {item.count.toLocaleString("fa-IR")}
-              </p>
-              <p className="text-xs opacity-70">{item.label}</p>
-            </div>
-          </div>
-        ))}
+        {loadingStats
+          ? Array.from({ length: 3 }).map((_, i) => (
+              <div
+                key={i}
+                className="h-20 rounded-xl border border-slate-100 bg-slate-50 animate-pulse"
+              />
+            ))
+          : [
+              {
+                label: "فعال",
+                count: stats.active,
+                color: "bg-green-50 border-green-100 text-green-700",
+                dot: "bg-green-500",
+              },
+              {
+                label: "در انتظار تایید",
+                count: stats.pending,
+                color: "bg-amber-50 border-amber-100 text-amber-700",
+                dot: "bg-amber-500",
+              },
+              {
+                label: "تعلیق‌شده",
+                count: stats.suspended,
+                color: "bg-red-50 border-red-100 text-red-700",
+                dot: "bg-red-500",
+              },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className={cn(
+                  "flex items-center gap-3 p-4 rounded-xl border",
+                  item.color
+                )}
+              >
+                <span
+                  className={cn("h-3 w-3 rounded-full flex-shrink-0", item.dot)}
+                />
+                <div>
+                  <p className="text-2xl font-bold">
+                    {item.count.toLocaleString("fa-IR")}
+                  </p>
+                  <p className="text-xs opacity-70">{item.label}</p>
+                </div>
+              </div>
+            ))}
       </div>
 
       {/* Filters */}
@@ -375,9 +439,9 @@ export default function UnionStoresPage() {
                 )}
               >
                 {tab.label}
-                {tab.value === "pending" && pendingCount > 0 && (
+                {tab.value === "pending" && stats.pending > 0 && (
                   <span className="mr-1.5 inline-flex items-center justify-center h-4 w-4 bg-amber-500 text-white text-[10px] rounded-full font-bold">
-                    {pendingCount}
+                    {stats.pending}
                   </span>
                 )}
               </button>
@@ -586,24 +650,24 @@ export default function UnionStoresPage() {
             </div>
 
             {/* Stats */}
-              <div className="grid grid-cols-2 gap-2">
-                <div className="p-3 bg-orange-50 rounded-xl border border-orange-100 text-center">
-                  <p className="text-xl font-bold text-orange-600">
-                    {(selectedStore.complaints_count ?? 0).toLocaleString(
-                      "fa-IR"
-                    )}
-                  </p>
-                  <p className="text-xs text-orange-500">کل شکایات</p>
-                </div>
-                <div className="p-3 bg-red-50 rounded-xl border border-red-100 text-center">
-                  <p className="text-xl font-bold text-red-600">
-                    {(selectedStore.pending_complaints_count ?? 0).toLocaleString(
-                      "fa-IR"
-                    )}
-                  </p>
-                  <p className="text-xs text-red-500">شکایات در انتظار</p>
-                </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="p-3 bg-orange-50 rounded-xl border border-orange-100 text-center">
+                <p className="text-xl font-bold text-orange-600">
+                  {(selectedStore.complaints_count ?? 0).toLocaleString(
+                    "fa-IR"
+                  )}
+                </p>
+                <p className="text-xs text-orange-500">کل شکایات</p>
               </div>
+              <div className="p-3 bg-red-50 rounded-xl border border-red-100 text-center">
+                <p className="text-xl font-bold text-red-600">
+                  {(
+                    selectedStore.pending_complaints_count ?? 0
+                  ).toLocaleString("fa-IR")}
+                </p>
+                <p className="text-xs text-red-500">شکایات در انتظار</p>
+              </div>
+            </div>
 
             {/* Today prices */}
             <div>
