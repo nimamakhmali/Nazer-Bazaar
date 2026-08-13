@@ -78,3 +78,15 @@ export interface ComplaintListItem {
   created_at: string;
   updated_at: string;
 }
+
+// ✅ NEW
+export interface ComplaintStatusChangeRequest {
+  status:
+    | "reviewing"
+    | "referred"
+    | "inspecting"
+    | "confirmed"
+    | "rejected"
+    | "closed";
+  note?: string;
+}

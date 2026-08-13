@@ -1,6 +1,9 @@
 import apiClient from "@/services/api.client";
 import { ENDPOINTS } from "@/services/endpoints";
-import type { ComplaintCreateRequest } from "../types/complaints.types";
+import type {
+  ComplaintCreateRequest,
+  ComplaintStatusChangeRequest,
+} from "../types/complaints.types";
 
 export const complaintsService = {
   createComplaint: (data: ComplaintCreateRequest) => {
@@ -23,4 +26,8 @@ export const complaintsService = {
 
   trackComplaint: (uuid: string) =>
     apiClient.get(ENDPOINTS.COMPLAINTS.TRACK(uuid)),
+
+  // ✅ NEW
+  changeStatus: (uuid: string, data: ComplaintStatusChangeRequest) =>
+    apiClient.post(ENDPOINTS.COMPLAINTS.CHANGE_STATUS(uuid), data),
 };

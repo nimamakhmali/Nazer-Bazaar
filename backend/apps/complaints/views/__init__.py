@@ -3,7 +3,9 @@ from .complaint_views import (
     MyComplaintsView,
     ComplaintDetailView,
     ComplaintTrackView,
+    ComplaintStatusChangeView,
 )
+
 
 __all__ = [
     'ComplaintListCreateView',

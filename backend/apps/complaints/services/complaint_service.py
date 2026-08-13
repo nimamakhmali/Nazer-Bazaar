@@ -28,7 +28,6 @@ class ComplaintService(BaseService):
         from apps.stores.models import Store
         from apps.products.models import Product
 
-        # ✅ FIX: حذف چک role - هر کاربر احراز‌شده می‌تواند شکایت کند
         customer = User.objects.filter(id=customer_id, is_active=True).first()
         if not customer:
             logger.error(f"Customer not found: {customer_id}")
@@ -57,7 +56,6 @@ class ComplaintService(BaseService):
                     status=ComplaintStatus.SUBMITTED
                 )
 
-                # ارسال نوتیفیکیشن به مدیر اتحادیه مربوطه
                 try:
                     from ..tasks import notify_new_complaint
                     notify_new_complaint.delay(complaint.id)
@@ -110,16 +108,38 @@ class ComplaintService(BaseService):
         requesting_user,
         note: str = None
     ) -> Complaint:
-        """تغییر وضعیت شکایت"""
+        """
+        تغییر وضعیت شکایت توسط مدیر مربوطه (رئیس اتحادیه، مدیر اتاق اصناف،
+        ناظر استانداری، بازرس یا ادمین).
+
+        به‌صورت خودکار محول‌شونده (assigned_to) و فیلد سطح مربوطه
+        (assigned_union_manager / assigned_chamber_manager / assigned_province_manager)
+        در صورت خالی بودن، با کاربر درخواست‌دهنده پر می‌شود.
+        """
         complaint = ComplaintSelector.get_by_id(complaint_id)
         if not complaint:
             raise ResourceNotFoundError("شکایت مورد نظر یافت نشد.")
 
+        if new_status not in ComplaintStatus.values:
+            raise ValueError("وضعیت نامعتبر است")
+
         old_status = complaint.status
         complaint.status = new_status
+
         if note:
             complaint.resolution_note = note
-        
+
+        # ✅ NEW: ثبت خودکار محول‌شونده در صورت خالی بودن
+        if not complaint.assigned_to_id:
+            complaint.assigned_to = requesting_user
+
+        if requesting_user.role == UserRole.UNION_MANAGER and not complaint.assigned_union_manager_id:
+            complaint.assigned_union_manager = requesting_user
+        elif requesting_user.role == UserRole.CHAMBER_MANAGER and not complaint.assigned_chamber_manager_id:
+            complaint.assigned_chamber_manager = requesting_user
+        elif requesting_user.role == UserRole.PROVINCE_MANAGER and not complaint.assigned_province_manager_id:
+            complaint.assigned_province_manager = requesting_user
+
         with self.transaction():
             complaint.save()
 

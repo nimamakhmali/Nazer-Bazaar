@@ -14,8 +14,12 @@ from apps.complaints.serializers import (
     ComplaintCreateSerializer,
     ComplaintListSerializer,
     ComplaintDetailSerializer,
+    ComplaintStatusChangeSerializer,
 )
-from apps.complaints.permissions import IsComplaintOwnerOrManager
+from apps.complaints.permissions import (
+    IsComplaintOwnerOrManager,
+    CanChangeComplaintStatus,
+)
 
 from apps.complaints.models import Complaint
 
@@ -94,7 +98,6 @@ class ComplaintListCreateView(APIView):
         """
         user = request.user
         
-        # ✅ فیلتر role-based
         if user.role == UserRole.ADMIN:
             queryset = ComplaintSelector.get_all()
         
@@ -108,11 +111,8 @@ class ComplaintListCreateView(APIView):
                     queryset = Complaint.objects.none()
             except Exception:
                 queryset = Complaint.objects.none()
-                
-                
         
         elif user.role == UserRole.CHAMBER_MANAGER:
-            # شکایات اتاق اصنافی که مدیرش این کاربر است
             try:
                 from apps.organizations.models import Chamber
                 chamber = Chamber.objects.filter(manager=user).first()
@@ -124,12 +124,10 @@ class ComplaintListCreateView(APIView):
                 queryset = ComplaintSelector.get_all().none()
         
         elif user.role == UserRole.STORE_OWNER:
-            # شکایات فروشگاه‌های این کاربر
             store_ids = user.owned_stores.values_list('id', flat=True)
             queryset = ComplaintSelector.get_all().filter(store_id__in=store_ids)
         
         elif user.role == UserRole.INSPECTOR:
-            # شکایات محول شده به بازرس
             queryset = ComplaintSelector.get_all().filter(assigned_to=user)
         
         elif user.role == UserRole.CUSTOMER:
@@ -138,7 +136,6 @@ class ComplaintListCreateView(APIView):
         else:
             queryset = ComplaintSelector.get_all().none()
         
-        # ✅ فیلترهای اضافی
         status_filter = request.query_params.get('status')
         if status_filter:
             queryset = queryset.filter(status=status_filter)
@@ -151,7 +148,6 @@ class ComplaintListCreateView(APIView):
                 Q(tracking_code__icontains=search)
             )
         
-        # ✅ Pagination
         from apps.common.pagination import StandardResultsPagination
         paginator = StandardResultsPagination()
         page = paginator.paginate_queryset(queryset, request)
@@ -219,11 +215,9 @@ class ComplaintTrackView(APIView):
     def get(self, request, identifier):
         complaint = None
         
-        # ✅ اگر ۸ رقم بود، با tracking_code جستجو کن
         if identifier.isdigit() and len(identifier) == 8:
             complaint = ComplaintSelector.get_by_tracking_code(identifier)
         else:
-            # وگرنه UUID
             try:
                 complaint = ComplaintSelector.get_by_uuid(identifier)
             except:
@@ -234,3 +228,45 @@ class ComplaintTrackView(APIView):
         
         serializer = ComplaintDetailSerializer(complaint)
         return Response(serializer.data)
+
+
+# ✅ NEW: تغییر وضعیت شکایت توسط مدیران
+class ComplaintStatusChangeView(APIView):
+    """
+    POST /api/v1/complaints/{uuid}/status/
+    تغییر وضعیت شکایت توسط رئیس اتحادیه، مدیر اتاق اصناف،
+    ناظر استانداری، بازرس محول‌شده یا ادمین.
+    """
+    permission_classes = [IsAuthenticated, CanChangeComplaintStatus]
+
+    def get_object(self, request, uuid):
+        complaint = ComplaintSelector.get_by_uuid(uuid)
+        if not complaint:
+            raise ResourceNotFoundError("شکایت مورد نظر یافت نشد.")
+        self.check_object_permissions(request, complaint)
+        return complaint
+
+    @extend_schema(
+        summary="تغییر وضعیت شکایت",
+        tags=['complaints'],
+        request=ComplaintStatusChangeSerializer,
+        responses={200: ComplaintDetailSerializer}
+    )
+    def post(self, request, uuid):
+        complaint = self.get_object(request, uuid)
+
+        serializer = ComplaintStatusChangeSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        service = ComplaintService()
+        updated = service.change_status(
+            complaint_id=complaint.id,
+            new_status=serializer.validated_data['status'],
+            requesting_user=request.user,
+            note=serializer.validated_data.get('note'),
+        )
+
+        return Response(
+            ComplaintDetailSerializer(updated).data,
+            status=status.HTTP_200_OK
+        )

@@ -91,6 +91,7 @@ export const ENDPOINTS = {
     DETAIL: (uuid: string) => `/complaints/${uuid}/`,
     MY: "/complaints/my/",
     TRACK: (identifier: string) => `/complaints/track/${identifier}/`,  // ✅ اصلاح شد
+     CHANGE_STATUS: (uuid: string) => `/complaints/${uuid}/status/`,
   },
 
   // CMS

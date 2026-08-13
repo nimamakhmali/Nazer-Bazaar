@@ -8,6 +8,8 @@ import {
   NoSymbolIcon,
   CheckCircleIcon,
   XCircleIcon,
+  ClockIcon,
+  LockClosedIcon,
 } from "@heroicons/react/24/outline";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/Badge";
@@ -68,6 +70,12 @@ interface ComplaintDetail extends Complaint {
   }>;
 }
 
+interface ComplaintStats {
+  total: number;
+  pending: number; // submitted + reviewing + referred + inspecting
+  confirmed: number;
+}
+
 // ─── Schemas ──────────────────────────────────────────────────────────────────
 const suspendFromComplaintSchema = z.object({
   store_id: z.number(),
@@ -102,6 +110,39 @@ const STATUS_FILTERS = [
   { value: "closed", label: "مختومه" },
 ];
 
+// ✅ NEW: اقدامات قابل انجام روی وضعیت شکایت
+const STATUS_ACTIONS: Array<{
+  value: "reviewing" | "confirmed" | "rejected" | "closed";
+  label: string;
+  icon: React.ReactNode;
+  variant: "outline" | "success" | "danger" | "ghost";
+}> = [
+  {
+    value: "reviewing",
+    label: "در حال بررسی",
+    icon: <ClockIcon className="h-4 w-4" />,
+    variant: "outline",
+  },
+  {
+    value: "confirmed",
+    label: "تایید شکایت",
+    icon: <CheckCircleIcon className="h-4 w-4" />,
+    variant: "success",
+  },
+  {
+    value: "rejected",
+    label: "رد شکایت",
+    icon: <XCircleIcon className="h-4 w-4" />,
+    variant: "danger",
+  },
+  {
+    value: "closed",
+    label: "مختومه کردن",
+    icon: <LockClosedIcon className="h-4 w-4" />,
+    variant: "ghost",
+  },
+];
+
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function UnionComplaintsPage() {
   const [complaints, setComplaints] = useState<Complaint[]>([]);
@@ -112,11 +153,23 @@ export default function UnionComplaintsPage() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
 
+  // ✅ NEW: آمار از API جداگانه — نه از آرایه صفحه فعلی
+  const [stats, setStats] = useState<ComplaintStats>({
+    total: 0,
+    pending: 0,
+    confirmed: 0,
+  });
+  const [statsLoading, setStatsLoading] = useState(true);
+
   // Detail modal
   const [detailModal, setDetailModal] = useState(false);
   const [selectedComplaint, setSelectedComplaint] =
     useState<ComplaintDetail | null>(null);
   const [detailLoading, setDetailLoading] = useState(false);
+
+  // ✅ NEW: تغییر وضعیت
+  const [statusNote, setStatusNote] = useState("");
+  const [statusChanging, setStatusChanging] = useState(false);
 
   // Suspend from complaint modal
   const [suspendModal, setSuspendModal] = useState(false);
@@ -125,6 +178,47 @@ export default function UnionComplaintsPage() {
   const suspendForm = useForm<SuspendFromComplaintData>({
     resolver: zodResolver(suspendFromComplaintSchema),
   });
+
+  // ── ✅ بارگذاری آمار از API جداگانه ────────────────────────────────────────
+  const fetchStats = useCallback(async () => {
+    setStatsLoading(true);
+    try {
+      const [totalRes, submittedRes, reviewingRes, referredRes, inspectingRes, confirmedRes] =
+        await Promise.allSettled([
+          apiClient.get(ENDPOINTS.COMPLAINTS.LIST, { params: { page_size: 1 } }),
+          apiClient.get(ENDPOINTS.COMPLAINTS.LIST, { params: { status: "submitted", page_size: 1 } }),
+          apiClient.get(ENDPOINTS.COMPLAINTS.LIST, { params: { status: "reviewing", page_size: 1 } }),
+          apiClient.get(ENDPOINTS.COMPLAINTS.LIST, { params: { status: "referred", page_size: 1 } }),
+          apiClient.get(ENDPOINTS.COMPLAINTS.LIST, { params: { status: "inspecting", page_size: 1 } }),
+          apiClient.get(ENDPOINTS.COMPLAINTS.LIST, { params: { status: "confirmed", page_size: 1 } }),
+        ]);
+
+      const getCount = (
+        r: PromiseSettledResult<{ data?: unknown }>
+      ): number => {
+        if (r.status !== "fulfilled") return 0;
+        return extractCount(r.value.data, 0);
+      };
+
+      const total = getCount(totalRes);
+      const pending =
+        getCount(submittedRes) +
+        getCount(reviewingRes) +
+        getCount(referredRes) +
+        getCount(inspectingRes);
+      const confirmed = getCount(confirmedRes);
+
+      setStats({ total, pending, confirmed });
+    } catch {
+      /* silent */
+    } finally {
+      setStatsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchStats();
+  }, [fetchStats]);
 
   // ── بارگذاری شکایات ─────────────────────────────────────────────────────────
   const fetchComplaints = useCallback(async () => {
@@ -154,11 +248,18 @@ export default function UnionComplaintsPage() {
     setPage(1);
   }, [search, filter]);
 
+  // ── ✅ refetch مشترک بعد از هر mutation ─────────────────────────────────────
+  const refetchAfterMutation = useCallback(() => {
+    fetchComplaints();
+    fetchStats();
+  }, [fetchComplaints, fetchStats]);
+
   // ── باز کردن جزئیات شکایت ────────────────────────────────────────────────────
   const openDetail = async (complaint: Complaint) => {
     setDetailLoading(true);
     setDetailModal(true);
     setSelectedComplaint(null);
+    setStatusNote("");
     try {
       const res = await apiClient.get(
         ENDPOINTS.COMPLAINTS.DETAIL(complaint.uuid)
@@ -169,6 +270,29 @@ export default function UnionComplaintsPage() {
       setSelectedComplaint(complaint as ComplaintDetail);
     } finally {
       setDetailLoading(false);
+    }
+  };
+
+  // ── ✅ تغییر وضعیت شکایت ─────────────────────────────────────────────────────
+  const handleChangeStatus = async (
+    newStatus: "reviewing" | "confirmed" | "rejected" | "closed"
+  ) => {
+    if (!selectedComplaint) return;
+    setStatusChanging(true);
+    try {
+      const res = await apiClient.post(
+        ENDPOINTS.COMPLAINTS.CHANGE_STATUS(selectedComplaint.uuid),
+        { status: newStatus, note: statusNote || undefined }
+      );
+      const updated = (res.data?.data ?? res.data) as ComplaintDetail;
+      setSelectedComplaint(updated);
+      setStatusNote("");
+      toast.success("وضعیت شکایت با موفقیت به‌روزرسانی شد");
+      refetchAfterMutation();
+    } catch (err) {
+      toast.error(parseApiError(err));
+    } finally {
+      setStatusChanging(false);
     }
   };
 
@@ -192,22 +316,13 @@ export default function UnionComplaintsPage() {
       setSuspendModal(false);
       suspendForm.reset();
       setDetailModal(false);
-      fetchComplaints();
+      refetchAfterMutation();
     } catch (err) {
       toast.error(parseApiError(err));
     } finally {
       setSubmitting(false);
     }
   };
-
-  // ── آمار سریع ────────────────────────────────────────────────────────────────
-  const pendingCount = complaints.filter((c) =>
-    ["submitted", "reviewing", "referred", "inspecting"].includes(c.status)
-  ).length;
-
-  const confirmedCount = complaints.filter(
-    (c) => c.status === "confirmed"
-  ).length;
 
   return (
     <div className="space-y-6">
@@ -217,52 +332,56 @@ export default function UnionComplaintsPage() {
         breadcrumbs={[{ label: "اتحادیه" }, { label: "شکایات" }]}
       />
 
-      {/* Summary */}
+      {/* ✅ Summary — از API جداگانه */}
       <div className="grid grid-cols-3 gap-4">
-        {[
-          {
-            label: "در انتظار بررسی",
-            count: pendingCount,
-            color:
-              "bg-amber-50 border-amber-100 text-amber-700",
-            dot: "bg-amber-500",
-          },
-          {
-            label: "تایید شده",
-            count: confirmedCount,
-            color:
-              "bg-green-50 border-green-100 text-green-700",
-            dot: "bg-green-500",
-          },
-          {
-            label: "کل شکایات",
-            count: totalCount,
-            color:
-              "bg-slate-50 border-slate-100 text-slate-700",
-            dot: "bg-slate-400",
-          },
-        ].map((item) => (
-          <div
-            key={item.label}
-            className={cn(
-              "flex items-center gap-3 p-4 rounded-xl border",
-              item.color
-            )}
-          >
-            <span
-              className={cn(
-                "h-3 w-3 rounded-full flex-shrink-0",
-                item.dot
-              )}
-            />
-            <div>
-              <p className="text-2xl font-bold">
-                {item.count.toLocaleString("fa-IR")}
-              </p>
-              <p className="text-xs opacity-70">{item.label}</p>
-            </div>
-          </div>
-        ))}
+        {statsLoading
+          ? Array.from({ length: 3 }).map((_, i) => (
+              <div
+                key={i}
+                className="h-20 rounded-xl border border-slate-100 bg-slate-50 animate-pulse"
+              />
+            ))
+          : [
+              {
+                label: "در انتظار بررسی",
+                count: stats.pending,
+                color: "bg-amber-50 border-amber-100 text-amber-700",
+                dot: "bg-amber-500",
+              },
+              {
+                label: "تایید شده",
+                count: stats.confirmed,
+                color: "bg-green-50 border-green-100 text-green-700",
+                dot: "bg-green-500",
+              },
+              {
+                label: "کل شکایات",
+                count: stats.total,
+                color: "bg-slate-50 border-slate-100 text-slate-700",
+                dot: "bg-slate-400",
+              },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className={cn(
+                  "flex items-center gap-3 p-4 rounded-xl border",
+                  item.color
+                )}
+              >
+                <span
+                  className={cn(
+                    "h-3 w-3 rounded-full flex-shrink-0",
+                    item.dot
+                  )}
+                />
+                <div>
+                  <p className="text-2xl font-bold">
+                    {item.count.toLocaleString("fa-IR")}
+                  </p>
+                  <p className="text-xs opacity-70">{item.label}</p>
+                </div>
+              </div>
+            ))}
       </div>
 
       {/* Filters */}
@@ -346,7 +465,6 @@ export default function UnionComplaintsPage() {
                           isConfirmed && "bg-green-50/20"
                         )}
                       >
-                        {/* عنوان */}
                         <td className="px-5 py-4">
                           <div className="flex items-center gap-2.5">
                             <div
@@ -387,10 +505,7 @@ export default function UnionComplaintsPage() {
                           {formatPrice(c.price_reported)} ریال
                         </td>
                         <td className="px-5 py-4">
-                          <Badge
-                            variant={cfg.variant}
-                            size="sm"
-                          >
+                          <Badge variant={cfg.variant} size="sm">
                             {cfg.label}
                           </Badge>
                         </td>
@@ -398,7 +513,6 @@ export default function UnionComplaintsPage() {
                           {toJalali(c.created_at)}
                         </td>
 
-                        {/* عملیات */}
                         <td className="px-5 py-4">
                           <div className="flex items-center gap-1">
                             <button
@@ -448,6 +562,7 @@ export default function UnionComplaintsPage() {
         onClose={() => {
           setDetailModal(false);
           setSelectedComplaint(null);
+          setStatusNote("");
         }}
         title="جزئیات شکایت"
         size="xl"
@@ -488,17 +603,13 @@ export default function UnionComplaintsPage() {
             {/* Fields */}
             <div className="grid grid-cols-2 gap-3">
               {[
-                {
-                  label: "فروشگاه",
-                  value: selectedComplaint.store_name,
-                },
-                {
-                  label: "محصول",
-                  value: selectedComplaint.product_name,
-                },
+                { label: "فروشگاه", value: selectedComplaint.store_name },
+                { label: "محصول", value: selectedComplaint.product_name },
                 {
                   label: "قیمت گزارشی",
-                  value: `${formatPrice(selectedComplaint.price_reported)} ریال`,
+                  value: `${formatPrice(
+                    selectedComplaint.price_reported
+                  )} ریال`,
                 },
                 {
                   label: "شاکی",
@@ -558,11 +669,54 @@ export default function UnionComplaintsPage() {
             {selectedComplaint.resolution_note && (
               <div className="p-3 bg-green-50 border border-green-200 rounded-xl">
                 <p className="text-xs text-green-600 font-medium mb-1">
-                  نتیجه نهایی
+                  یادداشت / نتیجه بررسی
                 </p>
                 <p className="text-sm text-green-800">
                   {selectedComplaint.resolution_note}
                 </p>
+              </div>
+            )}
+
+            {/* ✅ NEW: بخش تعیین وضعیت شکایت */}
+            {selectedComplaint.status !== "closed" ? (
+              <div className="border-t border-slate-100 pt-4 space-y-3">
+                <p className="text-sm font-bold text-slate-700">
+                  تعیین وضعیت شکایت
+                </p>
+
+                <textarea
+                  value={statusNote}
+                  onChange={(e) => setStatusNote(e.target.value)}
+                  rows={2}
+                  placeholder="یادداشت یا نتیجه بررسی (اختیاری)"
+                  className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-100 focus:border-primary-500 resize-none"
+                />
+
+                <div className="flex flex-wrap gap-2">
+                  {STATUS_ACTIONS.filter(
+                    (a) => a.value !== selectedComplaint.status
+                  ).map((action) => (
+                    <Button
+                      key={action.value}
+                      size="sm"
+                      variant={action.variant}
+                      isLoading={statusChanging}
+                      leftIcon={action.icon}
+                      onClick={() => handleChangeStatus(action.value)}
+                    >
+                      {action.label}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="border-t border-slate-100 pt-4">
+                <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-xl">
+                  <LockClosedIcon className="h-4 w-4 text-slate-400" />
+                  <p className="text-sm text-slate-500">
+                    این شکایت مختومه شده و قابل تغییر وضعیت نیست.
+                  </p>
+                </div>
               </div>
             )}
 
@@ -605,8 +759,7 @@ export default function UnionComplaintsPage() {
         >
           <div className="p-3 bg-red-50 border border-red-200 rounded-xl">
             <p className="text-sm text-red-700 font-medium">
-              فروشگاه:{" "}
-              <strong>{suspendForm.watch("store_name")}</strong>
+              فروشگاه: <strong>{suspendForm.watch("store_name")}</strong>
             </p>
             <p className="text-xs text-red-500 mt-1">
               ⚠️ با تعلیق، فروشگاه قادر به ثبت قیمت نخواهد بود.

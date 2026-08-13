@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from apps.complaints.models import Complaint, ComplaintAttachment, ComplaintResponse
 from apps.accounts.serializers import UserBasicSerializer
+from apps.common.choices import ComplaintStatus
 
 
 class ComplaintAttachmentSerializer(serializers.ModelSerializer):
@@ -36,8 +37,6 @@ class ComplaintListSerializer(serializers.ModelSerializer):
     status_display = serializers.CharField(source='get_status_display', read_only=True)
     tracking_code = serializers.CharField(read_only=True)
 
-    # ✅ FIX: به جای IntegerField از SerializerMethodField استفاده می‌کنیم
-    # چون hours_since_created یک @property است و در queryset annotate نشده
     escalation_level = serializers.IntegerField(read_only=True)
     is_overdue = serializers.SerializerMethodField()
     hours_since_created = serializers.SerializerMethodField()
@@ -83,13 +82,11 @@ class ComplaintDetailSerializer(serializers.ModelSerializer):
 
     price_reported_formatted = serializers.SerializerMethodField()
 
-    # ✅ FIX: null-safe با SerializerMethodField به جای source با null
     assigned_union_manager_name = serializers.SerializerMethodField()
     assigned_chamber_manager_name = serializers.SerializerMethodField()
     assigned_province_manager_name = serializers.SerializerMethodField()
 
     escalation_level = serializers.IntegerField(read_only=True)
-    # ✅ FIX: SerializerMethodField برای property های محاسباتی
     hours_since_created = serializers.SerializerMethodField()
     is_overdue_48h = serializers.SerializerMethodField()
     is_overdue_96h = serializers.SerializerMethodField()
@@ -175,3 +172,33 @@ class ComplaintDetailSerializer(serializers.ModelSerializer):
             return bool(obj.is_overdue_96h)
         except Exception:
             return False
+
+
+# ✅ NEW: سریالایزر تغییر وضعیت شکایت
+class ComplaintStatusChangeSerializer(serializers.Serializer):
+    """
+    استفاده در endpoint تغییر وضعیت شکایت توسط مدیران.
+    وضعیت SUBMITTED در لیست مجاز نیست چون آن وضعیت اولیه‌ی خودکار سیستم است.
+    """
+    ALLOWED_STATUSES = [
+        ComplaintStatus.REVIEWING,
+        ComplaintStatus.REFERRED,
+        ComplaintStatus.INSPECTING,
+        ComplaintStatus.CONFIRMED,
+        ComplaintStatus.REJECTED,
+        ComplaintStatus.CLOSED,
+    ]
+
+    status = serializers.ChoiceField(choices=ComplaintStatus.choices)
+    note = serializers.CharField(
+        required=False,
+        allow_blank=True,
+        max_length=1000
+    )
+
+    def validate_status(self, value):
+        if value not in self.ALLOWED_STATUSES:
+            raise serializers.ValidationError(
+                'این وضعیت برای تغییر مجاز نیست.'
+            )
+        return value
