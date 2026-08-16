@@ -87,9 +87,22 @@ const suspendSchema = z.object({
 });
 type SuspendFormData = z.infer<typeof suspendSchema>;
 
+// ✅ NEW: schema برای رد درخواست فروشگاه
+const rejectSchema = z.object({
+  reason: z
+    .string()
+    .min(10, "دلیل رد باید حداقل ۱۰ کاراکتر باشد")
+    .max(500, "حداکثر ۵۰۰ کاراکتر"),
+});
+type RejectFormData = z.infer<typeof rejectSchema>;
+
 const registerStoreSchema = z.object({
   name: z.string().min(2, "نام فروشگاه حداقل ۲ کاراکتر").max(100),
-  owner_id: z.number({ required_error: "مالک الزامی است" }).positive(),
+  owner_id: z
+    .number()
+    .refine((val) => !Number.isNaN(val) && val > 0, {
+      message: "شناسه مالک الزامی است و باید عدد مثبت باشد",
+    }),
   license_number: z.string().min(3, "شماره پروانه الزامی است"),
   address: z.string().min(10, "آدرس حداقل ۱۰ کاراکتر"),
   phone: z.string().optional(),
@@ -128,7 +141,7 @@ export default function UnionStoresPage() {
   const [statusFilter, setStatusFilter] = useState("");
   const [unionId, setUnionId] = useState<number | null>(null);
 
-  // ✅ Stats از API جداگانه — نه از آرایه صفحه فعلی
+  // Stats از API جداگانه
   const [stats, setStats] = useState<StoreStats>({
     active: 0,
     pending: 0,
@@ -153,11 +166,24 @@ export default function UnionStoresPage() {
     null
   );
 
+  // ✅ NEW: Approve confirm
+  const [approveConfirm, setApproveConfirm] = useState(false);
+  const [approvingStore, setApprovingStore] = useState<Store | null>(null);
+
+  // ✅ NEW: Reject modal
+  const [rejectModal, setRejectModal] = useState(false);
+  const [rejectingStore, setRejectingStore] = useState<Store | null>(null);
+
   // Register store modal
   const [registerModal, setRegisterModal] = useState(false);
 
   const suspendForm = useForm<SuspendFormData>({
     resolver: zodResolver(suspendSchema),
+  });
+
+  // ✅ NEW
+  const rejectForm = useForm<RejectFormData>({
+    resolver: zodResolver(rejectSchema),
   });
 
   const registerForm = useForm<RegisterStoreFormData>({
@@ -178,7 +204,7 @@ export default function UnionStoresPage() {
     loadMe();
   }, []);
 
-  // ── ✅ بارگذاری آمار از API جداگانه ────────────────────────────────────────
+  // ── بارگذاری آمار از API جداگانه ────────────────────────────────────────
   const fetchStats = useCallback(async () => {
     if (!unionId) return;
     setLoadingStats(true);
@@ -253,7 +279,7 @@ export default function UnionStoresPage() {
     setPage(1);
   }, [search, statusFilter]);
 
-  // ── ✅ refetch مشترک بعد از هر mutation ─────────────────────────────────────
+  // ── refetch مشترک بعد از هر mutation ─────────────────────────────────────
   const refetchAfterMutation = useCallback(() => {
     fetchStores();
     fetchStats();
@@ -278,6 +304,49 @@ export default function UnionStoresPage() {
     }
   };
 
+  // ── ✅ NEW: تایید فروشگاه (درخواست عضویت جدید) ──────────────────────────────
+  const handleApprove = async () => {
+    if (!approvingStore) return;
+    setSubmitting(true);
+    try {
+      await apiClient.post(ENDPOINTS.STORES.APPROVE(approvingStore.id));
+      toast.success(`فروشگاه "${approvingStore.name}" تایید شد و فعال گردید`);
+      setApproveConfirm(false);
+      setApprovingStore(null);
+      refetchAfterMutation();
+      if (selectedStore?.id === approvingStore.id) {
+        setDrawerOpen(false);
+      }
+    } catch (err) {
+      toast.error(parseApiError(err));
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // ── ✅ NEW: رد درخواست فروشگاه ────────────────────────────────────────────
+  const onRejectSubmit = async (data: RejectFormData) => {
+    if (!rejectingStore) return;
+    setSubmitting(true);
+    try {
+      await apiClient.post(ENDPOINTS.STORES.REJECT(rejectingStore.id), {
+        reason: data.reason,
+      });
+      toast.success(`درخواست فروشگاه "${rejectingStore.name}" رد شد`);
+      setRejectModal(false);
+      setRejectingStore(null);
+      rejectForm.reset();
+      refetchAfterMutation();
+      if (selectedStore?.id === rejectingStore.id) {
+        setDrawerOpen(false);
+      }
+    } catch (err) {
+      toast.error(parseApiError(err));
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   // ── تعلیق فروشگاه ───────────────────────────────────────────────────────────
   const onSuspendSubmit = async (data: SuspendFormData) => {
     if (!suspendingStore) return;
@@ -294,7 +363,7 @@ export default function UnionStoresPage() {
       setSuspendModal(false);
       setSuspendingStore(null);
       suspendForm.reset();
-      refetchAfterMutation(); // ✅ هر دو را آپدیت کن
+      refetchAfterMutation();
       if (selectedStore?.id === suspendingStore.id) {
         setDrawerOpen(false);
       }
@@ -314,7 +383,7 @@ export default function UnionStoresPage() {
       toast.success(`فروشگاه "${reactivatingStore.name}" بازگردانده شد`);
       setReactivateConfirm(false);
       setReactivatingStore(null);
-      refetchAfterMutation(); // ✅ هر دو را آپدیت کن
+      refetchAfterMutation();
     } catch (err) {
       toast.error(parseApiError(err));
     } finally {
@@ -340,7 +409,7 @@ export default function UnionStoresPage() {
       toast.success("فروشگاه جدید ثبت شد و در انتظار تایید است");
       setRegisterModal(false);
       registerForm.reset();
-      refetchAfterMutation(); // ✅ هر دو را آپدیت کن
+      refetchAfterMutation();
     } catch (err) {
       toast.error(parseApiError(err));
     } finally {
@@ -364,7 +433,7 @@ export default function UnionStoresPage() {
         }
       />
 
-      {/* ── ✅ Summary cards — از API جداگانه ── */}
+      {/* Summary cards */}
       <div className="grid grid-cols-3 gap-4">
         {loadingStats
           ? Array.from({ length: 3 }).map((_, i) => (
@@ -541,37 +610,75 @@ export default function UnionStoresPage() {
                         {store.owner_phone}
                       </span>
                     </div>
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-slate-400">شکایات:</span>
-                      <span
-                        className={cn(
-                          "font-bold",
-                          store.complaints_count > 0
-                            ? "text-red-500"
-                            : "text-slate-500"
-                        )}
-                      >
-                        {(store.complaints_count ?? 0).toLocaleString("fa-IR")}
-                      </span>
-                    </div>
+                    {isPending && (
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="text-slate-400">تاریخ درخواست:</span>
+                        <span className="font-medium text-slate-600">
+                          {toJalali(store.created_at)}
+                        </span>
+                      </div>
+                    )}
+                    {!isPending && (
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="text-slate-400">شکایات:</span>
+                        <span
+                          className={cn(
+                            "font-bold",
+                            store.complaints_count > 0
+                              ? "text-red-500"
+                              : "text-slate-500"
+                          )}
+                        >
+                          {(store.complaints_count ?? 0).toLocaleString(
+                            "fa-IR"
+                          )}
+                        </span>
+                      </div>
+                    )}
                     {store.rejection_reason && (
                       <div className="mt-2 p-2 bg-red-50 rounded-lg">
                         <p className="text-[11px] text-red-600">
-                          دلیل تعلیق: {store.rejection_reason}
+                          دلیل: {store.rejection_reason}
                         </p>
                       </div>
                     )}
                   </div>
 
                   {/* Actions */}
-                  <div className="flex gap-2 border-t border-slate-50 pt-3">
+                  <div className="flex flex-col gap-2 border-t border-slate-50 pt-3">
                     <button
                       onClick={() => openStoreDrawer(store)}
-                      className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl bg-slate-50 text-slate-600 hover:bg-primary-50 hover:text-primary-600 transition-colors text-xs font-medium"
+                      className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl bg-slate-50 text-slate-600 hover:bg-primary-50 hover:text-primary-600 transition-colors text-xs font-medium"
                     >
                       <EyeIcon className="h-3.5 w-3.5" />
                       جزئیات
                     </button>
+
+                    {/* ✅ NEW: اکشن‌های تایید/رد برای فروشگاه‌های در انتظار */}
+                    {isPending && (
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => {
+                            setApprovingStore(store);
+                            setApproveConfirm(true);
+                          }}
+                          className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl bg-green-50 text-green-600 hover:bg-green-100 transition-colors text-xs font-medium"
+                        >
+                          <CheckCircleIcon className="h-3.5 w-3.5" />
+                          تایید
+                        </button>
+                        <button
+                          onClick={() => {
+                            setRejectingStore(store);
+                            setRejectModal(true);
+                          }}
+                          className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl bg-red-50 text-red-500 hover:bg-red-100 transition-colors text-xs font-medium"
+                        >
+                          <XCircleIcon className="h-3.5 w-3.5" />
+                          رد درخواست
+                        </button>
+                      </div>
+                    )}
 
                     {isActive && (
                       <button
@@ -579,7 +686,7 @@ export default function UnionStoresPage() {
                           setSuspendingStore(store);
                           setSuspendModal(true);
                         }}
-                        className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl bg-red-50 text-red-500 hover:bg-red-100 transition-colors text-xs font-medium"
+                        className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl bg-red-50 text-red-500 hover:bg-red-100 transition-colors text-xs font-medium"
                       >
                         <NoSymbolIcon className="h-3.5 w-3.5" />
                         تعلیق
@@ -592,7 +699,7 @@ export default function UnionStoresPage() {
                           setReactivatingStore(store);
                           setReactivateConfirm(true);
                         }}
-                        className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl bg-green-50 text-green-600 hover:bg-green-100 transition-colors text-xs font-medium"
+                        className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl bg-green-50 text-green-600 hover:bg-green-100 transition-colors text-xs font-medium"
                       >
                         <ArrowPathIcon className="h-3.5 w-3.5" />
                         بازگردانی
@@ -626,6 +733,16 @@ export default function UnionStoresPage() {
       >
         {selectedStore && (
           <div className="space-y-5">
+            {/* ✅ NEW: بنر وضعیت در انتظار تایید */}
+            {selectedStore.status === "pending" && (
+              <div className="flex items-center gap-2 p-3 bg-amber-50 border border-amber-200 rounded-xl">
+                <ExclamationTriangleIcon className="h-5 w-5 text-amber-600 flex-shrink-0" />
+                <p className="text-sm text-amber-800">
+                  این فروشگاه درخواست عضویت داده و در انتظار تایید شماست.
+                </p>
+              </div>
+            )}
+
             {/* Info */}
             <div className="grid grid-cols-2 gap-2">
               {[
@@ -639,6 +756,10 @@ export default function UnionStoresPage() {
                   value: selectedStore.license_number,
                 },
                 { label: "آدرس", value: selectedStore.address },
+                {
+                  label: "تاریخ ثبت درخواست",
+                  value: toJalali(selectedStore.created_at),
+                },
               ].map(({ label, value }) => (
                 <div key={label} className="p-2.5 bg-slate-50 rounded-xl">
                   <p className="text-[10px] text-slate-400 mb-0.5">{label}</p>
@@ -649,105 +770,140 @@ export default function UnionStoresPage() {
               ))}
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-2">
-              <div className="p-3 bg-orange-50 rounded-xl border border-orange-100 text-center">
-                <p className="text-xl font-bold text-orange-600">
-                  {(selectedStore.complaints_count ?? 0).toLocaleString(
-                    "fa-IR"
-                  )}
-                </p>
-                <p className="text-xs text-orange-500">کل شکایات</p>
-              </div>
-              <div className="p-3 bg-red-50 rounded-xl border border-red-100 text-center">
-                <p className="text-xl font-bold text-red-600">
-                  {(
-                    selectedStore.pending_complaints_count ?? 0
-                  ).toLocaleString("fa-IR")}
-                </p>
-                <p className="text-xs text-red-500">شکایات در انتظار</p>
-              </div>
-            </div>
-
-            {/* Today prices */}
-            <div>
-              <h4 className="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
-                <span>قیمت‌های امروز فروشگاه</span>
-                {storePrices.length > 0 && (
-                  <Badge variant="info" size="sm">
-                    {storePrices.length} محصول
-                  </Badge>
-                )}
-              </h4>
-
-              {pricesLoading ? (
-                <div className="flex justify-center py-8">
-                  <Spinner size="md" />
-                </div>
-              ) : storePrices.length === 0 ? (
-                <div className="flex items-center gap-2 p-4 bg-amber-50 border border-amber-200 rounded-xl">
-                  <ExclamationTriangleIcon className="h-5 w-5 text-amber-600 flex-shrink-0" />
-                  <p className="text-sm text-amber-800">
-                    این فروشگاه امروز قیمتی ثبت نکرده است
+            {/* Stats — فقط برای فروشگاه‌های غیر pending معنادار است */}
+            {selectedStore.status !== "pending" && (
+              <div className="grid grid-cols-2 gap-2">
+                <div className="p-3 bg-orange-50 rounded-xl border border-orange-100 text-center">
+                  <p className="text-xl font-bold text-orange-600">
+                    {(selectedStore.complaints_count ?? 0).toLocaleString(
+                      "fa-IR"
+                    )}
                   </p>
+                  <p className="text-xs text-orange-500">کل شکایات</p>
                 </div>
-              ) : (
-                <div className="space-y-2 max-h-60 overflow-y-auto">
-                  {storePrices.map((sp, i) => (
-                    <div
-                      key={i}
-                      className={cn(
-                        "flex items-center justify-between p-3 rounded-xl border",
-                        sp.is_overpriced
-                          ? "bg-red-50 border-red-200"
-                          : sp.is_compliant
-                          ? "bg-green-50 border-green-200"
-                          : "bg-amber-50 border-amber-200"
-                      )}
-                    >
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-slate-800 truncate">
-                          {sp.product_name}
-                        </p>
-                        <p className="text-xs text-slate-500 mt-0.5">
-                          مصوب: {formatPrice(sp.official_price_amount)} ریال |
-                          حداقل: {formatPrice(sp.min_allowed_price_amount)} ریال
-                        </p>
-                      </div>
-                      <div className="text-right flex-shrink-0 mr-3">
-                        <p
-                          className={cn(
-                            "text-sm font-bold",
-                            sp.is_overpriced ? "text-red-600" : "text-green-700"
+                <div className="p-3 bg-red-50 rounded-xl border border-red-100 text-center">
+                  <p className="text-xl font-bold text-red-600">
+                    {(
+                      selectedStore.pending_complaints_count ?? 0
+                    ).toLocaleString("fa-IR")}
+                  </p>
+                  <p className="text-xs text-red-500">شکایات در انتظار</p>
+                </div>
+              </div>
+            )}
+
+            {/* Today prices — فقط برای فروشگاه‌های فعال/تعلیق‌شده معنادار است */}
+            {selectedStore.status !== "pending" && (
+              <div>
+                <h4 className="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+                  <span>قیمت‌های امروز فروشگاه</span>
+                  {storePrices.length > 0 && (
+                    <Badge variant="info" size="sm">
+                      {storePrices.length} محصول
+                    </Badge>
+                  )}
+                </h4>
+
+                {pricesLoading ? (
+                  <div className="flex justify-center py-8">
+                    <Spinner size="md" />
+                  </div>
+                ) : storePrices.length === 0 ? (
+                  <div className="flex items-center gap-2 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                    <ExclamationTriangleIcon className="h-5 w-5 text-amber-600 flex-shrink-0" />
+                    <p className="text-sm text-amber-800">
+                      این فروشگاه امروز قیمتی ثبت نکرده است
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-2 max-h-60 overflow-y-auto">
+                    {storePrices.map((sp, i) => (
+                      <div
+                        key={i}
+                        className={cn(
+                          "flex items-center justify-between p-3 rounded-xl border",
+                          sp.is_overpriced
+                            ? "bg-red-50 border-red-200"
+                            : sp.is_compliant
+                            ? "bg-green-50 border-green-200"
+                            : "bg-amber-50 border-amber-200"
+                        )}
+                      >
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-semibold text-slate-800 truncate">
+                            {sp.product_name}
+                          </p>
+                          <p className="text-xs text-slate-500 mt-0.5">
+                            مصوب: {formatPrice(sp.official_price_amount)} ریال
+                            | حداقل: {formatPrice(sp.min_allowed_price_amount)}{" "}
+                            ریال
+                          </p>
+                        </div>
+                        <div className="text-right flex-shrink-0 mr-3">
+                          <p
+                            className={cn(
+                              "text-sm font-bold",
+                              sp.is_overpriced
+                                ? "text-red-600"
+                                : "text-green-700"
+                            )}
+                          >
+                            {formatPrice(sp.price)} ریال
+                          </p>
+                          {sp.is_overpriced && (
+                            <p className="text-[10px] text-red-500 mt-0.5">
+                              +{formatPrice(sp.violation_amount)} تخلف
+                            </p>
                           )}
-                        >
-                          {formatPrice(sp.price)} ریال
-                        </p>
-                        {sp.is_overpriced && (
-                          <p className="text-[10px] text-red-500 mt-0.5">
-                            +{formatPrice(sp.violation_amount)} تخلف
-                          </p>
-                        )}
-                        {sp.is_compliant && (
-                          <p className="text-[10px] text-green-500 mt-0.5">
-                            {sp.discount_percent}% تخفیف
-                          </p>
-                        )}
+                          {sp.is_compliant && (
+                            <p className="text-[10px] text-green-500 mt-0.5">
+                              {sp.discount_percent}% تخفیف
+                            </p>
+                          )}
+                        </div>
+                        <div className="mr-2 flex-shrink-0">
+                          {sp.is_overpriced ? (
+                            <XCircleIcon className="h-5 w-5 text-red-500" />
+                          ) : sp.is_compliant ? (
+                            <CheckCircleIcon className="h-5 w-5 text-green-500" />
+                          ) : (
+                            <ExclamationTriangleIcon className="h-5 w-5 text-amber-500" />
+                          )}
+                        </div>
                       </div>
-                      <div className="mr-2 flex-shrink-0">
-                        {sp.is_overpriced ? (
-                          <XCircleIcon className="h-5 w-5 text-red-500" />
-                        ) : sp.is_compliant ? (
-                          <CheckCircleIcon className="h-5 w-5 text-green-500" />
-                        ) : (
-                          <ExclamationTriangleIcon className="h-5 w-5 text-amber-500" />
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* ✅ NEW: اکشن تایید/رد در Drawer برای فروشگاه در انتظار */}
+            {selectedStore.status === "pending" && (
+              <div className="border-t border-slate-100 pt-4 flex gap-2">
+                <button
+                  onClick={() => {
+                    setDrawerOpen(false);
+                    setApprovingStore(selectedStore);
+                    setApproveConfirm(true);
+                  }}
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-green-50 text-green-600 hover:bg-green-100 transition-colors text-sm font-medium"
+                >
+                  <CheckCircleIcon className="h-4 w-4" />
+                  تایید فروشگاه
+                </button>
+                <button
+                  onClick={() => {
+                    setDrawerOpen(false);
+                    setRejectingStore(selectedStore);
+                    setRejectModal(true);
+                  }}
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-red-50 text-red-600 hover:bg-red-100 transition-colors text-sm font-medium"
+                >
+                  <XCircleIcon className="h-4 w-4" />
+                  رد درخواست
+                </button>
+              </div>
+            )}
 
             {/* Quick actions in drawer */}
             {selectedStore.status === "active" && (
@@ -784,6 +940,110 @@ export default function UnionStoresPage() {
           </div>
         )}
       </Drawer>
+
+      {/* ✅ NEW: Approve Confirm Dialog */}
+      <ConfirmDialog
+        isOpen={approveConfirm}
+        onClose={() => {
+          setApproveConfirm(false);
+          setApprovingStore(null);
+        }}
+        onConfirm={handleApprove}
+        title="تایید فروشگاه"
+        message={`آیا از تایید فروشگاه "${approvingStore?.name}" اطمینان دارید؟ پس از تایید، فروشگاه فعال شده و می‌تواند قیمت‌گذاری کند.`}
+        confirmText="تایید فروشگاه"
+        cancelText="انصراف"
+        isLoading={submitting}
+        variant="success"
+      />
+
+      {/* ✅ NEW: Reject Modal */}
+      <Modal
+        isOpen={rejectModal}
+        onClose={() => {
+          setRejectModal(false);
+          setRejectingStore(null);
+          rejectForm.reset();
+        }}
+        title={`رد درخواست فروشگاه — ${rejectingStore?.name ?? ""}`}
+        size="md"
+      >
+        <form
+          onSubmit={rejectForm.handleSubmit(onRejectSubmit)}
+          className="space-y-4"
+        >
+          <div className="p-3 bg-red-50 border border-red-200 rounded-xl">
+            <p className="text-sm text-red-700 font-medium">
+              ⚠️ با رد این درخواست، فروشگاه غیرفعال باقی می‌ماند و صاحب آن
+              دلیل رد را مشاهده خواهد کرد.
+            </p>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              دلیل رد <span className="text-red-500">*</span>
+            </label>
+            <select
+              className="w-full border border-slate-300 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-100 focus:border-red-400 mb-2"
+              onChange={(e) => {
+                if (e.target.value) {
+                  rejectForm.setValue("reason", e.target.value);
+                }
+              }}
+            >
+              <option value="">انتخاب دلیل...</option>
+              <option value="مدارک ارائه‌شده ناقص یا نامعتبر است">
+                مدارک ناقص / نامعتبر
+              </option>
+              <option value="شماره پروانه کسب معتبر نیست">
+                پروانه کسب نامعتبر
+              </option>
+              <option value="اطلاعات ثبت‌شده با واقعیت مطابقت ندارد">
+                عدم تطابق اطلاعات
+              </option>
+              <option value="آدرس یا موقعیت فروشگاه خارج از محدوده اتحادیه است">
+                خارج از محدوده اتحادیه
+              </option>
+              <option value="سایر موارد">سایر موارد</option>
+            </select>
+            <textarea
+              {...rejectForm.register("reason")}
+              rows={3}
+              placeholder="توضیح دقیق دلیل رد درخواست..."
+              className="w-full border border-slate-300 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-100 focus:border-red-400 resize-none"
+            />
+            {rejectForm.formState.errors.reason && (
+              <p className="mt-1 text-xs text-red-500">
+                {rejectForm.formState.errors.reason.message}
+              </p>
+            )}
+          </div>
+
+          <div className="flex gap-3 pt-2">
+            <Button
+              type="submit"
+              variant="danger"
+              isLoading={submitting}
+              className="flex-1"
+              leftIcon={<XCircleIcon className="h-4 w-4" />}
+            >
+              رد درخواست
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => {
+                setRejectModal(false);
+                setRejectingStore(null);
+                rejectForm.reset();
+              }}
+              className="flex-1"
+            >
+              انصراف
+            </Button>
+          </div>
+        </form>
+      </Modal>
 
       {/* Suspend Modal */}
       <Modal
