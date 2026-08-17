@@ -144,7 +144,7 @@ export function AdminComplaintDetailClient({ uuid }: Props) {
     {
       status: "submitted",
       label: "ثبت شکایت",
-      date: toJalaliWithTime(complaint.created_at),
+      date: complaint.created_at,
       by: complaint.customer?.full_name,
     },
   ];
