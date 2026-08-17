@@ -71,7 +71,7 @@ interface ProductWithPrice extends Product {
 // ─── Schemas ──────────────────────────────────────────────────────────────────
 const editPriceSchema = z.object({
   price: z
-    .number({ required_error: "قیمت الزامی است" })
+    .number({ error: "قیمت الزامی است" })
     .positive("قیمت باید مثبت باشد"),
   expire_date: z.string().optional(),
   description: z.string().optional(),
@@ -80,8 +80,8 @@ type EditPriceFormData = z.infer<typeof editPriceSchema>;
 
 const addProductSchema = z.object({
   name: z.string().min(2, "نام حداقل ۲ کاراکتر").max(200),
-  category_id: z.number({ required_error: "دسته‌بندی الزامی است" }),
-  unit_id: z.number({ required_error: "واحد الزامی است" }),
+  category_id: z.number({ error: "دسته‌بندی الزامی است" }),
+  unit_id: z.number({ error: "واحد الزامی است" }),
   brand: z.string().optional(),
   description: z.string().optional(),
 });

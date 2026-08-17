@@ -64,7 +64,7 @@ interface OfficialPrice {
 // ─── Validation ───────────────────────────────────────────────────────────────
 const editSchema = z.object({
   price: z
-    .number({ required_error: "قیمت الزامی است" })
+    .number({ error: "قیمت الزامی است" })
     .positive("قیمت باید مثبت باشد")
     .min(1, "قیمت باید حداقل ۱ ریال باشد"),
   expire_date: z.string().optional(),
