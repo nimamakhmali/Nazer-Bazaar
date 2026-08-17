@@ -1,0 +1,150 @@
+services:
+
+  # ─────────────────────────────────────────────────────────
+  # PostgreSQL Database
+  # ─────────────────────────────────────────────────────────
+  db:
+    image: postgres:15-alpine
+    container_name: pricemonitor_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - pricemonitor_net
+
+  # ─────────────────────────────────────────────────────────
+  # Redis (Cache + Celery Broker)
+  # ─────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: pricemonitor_redis
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - pricemonitor_net
+
+  # ─────────────────────────────────────────────────────────
+  # Django Backend (Gunicorn)
+  # ─────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: pricemonitor_backend
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      SERVICE_ROLE: web
+    volumes:
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+      - ./backend/logs:/app/logs
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - pricemonitor_net
+
+  # ─────────────────────────────────────────────────────────
+  # Celery Worker (پردازش تسک‌های پس‌زمینه)
+  # ─────────────────────────────────────────────────────────
+  celery_worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: pricemonitor_celery_worker
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      SERVICE_ROLE: worker
+    volumes:
+      - media_volume:/app/media
+      - ./backend/logs:/app/logs
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - pricemonitor_net
+
+  # ─────────────────────────────────────────────────────────
+  # Celery Beat (زمان‌بندی تسک‌های دوره‌ای)
+  # ─────────────────────────────────────────────────────────
+  celery_beat:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: pricemonitor_celery_beat
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      SERVICE_ROLE: beat
+    volumes:
+      - ./backend/logs:/app/logs
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - pricemonitor_net
+
+  # ─────────────────────────────────────────────────────────
+  # Next.js Frontend
+  # ─────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+        NEXT_PUBLIC_APP_NAME: ${NEXT_PUBLIC_APP_NAME}
+        NEXT_PUBLIC_APP_VERSION: ${NEXT_PUBLIC_APP_VERSION}
+    container_name: pricemonitor_frontend
+    restart: unless-stopped
+    networks:
+      - pricemonitor_net
+
+  # ─────────────────────────────────────────────────────────
+  # Nginx (Reverse Proxy - تنها سرویس expose شده به بیرون)
+  # ─────────────────────────────────────────────────────────
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: pricemonitor_nginx
+    restart: unless-stopped
+    ports:
+      - "${NGINX_PORT}:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - static_volume:/app/staticfiles:ro
+      - media_volume:/app/media:ro
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - pricemonitor_net
+
+networks:
+  pricemonitor_net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
