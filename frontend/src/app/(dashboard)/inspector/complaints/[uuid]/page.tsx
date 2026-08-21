@@ -142,7 +142,7 @@ export default function InspectorComplaintDetailPage() {
       status: "confirmed",
       label:  "تایید شکایت",
       date:   complaint.status === "confirmed" ? complaint.updated_at : undefined,
-      note:   complaint.resolution_note ?? undefined,
+      description:   complaint.resolution_note ?? undefined,
     },
     {
       status: "closed",
