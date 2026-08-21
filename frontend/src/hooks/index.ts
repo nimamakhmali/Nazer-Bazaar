@@ -62,3 +62,5 @@ export const QUERY_KEYS = {
   USER:                (id: number)  => ["user",       id],
   PROFILE:             ["profile"]                     as const,
 } as const;
+
+export { useApiQuery, useApiMutation } from "./useApi";

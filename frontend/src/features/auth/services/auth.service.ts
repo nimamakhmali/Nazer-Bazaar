@@ -23,6 +23,9 @@ interface BackendUser {
   avatar: string | null;
   date_joined: string;
   last_login_at: string | null;
+  union_id: number | null;
+  chamber_id: number | null;
+  province_office_id: number | null;
 }
 
 interface BackendLoginData {
