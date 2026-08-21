@@ -12,7 +12,7 @@ export const loginSchema = z.object({
     .string({ error: "رمز عبور الزامی است" })
     .min(1, "رمز عبور الزامی است")
     .min(6, "رمز عبور باید حداقل ۶ کاراکتر باشد"),
-  remember_me: z.boolean().default(false),
+  remember_me: z.boolean(),
 });
 
 export const otpPhoneSchema = z.object({
