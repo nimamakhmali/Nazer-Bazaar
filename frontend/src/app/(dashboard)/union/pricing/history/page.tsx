@@ -133,7 +133,10 @@ const fetchHistory = useCallback(async () => {
                   tickFormatter={(v) => `${(v / 1000).toFixed(0)}K`}
                 />
                 <Tooltip
-                  formatter={(v: number | undefined) => [formatPrice(v ?? 0) + " ریال", "قیمت"]}
+                  formatter={(v) => [
+                    formatPrice(Number(v ?? 0)) + " ریال",
+                    "قیمت",
+                  ]}
                   contentStyle={{
                     fontFamily: "Vazirmatn", borderRadius: "12px",
                     border: "1px solid #e2e8f0", fontSize: "11px",
