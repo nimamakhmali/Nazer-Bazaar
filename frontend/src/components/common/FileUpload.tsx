@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { useDropzone } from "react-dropzone";
+import { useDropzone, type FileRejection } from "react-dropzone";
 import { CloudArrowUpIcon, DocumentIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { cn } from "@/lib/cn";
@@ -41,7 +41,7 @@ export const FileUpload = ({
   const [rejectedFiles, setRejectedFiles] = useState<string[]>([]);
 
   const onDrop = useCallback(
-    (acceptedFiles: File[], fileRejections: { file: File; errors: { message: string }[] }[]) => {
+    (acceptedFiles: File[], fileRejections: FileRejection[]) => {
       setFiles(acceptedFiles);
       onFilesChange(acceptedFiles);
 
