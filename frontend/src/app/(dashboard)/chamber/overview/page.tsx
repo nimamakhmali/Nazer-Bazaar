@@ -206,8 +206,8 @@ export default function ChamberOverviewPage() {
                       border: "1px solid #e2e8f0",
                       fontSize: "12px",
                     }}
-                    formatter={(v: number) => [
-                      `${v.toLocaleString("fa-IR")} فروشگاه`,
+                    formatter={(value) => [
+                      `${(Number(value) || 0).toLocaleString("fa-IR")} فروشگاه`,
                       "تعداد",
                     ]}
                   />
