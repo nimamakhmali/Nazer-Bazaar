@@ -261,8 +261,8 @@ export default function ProvinceReportsPage() {
                       border: "1px solid #e2e8f0",
                       fontSize: "12px",
                     }}
-                    formatter={(v: number, name: string) => [
-                      formatPrice(v) + " ریال",
+                    formatter={(v, name) => [
+                      formatPrice(Number(v ?? 0)) + " ریال",
                       name === "price" ? "قیمت مصوب" : "میانگین فروشگاه",
                     ]}
                   />
@@ -460,7 +460,7 @@ export default function ProvinceReportsPage() {
                       borderRadius: "12px",
                       fontSize: "12px",
                     }}
-                    formatter={(v: number) => [`${v} شکایت`]}
+                     formatter={(v) => [`${Number(v ?? 0)} شکایت`]}
                   />
                   <Bar dataKey="count" fill="#C0392B" radius={[6,6,0,0]} maxBarSize={40} />
                 </BarChart>

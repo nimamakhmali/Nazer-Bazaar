@@ -16,6 +16,7 @@ interface StatCardProps {
   variant?: StatVariant;
   loading?: boolean;
   suffix?: string;
+  sub?: string;
   className?: string;
 }
 
@@ -59,6 +60,7 @@ export const StatCard = ({
   variant = "primary",
   loading = false,
   suffix,
+  sub,
   className,
 }: StatCardProps) => {
   const config = variantConfig[variant];
@@ -97,6 +99,10 @@ export const StatCard = ({
               </span>
             )}
           </p>
+
+          {sub && (
+            <p className="text-xs text-slate-400 mt-0.5">{sub}</p>
+          )}
 
           {trend && (
             <div className={cn(

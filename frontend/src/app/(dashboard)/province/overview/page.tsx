@@ -197,7 +197,9 @@ export default function ProvinceOverviewPage() {
                       border: "1px solid #e2e8f0",
                       fontSize: "12px",
                     }}
-                    formatter={(v: number) => [`${v.toLocaleString("fa-IR")} فروشگاه`]}
+                    formatter={(v) => [
+                      `${Number(v ?? 0).toLocaleString("fa-IR")} فروشگاه`,
+                    ]}
                   />
                   <Bar
                     dataKey="stores_count"

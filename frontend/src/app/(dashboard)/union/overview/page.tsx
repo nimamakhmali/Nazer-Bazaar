@@ -461,7 +461,7 @@ const loadDashboard = useCallback(async () => {
 
       {stats?.overpriced_stores_today && stats.overpriced_stores_today > 0 ? (
         <Alert
-          variant="danger"
+          variant="error"
           title={`${stats.overpriced_stores_today} فروشگاه گران‌فروشی دارد`}
           message="فروشگاه‌هایی که قیمت آن‌ها از قیمت مصوب بیشتر است شناسایی شدند."
           icon

@@ -20,6 +20,7 @@ interface AlertProps {
   onDismiss?: () => void;
   className?: string;
   icon?: boolean;
+  action?: React.ReactNode;
 }
 
 const config: Record<AlertVariant, {
@@ -57,6 +58,7 @@ export const Alert = ({
   onDismiss,
   className,
   icon = true,
+  action,
 }: AlertProps) => {
   const [visible, setVisible] = useState(true);
   const { wrapper, icon: Icon, iconClass } = config[variant];
@@ -91,15 +93,18 @@ export const Alert = ({
         <p className="leading-relaxed">{message}</p>
       </div>
 
-      {dismissible && (
-        <button
-          onClick={handleDismiss}
-          className="flex-shrink-0 p-0.5 rounded hover:opacity-70 transition-opacity"
-          aria-label="بستن پیام"
-        >
-          <XMarkIcon className="h-4 w-4" />
-        </button>
-      )}
+      <div className="flex items-center gap-2 flex-shrink-0">
+        {action}
+        {dismissible && (
+          <button
+            onClick={handleDismiss}
+            className="flex-shrink-0 p-0.5 rounded hover:opacity-70 transition-opacity"
+            aria-label="بستن پیام"
+          >
+            <XMarkIcon className="h-4 w-4" />
+          </button>
+        )}
+      </div>
     </div>
   );
 };
