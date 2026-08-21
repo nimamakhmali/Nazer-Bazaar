@@ -496,10 +496,10 @@ function ComplaintStatusChart({
                 ))}
               </Pie>
               <Tooltip
-                formatter={(value: number, name: string) => [
-                  value.toLocaleString("fa-IR"),
-                  name,
-                ]}
+              formatter={(value, name) => [
+                Number(value ?? 0).toLocaleString("fa-IR"),
+                String(name),
+              ]}
                 contentStyle={{
                   fontFamily:   "Vazirmatn",
                   borderRadius: "12px",
