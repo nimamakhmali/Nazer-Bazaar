@@ -26,7 +26,7 @@ export const useLogin = () => {
       // ✅ Backend: { success, message, data: { access, refresh, user } }
       const { user, access, refresh } = response.data.data;
 
-      setAuth(user, access, refresh, data.remember_me ?? false);
+      setAuth(user, access, refresh, data.remember_me);
 
       toast.success(`خوش آمدید، ${user.full_name || "کاربر"}!`);
 

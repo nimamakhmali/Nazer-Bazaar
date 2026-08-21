@@ -1,6 +1,6 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import {
@@ -30,6 +30,8 @@ export const LoginForm = () => {
     },
   });
 
+  const onSubmit: SubmitHandler<LoginFormData> = (data) => login(data);
+
   return (
     <div className="bg-white rounded-2xl shadow-card p-8 border border-slate-100">
       {/* Header */}
@@ -46,7 +48,7 @@ export const LoginForm = () => {
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit(login)} className="space-y-5" noValidate>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
         {/* Phone */}
         <Input
           {...register("phone_number")}
