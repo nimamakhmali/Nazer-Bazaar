@@ -1,15 +1,22 @@
+# ─────────────────────────────────────────────────────────────
+# فایل: backend/Dockerfile
+# با پشتیبانی از میرور ایرانی برای apt و pip
+# ─────────────────────────────────────────────────────────────
+
 FROM python:3.11-slim-bookworm
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
 
 WORKDIR /app
 
-# ─── System Dependencies ─────────────────────────────────────────────
-# libpq-dev            → psycopg2
-# libjpeg/zlib/freetype → Pillow
-# libpango/libcairo/... → weasyprint (تولید PDF)
-# netcat-openbsd       → صبر برای بالا آمدن دیتابیس/ردیس در entrypoint
+# ─── تنظیم میرور ایرانی برای apt ─────────────────────────────
+# در صورتی که دانلود مستقیم ممکن نبود این خطوط را uncomment کن
+# RUN sed -i 's|http://deb.debian.org|http://mirror.arvancloud.ir|g' /etc/apt/sources.list.d/debian.sources
+
+# ─── System Dependencies ─────────────────────────────────────
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
@@ -27,14 +34,23 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
+# ─── نصب Python packages با میرور ایرانی ─────────────────────
 COPY requirements.txt .
+
+# ابتدا بدون میرور امتحان کن، اگر نشد خط زیر را uncomment کن:
+# RUN pip install --no-cache-dir --upgrade pip -i https://mirror.arvancloud.ir/pypi/simple/ && \
+#     pip install --no-cache-dir -r requirements.txt -i https://mirror.arvancloud.ir/pypi/simple/
+
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
+# ─── Copy project ─────────────────────────────────────────────
 COPY . .
 
+# ─── Create necessary directories ────────────────────────────
 RUN mkdir -p /app/staticfiles /app/media /app/logs
 
+# ─── Entrypoint ───────────────────────────────────────────────
 COPY entrypoint.sh /app/entrypoint.sh
 RUN sed -i 's/\r$//' /app/entrypoint.sh && chmod +x /app/entrypoint.sh
 
